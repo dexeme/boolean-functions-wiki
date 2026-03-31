@@ -1,0 +1,454 @@
+<div class="mw-parser-output"><h1><span class="mw-headline" id="Background_and_Definition">Background and Definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Nonlinearity&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="Edit section: Background and Definition">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Nonlinearity&amp;action=edit&amp;section=1" title="Edit section: Background and Definition">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p><a href="/Vectorial_Boolean_Functions" title="Vectorial Boolean Functions">Vectorial Boolean Functions</a> play an essential role in the design of cryptographic algorithms, and as such should be resistant to various types of cryptanalytic attacks. The notion of nonlinearity is introduced by Nyberg <sup id="cite_ref-nybergNonlinearity_1-0" class="reference"><a href="#cite_note-nybergNonlinearity-1">&#91;1&#93;</a></sup> in order to measure the resistance of vectorial Boolean functions to Matsui's <i>linear attack</i> <sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>. This attack attempts to approximate the function used in an encryption algorithm by a linear function (which, in turn, is easy to analyze), and is, therefore, applicable when the actual functions used in the encryption algorithm is "close" to linear in some sense. A natural measure of distance between two functions, 𝐹 and 𝐺, is the <i>Hamming distance</i>, i.e. the metric
+</p>
+<div><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d_{H}(F,G)=|\{x:F(x)\neq G(x)\}|.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>H</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>F</mi>
+        <mo>,</mo>
+        <mi>G</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>:</mo>
+        <mi>F</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mi>G</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo fence="false" stretchy="false">}</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{H}(F,G)=|\{x:F(x)\neq G(x)\}|.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9ddea90d9176d8cd02f854734c498a89eae52ced" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:32.886ex; height:2.843ex;" alt="{\displaystyle d_{H}(F,G)=|\{x:F(x)\neq G(x)\}|.}"/></span></div>
+<p>Formally, the <i>nonlinearity</i> 𝑛𝑙(𝐹) of an (𝑛,𝑚)-function 𝐹 is the minimum distance between any component function of 𝐹 and any affine Boolean function. In other words,
+</p>
+<div><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle nl(F)=\min\{d_{H}(u\cdot F,f_{a}):0\neq u\in \mathbb {F} _{2}^{m},f_{a}:\mathbb {F} _{2}^{n}\rightarrow \mathbb {F} {\text{ affine }}\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>l</mi>
+        <mo stretchy="false">(</mo>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo movablelimits="true" form="prefix">min</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>H</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>u</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>F</mi>
+        <mo>,</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>a</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <mn>0</mn>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mi>u</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>a</mi>
+          </mrow>
+        </msub>
+        <mo>:</mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">&#x2192;<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">F</mi>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>&#xA0;affine&#xA0;</mtext>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle nl(F)=\min\{d_{H}(u\cdot F,f_{a}):0\neq u\in \mathbb {F} _{2}^{m},f_{a}:\mathbb {F} _{2}^{n}\rightarrow \mathbb {F} {\text{ affine }}\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8a7c08a9c16417eece1c0771a64e330d986c9f0e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:61.386ex; height:2.843ex;" alt="{\displaystyle nl(F)=\min\{d_{H}(u\cdot F,f_{a}):0\neq u\in \mathbb {F} _{2}^{m},f_{a}:\mathbb {F} _{2}^{n}\rightarrow \mathbb {F} {\text{ affine }}\}.}"/></span></div>
+<h1><span class="mw-headline" id="Properties">Properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Nonlinearity&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="Edit section: Properties">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Nonlinearity&amp;action=edit&amp;section=2" title="Edit section: Properties">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Nonlinearity remains invariant under CCZ-equivalence (and, therefore, under extended affine and affine equivalence as well). If 𝐹 is (𝑛,𝑛)-permutation, then 𝐹 and 𝐹<sup>-1</sup> have the same nonlinearity.
+</p><p>The nonlinearity of an (𝑛,𝑚)-function 𝐹 can be expressed in terms of its Walsh transform via the identity
+</p>
+<div><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle nl(F)=2^{n-1}-{\frac {1}{2}}\max\{|W_{F}(u,v)|:u\in \mathbb {F} _{2}^{n},0\neq v\in \mathbb {F} _{2}^{m}\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>l</mi>
+        <mo stretchy="false">(</mo>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mo movablelimits="true" form="prefix">max</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>W</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>F</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>u</mi>
+        <mo>,</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>:</mo>
+        <mi>u</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+        <mn>0</mn>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mi>v</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msubsup>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle nl(F)=2^{n-1}-{\frac {1}{2}}\max\{|W_{F}(u,v)|:u\in \mathbb {F} _{2}^{n},0\neq v\in \mathbb {F} _{2}^{m}\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/89ce49b633f5289fdcd98dca14c35d4f21e0156f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:57.097ex; height:5.176ex;" alt="{\displaystyle nl(F)=2^{n-1}-{\frac {1}{2}}\max\{|W_{F}(u,v)|:u\in \mathbb {F} _{2}^{n},0\neq v\in \mathbb {F} _{2}^{m}\}.}"/></span></div>
+<p>There is a relation <sup id="cite_ref-cczPaper_3-0" class="reference"><a href="#cite_note-cczPaper-3">&#91;3&#93;</a></sup> between the maximal possible nonlinearity of vectorial Boolean functions and the possible parameters of certain linear codes. If 𝐶 is a linear 
+[2<sup>𝑛</sup>,𝐾,𝐷] containing the Reed-Muller code 𝑅𝑀(1,𝑛) as a subcode, let (𝑏<sub>1</sub>, 𝑏<sub>2</sub>,…,𝑏<sub>𝐾</sub>) be a basis of 𝐶 completing a basis (𝑏<sub>1</sub>, 𝑏<sub>2</sub>,…,𝑏<sub>𝑛+1</sub>) of 𝑅𝑀(1,𝑛). Then the 𝑛-variable Boolean functions corresponding to the vectors 𝑏<sub>𝑛+2</sub>,…, 𝑏<sub>𝐾</sub> are the coordinate functions of an (𝑛,𝐾-𝑛-1) functions with nonlinearity 𝐷. Conversely, given an (𝑛,𝑚)-function 𝐹 of nonlinearity 𝐷&gt;0, the linear code obtained as the union of all cosets <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{v\cdot F+RM(1,n):v\in \mathbb {F} _{2}^{m}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>v</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>F</mi>
+        <mo>+</mo>
+        <mi>R</mi>
+        <mi>M</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <mi>v</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msubsup>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{v\cdot F+RM(1,n):v\in \mathbb {F} _{2}^{m}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/364ecafc1fee3192d8d9c125f98865c90b12ef89" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:28.32ex; height:2.843ex;" alt="{\displaystyle \{v\cdot F+RM(1,n):v\in \mathbb {F} _{2}^{m}\}}"/></span> has parameters [2<sup>𝑛</sup>,𝑛+𝑚+1,𝐷].
+</p>
+<h1><span class="mw-headline" id="Bounds_on_the_Nonlinearity_of_Vectorial_Boolean_Functions">Bounds on the Nonlinearity of Vectorial Boolean Functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Nonlinearity&amp;veaction=edit&amp;section=3" class="mw-editsection-visualeditor" title="Edit section: Bounds on the Nonlinearity of Vectorial Boolean Functions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Nonlinearity&amp;action=edit&amp;section=3" title="Edit section: Bounds on the Nonlinearity of Vectorial Boolean Functions">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>The <i>covering radius bound</i> for Boolean functions can naturally be extended to vectorial Boolean functions, stating
+</p>
+<div><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle nl(F)\leq 2^{n-1}-2^{n/2-1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>l</mi>
+        <mo stretchy="false">(</mo>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>/</mo>
+            </mrow>
+            <mn>2</mn>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle nl(F)\leq 2^{n-1}-2^{n/2-1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ef88f3eb2bb92c54a682882b282892f689a1e34" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:22.184ex; height:3.343ex;" alt="{\displaystyle nl(F)\leq 2^{n-1}-2^{n/2-1}}"/></span></div>
+<p>for any (𝑛,𝑚)-function 𝐹. <a href="/Bent_Functions" title="Bent Functions">Bent Functions</a> are defined as those meeting this bound with equality.
+</p><p>The <i>Sidelnikov-Chabaud-Vaudenay (SCV) bound</i> <sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> <sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> bounds the nonlinearity of any (𝑛,𝑚)-function, with 𝑚≥𝑛-1, by
+</p>
+<div><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle nl(F)\leq 2^{n-1}-{\frac {1}{2}}{\sqrt {3\cdot 2^{n}-2-2{\frac {(2^{n}-1)(2^{n-1}-1)}{2^{m}-1}}}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>l</mi>
+        <mo stretchy="false">(</mo>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mn>3</mn>
+            <mo>&#x22C5;<!-- ⋅ --></mo>
+            <msup>
+              <mn>2</mn>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+              </mrow>
+            </msup>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>2</mn>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>2</mn>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mrow>
+                  <mo stretchy="false">(</mo>
+                  <msup>
+                    <mn>2</mn>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>n</mi>
+                    </mrow>
+                  </msup>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>1</mn>
+                  <mo stretchy="false">)</mo>
+                  <mo stretchy="false">(</mo>
+                  <msup>
+                    <mn>2</mn>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>n</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msup>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>1</mn>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+                <mrow>
+                  <msup>
+                    <mn>2</mn>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>m</mi>
+                    </mrow>
+                  </msup>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>1</mn>
+                </mrow>
+              </mfrac>
+            </mrow>
+          </msqrt>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle nl(F)\leq 2^{n-1}-{\frac {1}{2}}{\sqrt {3\cdot 2^{n}-2-2{\frac {(2^{n}-1)(2^{n-1}-1)}{2^{m}-1}}}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e4f70344b7b5403c3503013806f2ac4e625be67b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.838ex; width:53.579ex; height:7.676ex;" alt="{\displaystyle nl(F)\leq 2^{n-1}-{\frac {1}{2}}{\sqrt {3\cdot 2^{n}-2-2{\frac {(2^{n}-1)(2^{n-1}-1)}{2^{m}-1}}}}.}"/></span></div>
+<p>The SCV bound coincides with the covering radius bound for 𝑚=𝑛-1, and is strictly sharper than the covering radius bound for 𝑚≥𝑛. For 𝑚&gt;𝑛, the square root in the bound cannot be an integer, and thus the SCV bound can be, and is, tight only for 𝑚=𝑛. In this case (for 𝑚=𝑛), the bound becomes
+</p>
+<div><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle nl(F)\leq 2^{n-1}-2^{(n-1)/2}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>l</mi>
+        <mo stretchy="false">(</mo>
+        <mi>F</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+            <mo stretchy="false">)</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>/</mo>
+            </mrow>
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle nl(F)\leq 2^{n-1}-2^{(n-1)/2}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bd6cad5c8e6d92bcb74c829fbd84f0e773113db3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:24.11ex; height:3.343ex;" alt="{\displaystyle nl(F)\leq 2^{n-1}-2^{(n-1)/2}.}"/></span></div>
+<p>This motivates the definition of <a href="/index.php?title=Almost_Bent_Functions&amp;action=edit&amp;redlink=1" class="new" title="Almost Bent Functions (page does not exist)">Almost Bent Functions</a> as those (𝑛,𝑛)-functions that meet the SCV bound with equality.
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-nybergNonlinearity-1"><span class="mw-cite-backlink"><a href="#cite_ref-nybergNonlinearity_1-0">↑</a></span> <span class="reference-text">Nyberg K. On the construction of highly nonlinear permutations. Workshop on the Theory and Application of Cryptographic Techniques 1992 May 24 (pp. 92-98). Springer, Berlin, Heidelberg.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">Matsui M. Linear cryptanalysis method for DES cipher. Workshop on the Theory and Application of Cryptographic Techniques 1993 May 23 (pp. 386-397). Springer, Berlin, Heidelberg.</span>
+</li>
+<li id="cite_note-cczPaper-3"><span class="mw-cite-backlink"><a href="#cite_ref-cczPaper_3-0">↑</a></span> <span class="reference-text">Carlet C, Charpin P, Zinoviev V. Codes, bent functions and permutations suitable for DES-like cryptosystems. Designs, Codes and Cryptography. 1998 Nov 1;15(2):125-56.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">Sidel'nikov VM. On mutual correlation of sequences. InDoklady Akademii Nauk 1971 (Vol. 196, No. 3, pp. 531-534). Russian Academy of Sciences.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">Chabaud F, Vaudenay S. Links between differential and linear cryptanalysis. Workshop on the Theory and Application of Cryptographic Techniques 1994 May 9 (pp. 356-365). Springer, Berlin, Heidelberg.</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20260331170718
+Cache expiry: 7776000
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.106 seconds
+Real time usage: 0.279 seconds
+Preprocessor visited node count: 86/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 727/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key boolean:pcache:idhash:40-0!canonical and timestamp 20260331170718 and revision id 381.
+ -->
+</div>

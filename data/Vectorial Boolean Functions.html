@@ -1,0 +1,271 @@
+<div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="language" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Cryptanalytic_attacks"><span class="tocnumber">1.1</span> <span class="toctext">Cryptanalytic attacks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Generalities_on_Boolean_functions"><span class="tocnumber">2</span> <span class="toctext">Generalities on Boolean functions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Walsh_transform"><span class="tocnumber">2.1</span> <span class="toctext">Walsh transform</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Representations"><span class="tocnumber">2.2</span> <span class="toctext">Representations</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Algebraic_Normal_Form"><span class="tocnumber">2.2.1</span> <span class="toctext">Algebraic Normal Form</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Univariate_Representation"><span class="tocnumber">2.2.2</span> <span class="toctext">Univariate Representation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Basic_Properties_of_Vectorial_Boolean_Functions"><span class="tocnumber">2.3</span> <span class="toctext">Basic Properties of Vectorial Boolean Functions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Balanced_Functions"><span class="tocnumber">2.3.1</span> <span class="toctext">Balanced Functions</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction">Introduction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="Edit section: Introduction">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {F} _{2}^{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {F} _{2}^{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/56ccd56eb42aa20cbbb79c374fed1b7138e0ebad" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:2.639ex; height:2.843ex;" alt="{\displaystyle \mathbb {F} _{2}^{n}}"/></span> be the vector space of dimension <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="{\displaystyle n}"/></span> over the finite field <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {F} _{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {F} _{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fde97f1e971e76227cd0aac645b7b0901d7b668d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.475ex; height:2.509ex;" alt="{\displaystyle \mathbb {F} _{2}}"/></span> with two elements. Functions from <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {F} _{2}^{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {F} _{2}^{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/56ccd56eb42aa20cbbb79c374fed1b7138e0ebad" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:2.639ex; height:2.843ex;" alt="{\displaystyle \mathbb {F} _{2}^{n}}"/></span> to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {F} _{2}^{m}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {F} _{2}^{m}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0b4822a135201cbc45180f16312b9f1008bae3b6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.095ex; height:2.843ex;" alt="{\displaystyle \mathbb {F} _{2}^{m}}"/></span> are called <span class="definition"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (n,m)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>,</mo>
+        <mi>m</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (n,m)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c946bd96d771a37a141d9eabe7ceea04f084158b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.278ex; height:2.843ex;" alt="{\displaystyle (n,m)}"/></span>-functions</span> or simply <span class="definition">vectorial Boolean functions</span> when the dimensions of the vector spaces are implicit or irrelevant.
+</p><p>Any <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (n,m)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>,</mo>
+        <mi>m</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (n,m)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c946bd96d771a37a141d9eabe7ceea04f084158b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.278ex; height:2.843ex;" alt="{\displaystyle (n,m)}"/></span>-function <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle F}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>F</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.741ex; height:2.176ex;" alt="{\displaystyle F}"/></span> can be written as a vector <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F = (f_1, f_2, \ldots f_n)}</strong>
+ of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle m}</strong>
+-dimensional <a href="/Boolean_Functions" title="Boolean Functions"> Boolean functions</a> <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle f_1, f_2, \ldots f_n}</strong>
+ which are called the <span class="definition">coordinate functions</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+.
+</p>
+<h2><span class="mw-headline" id="Cryptanalytic_attacks">Cryptanalytic attacks</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="Edit section: Cryptanalytic attacks">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=2" title="Edit section: Cryptanalytic attacks">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Vectorial Boolean functions, also referred to as "S-boxes", or "Substitution boxes", in the context of cryptography, are a fundamental building block of block ciphers and are crucial to their security: more precisely, the resistance of the block cipher to cryptanalytic attacks directly depends on the properties of the S-boxes used in its construction.
+</p><p>The main types of cryptanalytic attacks that result in the definition of design criteria for S-boxes are the following:
+</p>
+<ul><li>the differential attack introduced by Biham and Shamir; to resist it, an S-box must have low <a href="/Differential_uniformity" title="Differential uniformity">differential uniformity</a>;</li>
+<li>the linear attack introduced by Matsui; to resist it, an S-box must have high <a href="/Nonlinearity" title="Nonlinearity">nonlinearity</a>;</li>
+<li>the higher order differential attack; to resist it, an S-box must have high <a href="/index.php?title=Algebraic_degree&amp;action=edit&amp;redlink=1" class="new" title="Algebraic degree (page does not exist)">algebraic degree</a>;</li>
+<li>the interpolation attack; to resist it, the univariate representation of an S-box must have high degree, and its distance to the set of low univariate degree functions must be large;</li>
+<li>algebraic attacks;</li>
+<li>boomerang attack, introduced by Wagner; to resist it, an S-box must have low <a href="/Boomerang_uniformity" title="Boomerang uniformity">boomerang uniformity</a>.</li></ul>
+<h1><span class="mw-headline" id="Generalities_on_Boolean_functions">Generalities on Boolean functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=3" class="mw-editsection-visualeditor" title="Edit section: Generalities on Boolean functions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=3" title="Edit section: Generalities on Boolean functions">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Walsh_transform">Walsh transform</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=4" class="mw-editsection-visualeditor" title="Edit section: Walsh transform">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=4" title="Edit section: Walsh transform">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <span class="definition">Walsh transform</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F : \mathbb{F}_2^n \rightarrow \mathbb{F}_2^m}</strong>
+ is the integer-valued function <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle W_F : \mathbb{F}_2^n \times \mathbb{F}_2^m}</strong>
+ defined by
+</p>
+<div class="equation"><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  W_F(u,v) = \sum_{x \in \mathbb{F}_2^n} (-1)^{v \cdot F(x) + u \cdot x} }</strong>
+</div>
+<p>It can be observed that the Walsh transform of some <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is in fact the Fourier transform of the indicator of its graph, i.e. the Fourier transform of the function <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle 1_{G_F}}</strong>
+ defined as
+</p>
+<div class="equation"><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  1_{G_F}(x,y) = \begin{cases} 1 &amp; F(x) = y \\ 0 &amp; F(x) \ne y. \end{cases} }</strong>
+</div>
+<p>The <span class="definition">Walsh spectrum</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is the multi-set of all the values of its Walsh transform for all pairs <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle (u,v) \in \mathbb{F}_2^n \times {\mathbb{F}_2^m}^*}</strong>
+. The <span class="definition">extended Walsh spectrum</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is the multi-set of the absolute values of its Walsh transform, and the <span class="definition">Walsh support</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is the set of pairs <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle (u,v)}</strong>
+ for which <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle W_F(u,v) \ne 0}</strong>
+.
+</p>
+<h2><span class="mw-headline" id="Representations">Representations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=5" class="mw-editsection-visualeditor" title="Edit section: Representations">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=5" title="Edit section: Representations">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Vectorial Boolean functions can be represented in a number of different ways.
+</p>
+<h3><span class="mw-headline" id="Algebraic_Normal_Form">Algebraic Normal Form</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=6" class="mw-editsection-visualeditor" title="Edit section: Algebraic Normal Form">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=6" title="Edit section: Algebraic Normal Form">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>An <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle (n,m)}</strong>
+-function <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ can be uniquely represented as a polynomial with coefficients in <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathbb{F}_2^m}</strong>
+ of the form
+</p>
+<div class="equation"><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  F(x)=\sum_{I \in {\cal P}(N)} a_I\, \left(\prod_{i\in I}x_i\right)=\sum_{I\in {\cal P}(N)} a_I\, x^I, }</strong>
+</div>
+<p>where <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle {\cal P}(N)}</strong>
+ is the power set of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle N = \{ 1, \ldots, n \}}</strong>
+ and the coefficients <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle a_I}</strong>
+ belong to <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathbb{F}_2^m}</strong>
+. This representation is known as the <span class="definition">algebraic normal form (ANF)</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+. The <span class="definition">algebraic degree</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+, denoted <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle d^\circ(F)}</strong>
+ is then defined as the global degree of its ANF, i.e.
+</p>
+<div class="equation"><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  d^\circ(F)=\ max \{|I|/\, a_I\neq (0,\dots ,0); I\in {\cal P}(N)\} }</strong>
+</div>
+<p>and is equal to the maximal algebraic degree of the coordinate functions of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+.
+</p>
+<h3><span class="mw-headline" id="Univariate_Representation">Univariate Representation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=7" class="mw-editsection-visualeditor" title="Edit section: Univariate Representation">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=7" title="Edit section: Univariate Representation">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If we identify the vector space <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathbb{F}_2^n}</strong>
+ with the finite field <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathbb{F}_{2^n}}</strong>
+ with <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle 2^n}</strong>
+ elements, then any <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle (n,n)}</strong>
+-function can be uniquely represented as univariate polynomial over <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathbb{F}_{2^n}}</strong>
+ of degree at most <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle 2^n-1}</strong>
+ taking the form
+</p>
+<div class="equation"><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  F(x)=\sum_{j=0}^{2^n-1}\delta_jx^j~,~~\delta_j\in \Bbb{F}_{2^n}. }</strong>
+</div>
+<p>This is the <span class="definition">univariate representation</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+.
+</p><p>The algebraic degree of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ can be expressed using the 2-weight of the exponents of the univariate representation. Given a positive integer <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle j}</strong>
+, its <span class="definition">2-weight</span> is the number of summands in its representation as a sum of powers of two; that is, if we write <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle j = \sum_{i = 0}^{n-1} j_s \cdot 2^s}</strong>
+ for <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle j_s \in \{0,1\}}</strong>
+, then its 2-weigt is <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle w_2(j) = \sum_{i = 0}^{n-1} j_s}</strong>
+. The <span class="definition">algebraic degree</span> of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ can the be written as
+</p>
+<div class="equation"><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  \max_{j=0,\dots ,2^n-1/\, \delta_j\neq 0}w_2(j). }</strong>
+</div>
+<h2><span class="mw-headline" id="Basic_Properties_of_Vectorial_Boolean_Functions">Basic Properties of Vectorial Boolean Functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=8" class="mw-editsection-visualeditor" title="Edit section: Basic Properties of Vectorial Boolean Functions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=8" title="Edit section: Basic Properties of Vectorial Boolean Functions">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Balanced_Functions">Balanced Functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;veaction=edit&amp;section=9" class="mw-editsection-visualeditor" title="Edit section: Balanced Functions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Vectorial_Boolean_Functions&amp;action=edit&amp;section=9" title="Edit section: Balanced Functions">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>An <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle (n,m)}</strong>
+-function <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is called <span class="definition">balanced</span> if it takes every value of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathbb{F}_2^m}</strong>
+ precisely <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle 2^{n-m}}</strong>
+ times. In particular, an <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle (n,n)}</strong>
+-function is balanced if and only if it is a permutation.
+</p>
+<div class="proposition">
+<p>An <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle (n,m)}</strong>
+-function <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is balanced if and only if its component functions are balanced, i.e. if and only if <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle v \cdot F}</strong>
+ is balanced for every <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle v \in {\mathbb{F}_2^m}^*}</strong>
+.
+</p></div>
+<!-- 
+NewPP limit report
+Cached time: 20260331170808
+Cache expiry: 7776000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.608 seconds
+Real time usage: 0.690 seconds
+Preprocessor visited node count: 338/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2196/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key boolean:pcache:idhash:8-0!userlang=language and timestamp 20260331170807 and revision id 634.
+ -->
+</div>

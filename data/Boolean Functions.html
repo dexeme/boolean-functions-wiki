@@ -1,0 +1,488 @@
+<div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="language" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Representation_of_a_Boolean_function"><span class="tocnumber">2</span> <span class="toctext">Representation of a Boolean function</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Algebraic_normal_form"><span class="tocnumber">2.1</span> <span class="toctext">Algebraic normal form</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Trace_representation"><span class="tocnumber">2.2</span> <span class="toctext">Trace representation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#On_the_weight_of_a_Boolean_function"><span class="tocnumber">3</span> <span class="toctext">On the weight of a Boolean function</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#The_Walsh_transform"><span class="tocnumber">4</span> <span class="toctext">The Walsh transform</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Properties_of_the_Walsh_transform"><span class="tocnumber">4.1</span> <span class="toctext">Properties of the Walsh transform</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Equivalences_of_Boolean_functions"><span class="tocnumber">5</span> <span class="toctext">Equivalences of Boolean functions</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Properties_important_for_cryptographic_applications"><span class="tocnumber">6</span> <span class="toctext">Properties important for cryptographic applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Balanced_functions"><span class="tocnumber">6.1</span> <span class="toctext">Balanced functions</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#The_Nonlinearity"><span class="tocnumber">6.2</span> <span class="toctext">The Nonlinearity</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Correlation-immunity_order"><span class="tocnumber">6.3</span> <span class="toctext">Correlation-immunity order</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction">Introduction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="Edit section: Introduction">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Let 𝔽<sub>2</sub><sup>𝑛</sup> be the vector space of dimension 𝑛 over the finite field with two elements.
+The vector space can also be endowed with the structure of the field, the finite field with 2<sup>𝑛</sup> elements, 𝔽<sub>2<sup>𝑛</sup></sub>.
+A function <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle f : \mathbb{F}_2^n\rightarrow\mathbb{F}}</strong>
+ is called a <i>Boolean function</i> in dimenstion 𝑛 (or <i>𝑛-variable Boolean function</i>).
+</p><p>Given <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x=(x_{1},\ldots ,x_{n})\in \mathbb {F} _{2}^{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x=(x_{1},\ldots ,x_{n})\in \mathbb {F} _{2}^{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/32aeb19752f39556e2fe48e2b94558fc92bfb364" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:21.827ex; height:2.843ex;" alt="{\displaystyle x=(x_{1},\ldots ,x_{n})\in \mathbb {F} _{2}^{n}}"/></span>, the support of <i>x</i> is the set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle supp_{x}=\{i\in \{1,\ldots ,n\}:x_{i}=1\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mi>u</mi>
+        <mi>p</mi>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>i</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>:</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>1</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle supp_{x}=\{i\in \{1,\ldots ,n\}:x_{i}=1\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f2d76d6cddcc0f0d6b5f17fd8563df26f9b36e7c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:33.386ex; height:2.843ex;" alt="{\displaystyle supp_{x}=\{i\in \{1,\ldots ,n\}:x_{i}=1\}}"/></span>.
+The Hamming weight of 𝑥 is the size of its support (<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{H}(x)=|supp_{x}|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>H</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>s</mi>
+        <mi>u</mi>
+        <mi>p</mi>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{H}(x)=|supp_{x}|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/719b5ff4a296e51d624c9d4463824d7464948a73" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.818ex; height:2.843ex;" alt="{\displaystyle w_{H}(x)=|supp_{x}|}"/></span>).
+Similarly the Hamming weight of a Boolean function 𝑓 is the size of its support, i.e. the set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x\in \mathbb {F} _{2}^{n}:f(x)\neq 0\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msubsup>
+        <mo>:</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mn>0</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x\in \mathbb {F} _{2}^{n}:f(x)\neq 0\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/33c75dbc818eec24a909ec4e4ee16e87a0d81a9e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:19.75ex; height:2.843ex;" alt="{\displaystyle \{x\in \mathbb {F} _{2}^{n}:f(x)\neq 0\}}"/></span>.
+The Hamming distance of two functions 𝑓,𝑔 (𝖽<sub>𝐻</sub>(𝑓,𝑔)) is the size of the set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x\in \mathbb {F} _{2}^{n}:f(x)\neq g(x)\}\ (w_{H}(f\oplus g))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msubsup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msubsup>
+        <mo>:</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo fence="false" stretchy="false">}</mo>
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>H</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo>&#x2295;<!-- ⊕ --></mo>
+        <mi>g</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x\in \mathbb {F} _{2}^{n}:f(x)\neq g(x)\}\ (w_{H}(f\oplus g))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/975c5d493784dffc9a506f676438377992da742d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:35.632ex; height:2.843ex;" alt="{\displaystyle \{x\in \mathbb {F} _{2}^{n}:f(x)\neq g(x)\}\ (w_{H}(f\oplus g))}"/></span>.
+</p>
+<h1><span class="mw-headline" id="Representation_of_a_Boolean_function">Representation of a Boolean function</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="Edit section: Representation of a Boolean function">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=2" title="Edit section: Representation of a Boolean function">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>There exist different ways to represent a Boolean function.
+A simple, but often not efficient, one is by its truth-table.
+For example consider the following truth-table for a 3-variable Boolean function 𝑓.
+</p>
+<center> <table style="width:14%">
+  <tbody><tr>
+    <th colspan="3">𝑥</th>
+    <th>𝑓(𝑥)</th>
+  </tr>
+  <tr>
+    <td>0</td>    <td>0</td>    <td>0</td>    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>    <td>0</td>    <td>1</td>    <td>1</td>
+  </tr>
+  <tr>
+    <td>0</td>    <td>1</td>    <td>0</td>    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>    <td>1</td>    <td>1</td>    <td>0</td>
+  </tr>
+  <tr>
+    <td>1</td>    <td>0</td>    <td>0</td>    <td>0</td>
+  </tr>
+  <tr>
+    <td>1</td>    <td>0</td>    <td>1</td>    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>    <td>1</td>    <td>0</td>    <td>0</td>
+  </tr>
+  <tr>
+    <td>1</td>    <td>1</td>    <td>1</td>    <td>1</td>
+  </tr>
+</tbody></table></center>
+<h2><span class="mw-headline" id="Algebraic_normal_form">Algebraic normal form</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=3" class="mw-editsection-visualeditor" title="Edit section: Algebraic normal form">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=3" title="Edit section: Algebraic normal form">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>An 𝑛-variable Boolean function can be represented by a multivariate polynomial over 𝔽<sub>2</sub> of the form
+</p>
+<center><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(x)=\bigoplus _{I\subseteq \{1,\ldots ,n\}}a_{i}{\Big (}\prod _{i\in I}x_{i}{\Big )}\in \mathbb {F} _{2}[x_{1},\ldots ,x_{n}]/(x_{1}^{2}\oplus x_{1},\ldots ,x_{n}^{2}\oplus x_{n}).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x2A01;<!-- ⨁ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>I</mi>
+            <mo>&#x2286;<!-- ⊆ --></mo>
+            <mo fence="false" stretchy="false">{</mo>
+            <mn>1</mn>
+            <mo>,</mo>
+            <mo>&#x2026;<!-- … --></mo>
+            <mo>,</mo>
+            <mi>n</mi>
+            <mo fence="false" stretchy="false">}</mo>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.623em" minsize="1.623em">(</mo>
+          </mrow>
+        </mrow>
+        <munder>
+          <mo>&#x220F;<!-- ∏ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mi>I</mi>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.623em" minsize="1.623em">)</mo>
+          </mrow>
+        </mrow>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msubsup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msubsup>
+        <mo>&#x2295;<!-- ⊕ --></mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msubsup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msubsup>
+        <mo>&#x2295;<!-- ⊕ --></mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(x)=\bigoplus _{I\subseteq \{1,\ldots ,n\}}a_{i}{\Big (}\prod _{i\in I}x_{i}{\Big )}\in \mathbb {F} _{2}[x_{1},\ldots ,x_{n}]/(x_{1}^{2}\oplus x_{1},\ldots ,x_{n}^{2}\oplus x_{n}).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8527d1d8c6a88731c6f109cbd0d6974fda2f5945" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.505ex; width:68.042ex; height:6.509ex;" alt="{\displaystyle f(x)=\bigoplus _{I\subseteq \{1,\ldots ,n\}}a_{i}{\Big (}\prod _{i\in I}x_{i}{\Big )}\in \mathbb {F} _{2}[x_{1},\ldots ,x_{n}]/(x_{1}^{2}\oplus x_{1},\ldots ,x_{n}^{2}\oplus x_{n}).}"/></span></center>
+<p>Such representation is unique and it is the <em> algebraic normal form</em> of 𝑓 (shortly ANF).
+</p><p>The degree of the ANF is called the <em> algebraic degree</em> of the function, 𝑑°𝑓=max { |𝐼|&#160;: 𝑎<sub>𝐼</sub>&#8800;0 }.
+</p><p>Based on the algebraic degree we called 𝑓
+</p>
+<ul><li><em>affine</em> if 𝑑°𝑓=1, <em>linear</em> if 𝑑°𝑓=1 and 𝑓(𝟎)=0;</li>
+<li><em>quadratic</em> if 𝑑°𝑓=2.</li></ul>
+<p>Affine functions are of the form 𝑓(𝑥)= 𝑢⋅𝑥+𝑒, for 𝑢∈𝔽<sub>2</sub><sup>𝑛</sup> and 𝑒∈𝔽<sub>2</sub>
+</p>
+<h2><span class="mw-headline" id="Trace_representation">Trace representation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=4" class="mw-editsection-visualeditor" title="Edit section: Trace representation">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=4" title="Edit section: Trace representation">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We identify the vector space with the finite field and we consider 𝑓 an 𝑛-variable Boolean function of even weight (hence of algebraic degree at most 𝑛-1).
+The map admits a uinque representation as a univariate polynomial of the form
+</p>
+<center><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle   f(x)=\sum_{j\in\Gamma_n}\mbox{Tr}_{\mathbb{F}_{2^{o(j)}}/\mathbb{F}_2}(A_jx^j), \quad x\in\mathbb{F}_{2^n}, }</strong>
+</center>
+<p>with Γ<sub>𝑛</sub>  set of integers obtained by choosing one element in each cyclotomic coset of 2 ( mod 2<sup>𝑛</sup>-1), 𝘰(𝘫)  size of the cyclotomic coset containing 𝘫, 𝘈<sub>𝘫</sub> &#8712; 𝔽<sub>2<sup>𝘰(𝘫)</sup></sub>,  Tr<sub>𝔽<sub>2<sup>𝘰(𝘫)</sup>/𝔽<sub>2</sub></sub></sub> trace function from 𝔽<sub>2<sup>𝘰(𝘫)</sup> to 𝔽<sub>2</sub>.
+</sub></p><p>Such representation is also called the univariate representation .
+</p><p>𝑓 can also be simply presented in the form <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  \mbox{Tr}_{\mathbb{F}_{2^n}/\mathbb{F}_2}(P(x))}</strong>
+  where 𝘗 is a polynomial over the finite field F<sub>2<sup>𝑛</sup></sub> but such representation is not unique, unless 𝘰(𝘫)=𝑛 for every 𝘫 such that 𝘈<sub>𝘫</sub>&#8800;0.
+</p><p>When we consider the trace representation of of a function, then the algebraic degree is given by <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \max_{j\in\Gamma_n | A_j\ne0}w_2(j)}</strong>
+, where 𝓌<sub>2</sub>(𝑗) is the Hamming weight of the binary expansion of 𝑗.
+</p>
+<h1><span class="mw-headline" id="On_the_weight_of_a_Boolean_function">On the weight of a Boolean function</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=5" class="mw-editsection-visualeditor" title="Edit section: On the weight of a Boolean function">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=5" title="Edit section: On the weight of a Boolean function">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>For 𝑓 a 𝑛-variable Booleand function the following relations about its weight are satisfied.
+</p>
+<ul><li>If 𝑑°𝑓=1 then 𝓌<sub>𝐻</sub>(𝑓)=2<sup>𝑛-1</sup>.</li>
+<li>If 𝑑°𝑓=2 then 𝓌<sub>𝐻</sub>(𝑓)=2<sup>𝑛-1</sup> or 𝓌<sub>𝐻</sub>(𝑓)=2<sup>𝑛-1</sup>±2<sup>𝑛-1-ℎ</sup>, with 0≤ℎ≤𝑛/2.</li>
+<li>If 𝑑°𝑓≤𝑟 and 𝑓 nonzero then 𝓌<sub>𝐻</sub>(𝑓)≥2<sup>𝑛-𝑟</sup>.</li>
+<li>𝓌<sub>𝐻</sub>(𝑓) is odd if and only if 𝑑°𝑓=𝑛.</li></ul>
+<h1><span class="mw-headline" id="The_Walsh_transform">The Walsh transform</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=6" class="mw-editsection-visualeditor" title="Edit section: The Walsh transform">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=6" title="Edit section: The Walsh transform">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>The <i>Walsh transform</i> 𝑊<sub>𝑓</sub> is the descrete Fourier transform of the sign function of 𝑓, i.e. (-1)<sup>𝑓(𝑥)</sup>.
+With an innner product in 𝔽<sub>2</sub><sup>𝑛</sup> 𝑥·𝑦, the value of 𝑊<sub>𝑓</sub> at 𝑢∈𝔽<sub>2</sub><sup>𝑛</sup> is the following sum (over the integers)
+</p>
+<center><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle W_f(u)=\sum_{x\in\mathbb{F}_2^n}(-1)^{f(x)+x\cdot u},}</strong>
+</center>
+<p>The set <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \{ u\in\mathbb{F}_2^n : W_f(u)\ne0 \}=\{ u\in\mathbb{F}_2^n : W_f(u)=1 \}}</strong>
+ is the <i>Walsh support</i> of 𝑓.
+</p>
+<h2><span class="mw-headline" id="Properties_of_the_Walsh_transform">Properties of the Walsh transform</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=7" class="mw-editsection-visualeditor" title="Edit section: Properties of the Walsh transform">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=7" title="Edit section: Properties of the Walsh transform">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>For every 𝑛-variable Boolean function 𝑓 we have the following relations.
+</p>
+<ul><li>Inverse Walsh transform:  for any element 𝑥 of 𝔽<sub>2</sub><sup>𝑛</sup> we have <center><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  \sum_{u\in\mathbb{F}_2^n}W_f(u)(-1)^{u\cdot x}= 2^n(-1)^{f(x)};}</strong>
+</center></li>
+<li>Parseval's relation: <center><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \sum_{u\in\mathbb{F}_2^n}W_f^2(u)=2^{2n};}</strong>
+</center></li>
+<li>Poisson summation formula: for any vector subspace 𝐸 of 𝔽<sub>2</sub><sup>𝑛</sup> and for any elements 𝑎,𝑏 in 𝔽<sub>2</sub><sup>𝑛</sup> <center><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  \sum_{u\in a+E^\perp}(-1)^{b\cdot u}W_f(u) = |E^\perp|(-1)^{a\cdot b}\sum_{x\in b+E}(-1)^{f(x)+a\cdot x},}</strong>
+</center>  for 𝐸<sup>⟂</sup> the orthogonal subspace of 𝐸,{𝑢∈𝔽<sub>2</sub><sup>𝑛</sup>&#160;: 𝑢·𝑥=0, for all 𝑥∈𝐸}.</li></ul>
+<h1><span class="mw-headline" id="Equivalences_of_Boolean_functions">Equivalences of Boolean functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=8" class="mw-editsection-visualeditor" title="Edit section: Equivalences of Boolean functions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=8" title="Edit section: Equivalences of Boolean functions">edit source</a><span class="mw-editsection-bracket">]</span></span></h1><p>
+Two 𝑛-variable Boolean functions 𝑓,𝑔 are called <i>affine equivalent</i> if there exists a linear automorphism 𝐿 and a vecor 𝑎 such that </p><center>𝑔(𝑥) = 𝑓(𝐿(𝑥)+𝑎).</center><p>
+Two 𝑛-variable Boolean functions 𝑓,𝑔 are called <i>extended-affine equivalent</i> (shortly EA-equivalent) if there exists a linear automorphism 𝐿, an affine Boolean function 𝓁 and a vecor 𝑎 such that </p><center>𝑔(𝑥) = 𝑓(𝐿(𝑥)+𝑎)+𝓁(𝑥).</center>
+<p>A parameter that is preserved by an equivalence relation is called <i>invariant</i>.
+</p>
+<ul><li>The degree is invariant under affine equivalence and, for not affine functions, also under EA-equivalence.</li>
+<li>If 𝑓,𝑔 are affine equivalent, then <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle W_g(u)=(-1)^{u\cdot L^{-1}(a)}W_f(L^{-1}(u))}</strong>
+.</li></ul>
+<h1><span class="mw-headline" id="Properties_important_for_cryptographic_applications">Properties important for cryptographic applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=9" class="mw-editsection-visualeditor" title="Edit section: Properties important for cryptographic applications">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=9" title="Edit section: Properties important for cryptographic applications">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Balanced_functions">Balanced functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=10" class="mw-editsection-visualeditor" title="Edit section: Balanced functions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=10" title="Edit section: Balanced functions">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>An 𝑛-variable Boolean function 𝑓 is called <em>balanced</em> if 𝓌<sub>𝐻</sub>(𝑓)=2<sup>𝑛-1</sup>, so its output is uniformly distributed.
+Such functions cannot have maximal degree.
+Most cryptographic applications use balanced Boolean functions.
+</p>
+<h2><span class="mw-headline" id="The_Nonlinearity">The Nonlinearity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=11" class="mw-editsection-visualeditor" title="Edit section: The Nonlinearity">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=11" title="Edit section: The Nonlinearity">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <em>nonlinearity</em> of a function 𝑓 is defined as its minimal distance to affine functions, i.e. called 𝒜 the set of all affine 𝑛-variable functions,
+</p>
+<center><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle  \mathcal{NL}(f)=\min_{g\in\mathcal{A}}d_H(f,g)}</strong>
+</center>
+<ul><li>For every 𝑓 we have <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathcal{NL}(f)=2^{n-1}-\frac{1}{2}\max_{u\in\mathbb{F}_2^n}|W_f(u)|}</strong>
+.</li>
+<li>From Parseval relation we obtain the <em>covering radius bound</em> <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \mathcal{NL}(f)\le2^{n-1}-2^{n/2-1}}</strong>
+.</li>
+<li>A function achieving the covering radius bound with equality is called <a href="/Bent_Boolean_Functions" title="Bent Boolean Functions"> bent</a> (𝑛 is an even integer and the function is not balanced).</li>
+<li>𝑓 is bent if and only if 𝑊<sub>𝑓</sub>(𝑢)=±2<sup>𝑛/2</sup>, for every 𝑢∈𝔽<sub>2</sub><sup>𝑛</sup>.</li>
+<li>𝑓 is bent if and only if for any nonzero element 𝑎 the Boolean function 𝐷<sub>𝑎</sub>𝑓(𝑥)=𝑓(𝑥+𝑎)+𝑓(𝑥) is balanced.</li></ul>
+<h2><span class="mw-headline" id="Correlation-immunity_order">Correlation-immunity order</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boolean_Functions&amp;veaction=edit&amp;section=12" class="mw-editsection-visualeditor" title="Edit section: Correlation-immunity order">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boolean_Functions&amp;action=edit&amp;section=12" title="Edit section: Correlation-immunity order">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A Boolean function 𝑓 is <em>𝑚-th order correlation-immune</em> if the probability distribution of the output is unaltered when any 𝑚 input variables are fixed.
+Balanced 𝑚-th order correlation-immune functions are called <em>𝑚-resilient</em>.
+</p><p>
+Given 𝑓 a 𝑛-variable function with correlation-immunity of order 𝑚 then </p><center>𝑚+𝑑°𝑓≤𝑛.</center><p>
+If 𝑓 is also balanced, then </p><center>𝑚+𝑑°𝑓≤𝑛-1.</center>
+<!-- 
+NewPP limit report
+Cached time: 20260331170349
+Cache expiry: 7776000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.223 seconds
+Real time usage: 0.355 seconds
+Preprocessor visited node count: 133/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 684/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key boolean:pcache:idhash:88-0!userlang=language and timestamp 20260331170349 and revision id 427.
+ -->
+</div>

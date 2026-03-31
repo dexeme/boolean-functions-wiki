@@ -1,0 +1,178 @@
+<div class="mw-parser-output"><h1><span class="mw-headline" id="Background_and_definitions">Background and definitions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boomerang_uniformity&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="Edit section: Background and definitions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boomerang_uniformity&amp;action=edit&amp;section=1" title="Edit section: Background and definitions">edit source</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>The Boomerang attack, introduced in 1999 by Wagner <sup id="cite_ref-wagnerBoomerangAttack_1-0" class="reference"><a href="#cite_note-wagnerBoomerangAttack-1">&#91;1&#93;</a></sup>, is a cryptanalysis technique against block ciphers based on differential cryptanalysis.
+To study the resistance to this attack, Cid et al.<sup id="cite_ref-cidAlBCT_2-0" class="reference"><a href="#cite_note-cidAlBCT-2">&#91;2&#93;</a></sup> introduced the Boomerang Connectivity Table (BCT).
+Next, Boura and Canteaut<sup id="cite_ref-BouraCanteaut_3-0" class="reference"><a href="#cite_note-BouraCanteaut-3">&#91;3&#93;</a></sup> , introduced the notion of boomerang uniformity.
+</p><p>For a permutation <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F:\mathbb{F}_{2^n}\rightarrow\mathbb{F}_{2^n}}</strong>
+, the Boomerang Connectivity Table (BCT) is given by a <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle 2^n\times2^n}</strong>
+ table <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle T_F}</strong>
+,
+</p><p><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle T_F(a,b)=|\{ x\in\mathbb{F}_{2^n} : F^{-1}(F(x)+a)+F^{-1}(F(x+b)+a)=b\}|}</strong>
+.
+</p><p>The boomerang uniformity of <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is the maximal value, i.e.
+<strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \beta_F=\max_{a,b\in\mathbb{F}^*_{2^n}} T_F(a,b)}</strong>
+
+</p>
+<h2><span class="mw-headline" id="Main_properties">Main properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Boomerang_uniformity&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="Edit section: Main properties">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Boomerang_uniformity&amp;action=edit&amp;section=2" title="Edit section: Main properties">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>For <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ a permutation, the following properties on the boomerang uniformity were proven.
+</p>
+<ul><li>The boomerang uniformity is invariant for inverse and affine equivalence but not for EA- and CCZ-equivalence.
+<ul><li>For <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F&#039;}</strong>
+ an affine equivalent permutation, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle F'=A_{2}\circ F\circ A_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>F</mi>
+          <mo>&#x2032;</mo>
+        </msup>
+        <mo>=</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2218;<!-- ∘ --></mo>
+        <mi>F</mi>
+        <mo>&#x2218;<!-- ∘ --></mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle F'=A_{2}\circ F\circ A_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6a3a323338ef1dcf7bc304582c51e61ae1450340" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:17.323ex; height:2.843ex;" alt="{\displaystyle F&#039;=A_{2}\circ F\circ A_{1}}"/></span>, we have <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{F'}(a,b)=T_{F}(L_{1}(a),L_{2}^{-1}(b))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msup>
+              <mi>F</mi>
+              <mo>&#x2032;</mo>
+            </msup>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>F</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>L</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <msubsup>
+          <mi>L</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{F'}(a,b)=T_{F}(L_{1}(a),L_{2}^{-1}(b))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0aafa8d9de6a95b3588edbd75d939f458f7cf403" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:29.636ex; height:3.343ex;" alt="{\displaystyle T_{F&#039;}(a,b)=T_{F}(L_{1}(a),L_{2}^{-1}(b))}"/></span>, with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle L_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>L</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle L_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fbbedf9f5f71ca52f8f24392c3cc18fca6c420dc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.383ex; height:2.509ex;" alt="{\displaystyle L_{i}}"/></span> the linear part of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle A_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1aed3b5def921afbe6cc48aaf8f9b11c6f1c1e2d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.543ex; height:2.509ex;" alt="{\displaystyle A_{i}}"/></span>.</li>
+<li>For the inverse we have <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle T_{F^{-1}}(a,b)=T_F(b,a)}</strong>
+.</li></ul></li>
+<li>Relation with the differential uniformity: <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \delta_F\le\beta_F}</strong>
+ and <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \delta_F=2}</strong>
+ if and only if <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \beta_F=2}</strong>
+.</li>
+<li><strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle T_F(a,b)=|\{ (x,y) : F(x+a)+F(y+a)=b,F(x)+F(y)=b \}|}</strong>
+.</li>
+<li>If <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is a power permutation, then <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \beta_F=\max_{b\neq0}T(1,b)}</strong>
+.</li>
+<li>If <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle F}</strong>
+ is a quadratic permutation, then <strong class="error texerror">Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response (&quot;Math extension cannot connect to Restbase.&quot;) from server &quot;https://wikimedia.org/api/rest_v1/&quot;:): {\displaystyle \delta_F\le\beta_F\le\delta_F(\delta_F-1)}</strong>
+.</li></ul>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-wagnerBoomerangAttack-1"><span class="mw-cite-backlink"><a href="#cite_ref-wagnerBoomerangAttack_1-0">↑</a></span> <span class="reference-text">Wagner D. The boomerang attack.In Lars R. Knudsen, editor, FSE'99, vol. 1636 of LNCS, pp. 156-170. Springer, Heidelberg, March 1999</span>
+</li>
+<li id="cite_note-cidAlBCT-2"><span class="mw-cite-backlink"><a href="#cite_ref-cidAlBCT_2-0">↑</a></span> <span class="reference-text">Cid C., Huang T., Peyrin T., Sasaki Y., Song L. Boomerang connectivity table: A new cryptanalysis tool. EUROCRYPT 2018, Part II, vol. 10821 of LNCS, pp. 683-714. Springer, Heidelberg, 2018</span>
+</li>
+<li id="cite_note-BouraCanteaut-3"><span class="mw-cite-backlink"><a href="#cite_ref-BouraCanteaut_3-0">↑</a></span> <span class="reference-text">Boura C., Canteaut A. On the boomerang uniformity of cryptographic Sboxes. IACR Transaction on Symmetric Cryptology, pp. 290-310, Sep 2018</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20260331170351
+Cache expiry: 7776000
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.241 seconds
+Real time usage: 0.352 seconds
+Preprocessor visited node count: 112/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1101/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key boolean:pcache:idhash:82-0!canonical and timestamp 20260331170351 and revision id 363.
+ -->
+</div>
