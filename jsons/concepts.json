@@ -1,0 +1,301 @@
+{
+  "concepts": {
+    "Boolean Functions": {
+      "dependencies": []
+    },
+    "APN Permutations": {
+      "dependencies": [
+        "APN Functions",
+        "Permutations"
+      ]
+    },
+    "APN Functions": {
+      "dependencies": [
+        "Differential Uniformity"
+      ]
+    },
+    "Permutations": {
+      "dependencies": [
+        "Balancedness",
+        "Vectorial Boolean Functions"
+      ]
+    },
+    "Vectorial Boolean Functions": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Balancedness": {
+      "dependencies": [
+        "Boolean Functions",
+        "Hamming Weight"
+      ]
+    },
+    "Component Functions": {
+      "dependencies": [
+        "Boolean Functions",
+        "Vectorial Boolean Functions"
+      ]
+    },
+    "Autocorrelation Functions": {
+      "dependencies": [
+        "Boolean Functions",
+        "Directional Derivatives"
+      ]
+    },
+    "Directional Derivatives": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Binary Linear Code": {
+      "dependencies": []
+    },
+    "AB Functions": {
+      "dependencies": [
+        "Vectorial Boolean Functions",
+        "Walsh Transform"
+      ]
+    },
+    "Differential Spectra": {
+      "dependencies": [
+        "APN Functions"
+      ]
+    },
+    "Orthoderivatives": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Algebraic Immunity": {
+      "dependencies": [
+        "Algebraic Degree",
+        "Annihilators",
+        "Boolean Functions"
+      ]
+    },
+    "Annihilators": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Algebraic Degree": {
+      "dependencies": [
+        "Algebraic Normal Form"
+      ]
+    },
+    "Algebraic Attacks": {
+      "dependencies": [
+        "Algebraic Immunity"
+      ]
+    },
+    "Perfect Algebraic Immune Functions": {
+      "dependencies": [
+        "Algebraic Degree",
+        "Algebraic Immunity"
+      ]
+    },
+    "Gröbner bases": {
+      "dependencies": [
+        "Algebraic Attacks"
+      ]
+    },
+    "Linearization": {
+      "dependencies": [
+        "Algebraic Attacks"
+      ]
+    },
+    "Affine Equivalence": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "EA-equivalence": {
+      "dependencies": [
+        "Affine Equivalence",
+        "Boolean Functions"
+      ]
+    },
+    "Differential Uniformity": {
+      "dependencies": [
+        "Vectorial Boolean Functions"
+      ]
+    },
+    "Walsh Transform": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Bent Functions": {
+      "dependencies": [
+        "Balancedness",
+        "Boolean Functions",
+        "Nonlinearity"
+      ]
+    },
+    "Nonlinearity": {
+      "dependencies": [
+        "Affine Functions",
+        "Walsh Transform"
+      ]
+    },
+    "Hadamard matrix": {
+      "dependencies": []
+    },
+    "Difference set": {
+      "dependencies": []
+    },
+    "Maiorana-McFarland Construction": {
+      "dependencies": [
+        "Bent Functions",
+        "Permutations"
+      ]
+    },
+    "Hamming Weight": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Algebraic Normal Form": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Trace Representation": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Affine Functions": {
+      "dependencies": [
+        "Algebraic Degree",
+        "Boolean Functions"
+      ]
+    },
+    "Correlation-immunity": {
+      "dependencies": [
+        "Boolean Functions",
+        "Hamming Weight",
+        "Walsh Transform"
+      ]
+    },
+    "Resilience": {
+      "dependencies": [
+        "Balancedness",
+        "Correlation-immunity"
+      ]
+    },
+    "Boomerang Uniformity": {
+      "dependencies": [
+        "Differential Uniformity",
+        "Permutations"
+      ]
+    },
+    "Boomerang Connectivity Table (BCT)": {
+      "dependencies": [
+        "Permutations"
+      ]
+    },
+    "DO polynomials": {
+      "dependencies": [
+        "Affine Functions",
+        "Finite fields"
+      ]
+    },
+    "Finite fields": {
+      "dependencies": []
+    },
+    "Planar Functions": {
+      "dependencies": [
+        "Differential Uniformity"
+      ]
+    },
+    "CCZ-equivalence": {
+      "dependencies": [
+        "Affine Equivalence",
+        "EA-equivalence"
+      ]
+    },
+    "Presemifields": {
+      "dependencies": [
+        "Finite fields"
+      ]
+    },
+    "Semifields": {
+      "dependencies": [
+        "Presemifields"
+      ]
+    },
+    "Isotopism": {
+      "dependencies": [
+        "Presemifields"
+      ]
+    },
+    "Siegenthaler's bound": {
+      "dependencies": [
+        "Algebraic Degree",
+        "Resilience"
+      ]
+    },
+    "Crooked Functions": {
+      "dependencies": [
+        "APN Functions",
+        "Component Functions",
+        "Plateaued functions"
+      ]
+    },
+    "Plateaued functions": {
+      "dependencies": [
+        "Boolean Functions",
+        "Walsh Transform"
+      ]
+    },
+    "Perfect Nonlinear Functions": {
+      "dependencies": [
+        "Differential Uniformity"
+      ]
+    },
+    "Linear Equivalence": {
+      "dependencies": [
+        "Vectorial Boolean Functions"
+      ]
+    },
+    "To-and-from algorithm": {
+      "dependencies": [
+        "Linear Equivalence"
+      ]
+    },
+    "Rank algorithm": {
+      "dependencies": [
+        "Affine Equivalence",
+        "Algebraic Normal Form"
+      ]
+    },
+    "Jacobian algorithm": {
+      "dependencies": [
+        "EA-equivalence",
+        "Vectorial Boolean Functions"
+      ]
+    },
+    "Walsh spectrum": {
+      "dependencies": [
+        "Walsh Transform"
+      ]
+    },
+    "Gamma-rank": {
+      "dependencies": [
+        "APN Functions"
+      ]
+    },
+    "Delta-rank": {
+      "dependencies": [
+        "APN Functions"
+      ]
+    },
+    "Multiplier group": {
+      "dependencies": [
+        "APN Functions"
+      ]
+    }
+  }
+}
