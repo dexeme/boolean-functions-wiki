@@ -1,285 +1,217 @@
+from __future__ import annotations
+
 import json
 import os
 import sys
+from pathlib import Path
+from typing import Any
+from urllib.parse import unquote, urlparse
 
 import google.generativeai as genai
-from bs4 import BeautifulSoup
 
-api_key = os.environ.get("GEMINI_API_KEY")
+from llm_service import PagePayload, request_batch
+from postprocess import ConceptsFile, GeminiBatchResponse, PagesFile, merge_gemini_output, parse_and_format_json
+
+JSON_DIR: str = "jsons"
+TXT_DIR: str = "summarized-data"
+CONCEPTS_PATH: str = os.path.join(JSON_DIR, "concepts.json")
+PAGES_PATH: str = os.path.join(JSON_DIR, "pages.json")
+ROOT_TITLE: str = "Boolean Functions"
+MODEL_NAME: str = "gemini-3-flash-preview"
+
+api_key: str | None = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not found in environment variables.")
 
 genai.configure(api_key=api_key)
 
-DATA_DIR = "data"
-JSON_DIR = "jsons"
-CONCEPTS_PATH = os.path.join(JSON_DIR, "concepts.json")
-PAGES_PATH = os.path.join(JSON_DIR, "pages.json")
-TARGET_FILE = os.path.join(DATA_DIR, "Algebraic immunity of Boolean functions.html")
-ROOT_TITLE = "Boolean Functions"
 
-
-def clean_html_for_llm(html_content):
-    soup = BeautifulSoup(html_content, "html.parser")
-
-    for tag in soup(["script", "style", "noscript", "header", "footer", "nav", "aside", "form"]):
-        tag.decompose()
-
-    content_div = soup.find(id="mw-content-text") or soup.body or soup
-    text = content_div.get_text(separator="\n", strip=True)
-    lines = [line.strip() for line in text.splitlines()]
-    return "\n".join(line for line in lines if line)
-
-
-def parse_and_format_json(json_text):
-    data = json.loads(json_text)
-    return data, json.dumps(data, indent=2, ensure_ascii=False)
-
-
-def ensure_data_dir():
-    os.makedirs(DATA_DIR, exist_ok=True)
+def ensure_data_dir() -> None:
     os.makedirs(JSON_DIR, exist_ok=True)
 
 
-def load_json_file(path, default):
+def load_json_file(path: str, default: Any) -> Any:
     if not os.path.exists(path):
         return default
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def save_json_file(path, data):
+def save_json_file(path: str, data: Any) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def list_html_files():
-    if not os.path.isdir(DATA_DIR):
+def list_txt_files() -> list[str]:
+    txt_dir: Path = Path(TXT_DIR)
+    if not txt_dir.is_dir():
         return []
-    return sorted(
-        os.path.join(DATA_DIR, name)
-        for name in os.listdir(DATA_DIR)
-        if name.endswith(".html")
-    )
+    return sorted(str(path) for path in txt_dir.iterdir() if path.suffix == ".txt")
 
 
-def parse_range_argument(value, total_files):
+def parse_range_argument(value: str, total_files: int) -> tuple[int, int]:
     if not value:
         return 0, total_files
 
     if "-" not in value:
-        index = int(value) - 1
+        index: int = int(value) - 1
         return index, index + 1
 
     start_text, end_text = value.split("-", 1)
-    start = int(start_text) - 1 if start_text else 0
-    end = int(end_text) if end_text else total_files
+    start: int = int(start_text) - 1 if start_text else 0
+    end: int = int(end_text) if end_text else total_files
     return max(start, 0), min(end, total_files)
 
 
-def initialize_state():
-    graph = load_json_file(CONCEPTS_PATH, {"concepts": []})
-    page_index = load_json_file(PAGES_PATH, {"pages": []})
+def initialize_state() -> tuple[ConceptsFile, PagesFile]:
+    graph: ConceptsFile = load_json_file(CONCEPTS_PATH, {"concepts": []})
+    page_index: PagesFile = load_json_file(PAGES_PATH, {"pages": []})
 
     if not isinstance(graph, dict):
-        graph = {"concepts": []}
-    if "concepts" not in graph or not isinstance(graph["concepts"], list):
-        graph["concepts"] = []
+        graph = {"concepts": {}}
+    if "concepts" not in graph:
+        graph["concepts"] = {}
+    if isinstance(graph["concepts"], list):
+        legacy_map: dict[str, dict[str, list[str]]] = {}
+        for item in graph["concepts"]:
+            title = item.get("title", "")
+            if title:
+                legacy_map[title] = {"dependencies": []}
+        graph["concepts"] = legacy_map
+    if not isinstance(graph["concepts"], dict):
+        graph["concepts"] = {}
 
     if not isinstance(page_index, dict):
         page_index = {"pages": []}
     if "pages" not in page_index or not isinstance(page_index["pages"], list):
         page_index["pages"] = []
-
-    if not any(concept.get("title") == ROOT_TITLE for concept in graph["concepts"]):
-        graph["concepts"].append(
+    normalized_pages: list[dict[str, Any]] = []
+    for page in page_index["pages"]:
+        if not isinstance(page, dict):
+            continue
+        title = str(page.get("title", "")).strip()
+        if not title:
+            continue
+        normalized_pages.append(
             {
-                "uid": 1,
-                "title": ROOT_TITLE,
-                "dependencies": [],
+                "title": title,
+                "url": str(page.get("url", "")).strip(),
+                "concepts": page.get("concepts", []) if isinstance(page.get("concepts", []), list) else [],
             }
         )
+    page_index["pages"] = normalized_pages
+
+    if ROOT_TITLE not in graph["concepts"]:
+        graph["concepts"][ROOT_TITLE] = {"dependencies": []}
 
     return graph, page_index
 
 
-def build_title_to_uid_map(graph):
-    return {concept["title"]: concept["uid"] for concept in graph["concepts"]}
-
-
-def next_uid(graph):
-    if not graph["concepts"]:
-        return 1
-    return max(concept["uid"] for concept in graph["concepts"]) + 1
-
-
-def get_page_uid(page):
-    return page.get("uid", page.get("page_uid", 0))
-
-
-def build_pages_index(html_files):
-    pages = []
-    for index, filepath in enumerate(html_files, start=1):
+def build_pages_index(txt_files: list[str]) -> PagesFile:
+    pages: list[dict[str, Any]] = []
+    for filepath in txt_files:
+        fallback_title: str = os.path.splitext(os.path.basename(filepath))[0]
+        href, url, title, _text = read_clean_txt(filepath)
         pages.append(
             {
-                "uid": index,
-                "title": os.path.splitext(os.path.basename(filepath))[0],
-                "source_file": os.path.basename(filepath),
+                "title": title or href or fallback_title,
+                "url": url,
                 "concepts": [],
             }
         )
     return {"pages": pages}
 
 
-def build_context_summary(graph):
-    concepts = [
-        {"uid": concept["uid"], "title": concept["title"]}
-        for concept in graph["concepts"]
-    ]
-    return json.dumps({"concepts": concepts}, ensure_ascii=False)
+def merge_pages_accumulative(existing: PagesFile, incoming: PagesFile) -> PagesFile:
+    by_title: dict[str, dict[str, Any]] = {page["title"]: page for page in existing["pages"]}
+    for page in incoming["pages"]:
+        title = page["title"]
+        if title not in by_title:
+            by_title[title] = page
+    return {"pages": list(by_title.values())}
 
 
-def build_page_payload(filepath):
-    with open(filepath, "r", encoding="utf-8") as f:
-        html_content = f.read()
+def read_clean_txt(filepath: str) -> tuple[str, str, str, str]:
+    content: str = Path(filepath).read_text(encoding="utf-8").strip()
+    if not content:
+        return "", "", "", ""
 
-    clean_text = clean_html_for_llm(html_content)
-    page_title = os.path.splitext(os.path.basename(filepath))[0]
+    lines: list[str] = [line.strip() for line in content.splitlines() if line.strip()]
 
+    # Preferred format (multiline header):
+    # line 1: title (or href legacy), line 2: url, remaining: text
+    if len(lines) >= 2 and lines[1].startswith(("http://", "https://")):
+        raw_title = lines[0]
+        url = lines[1]
+        body = "\n".join(lines[2:]).strip()
+        href = raw_title
+        if raw_title.startswith("/"):
+            href = raw_title[1:]
+        if " " in href and url:
+            parsed = urlparse(url)
+            href = unquote(parsed.path.lstrip("/"))
+        title = raw_title.replace("_", " ").strip()
+        return href, url, title, body
+
+    # Fallback format (single line):
+    # title = text before first http
+    # url   = first http token until first whitespace
+    # body  = remaining text after url
+    first_http = content.find("http")
+    if first_http == -1:
+        title = content
+        return "", "", title, ""
+
+    raw_title = content[:first_http].strip()
+    after_http = content[first_http:]
+    url = after_http.split(" ", 1)[0].strip()
+    body = after_http[len(url):].strip()
+
+    parsed = urlparse(url)
+    href = unquote(parsed.path.lstrip("/")) if parsed.path else raw_title.replace(" ", "_")
+    title = raw_title if raw_title else href.replace("_", " ")
+    return href, url, title, body
+
+
+def build_page_payload(filepath: str) -> PagePayload:
+    source_file: str = os.path.basename(filepath)
+    href, url, title, text = read_clean_txt(filepath)
     return {
-        "title": page_title,
-        "source_file": os.path.basename(filepath),
-        "text": clean_text[:30000],
+        "href": href,
+        "url": url,
+        "title": title or os.path.splitext(source_file)[0],
+        "source_file": source_file,
+        "text": text[:30000],
     }
 
 
-def process_pages_batch(page_index, graph, batch_payload):
-    title_to_uid = build_title_to_uid_map(graph)
+def main() -> None:
+    graph_state, existing_pages = initialize_state()
+    txt_files: list[str] = list_txt_files()
+    range_arg: str = sys.argv[1] if len(sys.argv) > 1 else ""
+    start, end = parse_range_argument(range_arg, len(txt_files))
+    selected_files: list[str] = txt_files[start:end]
+    if not selected_files:
+        print("No input TXT files selected.")
+        return
 
-    model = genai.GenerativeModel("gemini-2.5-flash")
-
-    prompt = (
-        f"Existing knowledge graph summary:\n{build_context_summary(graph)}\n\n"
-        "Map the page content to this knowledge graph. "
-        "Return only JSON matching the schema. "
-        "Do not include definitions, explanations, or markdown. "
-        "Use only concepts that appear in the page text. "
-        "If a concept already exists in the graph, reuse its exact title. "
-        "If it is new, keep the title concise and stable. "
-        "Dependencies must reference concept titles needed to understand the concept.\n\n"
-        f"Pages to process:\n{json.dumps(batch_payload, ensure_ascii=False)}"
-    )
-
-    generation_config = {
-        "response_mime_type": "application/json",
-        "response_schema": {
-            "type": "object",
-            "properties": {
-                "pages": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "uid": {"type": "integer", "description": "Page UID"},
-                            "concepts": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "t": {"type": "string", "description": "Concept title"},
-                                        "dep": {
-                                            "type": "array",
-                                            "items": {"type": "string"},
-                                            "description": "Concept titles required to understand this concept"
-                                        }
-                                    },
-                                    "required": ["t", "dep"]
-                                }
-                            }
-                        },
-                        "required": ["uid", "concepts"]
-                    }
-                }
-            },
-            "required": ["pages"]
-        }
-    }
-
-    response = model.generate_content(prompt, generation_config=generation_config)
-    response_data, formatted_json = parse_and_format_json(response.text)
-
-    page_lookup = {page["uid"]: page for page in page_index["pages"]}
-    for page_data in response_data.get("pages", []):
-        page_uid = page_data.get("uid")
-        if page_uid not in page_lookup:
-            continue
-
-        resolved_concepts = []
-        for item in page_data.get("concepts", []):
-            concept_title = item["t"].strip()
-            if not concept_title:
-                continue
-
-            concept_uid = title_to_uid.get(concept_title)
-            if concept_uid is None:
-                concept_uid = next_uid(graph)
-                graph["concepts"].append(
-                    {
-                        "uid": concept_uid,
-                        "title": concept_title,
-                        "dependencies": [],
-                    }
-                )
-                title_to_uid[concept_title] = concept_uid
-
-            dependency_uids = []
-            for dep_title in item.get("dep", []):
-                dep_title = dep_title.strip()
-                if not dep_title:
-                    continue
-                dep_uid = title_to_uid.get(dep_title)
-                if dep_uid is None:
-                    dep_uid = next_uid(graph)
-                    graph["concepts"].append(
-                        {
-                            "uid": dep_uid,
-                            "title": dep_title,
-                            "dependencies": [],
-                        }
-                    )
-                    title_to_uid[dep_title] = dep_uid
-                if dep_uid not in dependency_uids:
-                    dependency_uids.append(dep_uid)
-
-            for concept in graph["concepts"]:
-                if concept["uid"] == concept_uid:
-                    concept["dependencies"] = sorted(set(concept.get("dependencies", []) + dependency_uids))
-                    break
-
-            resolved_concepts.append(concept_uid)
-
-        page_lookup[page_uid]["concepts"] = resolved_concepts
-
-    ensure_data_dir()
-    save_json_file(CONCEPTS_PATH, graph)
-    save_json_file(PAGES_PATH, page_index)
-
-    return formatted_json
-
-
-if __name__ == "__main__":
-    graph_state, page_state = initialize_state()
-    html_files = list_html_files()
-    range_arg = sys.argv[1] if len(sys.argv) > 1 else ""
-    start, end = parse_range_argument(range_arg, len(html_files))
-    selected_files = html_files[start:end]
-
-    page_state = build_pages_index(selected_files)
+    incoming_pages: PagesFile = build_pages_index(selected_files)
+    page_state: PagesFile = merge_pages_accumulative(existing_pages, incoming_pages)
     ensure_data_dir()
     save_json_file(PAGES_PATH, page_state)
 
-    batch_payload = [build_page_payload(filepath) for filepath in selected_files]
+    batch_payload: list[PagePayload] = [build_page_payload(filepath) for filepath in selected_files]
 
     print(f"Processing {len(selected_files)} pages in one Gemini request...")
-    output = process_pages_batch(page_state, graph_state, batch_payload)
-    print(output)
+    raw_response: str = request_batch(MODEL_NAME, graph_state["concepts"], batch_payload)
+    response_data_raw, formatted_json = parse_and_format_json(raw_response)
+    response_data: GeminiBatchResponse = response_data_raw
+    merge_gemini_output(graph_state, page_state, response_data)
+
+    save_json_file(CONCEPTS_PATH, graph_state)
+    save_json_file(PAGES_PATH, page_state)
+    print(formatted_json)
+
+
+if __name__ == "__main__":
+    main()
