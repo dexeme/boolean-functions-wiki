@@ -3,106 +3,43 @@
     "Boolean Functions": {
       "dependencies": []
     },
-    "APN Permutations": {
-      "dependencies": [
-        "APN Functions",
-        "Permutations"
-      ]
-    },
-    "APN Functions": {
-      "dependencies": [
-        "Differential Uniformity"
-      ]
-    },
-    "Permutations": {
-      "dependencies": [
-        "Balancedness",
-        "Vectorial Boolean Functions"
-      ]
-    },
-    "Vectorial Boolean Functions": {
-      "dependencies": [
-        "Boolean Functions"
-      ]
-    },
-    "Balancedness": {
-      "dependencies": [
-        "Boolean Functions",
-        "Hamming Weight"
-      ]
-    },
-    "Component Functions": {
-      "dependencies": [
-        "Boolean Functions",
-        "Vectorial Boolean Functions"
-      ]
-    },
-    "Autocorrelation Functions": {
-      "dependencies": [
-        "Boolean Functions",
-        "Directional Derivatives"
-      ]
-    },
-    "Directional Derivatives": {
-      "dependencies": [
-        "Boolean Functions"
-      ]
-    },
-    "Binary Linear Code": {
+    "Finite Fields": {
       "dependencies": []
     },
-    "AB Functions": {
-      "dependencies": [
-        "Vectorial Boolean Functions",
-        "Walsh Transform"
-      ]
-    },
-    "Differential Spectra": {
-      "dependencies": [
-        "APN Functions"
-      ]
-    },
-    "Orthoderivatives": {
+    "Algebraic Normal Form": {
       "dependencies": [
         "Boolean Functions"
       ]
     },
-    "Algebraic Immunity": {
+    "Univariate Representation": {
       "dependencies": [
-        "Algebraic Degree",
-        "Annihilators",
-        "Boolean Functions"
+        "Finite Fields"
       ]
     },
-    "Annihilators": {
+    "Trace Representation": {
       "dependencies": [
-        "Boolean Functions"
+        "Finite Fields"
       ]
     },
     "Algebraic Degree": {
       "dependencies": [
-        "Algebraic Normal Form"
+        "Algebraic Normal Form",
+        "Univariate Representation"
       ]
     },
-    "Algebraic Attacks": {
+    "Walsh Transform": {
       "dependencies": [
-        "Algebraic Immunity"
+        "Boolean Functions"
       ]
     },
-    "Perfect Algebraic Immune Functions": {
+    "Balanced Functions": {
       "dependencies": [
-        "Algebraic Degree",
-        "Algebraic Immunity"
+        "Boolean Functions"
       ]
     },
-    "Gröbner bases": {
+    "Nonlinearity": {
       "dependencies": [
-        "Algebraic Attacks"
-      ]
-    },
-    "Linearization": {
-      "dependencies": [
-        "Algebraic Attacks"
+        "Walsh Transform"
       ]
     },
     "Affine Equivalence": {
@@ -112,113 +49,112 @@
     },
     "EA-equivalence": {
       "dependencies": [
-        "Affine Equivalence",
+        "Affine Equivalence"
+      ]
+    },
+    "Vectorial Boolean Functions": {
+      "dependencies": [
         "Boolean Functions"
       ]
     },
-    "Differential Uniformity": {
+    "CCZ-equivalence": {
       "dependencies": [
         "Vectorial Boolean Functions"
       ]
     },
-    "Walsh Transform": {
+    "Almost Perfect Nonlinear (APN) Functions": {
+      "dependencies": [
+        "Differential Uniformity"
+      ]
+    },
+    "Differential Uniformity": {
+      "dependencies": [
+        "Derivatives",
+        "Vectorial Boolean Functions"
+      ]
+    },
+    "Derivatives": {
       "dependencies": [
         "Boolean Functions"
       ]
-    },
-    "Bent Functions": {
-      "dependencies": [
-        "Balancedness",
-        "Boolean Functions",
-        "Nonlinearity"
-      ]
-    },
-    "Nonlinearity": {
-      "dependencies": [
-        "Affine Functions",
-        "Walsh Transform"
-      ]
-    },
-    "Hadamard matrix": {
-      "dependencies": []
-    },
-    "Difference set": {
-      "dependencies": []
-    },
-    "Maiorana-McFarland Construction": {
-      "dependencies": [
-        "Bent Functions",
-        "Permutations"
-      ]
-    },
-    "Hamming Weight": {
-      "dependencies": [
-        "Boolean Functions"
-      ]
-    },
-    "Algebraic Normal Form": {
-      "dependencies": [
-        "Boolean Functions"
-      ]
-    },
-    "Trace Representation": {
-      "dependencies": [
-        "Boolean Functions"
-      ]
-    },
-    "Affine Functions": {
-      "dependencies": [
-        "Algebraic Degree",
-        "Boolean Functions"
-      ]
-    },
-    "Correlation-immunity": {
-      "dependencies": [
-        "Boolean Functions",
-        "Hamming Weight",
-        "Walsh Transform"
-      ]
-    },
-    "Resilience": {
-      "dependencies": [
-        "Balancedness",
-        "Correlation-immunity"
-      ]
-    },
-    "Boomerang Uniformity": {
-      "dependencies": [
-        "Differential Uniformity",
-        "Permutations"
-      ]
-    },
-    "Boomerang Connectivity Table (BCT)": {
-      "dependencies": [
-        "Permutations"
-      ]
-    },
-    "DO polynomials": {
-      "dependencies": [
-        "Affine Functions",
-        "Finite fields"
-      ]
-    },
-    "Finite fields": {
-      "dependencies": []
     },
     "Planar Functions": {
       "dependencies": [
         "Differential Uniformity"
       ]
     },
-    "CCZ-equivalence": {
+    "APN Permutations": {
       "dependencies": [
-        "Affine Equivalence",
-        "EA-equivalence"
+        "Almost Perfect Nonlinear (APN) Functions",
+        "Balanced Functions"
+      ]
+    },
+    "Binary Linear Code": {
+      "dependencies": [
+        "Finite Fields"
+      ]
+    },
+    "Simplex Codes": {
+      "dependencies": [
+        "Binary Linear Code"
+      ]
+    },
+    "Annihilators": {
+      "dependencies": [
+        "Boolean Functions"
+      ]
+    },
+    "Algebraic Immunity": {
+      "dependencies": [
+        "Algebraic Degree",
+        "Annihilators"
+      ]
+    },
+    "Correlation Immunity": {
+      "dependencies": [
+        "Walsh Transform"
+      ]
+    },
+    "Resilient Functions": {
+      "dependencies": [
+        "Balanced Functions",
+        "Correlation Immunity"
+      ]
+    },
+    "Boomerang Uniformity": {
+      "dependencies": [
+        "Differential Uniformity",
+        "Vectorial Boolean Functions"
+      ]
+    },
+    "Bent Functions": {
+      "dependencies": [
+        "Nonlinearity"
+      ]
+    },
+    "Almost Bent (AB) Functions": {
+      "dependencies": [
+        "Nonlinearity"
+      ]
+    },
+    "Plateaued Functions": {
+      "dependencies": [
+        "Walsh Transform"
+      ]
+    },
+    "Autocorrelation Function": {
+      "dependencies": [
+        "Derivatives"
+      ]
+    },
+    "Strongly-Plateaued Functions": {
+      "dependencies": [
+        "Plateaued Functions"
       ]
     },
     "Presemifields": {
       "dependencies": [
-        "Finite fields"
+        "Finite Fields"
       ]
     },
     "Semifields": {
@@ -226,75 +162,19 @@
         "Presemifields"
       ]
     },
-    "Isotopism": {
+    "Jacobian": {
       "dependencies": [
-        "Presemifields"
+        "Derivatives"
       ]
     },
-    "Siegenthaler's bound": {
+    "Niho Power Function": {
       "dependencies": [
-        "Algebraic Degree",
-        "Resilience"
+        "Finite Fields"
       ]
     },
-    "Crooked Functions": {
+    "APN-distance": {
       "dependencies": [
-        "APN Functions",
-        "Component Functions",
-        "Plateaued functions"
-      ]
-    },
-    "Plateaued functions": {
-      "dependencies": [
-        "Boolean Functions",
-        "Walsh Transform"
-      ]
-    },
-    "Perfect Nonlinear Functions": {
-      "dependencies": [
-        "Differential Uniformity"
-      ]
-    },
-    "Linear Equivalence": {
-      "dependencies": [
-        "Vectorial Boolean Functions"
-      ]
-    },
-    "To-and-from algorithm": {
-      "dependencies": [
-        "Linear Equivalence"
-      ]
-    },
-    "Rank algorithm": {
-      "dependencies": [
-        "Affine Equivalence",
-        "Algebraic Normal Form"
-      ]
-    },
-    "Jacobian algorithm": {
-      "dependencies": [
-        "EA-equivalence",
-        "Vectorial Boolean Functions"
-      ]
-    },
-    "Walsh spectrum": {
-      "dependencies": [
-        "Walsh Transform"
-      ]
-    },
-    "Gamma-rank": {
-      "dependencies": [
-        "APN Functions"
-      ]
-    },
-    "Delta-rank": {
-      "dependencies": [
-        "APN Functions"
-      ]
-    },
-    "Multiplier group": {
-      "dependencies": [
-        "APN Functions"
+        "Almost Perfect Nonlinear (APN) Functions"
       ]
     }
   }

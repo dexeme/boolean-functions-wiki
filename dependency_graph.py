@@ -9,6 +9,7 @@ JSON_DIR = Path("jsons")
 CONCEPTS_PATH = JSON_DIR / "concepts.json"
 GRAPH_PATH = JSON_DIR / "dependency_graph.json"
 DOT_PATH = JSON_DIR / "dependency_graph.dot"
+ROOT_CONCEPT = "Boolean Functions"
 
 
 class ConceptNode(TypedDict):
@@ -50,6 +51,8 @@ def build_graph(concepts_file: ConceptsFile) -> GraphOutput:
     missing_dependencies: dict[str, list[str]] = {}
     edges: list[dict[str, str]] = []
 
+    undirected: dict[str, set[str]] = defaultdict(set)
+
     for concept in nodes:
         raw_deps = concepts.get(concept, {}).get("dependencies", [])
         deps = sorted({dep for dep in raw_deps if isinstance(dep, str) and dep.strip()})
@@ -62,11 +65,33 @@ def build_graph(concepts_file: ConceptsFile) -> GraphOutput:
         for dep in deps:
             edges.append({"from": dep, "to": concept})
             dependents_by_concept[dep].append(concept)
+            if dep in concepts:
+                undirected[concept].add(dep)
+                undirected[dep].add(concept)
 
     for concept in nodes:
         dependents_by_concept.setdefault(concept, [])
     for concept in dependents_by_concept:
         dependents_by_concept[concept] = sorted(set(dependents_by_concept[concept]))
+
+    for concept in nodes:
+        undirected.setdefault(concept, set())
+
+    main_component = connected_component_from_root(undirected, ROOT_CONCEPT)
+    if main_component:
+        nodes = sorted(node for node in nodes if node in main_component)
+        dependencies_by_concept = {
+            concept: [dep for dep in deps if dep in main_component]
+            for concept, deps in dependencies_by_concept.items()
+            if concept in main_component
+        }
+        dependents_by_concept = {
+            concept: [dep for dep in deps if dep in main_component]
+            for concept, deps in dependents_by_concept.items()
+            if concept in main_component
+        }
+        edges = [edge for edge in edges if edge["from"] in main_component and edge["to"] in main_component]
+        missing_dependencies = {k: v for k, v in missing_dependencies.items() if k in main_component}
 
     order, cycle_nodes = topological_sort(nodes, dependencies_by_concept)
 
@@ -80,6 +105,25 @@ def build_graph(concepts_file: ConceptsFile) -> GraphOutput:
         "cycle_nodes": cycle_nodes,
         "topological_order": order,
     }
+
+
+def connected_component_from_root(adjacency: dict[str, set[str]], root: str) -> set[str]:
+    if root not in adjacency:
+        return set()
+
+    visited: set[str] = set()
+    queue: deque[str] = deque([root])
+
+    while queue:
+        node = queue.popleft()
+        if node in visited:
+            continue
+        visited.add(node)
+        for neighbor in adjacency.get(node, set()):
+            if neighbor not in visited:
+                queue.append(neighbor)
+
+    return visited
 
 
 def topological_sort(nodes: list[str], deps_by_concept: dict[str, list[str]]) -> tuple[list[str], list[str]]:

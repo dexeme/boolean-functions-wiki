@@ -15,6 +15,7 @@ from postprocess import ConceptsFile, GeminiBatchResponse, PagesFile, merge_gemi
 JSON_DIR: str = "jsons"
 TXT_DIR: str = "summarized-data"
 CONCEPTS_PATH: str = os.path.join(JSON_DIR, "concepts.json")
+CONCEPTS_TXT_PATH: str = os.path.join(JSON_DIR, "concepts.txt")
 PAGES_PATH: str = os.path.join(JSON_DIR, "pages.json")
 ROOT_TITLE: str = "Boolean Functions"
 MODEL_NAME: str = "gemini-3-flash-preview"
@@ -42,6 +43,12 @@ def save_json_file(path: str, data: Any) -> None:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
+def save_concepts_txt(path: str, concepts: dict[str, dict[str, list[str]]]) -> None:
+    ordered = sorted(concepts.keys())
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(", ".join(ordered))
+
+
 def list_txt_files() -> list[str]:
     txt_dir: Path = Path(TXT_DIR)
     if not txt_dir.is_dir():
@@ -61,6 +68,31 @@ def parse_range_argument(value: str, total_files: int) -> tuple[int, int]:
     start: int = int(start_text) - 1 if start_text else 0
     end: int = int(end_text) if end_text else total_files
     return max(start, 0), min(end, total_files)
+
+
+def parse_selection_argument(value: str, total_files: int) -> list[int]:
+    if not value:
+        return list(range(total_files))
+
+    tokens = value.split()
+    selected: set[int] = set()
+
+    for token in tokens:
+        if "-" in token:
+            start_text, end_text = token.split("-", 1)
+            start_idx = int(start_text) - 1 if start_text else 0
+            end_idx = int(end_text) - 1 if end_text else total_files - 1
+            start_idx = max(0, start_idx)
+            end_idx = min(total_files - 1, end_idx)
+            if start_idx <= end_idx:
+                for idx in range(start_idx, end_idx + 1):
+                    selected.add(idx)
+        else:
+            idx = int(token) - 1
+            if 0 <= idx < total_files:
+                selected.add(idx)
+
+    return sorted(selected)
 
 
 def initialize_state() -> tuple[ConceptsFile, PagesFile]:
@@ -188,9 +220,9 @@ def build_page_payload(filepath: str) -> PagePayload:
 def main() -> None:
     graph_state, existing_pages = initialize_state()
     txt_files: list[str] = list_txt_files()
-    range_arg: str = sys.argv[1] if len(sys.argv) > 1 else ""
-    start, end = parse_range_argument(range_arg, len(txt_files))
-    selected_files: list[str] = txt_files[start:end]
+    selection_arg: str = sys.argv[1] if len(sys.argv) > 1 else ""
+    selected_indexes = parse_selection_argument(selection_arg, len(txt_files))
+    selected_files: list[str] = [txt_files[i] for i in selected_indexes]
     if not selected_files:
         print("No input TXT files selected.")
         return
@@ -209,6 +241,7 @@ def main() -> None:
     merge_gemini_output(graph_state, page_state, response_data)
 
     save_json_file(CONCEPTS_PATH, graph_state)
+    save_concepts_txt(CONCEPTS_TXT_PATH, graph_state["concepts"])
     save_json_file(PAGES_PATH, page_state)
     print(formatted_json)
 
