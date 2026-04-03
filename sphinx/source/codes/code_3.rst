@@ -5,13 +5,3 @@ Item 1
 ------
 
 35: https://boolean.wiki.uib.no/Known_infinite_families_of_APN_functions
-
-.. code-block:: bash
-   :linenos:
-   :caption: example.py
-   :emphasize-lines: 3,5
-
-   def hello_world():
-       # This is a comment
-       print("Hello from Sphinx!")
-       return True
