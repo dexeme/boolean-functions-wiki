@@ -1,0 +1,42 @@
+<?php
+if ( !defined( 'MEDIAWIKI' ) ) {
+    exit;
+}
+
+$wgSitename = "Minha Wiki TCC";
+$wgMetaNamespace = "Minha_Wiki_TCC";
+
+$wgScriptPath = "";
+$wgServer = "http://localhost:8080";
+$wgResourceBasePath = $wgScriptPath;
+$wgArticlePath = "/wiki/$1";
+$wgUsePathInfo = true;
+
+$wgLogo = "$wgResourceBasePath/resources/assets/wiki.png";
+$wgEnableUploads = true;
+$wgUploadDirectory = "$IP/images";
+
+$wgDBtype = "mysql";
+$wgDBserver = "db";
+$wgDBname = "boolean_functions";
+$wgDBuser = "wikiuser";
+$wgDBpassword = "examplepassword";
+
+$wgLanguageCode = "pt-br";
+$wgMainCacheType = CACHE_NONE;
+$wgCacheDirectory = false;
+
+$wgEnableEmail = false;
+$wgEnableUserEmail = false;
+$wgEmergencyContact = "admin@example.local";
+$wgPasswordSender = "no-reply@example.local";
+$wgEmailAuthentication = false;
+
+$wgGroupPermissions['*']['edit'] = false;
+$wgGroupPermissions['*']['createaccount'] = false;
+
+wfLoadSkin( 'Vector' );
+$wgDefaultSkin = 'vector';
+
+wfLoadExtension( 'ParserFunctions' );
+wfLoadExtension( 'Cite' );

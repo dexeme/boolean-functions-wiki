@@ -1,0 +1,199 @@
+{
+  "pages": [
+    {
+      "title": "--------------------------------",
+      "url": "https://boolean.wiki.uib.no/--------------------------------",
+      "concepts": []
+    },
+    {
+      "title": "APN_Permutations",
+      "url": "https://boolean.wiki.uib.no/APN_Permutations",
+      "concepts": [
+        "APN Permutations",
+        "Binary Linear Code",
+        "Simplex Codes"
+      ]
+    },
+    {
+      "title": "APN_functions_obtained_via_polynomial_expansion_in_small_dimensions",
+      "url": "https://boolean.wiki.uib.no/APN_functions_obtained_via_polynomial_expansion_in_small_dimensions",
+      "concepts": []
+    },
+    {
+      "title": "APN_polynomials_over_GF(2%5En)_CCZ-inequivalent_to_quadratic_functions",
+      "url": "https://boolean.wiki.uib.no/APN_polynomials_over_GF(2%5En)_CCZ-inequivalent_to_quadratic_functions",
+      "concepts": []
+    },
+    {
+      "title": "APN_polynomials_over_GF(2%5En)_CCZ-inequivalent_to_quadratic_functions_and_monomials",
+      "url": "https://boolean.wiki.uib.no/APN_polynomials_over_GF(2%5En)_CCZ-inequivalent_to_quadratic_functions_and_monomials",
+      "concepts": []
+    },
+    {
+      "title": "Algebraic_immunity_of_Boolean_functions",
+      "url": "https://boolean.wiki.uib.no/Algebraic_immunity_of_Boolean_functions",
+      "concepts": [
+        "Annihilators",
+        "Algebraic Immunity"
+      ]
+    },
+    {
+      "title": "Algorithms_for_testing_equivalence",
+      "url": "https://boolean.wiki.uib.no/Algorithms_for_testing_equivalence",
+      "concepts": []
+    },
+    {
+      "title": "Almost_Perfect_Nonlinear_(APN)_Functions",
+      "url": "https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions",
+      "concepts": [
+        "Almost Perfect Nonlinear (APN) Functions"
+      ]
+    },
+    {
+      "title": "Bent_Boolean_Functions",
+      "url": "https://boolean.wiki.uib.no/Bent_Boolean_Functions",
+      "concepts": []
+    },
+    {
+      "title": "Bent_Functions",
+      "url": "https://boolean.wiki.uib.no/Bent_Functions",
+      "concepts": [
+        "Bent Functions"
+      ]
+    },
+    {
+      "title": "Books_on_Boolean_Functions",
+      "url": "https://boolean.wiki.uib.no/Books_on_Boolean_Functions",
+      "concepts": []
+    },
+    {
+      "title": "Boolean_Functions",
+      "url": "https://boolean.wiki.uib.no/Boolean_Functions",
+      "concepts": [
+        "Boolean Functions",
+        "Finite Fields",
+        "Algebraic Normal Form",
+        "Univariate Representation",
+        "Trace Representation",
+        "Algebraic Degree",
+        "Walsh Transform",
+        "Balanced Functions",
+        "Nonlinearity",
+        "Affine Equivalence",
+        "EA-equivalence"
+      ]
+    },
+    {
+      "title": "Boomerang_uniformity",
+      "url": "https://boolean.wiki.uib.no/Boomerang_uniformity",
+      "concepts": [
+        "Boomerang Uniformity"
+      ]
+    },
+    {
+      "title": "Commutative_Presemifields_and_Semifields",
+      "url": "https://boolean.wiki.uib.no/Commutative_Presemifields_and_Semifields",
+      "concepts": [
+        "Presemifields",
+        "Semifields"
+      ]
+    },
+    {
+      "title": "Correlation_immunity_and_resiliency_of_Boolean_functions",
+      "url": "https://boolean.wiki.uib.no/Correlation_immunity_and_resiliency_of_Boolean_functions",
+      "concepts": [
+        "Correlation Immunity",
+        "Resilient Functions"
+      ]
+    },
+    {
+      "title": "Differential_Distribution_Table_(DDT)",
+      "url": "https://boolean.wiki.uib.no/Differential_Distribution_Table_(DDT)",
+      "concepts": []
+    },
+    {
+      "title": "Differential_uniformity",
+      "url": "https://boolean.wiki.uib.no/Differential_uniformity",
+      "concepts": [
+        "Derivatives",
+        "Differential Uniformity",
+        "Planar Functions"
+      ]
+    },
+    {
+      "title": "Differentially_4-uniform_permutation",
+      "url": "https://boolean.wiki.uib.no/Differentially_4-uniform_permutation",
+      "concepts": []
+    },
+    {
+      "title": "Differentially_4-uniform_permutations",
+      "url": "https://boolean.wiki.uib.no/Differentially_4-uniform_permutations",
+      "concepts": []
+    },
+    {
+      "title": "Equivalence_Algorithms",
+      "url": "https://boolean.wiki.uib.no/Equivalence_Algorithms",
+      "concepts": [
+        "Jacobian"
+      ]
+    },
+    {
+      "title": "Generating_representatives_from_the_known_infinite_APN_families",
+      "url": "https://boolean.wiki.uib.no/Generating_representatives_from_the_known_infinite_APN_families",
+      "concepts": []
+    },
+    {
+      "title": "Lower_bounds_on_APN-distance_for_all_known_APN_functions",
+      "url": "https://boolean.wiki.uib.no/Lower_bounds_on_APN-distance_for_all_known_APN_functions",
+      "concepts": [
+        "APN-distance"
+      ]
+    },
+    {
+      "title": "Niho_bent_functions",
+      "url": "https://boolean.wiki.uib.no/Niho_bent_functions",
+      "concepts": [
+        "Niho Power Function"
+      ]
+    },
+    {
+      "title": "Nonlinearity",
+      "url": "https://boolean.wiki.uib.no/Nonlinearity",
+      "concepts": [
+        "Almost Bent (AB) Functions"
+      ]
+    },
+    {
+      "title": "Notation",
+      "url": "https://boolean.wiki.uib.no/Notation",
+      "concepts": []
+    },
+    {
+      "title": "Plateaued_Functions",
+      "url": "https://boolean.wiki.uib.no/Plateaued_Functions",
+      "concepts": [
+        "Plateaued Functions",
+        "Autocorrelation Function",
+        "Strongly-Plateaued Functions"
+      ]
+    },
+    {
+      "title": "Polygon",
+      "url": "https://boolean.wiki.uib.no/Polygon",
+      "concepts": []
+    },
+    {
+      "title": "Projective_plane",
+      "url": "https://boolean.wiki.uib.no/Projective_plane",
+      "concepts": []
+    },
+    {
+      "title": "Vectorial_Boolean_Functions",
+      "url": "https://boolean.wiki.uib.no/Vectorial_Boolean_Functions",
+      "concepts": [
+        "Vectorial Boolean Functions",
+        "CCZ-equivalence"
+      ]
+    }
+  ]
+}

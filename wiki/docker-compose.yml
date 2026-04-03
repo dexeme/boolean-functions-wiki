@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  mediawiki:
+    image: mediawiki:stable
+    container_name: mediawiki_app
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - MW_DB_SERVER=db
+      - MW_DB_USER=wikiuser
+      - MW_DB_PASSWORD=examplepassword
+      - MW_DB_NAME=boolean_functions
+    volumes:
+      - ./images:/var/www/html/images
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+  db:
+    image: mariadb:10.11
+    container_name: mediawiki_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=boolean_functions
+      - MYSQL_USER=wikiuser
+      - MYSQL_PASSWORD=examplepassword
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
