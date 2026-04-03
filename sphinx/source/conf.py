@@ -27,3 +27,7 @@ exclude_patterns = []
 
 html_theme = 'classic'
 html_static_path = ['_static']
+html_theme_options = {
+    'globaltoc_collapse': False,
+    'globaltoc_maxdepth': 3,
+}
