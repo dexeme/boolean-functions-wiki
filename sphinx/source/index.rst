@@ -20,8 +20,26 @@ Codes
 .. toctree::
    :maxdepth: 1
 
-   Codes Item 1 <codes/code_1>
-   Codes Item 2 <codes/code_2>
-   Codes Item 3 <codes/code_3>
-   Codes Item 4 <codes/code_4>
-   Codes Item 5 <codes/code_5>
+   ANF <codes/ANF>
+   APN_families <codes/APN_families>
+   Ccz_inequivalent_representatives_from_the_known_families <codes/Ccz_inequivalent_representatives_from_the_known_families>
+   CCZeq <codes/CCZeq>
+   CCZeq2 <codes/CCZeq2>
+   Cubic <codes/Cubic>
+   DDT <codes/DDT>
+   DeltaRank <codes/DeltaRank>
+   GammaRank <codes/GammaRank>
+   Gold_spectra <codes/Gold_spectra>
+   Habahaba <codes/Habahaba>
+   Is_APN <codes/Is_APN>
+   IsAPNdeg2 <codes/IsAPNdeg2>
+   IsPN <codes/IsPN>
+   IsPNdeg2 <codes/IsPNdeg2>
+   MGF <codes/MGF>
+   Orthoderivative <codes/Orthoderivative>
+   Quadratic_apn_polynomials_7 <codes/Quadratic_apn_polynomials_7>
+   Quadratic_apn_polynomials_8 <codes/Quadratic_apn_polynomials_8>
+   Switching_classes <codes/Switching_classes>
+   T1_spectra <codes/T1_spectra>
+   T2_spectra <codes/T2_spectra>
+   Walsh <codes/Walsh>

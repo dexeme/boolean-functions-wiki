@@ -1,31 +1,24 @@
-**Codes Item 5**
-================
+Walsh
+=====
 
-Item 1
-------
-
-89: https://boolean.wiki.uib.no/Walsh_transform
-
-.. code-block:: bash
+.. code-block:: text
    :linenos:
-   :caption: example.py
-   :emphasize-lines: 3,5
 
    //The ANF of an n variables Boolean function is a polynomial with n variables and coefficients in GF(2)
    //The ANF of a vectorial Boolean (n,m)-function is a sequence of m ANFs of n variables Boolean functions
-   //The univariate representation of an n variables Boolean function is an univariate polynomial with coefficients in GF(2^n) such that its image is in GF(2)
+   //The univariate representation of an n variables Boolean function is an univariate polynomial with coefficients in GF(2^n) such that its image is in GF(2) 
    //The univariate representation of a vectorial Boolean (n,n)-function is an univariate polynomial with coefficients in GF(2^n)
-
+   
    function IntToSequence(i,n)
        return PowerSequence(GF(2))!Intseq(i,2,n);
    end function;
-
-
+   
+   
    function IntToElt(i,n,K)
        return Seqelt(IntToSequence(i,n),K);
    end function;
-
-
+   
+   
    function getConvertionFunction(n :vector:=false)
        D:=AssociativeArray();
        if vector then
@@ -40,7 +33,7 @@ Item 1
        end if;
        return D;
    end function;
-
+   
    //Maps a to b such that a\cdot x=\Tr(bx)
    function getDualBasis(n)
        K:=GF(2^n);
@@ -56,10 +49,10 @@ Item 1
            else
                B[i]:=gc[i]*fa;
            end if;
-       end for;
+       end for;  
        return B;
    end function;
-
+   
    function getTraceConvertion(D,n)
        B:=getDualBasis(n);
        trD:=AssociativeArray();
@@ -70,7 +63,7 @@ Item 1
        end for;
        return trD;
    end function;
-
+   
    FourierHadamard:=procedure(~H,n : initialIndex:=0)
        for i:=1 to n do
            for r:=0 to (2^n -1) by 2^i do
@@ -87,18 +80,18 @@ Item 1
            end for;
        end for;
    end procedure;
-
+   
    TruthTableToWalshMatrix:=function(TT,n)
        m:=#TT;
        WF:=ZeroMatrix(Integers(), 2^n, 2^m);
        r:=2^n;
        c:=2^m;
-       for i:=1 to r do
+       for i:=1 to r do 
            WF[i][1]:=1;
        end for;
        for j:=2 to c do
            Sj:=Support(Vector(Intseq(j-1,2,m)));
-           for i:=1 to r do
+           for i:=1 to r do 
                u:=Zero(GF(2));
                for k in Sj do
                    u +:=TT[k][i];
@@ -111,15 +104,15 @@ Item 1
            end for;
        end for;
        FourierHadamard(~WF,n : initialIndex:=1);
-       return WF;
+       return WF;  
    end function;
-
+   
    //Walsh transform for Boolean functions
    bWalsh:=function(f: anf:=false)
        Wf:=AssociativeArray();
        if anf then
            n:=Rank(Parent(f));
-       else
+       else  
            n:=Degree(BaseRing(Parent(f)));
        end if;
        q:=2^n;
@@ -145,7 +138,7 @@ Item 1
        end if;
        return Wf2;
    end function;
-
+   
    //Walsh transform for vectorial Boolean functions
    vWalsh:=function(F:  anf:=false)
        //vWalsh starts here
@@ -155,24 +148,24 @@ Item 1
            D:=getConvertionFunction(n: vector:=true);
            if m eq n then
                cD:=D;
-           else
+           else 
                cD:=getConvertionFunction(m : vector:=true);
            end if;
-           TT:=[([Evaluate(F[j],D[i]): i in [0..(2^n-1)]]): j in [1..m]];
+           TT:=[([Evaluate(F[j],D[i]): i in [0..(2^n-1)]]): j in [1..m]]; 
        else
            K:=BaseRing(Parent(F));
-           a:=K.1;
+           a:=K.1;   
            m:=Degree(K);
            n:=m;
            D:=getConvertionFunction(n);
-           TT:=[([Trace(a^j *Evaluate(F,D[i])): i in [0..(2^n-1)]]): j in [0..(n-1)]];
+           TT:=[([Trace(a^j *Evaluate(F,D[i])): i in [0..(2^n-1)]]): j in [0..(n-1)]]; 
        end if;
        WFm:=TruthTableToWalshMatrix(TT,n);
        WF:=AssociativeArray();
        if anf then
            for i:=0 to (2^n-1) do
                Di:=D[i];
-               WF[Di]:=AssociativeArray();
+               WF[Di]:=AssociativeArray(); 
                for j:=0 to (2^m-1) do
                    WF[Di][cD[j]]:=WFm[i+1][j+1];
                end for;
@@ -181,7 +174,7 @@ Item 1
            trD:=getTraceConvertion(D,n);
            for i:=0 to (2^n-1) do
                trDi:=trD[i];
-               WF[trDi]:=AssociativeArray();
+               WF[trDi]:=AssociativeArray(); 
                for j:=0 to (2^m-1) do
                    WF[trDi][D[j]]:=WFm[i+1][j+1];
                end for;
@@ -189,7 +182,7 @@ Item 1
        end if;
        return WF;
    end function;
-
+   
    TruthTableToBoolean:=function(TT)
        n:=Integers()!Log(2,#TT);
        R<[x]>:=PolynomialRing(GF(2),n);
@@ -208,12 +201,12 @@ Item 1
            end for;
            if IsOne(ai) then
                f+:=(&*[x[j]: j in Si]);
-           end if;
-       end for;
+           end if;    
+       end for; 
        return f;
    end function;
-
-
+   
+   
    InverseVectorialWalsh:=function(WF : anf:=false)
        n:=Integers()!Log(2,#Keys(WF));
        D:=getConvertionFunction(n :vector:=anf);
@@ -227,7 +220,7 @@ Item 1
                for i:=0 to (2^n-1) do
                    WFc[j][i]:=WF[D[i]][vj];
                end for;
-               FourierHadamard(~WFc[j],n);
+               FourierHadamard(~WFc[j],n); 
            end for;
            return [TruthTableToBoolean([GF(2)!((1- (WFc[j][i] div 2^n) ) div 2): i in [0..(2^n-1)]]): j in [1..m]];
        else
@@ -245,7 +238,7 @@ Item 1
                end for;
                FourierHadamard(~WFc[j],n);
            end for;
-           return Interpolation([D[i]: i in [0..(2^n-1)]],[ &+[((1-(WFc[j][i] div 2^n)) div 2)*B[j] : j in [1..n]]: i in [0..(2^n-1)]]);
-       end if;
+           return Interpolation([D[i]: i in [0..(2^n-1)]],[ &+[((1-(WFc[j][i] div 2^n)) div 2)*B[j] : j in [1..n]]: i in [0..(2^n-1)]]);  
+       end if;  
    end function;
-
+   

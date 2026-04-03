@@ -1,25 +1,18 @@
-**Codes Item 2**
-================
+APN_families
+============
 
-Item 1
-------
-
-34: https://boolean.wiki.uib.no/Generating_representatives_from_the_known_infinite_APN_families
-
-.. code-block:: bash
+.. code-block:: text
    :linenos:
-   :caption: example.py
-   :emphasize-lines: 3,5
 
    //Li, Kangquan, and Nikolay Kaleyski. "Two new infinite families of APN functions in trivariate form." IEEE Transactions on Information Theory (2023).
-
+   
    ReduceMod:=procedure(~f,n)
        T:=Terms(f);
        x:=Parent(f).1;
        M:=2^n-1;
        for t in T do
            e:=Exponents(t)[1];
-           if e ge M then
+           if e ge M then 
                f +:=t;
                c:=LeadingCoefficient(t);
                e:=e mod M;
@@ -27,28 +20,28 @@ Item 1
            end if;
        end for;
    end procedure;
-
+   
    //--------------------------------------------------
    //Power functions
-
+   
    Gold:=function(n,i)
        if not IsOne(GCD(i,n)) then
            error "GCD(i,n) is not 1";
-       end if;
+       end if;  
        R:=PolynomialRing(GF(2^n));
        x:=R.1;
        return x^(2^i+1);
    end function;
-
+   
    Kasami:=function(n,i)
        if not IsOne(GCD(i,n)) then
            error "GCD(i,n) is not 1";
        end if;
        R:=PolynomialRing(GF(2^n));
        x:=R.1;
-       return x^(2^(2*i)-2^i+1);
+       return x^(2^(2*i)-2^i+1);  
    end function;
-
+   
    Welch:=function(n)
        if not IsOdd(n) then
            error "n is not odd";
@@ -58,7 +51,7 @@ Item 1
        t:=(n-1) div 2;
        return x^(2^t+3);
    end function;
-
+   
    Niho:=function(n)
        if not IsOdd(n) then
            error "n is not odd";
@@ -71,9 +64,9 @@ Item 1
        else
            d:=2^t+2^((3*t+1) div 2)-1;
        end if;
-       return x^d;
+       return x^d;    
    end function;
-
+   
    Inverse:=function(n)
        if not IsOdd(n) then
            error "n is not odd";
@@ -82,7 +75,7 @@ Item 1
        x:=R.1;
        return x^(2^n-2);
    end function;
-
+   
    Dobbertin:=function(n)
        if not IsDivisibleBy(n,5) then
            error "n is not divisible by 5";
@@ -92,18 +85,18 @@ Item 1
        i:=n div 5;
        return x^(2^(4*i)+2^(3*i)+2^(2*i)+2^(i)-1);
    end function;
-
+   
    //--------------------------------------------------
    //Quadratic APN polynomials
-
+   
    //p=3
    Family1:=function(n,s,u : CheckParameters:=true)
        p:=3;
        k:=n div p;
        K:=GF(2^n);
-       if CheckParameters then
+       if CheckParameters then 
            if n lt 12 then
-               error "n is not greather than or equal to 12";
+               error "n is not greather than or equal to 12"; 
            elif not IsDivisibleBy(n,p) then
                error "n is not divisible by p=3";
            elif not IsOne(GCD(k,3)) then
@@ -119,17 +112,17 @@ Item 1
        i:=(s*k) mod p;
        m:=p-i;
        e:=(2^(i*k)+2^(m*k+s)) mod (2^n-1);
-       return (x^(2^s+1) +u^(2^k-1) * x^(e));
+       return (x^(2^s+1) +u^(2^k-1) * x^(e)); 
    end function;
-
+   
    //p=4
    Family2:=function(n,s,u : CheckParameters:=true)
        p:=4;
        k:=n div p;
        K:=GF(2^n);
-       if CheckParameters then
+       if CheckParameters then 
            if n lt 12 then
-               error "n is not greather than or equal to 12";
+               error "n is not greather than or equal to 12"; 
            elif not IsDivisibleBy(n,p) then
                error "n is not divisible by p=4";
            elif not IsOne(GCD(k,3)) then
@@ -145,10 +138,10 @@ Item 1
        i:=(s*k) mod p;
        m:=p-i;
        e:=(2^(i*k)+2^(m*k+s)) mod (2^n-1);
-       return (x^(2^s+1) +u^(2^k-1) * x^(e));
+       return (x^(2^s+1) +u^(2^k-1) * x^(e));  
    end function;
-
-
+   
+   
    Family3:=function(n,i,c,s : CheckParameters:=true)
        m:=n div 2;
        q:=2^m;
@@ -159,7 +152,7 @@ Item 1
            if not IsEven(n) then
                error "n is not even";
            elif not IsOne(GCD(i,m)) then
-               error "GCD(i,m) is not 1 where m=n/2";
+               error "GCD(i,m) is not 1 where m=n/2"; 
            elif s in GF(2^m) then
                error "s is in GF(2^m) where m=n/2";
            else
@@ -172,22 +165,22 @@ Item 1
                if IsZero(Evaluate(P,u)) then
                    error ErrorMessage;
                end if;
-               v:=u;
-               for j:=2 to q do
+               v:=u; 
+               for j:=2 to q do 
                    v *:=u;
                    if IsZero(Evaluate(P,v)) then
                        error ErrorMessage;
                    end if;
                end for;
-           end if;
+           end if;     
        end if;
        return x*(x^(2^i) + x^q +c*x^((2^i) *q))+ x^(2^i) *(c^q *x^q + s*x^((2^i)*q))+x^((2^i+1)*q);
    end function;
-
-
+   
+   
    Family4:=function(n,a : CheckParameters:=true)
        K:=GF(2^n);
-       if CheckParameters then
+       if CheckParameters then 
            if IsZero(a) then
                error "a is zero";
            elif not a in K then
@@ -198,13 +191,13 @@ Item 1
        x:=R.1;
        return x^3+ a^(2^n-2) *(&+[a^(3*2^i) *x^((9*2^i) mod (2^n-1) ) : i in [0..(n-1)]]);
    end function;
-
-
+   
+   
    Family5:=function(n,a : CheckParameters:=true)
        K:=GF(2^n);
        if CheckParameters then
            if not IsDivisibleBy(n,3) then
-               error "n is not divisible by 3";
+               error "n is not divisible by 3";  
            elif IsZero(a) then
                error "a is zero";
            end if;
@@ -214,13 +207,13 @@ Item 1
        x:=R.1;
        return x^3+ a^(2^n-2) *(&+[a^(3*2^(3*i) ) *x^((9*2^(3*i) ) mod (2^n-1) ) +a^(6*2^(3*i) ) *x^((18*2^(3*i) ) mod (2^n-1) ) : i in [0..(k-1)]]);
    end function;
-
-
+   
+   
    Family6:=function(n,a : CheckParameters:=true)
        K:=GF(2^n);
-       if CheckParameters then
+       if CheckParameters then 
            if not IsDivisibleBy(n,3) then
-               error "n is not divisible by 3";
+               error "n is not divisible by 3";  
            elif IsZero(a) then
                error "a is zero";
            end if;
@@ -230,8 +223,8 @@ Item 1
        x:=R.1;
        return x^3+ a^(2^n-2) *(&+[a^(12*2^(3*i) ) *x^((36*2^(3*i) ) mod (2^n-1) ) +a^(6*2^(3*i) ) *x^((18*2^(3*i) ) mod (2^n-1) ) : i in [0..(k-1)]]);
    end function;
-
-
+   
+   
    Family7to9:=function(n,s,u,v,w : CheckParameters:=true)
        k:=n div 3;
        K:=GF(2^n);
@@ -245,21 +238,21 @@ Item 1
            elif not IsDivisibleBy(k+s,3) then
                error "k+s is not divisible by 3 where k=n/3";
            elif not IsPrimitive(u) then
-               error "u is not primitive";
+               error "u is not primitive"; 
            elif not v in GF(2^k) then
                error "v is not in GF(2^k) where k=n/3";
            elif not w in GF(2^k) then
                error "w is not in GF(2^k) where k=n/3";
            elif IsOne(v*w) then
                error "v*w=1";
-           end if;
+           end if;    
        end if;
        R:=PolynomialRing(K);
        x:=R.1;
-       return u*x^(2^s+1) + u^(2^k) *x^(2^(n-k)+2^(k+s)) +v*x^(2^(n-k)+1)+w*u^(2^k+1) *x^(2^s+2^(k+s));
+       return u*x^(2^s+1) + u^(2^k) *x^(2^(n-k)+2^(k+s)) +v*x^(2^(n-k)+1)+w*u^(2^k+1) *x^(2^s+2^(k+s)); 
    end function;
-
-
+   
+   
    Family10:=function(n,a,b,c : CheckParameters:=true)
        m:=(n div 3);
        q:=2^m;
@@ -270,8 +263,8 @@ Item 1
            if not IsDivisibleBy(n,3) then
                error "n is not divisible by 3";
            elif not IsOdd(m) then
-               error "m=n/3 is not odd";
-           else
+               error "m=n/3 is not odd"; 
+           else  
                L:=a*x^(q^2)+b*x^q+c*x;
                ErrorMessage:="L=a*x^(q^2)+b*x^q+c*x where q=2^(n/3) does not satisfy the conditions";
                d:=GCD(q-1,q^2+q+1);
@@ -305,14 +298,14 @@ Item 1
                                error ErrorMessage;
                            end if;
                        end if;
-                   end for;
-               end for;
+                   end for; 
+               end for; 
            end if;
        end if;
-       return (a^2*x^(2*q^2+1) +b^2*x^(2*q+1) +a*x^(q^2+2) +b*x^(q+2) +(c^2+c)*x^3 );
+       return (a^2*x^(2*q^2+1) +b^2*x^(2*q+1) +a*x^(q^2+2) +b*x^(q+2) +(c^2+c)*x^3 );  
    end function;
-
-
+   
+   
    Family11:=function(n,i,k,a,b,c : CheckParameters:=true)
        m:=n div 2;
        if CheckParameters then
@@ -323,7 +316,7 @@ Item 1
            elif IsDivisibleBy(m,3) then
                error "m is divisible by 3";
            elif not a in GF(4) and not IsPrimitive(GF(4)!a) then
-               error "a is not primitive in GF(4)";
+               error "a is not primitive in GF(4)";  
            elif not <n,i,k,b,c> eq <10,3,2,Zero(GF(2^n)),Zero(GF(2^n))> then
                if not <a,b,c> eq <a,a^2,One(GF(2^n))> then
                        error "(b,c) is not (a^2,1)";
@@ -336,16 +329,16 @@ Item 1
                        error "i is not valid";
                    end if;
                end if;
-           end if;
+           end if;            
        end if;
        K:=GF(2^n);
        R:=PolynomialRing(K);
        x:=R.1;
        q:=2^m;
-       return x^3+ a*x^((2^k) *(2^i+1)) + b*x^(3*q) + c*x^((2^k)*q*(2^i+1));
+       return x^3+ a*x^((2^k) *(2^i+1)) + b*x^(3*q) + c*x^((2^k)*q*(2^i+1)); 
    end function;
-
-
+   
+   
    Family12:=function(n,i,s,a,b,c : CheckParameters:=true)
        m:=(n div 2);
        q:=2^m;
@@ -364,7 +357,7 @@ Item 1
                bol:=false;
                Cube:={u^3: u in GF(q^2)};
                if s eq (3*i) then
-                   bol:=(not b in Cube) and ((b^(2^(2*i)-2^i+1) *c^(-1)) in GF(q));
+                   bol:=(not b in Cube) and ((b^(2^(2*i)-2^i+1) *c^(-1)) in GF(q)); 
                elif s eq (m-2*i) then
                    bol:=(not b in Cube) and ((b^(2^i-1) *c^(-2^(2*i))) in GF(q));
                elif s eq (m+2*i) then
@@ -374,20 +367,20 @@ Item 1
                elif s eq m then
                    bol:=(not b in Cube) and not (c in GF(q));
                elif s eq (n-i) then
-                   bol:=not ((b *c^(-2^i)) in GF(q));
-               end if;
-               if not bol then
+                   bol:=not ((b *c^(-2^i)) in GF(q));  
+               end if;   
+               if not bol then 
                    error "The parameters do not satisfy Theorem 2";
-               end if;
-           end if;
+               end if; 
+           end if;        
        end if;
        K:=GF(2^n);
        R:=PolynomialRing(K);
        x:=R.1;
-       return a*((b*x^(2^i+1))+(b*x^(2^i+1))^q )+a^q*((c*x^(2^s+1))+(c*x^(2^s+1))^q);
+       return a*((b*x^(2^i+1))+(b*x^(2^i+1))^q )+a^q*((c*x^(2^s+1))+(c*x^(2^s+1))^q); 
    end function;
-
-
+   
+   
    Family13:=function(n,s,v,mu : CheckParameters:=true)
        m:=(n div 3);
        K:=GF(2^n);
@@ -411,16 +404,16 @@ Item 1
                        error "L=x^(2^(m+s))+mu*x^(2^s)+x does not permute GF(2^n)";
                    end if;
                end for;
-           end if;
+           end if;     
        end if;
        f:=L^(2^m+1) + v*x^(2^m+1);
        ReduceMod(~f,n);
-       return f;
+       return f; 
    end function;
-
+   
    //--------------------------------------------------
    //Quadratic APN polynomials in bivariate form
-
+   
    Family14:=function(m,k,i,a : CheckParameters:=true)
        K:=GF(2^m);
        if CheckParameters then
@@ -430,20 +423,20 @@ Item 1
                error "GCD(k,m) is not 1";
            elif IsOdd(i) then
                error "i is not even";
-           else
+           else  
                for b in K do
                    if b^3 eq a then
                        error "a is a cube";
                    end if;
                end for;
-           end if;
+           end if;     
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
-       return [x*y,x^(2^k+1)+a*y^( (2^i) *(2^k+1))];
+       return [x*y,x^(2^k+1)+a*y^( (2^i) *(2^k+1))]; 
    end function;
-
+   
    Family15:=function(m,i,a,b : CheckParameters:=true)
        K:=GF(2^m);
        if CheckParameters then
@@ -451,21 +444,21 @@ Item 1
                error "GCD(i,m) is not 1";
            elif not a in GF(2) then
                error "a is not in GF(2)";
-           else
+           else    
                L:=function(x) return x^(2^i+1) +a*x+b; end function;
                for x in K do
                    if IsZero(L(x)) then
                        error "x^(2^i+1) +a*b+b has a root in GF(2^m)";
                    end if;
                end for;
-           end if;
+           end if;       
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x*y,x^(2^(2*i)+2^(3*i))+a*x^(2^(2*i)) *y^(2^i) +b*y^(2^i+1) ];
    end function;
-
+   
    Family16:=function(m,i,b,c : CheckParameters:=true)
        K:=GF(2^m);
        l:=m div 2;
@@ -473,63 +466,63 @@ Item 1
            if IsOdd(m) then
                error "m is not even";
            elif not IsOne(GCD(i,m)) then
-               error "GCD(i,m) is not 1";
+               error "GCD(i,m) is not 1"; 
            else
                L:=function(x) return (c*x^(2^i+1)+b*x^(2^i)+1)^(2^l+1)+x^(2^l+1); end function;
                for x in K do
                    if IsZero(L(x)) then
                        error "(c*x^(2^i+1)+b*x^(2^i)+1)^(2^l+1)+x^(2^l+1) has a root in GF(2^m)";
                    end if;
-               end for;
-           end if;
+               end for; 
+           end if;     
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x*y,x^(2^i+1)+x^(2^(l+i)) *y^(2^l)+b*x*y^(2^i)+c*y^(2^i+1)];
    end function;
-
+   
    Family17:=function(m,i : CheckParameters:=true)
        K:=GF(2^m);
        if CheckParameters then
            if not IsOne(GCD(3*i,m)) then
-               error "GCD(3*i,m) is not 1";
-           end if;
+               error "GCD(3*i,m) is not 1";  
+           end if;     
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x^(2^i+1)+x*y^(2^i)+y^(2^i+1) , x^(2^(2*i)+1)+x^(2^(2*i)) *y+y^(2^(2*i)+1)];
    end function;
-
+   
    Family18:=function(m,i : CheckParameters:=true)
        K:=GF(2^m);
        if CheckParameters then
            if not IsOne(GCD(3*i,m)) then
                error "GCD(3*i,m) is not 1";
            elif IsEven(m) then
-               error "m is not odd";
-           end if;
+               error "m is not odd";   
+           end if;     
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x^(2^i+1)+x*y^(2^i) +y^(2^i+1) , x^(2^(3*i)) *y+x*y^(2^(3*i))];
    end function;
-
+   
    Family19:=function(m,i : CheckParameters:=true)
        K:=GF(2^m);
        if CheckParameters then
            if not IsOne(GCD(3*i,m)) then
-               error "GCD(3*i,m) is not 1";
-           end if;
+               error "GCD(3*i,m) is not 1";  
+           end if;     
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x^3+x*y^2+y^3+x*y,x^5+x^4*y+y^5+x*y+x^2 *y^2];
    end function;
-
+   
    Family20:=function(m,k,a,B : CheckParameters:=true)
        K:=GF(2^m);
        r:=2^(k+ (m div 2));
@@ -544,21 +537,21 @@ Item 1
            elif IsZero(a) or not a in GF(2^(m div 2)) then
                error "a is not in the cyclic group of GF(2^(m/2))";
            elif IsZero(B^(q+r)+a^(q+1)) then
-               error "B^(q+r)=a^(q+1) where q=2^k, r=2^(k+m/2)";
+               error "B^(q+r)=a^(q+1) where q=2^k, r=2^(k+m/2)"; 
            else
                for x in K do
                    if x^3 eq B then
                        error "B is a cube";
                    end if;
-               end for;
-           end if;
+               end for;     
+           end if;  
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x^(q+1)+B*y^(q+1), x^r *y+(a*B^(-1))*x*y^r];
    end function;
-
+   
    Family21:=function(m,k,a : CheckParameters:=true)
        K:=GF(2^m);
        q:=2^k;
@@ -573,15 +566,15 @@ Item 1
                    if IsZero(L(x)) then
                        error "x^(2^k+1)+x+a has a root in GF(2^m)";
                    end if;
-               end for;
-           end if;
+               end for;  
+           end if;      
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x^(q+1) +x*y^q+a*y^(q+1), x^(q^2+1)+a*x^(q^2)*y +(1+a)^q *x*y^(q^2)+a*y^(q^2+1)];
    end function;
-
+   
    Family22:=function(m,a : CheckParameters:=true)
        K:=GF(2^m);
        if CheckParameters then
@@ -590,17 +583,17 @@ Item 1
                if IsZero(L(x)) then
                    error "x^3+x+a has a root in GF(2^m)";
                end if;
-           end for;
+           end for;         
        end if;
        R:=PolynomialRing(K,2);
        x:=R.1;
        y:=R.2;
        return [x^3+x*y+x*y^2+a*y^3, x^5+x*y+a*x^2 *y^2 +a*x^4 *y +(1+a)^2 *x*y^4 +a*y^5];
    end function;
-
+   
    //--------------------------------------------------
    //Quadratic APN polynomials in trivariate form
-
+   
    Family23:=function(m,i : CheckParameters:=true)
        K:=GF(2^m);
        q:=2^i;
@@ -628,9 +621,9 @@ Item 1
        x:=R.1;
        y:=R.2;
        z:=R.3;
-       return [x^(q+1)+x^q*z+y*z^q, x^q *z +y^(q+1), x*y^q +y^q *z+z^(q+1)];
+       return [x^(q+1)+x^q*z+y*z^q, x^q *z +y^(q+1), x*y^q +y^q *z+z^(q+1)]; 
    end function;
-
+   
    Family24:=function(m,i : CheckParameters:=true)
        K:=GF(2^m);
        q:=2^i;
@@ -658,5 +651,9 @@ Item 1
        x:=R.1;
        y:=R.2;
        z:=R.3;
-       return [x^(q+1)+x*y^q+y*z^q, x*y^q +z^(q+1), x^q *z +y^(q+1)+y^q *z];
+       return [x^(q+1)+x*y^q+y*z^q, x*y^q +z^(q+1), x^q *z +y^(q+1)+y^q *z]; 
    end function;
+   
+   
+   
+   

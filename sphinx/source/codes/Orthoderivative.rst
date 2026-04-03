@@ -1,28 +1,21 @@
-**Codes Item 4**
-================
+Orthoderivative
+===============
 
-Item 1
-------
-
-69: https://boolean.wiki.uib.no/Orthoderivative
-
-.. code-block:: bash
+.. code-block:: text
    :linenos:
-   :caption: example.py
-   :emphasize-lines: 3,5
 
    //Orthoderivative of quadratic APN (n,n)-functions
-
+   
    function IntToSequence(i,n)
        return PowerSequence(GF(2))!Intseq(i,2,n);
    end function;
-
-
+   
+   
    function IntToElt(i,n,K)
        return Seqelt(IntToSequence(i,n),K);
    end function;
-
-
+   
+   
    function getConvertionFunction(n :vector:=false)
        D:=AssociativeArray();
        if vector then
@@ -37,12 +30,12 @@ Item 1
        end if;
        return D;
    end function;
-
+   
    Orthoderivative:=function(F : anf:=false)
        if anf then
            n:=#F;
            D:=getConvertionFunction(n: vector:=true);
-           TT:=[([Evaluate(F[j],D[i]): i in [0..(2^n-1)]]): j in [1..n]];
+           TT:=[([Evaluate(F[j],D[i]): i in [0..(2^n-1)]]): j in [1..n]]; 
        else
            K:=BaseRing(Parent(F));
            n:=Degree(K);
@@ -62,11 +55,11 @@ Item 1
                end for;
            end for;
            v:=Rep(Generators(Kernel(J)));
-           if anf then
+           if anf then 
                p[D[k]]:=Eltseq(v);
-           else
+           else 
                p[D[k]]:=D[Seqint([Integers()!v[i]: i in [1..n]],2)];
-           end if;
+           end if; 
        end for;
        return p;
    end function;
