@@ -1,10 +1,11 @@
 Cubic
 =====
 
+Generates the only known non-quadratic APN polynomial, which is defined over GF(2^6)
+
 .. code-block:: text
    :linenos:
 
-   /* Generates the only known non-quadratic APN polynomial, which is defined over GF(2^6) */
    function generateCubicPolynomial()
    	n := 6;
    	FF<p> := GF(2^n);

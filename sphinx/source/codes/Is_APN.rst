@@ -1,11 +1,11 @@
 Is_APN
 ======
 
+Given a function in its univariate form, return true if it is APN and false otherwise
+
 .. code-block:: text
    :linenos:
 
-   // Given a function in its univariate form, return true if it is APN and false otherwise
-   
    function IsAPN(f)
    P:=Parent(f);
    F<al>:=BaseRing(P);

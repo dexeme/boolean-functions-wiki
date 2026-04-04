@@ -1,10 +1,11 @@
 Quadratic_apn_polynomials_7
 ===========================
 
+   /* Returns a sequence of the 490 currently known APN functions over GF(2^7), as described in "Yu Y, Wang M, Li Y. A matrix approach for constructing quadratic APN functions. Designs, codes and cryptography. 2014 Nov 1;73(2):587-600." */
+
 .. code-block:: text
    :linenos:
 
-   /* Returns a sequence of the 490 currently known APN functions over GF(2^7), as described in "Yu Y, Wang M, Li Y. A matrix approach for constructing quadratic APN functions. Designs, codes and cryptography. 2014 Nov 1;73(2):587-600." */
    function listQuadraticAPNfunctions7()
    
      n := 7;

@@ -1,20 +1,24 @@
 Orthoderivative
 ===============
 
+Orthoderivative of quadratic APN (n,n)-functions
+
 .. code-block:: text
    :linenos:
 
-   //Orthoderivative of quadratic APN (n,n)-functions
-   
    function IntToSequence(i,n)
        return PowerSequence(GF(2))!Intseq(i,2,n);
    end function;
-   
+
+.. code-block:: text
+   :linenos:
    
    function IntToElt(i,n,K)
        return Seqelt(IntToSequence(i,n),K);
    end function;
-   
+
+.. code-block:: text
+   :linenos:
    
    function getConvertionFunction(n :vector:=false)
        D:=AssociativeArray();

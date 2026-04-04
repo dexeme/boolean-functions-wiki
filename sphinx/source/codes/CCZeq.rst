@@ -1,10 +1,11 @@
 CCZeq
 =====
 
+Given two functions in univariate form, returns true if they are CCZ-equivalent and false otherwise
+
 .. code-block:: text
    :linenos:
 
-   \\given two functions in univariate form, returns true if they are CCZ-equivalent and false otherwise
    function CCZeq(f1,f2)
    R:=Parent(f1);
    F:=BaseRing(R); 

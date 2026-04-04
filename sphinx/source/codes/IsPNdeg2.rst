@@ -1,10 +1,11 @@
 IsPNdeg2
 ========
 
+Given f a quadratic function defined over PolynomialRing(FiniteField(p,n)), it returns true if f is PN, false otherwise
+
 .. code-block:: text
    :linenos:
 
-   //  given f a quadratic function defined over PolynomialRing(FiniteField(p,n)), it returns true if f is PN, false otherwise 
    IsPNdeg2:= function(f)
    R<x>:=Parent(f);
    F:=BaseRing(R);

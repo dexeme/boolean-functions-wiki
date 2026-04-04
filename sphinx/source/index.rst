@@ -30,7 +30,6 @@ Codes
    DeltaRank <codes/DeltaRank>
    GammaRank <codes/GammaRank>
    Gold_spectra <codes/Gold_spectra>
-   Habahaba <codes/Habahaba>
    Is_APN <codes/Is_APN>
    IsAPNdeg2 <codes/IsAPNdeg2>
    IsPN <codes/IsPN>

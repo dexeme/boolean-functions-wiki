@@ -12,11 +12,17 @@ Switching_classes
    	x := PolynomialRing(F).1;
    	return &+ [ x^(2^i) : i in [0..n-1] ];
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    function variableTrace(a)
        return Evaluate( polynomialTrace(BaseRing(a)), a );
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    function listAPN5()
        u := PrimitiveElement(GF(2^5));
        x := PolynomialRing(GF(2^5)).1;
@@ -28,7 +34,10 @@ Switching_classes
    
        return G5;
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    function listAPN6()
        u := PrimitiveElement(GF(2^6));
        x := PolynomialRing(GF(2^6)).1;
@@ -51,7 +60,9 @@ Switching_classes
        return G6;
    end function;
    
-   
+   .. code-block:: text
+   :linenos:
+
    function listAPN7()
    u := PrimitiveElement(GF(2^7));
        x := PolynomialRing(GF(2^7)).1;
@@ -79,7 +90,10 @@ Switching_classes
        u^14*x^6 + x^5 + x^3];
        return G7;
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    function listAPN8()
        w := PrimitiveElement(GF(2^8));
        x := PolynomialRing(GF(2^8)).1;

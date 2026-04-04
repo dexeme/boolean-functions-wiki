@@ -1,10 +1,10 @@
 Ccz_inequivalent_representatives_from_the_known_families
 ========================================================
 
+The following functions generate lists of CCZ-inequivalent representatives from all currently known infinite families over GF(2^n) with n in the range from 6 to 11.
+
 .. code-block:: text
    :linenos:
-
-   /* The following functions generate lists of CCZ-inequivalent representatives from all currently known infinite families over GF(2^n) with n in the range from 6 to 11. */
    
    function listAPNRepresentatives6()
    	n := 6;
@@ -19,7 +19,10 @@ Ccz_inequivalent_representatives_from_the_known_families
    
    	return G6;
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    function listAPNRepresentatives7()
    	n := 7;
    	FF<p> := GF(2^n);
@@ -37,7 +40,10 @@ Ccz_inequivalent_representatives_from_the_known_families
    
    	return G7;
    end function;
-   	
+
+.. code-block:: text
+   :linenos:
+
    function listAPNRepresentatives8()
    	n := 8;
    	FF<p> := GF(2^n);
@@ -55,7 +61,10 @@ Ccz_inequivalent_representatives_from_the_known_families
    
    	return G8;
    end function;
-   	
+
+.. code-block:: text
+   :linenos:
+
    function listAPNRepresentatives9()
    	n := 9;
    	FF<p> := GF(2^n);
@@ -78,7 +87,10 @@ Ccz_inequivalent_representatives_from_the_known_families
    
    	return G9;
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    function listAPNRepresentatives10()
    	n := 10;
    	FF<p> := GF(2^n);
@@ -98,7 +110,10 @@ Ccz_inequivalent_representatives_from_the_known_families
    
    	return G10;
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    function listAPNRepresentatives11()
    	n := 11;
    	FF<p> := GF(2^n);

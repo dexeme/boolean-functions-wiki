@@ -1,11 +1,12 @@
 IsAPNdeg2
 =========
 
+Given f a quadratic function defined over PolynomialRing(FiniteField(2,n)), it returns true if f is APN, false otherwise
+
 .. code-block:: text
    :linenos:
 
-   // given f a quadratic function defined over PolynomialRing(FiniteField(2,n)), it returns true if f is APN, false otherwise 
-   IsAPNdeg2:= function(f) 
+   IsAPNdeg2:= function(f)
    R<x>:=Parent(f);
    F:=BaseRing(R);
    n:=Degree(F);

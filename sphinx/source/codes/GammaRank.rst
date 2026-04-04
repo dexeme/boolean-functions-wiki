@@ -1,10 +1,11 @@
 GammaRank
 =========
 
+Given a vectorial Boolean function in univariate form, returns its gamma-rank
+
 .. code-block:: text
    :linenos:
 
-   // given a vectorial Boolean function in univariate form, returns its gamma-rank 
    function gammaRank(f)
            R:=Parent(f);
            Fn:=BaseRing(R);

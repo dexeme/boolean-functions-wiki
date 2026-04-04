@@ -13,8 +13,8 @@
 64 tabela
 65 LISTA DE CODIGOS!
 66 (main page)
-67-69 (niho) (notation) *
-70 code
+67-68 (niho) (notation) *
+69 code
 71-72 pessoas da area + papers
 73-75 (Projective_plane) *
 76 tabela + script
@@ -26,3 +26,10 @@
 86 (vectorial) *
 87-88 tabela
 89 code
+
+codes:
+28: https://boolean.wiki.uib.no/Differential_Distribution_Table_%28DDT%29
+34: https://boolean.wiki.uib.no/Generating_representatives_from_the_known_infinite_APN_families
+35: https://boolean.wiki.uib.no/Known_infinite_families_of_APN_functions
+69: https://boolean.wiki.uib.no/Orthoderivative
+89: https://boolean.wiki.uib.no/Walsh_transform

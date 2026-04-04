@@ -1,10 +1,11 @@
 IsPN
 ====
 
+Given a function in the univariate form, returns true if PN and false otherwise
+
 .. code-block:: text
    :linenos:
 
-   // given a function in the univariate form, returns true if PN and false otherwise
    function IsPN(poly)
    R<x>:=Parent(f);
    F<w>:=BaseRing(R);

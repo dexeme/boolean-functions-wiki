@@ -1,24 +1,28 @@
 DDT
 ===
 
+The ANF of an n variables Boolean function is a polynomial with n variables and coefficients in GF(2)
+The ANF of a vectorial Boolean (n,m)-function is a sequence of m ANFs of n variables Boolean functions
+The univariate representation of an n variables Boolean function is an univariate polynomial with coefficients in GF(2^n) such that its image is in GF(2)
+The univariate representation of a vectorial Boolean (n,n)-function is an univariate polynomial with coefficients in GF(2^n)
+
 .. code-block:: text
    :linenos:
 
-   //The ANF of an n variables Boolean function is a polynomial with n variables and coefficients in GF(2)
-   //The ANF of a vectorial Boolean (n,m)-function is a sequence of m ANFs of n variables Boolean functions
-   //The univariate representation of an n variables Boolean function is an univariate polynomial with coefficients in GF(2^n) such that its image is in GF(2) 
-   //The univariate representation of a vectorial Boolean (n,n)-function is an univariate polynomial with coefficients in GF(2^n)
-   
    function IntToSequence(i,n)
        return PowerSequence(GF(2))!Intseq(i,2,n);
    end function;
    
-   
+.. code-block:: text
+   :linenos:
+
    function IntToElt(i,n,K)
        return Seqelt(IntToSequence(i,n),K);
    end function;
    
-   
+   .. code-block:: text
+   :linenos:
+
    function getConvertionFunction(n :vector:=false)
        D:=AssociativeArray();
        if vector then
@@ -33,7 +37,10 @@ DDT
        end if;
        return D;
    end function;
-   
+
+.. code-block:: text
+   :linenos:
+
    TruthTableToMatrixDDT:=function(TT,n,m)
        DDT:=ZeroMatrix(Integers(), 2^n, 2^m);
        r:=2^n;

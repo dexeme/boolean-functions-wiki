@@ -1,19 +1,23 @@
 DeltaRank
 =========
 
+Given a vectorial Booleand function in univariate form, returns its delta rank
+
+
 .. code-block:: text
    :linenos:
 
-   // given a vectorial Booleand function in univariate form, returns its delta rank
-   function deltaRank(f) 
+   function deltaRank(f)
    R:=Parent(f);
    F:=BaseRing(R); n:=Degree(F);
    Gt<[E]>:=FreeAbelianGroup(2*n);
    G<[E]>:=AbelianGroup(quo<Gt|{2*e=0 : e in E}>);
    A1 := GroupAlgebra(  ComplexField(), G : Rep:="Vector"); A := GroupAlgebra( GF(2), G : Rep:="Vector");
+
    function rr1(v)
    return &+[E[i]*(Integers()!v[i]): i in [1..n]];
    end function;
+
    function rr2(v)
    return &+[E[i+n]*(Integers()!v[i]): i in [1..n]];
    end function;
@@ -34,4 +38,5 @@ DeltaRank
    J:=ideal<A|DDf>;
    
    DeltaRank:=Dimension(J);
-   return DeltaRank; end function;
+   return DeltaRank;
+   end function;
