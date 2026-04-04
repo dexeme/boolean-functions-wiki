@@ -60,7 +60,7 @@ Switching_classes
        return G6;
    end function;
    
-   .. code-block:: text
+.. code-block:: text
    :linenos:
 
    function listAPN7()
