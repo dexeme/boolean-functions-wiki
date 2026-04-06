@@ -13,6 +13,7 @@ Introduction
    Introduction Item 1 <content/introduction>
    Introduction Item 2 <content/topic_2>
    Introduction Item 3 <content/topic_3>
+   Sage Code <sage-code>
 
 Codes
 -----
