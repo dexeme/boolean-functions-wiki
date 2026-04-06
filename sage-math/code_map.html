@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Code Map &#8212; Boolean Functions  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ANF" href="../codes/ANF.html" />
+    <link rel="prev" title="Sage Code" href="sage_code.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../codes/ANF.html" title="ANF"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sage_code.html" title="Sage Code"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="code-map">
+<h1>Code Map<a class="headerlink" href="#code-map" title="Permalink to this headline">¶</a></h1>
+<p>[DEPENDENCY_LEVEL;DECLARED_IN;USES]</p>
+<p>[0;Orthoderivative,Walsh,DDT;]
+function IntToSequence(i,n)</p>
+<blockquote>
+<div><p>return PowerSequence(GF(2))!Intseq(i,2,n);</p>
+</div></blockquote>
+<p>end function;</p>
+<p>[0;Orthoderivative,Walsh,DDT;]
+function IntToElt(i,n,K)</p>
+<blockquote>
+<div><p>return Seqelt(IntToSequence(i,n),K);</p>
+</div></blockquote>
+<p>end function;</p>
+<p>[1;Orthoderivative,Walsh,DDT;IntToSequence,IntToElt]
+function getConvertionFunction(n :vector:=false)</p>
+<blockquote>
+<div><p>D:=AssociativeArray();
+if vector then</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for i:=0 to (2^n-1) do</dt><dd><p>D[i]:=IntToSequence(i,n);</p>
+</dd>
+</dl>
+<p>end for;</p>
+</div></blockquote>
+<dl>
+<dt>else</dt><dd><p>K:=GF(2^n);
+for i:=0 to (2^n-1) do</p>
+<blockquote>
+<div><p>D[i]:=IntToElt(i,n,K);</p>
+</div></blockquote>
+<p>end for;</p>
+</dd>
+</dl>
+<p>end if;
+return D;</p>
+</div></blockquote>
+<p>end function;</p>
+<p>[0;DDT;]
+TruthTableToMatrixDDT:=function(TT,n,m)</p>
+<blockquote>
+<div><p>DDT:=ZeroMatrix(Integers(), 2^n, 2^m);
+r:=2^n;
+DDT[1][1]:=2^n;
+for i:=1 to (r-1) do</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for x:=0 to (r-1) do</dt><dd><p>DDT[i+1][BitwiseXor(TT[x+1],TT[BitwiseXor(x, i)+1 ])+1]+:=1;</p>
+</dd>
+</dl>
+<p>end for;</p>
+</div></blockquote>
+<p>end for;
+return DDT;</p>
+</div></blockquote>
+<p>end function;</p>
+<p>[2;DDT;getConvertionFunction,TruthTableToMatrixDDT]
+DDT:=function(F:  anf:=false)</p>
+<blockquote>
+<div><dl>
+<dt>if anf then</dt><dd><p>m:=#F;
+n:=Rank(Parent(F[1]));
+D:=getConvertionFunction(n: vector:=true);
+if m eq n then</p>
+<blockquote>
+<div><p>cD:=D;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>else</dt><dd><p>cD:=getConvertionFunction(m : vector:=true);</p>
+</dd>
+</dl>
+<p>end if;
+P:=PowerSequence(Integers());
+TT:=[ Seqint(P!([Evaluate(F[j],D[i]): j in [1..m]]),2): i in [0..(2^n-1)] ];</p>
+</dd>
+<dt>else</dt><dd><p>K:=BaseRing(Parent(F));
+m:=Degree(K);
+n:=m;
+D:=getConvertionFunction(n);
+cD:=D;
+P:=PowerSequence(Integers());
+TT:=[ Seqint(P!Eltseq(Evaluate(F,D[i])),2): i in [0..(2^n-1)]];</p>
+</dd>
+</dl>
+<p>end if;
+mDDT:=TruthTableToMatrixDDT(TT,n,m);
+DDT:=AssociativeArray();
+for i:=0 to (2^n-1) do</p>
+<blockquote>
+<div><p>Di:=D[i];
+DDT[Di]:=AssociativeArray();
+for j:=0 to (2^m-1) do</p>
+<blockquote>
+<div><p>DDT[Di][cD[j]]:=mDDT[i+1][j+1];</p>
+</div></blockquote>
+<p>end for;</p>
+</div></blockquote>
+<p>end for;
+return DDT;</p>
+</div></blockquote>
+<p>end function;</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sage_code.html"
+                        title="previous chapter">Sage Code</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../codes/ANF.html"
+                        title="next chapter">ANF</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/sage-math/code_map.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../codes/ANF.html" title="ANF"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sage_code.html" title="Sage Code"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Tiago Siqueira.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  </body>
+</html>
