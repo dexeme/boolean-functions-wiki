@@ -13,6 +13,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script src="../_static/sidebar.js"></script>
     
@@ -43,15 +44,14 @@
 <p>Conteudo parcial extraido de <code class="docutils literal notranslate"><span class="pre">data/Boolean_Functions.txt</span></code>.</p>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Let mathbb{F} 2 n be the
-vector space of dimension n over the finite field with two elements. The vector space can also
-be endowed with the structure of the field, the finite field with 2 n elements, mathbb{F} 2 n . A function {displaystyle f:mathbb {F} _{2}^{n}rightarrow mathbb {F} } is called a Boolea
-n function in dimenstion n (or n-variable Boolean function ). Given {displaystyle x=(x_{1},l
-dots ,x_{n})in mathbb {F} _{2}^{n}} , the support of x is the set {displaystyle supp_{x}={iin {1,ldots ,n}:x_{i}=1}} . The Hamming weight of x is the size of its support ( {displays
-tyle w_{H}(x)=|supp_{x}|} ). Similarly the Hamming weight of a Boolean function f is the size o
-f its support, i.e. the set {displaystyle {xin mathbb {F} _{2}^{n}:f(x)neq 0}} . The Hammi
-ng distance of two functions f,g (𝖽 𝐻 (f,g)) is the size of the set {displaystyle {xinma
-thbb{F}_2^n : f(x)neq g(x) }(w_H(foplus g))}</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbb{F}_{2}^{n}\)</span> be the vector space of dimension <span class="math notranslate nohighlight">\(n\)</span> over the finite field with two elements. The vector space can also
+be endowed with the structure of the field, the finite field with <span class="math notranslate nohighlight">\(2^n\)</span> elements, <span class="math notranslate nohighlight">\(\mathbb{F}_{2^n}\)</span>.
+A function <span class="math notranslate nohighlight">\({\displaystyle f:\mathbb {F} _{2}^{n}\rightarrow \mathbb {F} }\)</span> is called a Boolean function in dimenstion <span class="math notranslate nohighlight">\(n\)</span> (or <span class="math notranslate nohighlight">\(n\)</span>-variable Boolean function ).
+Given <span class="math notranslate nohighlight">\({\displaystyle x=(x_{1},\ldots ,x_{n})\in \mathbb {F} _{2}^{n}}\)</span>, the support of <span class="math notranslate nohighlight">\(x\)</span> is the set
+<span class="math notranslate nohighlight">\({\displaystyle supp_{x}=\{i\in \{1,\ldots ,n\}:x_{i}=1\}}\)</span>. The Hamming weight of <span class="math notranslate nohighlight">\(x\)</span> is the size of its support
+<span class="math notranslate nohighlight">\(({\displaystyle w_{H}(x)=|supp_{x}|})\)</span>. Similarly the Hamming weight of a Boolean function <span class="math notranslate nohighlight">\(f\)</span> is the size of its support, i.e. the set
+<span class="math notranslate nohighlight">\({\displaystyle \{x\in \mathbb {F} _{2}^{n}:f(x)\neq 0\}}\)</span>. The Hamming distance of two functions <span class="math notranslate nohighlight">\(f,g (𝖽_{𝐻} (f,g))\)</span> is the size of the set
+<span class="math notranslate nohighlight">\({\displaystyle \{x\in\mathbb{F}_2^n : f(x)\neq g(x) \}\ (w_{H}(f\oplus g))}\)</span>.</p>
 </div>
 <div class="section" id="representation-of-a-boolean-function">
 <h2>Representation of a Boolean function<a class="headerlink" href="#representation-of-a-boolean-function" title="Permalink to this headline">¶</a></h2>
