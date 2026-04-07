@@ -1,3 +1,5 @@
+.. _IsAPNdeg2:
+
 IsAPNdeg2
 =========
 

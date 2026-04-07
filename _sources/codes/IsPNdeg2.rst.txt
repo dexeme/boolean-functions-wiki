@@ -1,3 +1,5 @@
+.. _IsPNdeg2:
+
 IsPNdeg2
 ========
 

@@ -41,15 +41,157 @@
           <div class="body" role="main">
             
   <div class="section" id="switching-classes">
-<h1>Switching_classes<a class="headerlink" href="#switching-classes" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function polynomialTrace(F)
+<span id="id1"></span><h1>Switching_classes<a class="headerlink" href="#switching-classes" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function polynomialTrace(F)
      expdim := #F;
      n := Round(Log(2,expdim));
      assert 2^n eq expdim;
@@ -57,26 +199,18 @@
      x := PolynomialRing(F).1;
      return &amp;+ [ x^(2^i) : i in [0..n-1] ];
 end function;
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function variableTrace(a)
+
+.. code-block:: text
+:linenos:
+
+function variableTrace(a)
     return Evaluate( polynomialTrace(BaseRing(a)), a );
 end function;
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function listAPN5()
+
+.. code-block:: text
+:linenos:
+
+function listAPN5()
     u := PrimitiveElement(GF(2^5));
     x := PolynomialRing(GF(2^5)).1;
     G5:=[
@@ -87,29 +221,11 @@ end function;
 
     return G5;
 end function;
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function listAPN6()
+
+.. code-block:: text
+:linenos:
+
+function listAPN6()
     u := PrimitiveElement(GF(2^6));
     x := PolynomialRing(GF(2^6)).1;
     G6:=[
@@ -130,35 +246,11 @@ end function;
     ];
     return G6;
 end function;
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function listAPN7()
+
+.. code-block:: text
+:linenos:
+
+function listAPN7()
 u := PrimitiveElement(GF(2^7));
     x := PolynomialRing(GF(2^7)).1;
     G7:=[
@@ -185,68 +277,11 @@ u := PrimitiveElement(GF(2^7));
     u^14*x^6 + x^5 + x^3];
     return G7;
 end function;
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function listAPN8()
+
+.. code-block:: text
+:linenos:
+
+function listAPN8()
     w := PrimitiveElement(GF(2^8));
     x := PolynomialRing(GF(2^8)).1;
     G8:=[x^3, x^9, x^3+variableTrace(x^9),  x^9+variableTrace(x^3),

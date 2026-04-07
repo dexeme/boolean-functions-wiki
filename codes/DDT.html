@@ -41,61 +41,12 @@
           <div class="body" role="main">
             
   <div class="section" id="ddt">
-<h1>DDT<a class="headerlink" href="#ddt" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>DDT<a class="headerlink" href="#ddt" title="Permalink to this headline">¶</a></h1>
 <p>The ANF of an n variables Boolean function is a polynomial with n variables and coefficients in GF(2)
 The ANF of a vectorial Boolean (n,m)-function is a sequence of m ANFs of n variables Boolean functions
 The univariate representation of an n variables Boolean function is an univariate polynomial with coefficients in GF(2^n) such that its image is in GF(2)
 The univariate representation of a vectorial Boolean (n,n)-function is an univariate polynomial with coefficients in GF(2^n)</p>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function IntToSequence(i,n)
-    return PowerSequence(GF(2))!Intseq(i,2,n);
-end function;
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function IntToElt(i,n,K)
-    return Seqelt(IntToSequence(i,n),K);
-end function;
-
-.. code-block:: text
-:linenos:
-
-function getConvertionFunction(n :vector:=false)
-    D:=AssociativeArray();
-    if vector then
-        for i:=0 to (2^n-1) do
-            D[i]:=IntToSequence(i,n);
-        end for;
-    else
-        K:=GF(2^n);
-        for i:=0 to (2^n-1) do
-            D[i]:=IntToElt(i,n,K);
-        end for;
-    end if;
-    return D;
-end function;
-</pre></div>
-</td></tr></table></div>
+<p>IntToSequence, IntToElt, getConvertionFunction</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -139,7 +90,10 @@ end function;
 41
 42
 43
-44</pre></div></td><td class="code"><div class="highlight"><pre><span></span>TruthTableToMatrixDDT:=function(TT,n,m)
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span>TruthTableToMatrixDDT:=function(TT,n,m)
     DDT:=ZeroMatrix(Integers(), 2^n, 2^m);
     r:=2^n;
     DDT[1][1]:=2^n;
@@ -150,6 +104,9 @@ end function;
     end for;
     return DDT;
 end function;
+
+.. code-block:: text
+:linenos:
 
 DDT:=function(F:  anf:=false)
     if anf then

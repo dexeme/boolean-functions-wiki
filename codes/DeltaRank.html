@@ -41,8 +41,8 @@
           <div class="body" role="main">
             
   <div class="section" id="deltarank">
-<h1>DeltaRank<a class="headerlink" href="#deltarank" title="Permalink to this headline">¶</a></h1>
-<p>Given a vectorial Booleand function in univariate form, returns its delta rank</p>
+<span id="id1"></span><h1>DeltaRank<a class="headerlink" href="#deltarank" title="Permalink to this headline">¶</a></h1>
+<p>Given a vectorial Booleand function in univariate form, returns its <a class="reference internal" href="#deltarank"><span class="std std-ref">delta rank</span></a>:</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -76,18 +76,18 @@
 31
 32
 33</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function deltaRank(f)
-R:=Parent(f);
-F:=BaseRing(R); n:=Degree(F);
-Gt&lt;[E]&gt;:=FreeAbelianGroup(2*n);
-G&lt;[E]&gt;:=AbelianGroup(quo&lt;Gt|{2*e=0 : e in E}&gt;);
-A1 := GroupAlgebra(  ComplexField(), G : Rep:=&quot;Vector&quot;); A := GroupAlgebra( GF(2), G : Rep:=&quot;Vector&quot;);
+   R:=Parent(f);
+   F:=BaseRing(R); n:=Degree(F);
+   Gt&lt;[E]&gt;:=FreeAbelianGroup(2*n);
+   G&lt;[E]&gt;:=AbelianGroup(quo&lt;Gt|{2*e=0 : e in E}&gt;);
+   A1 := GroupAlgebra(  ComplexField(), G : Rep:=&quot;Vector&quot;); A := GroupAlgebra( GF(2), G : Rep:=&quot;Vector&quot;);
 
 function rr1(v)
-return &amp;+[E[i]*(Integers()!v[i]): i in [1..n]];
+   return &amp;+[E[i]*(Integers()!v[i]): i in [1..n]];
 end function;
 
 function rr2(v)
-return &amp;+[E[i+n]*(Integers()!v[i]): i in [1..n]];
+   return &amp;+[E[i+n]*(Integers()!v[i]): i in [1..n]];
 end function;
 FF:=ANF(f);
 Gf:=[rr1(v)+rr2([Evaluate(FF[i],[v[j]:j in [1..n]]) : i in [1..n]]) : v in VectorSpace(GF(2),n)];
@@ -99,14 +99,14 @@ Df:=2^(-1)*Df;
 DDf:=[];
 V:=VectorSpace(GF(2),2*n);
 for v in V do
-j:=(&amp;+[Integers()!v[i]*E[i]:i in [1..2*n]]);
-if Coefficient(Df,j) eq 1 then Append(~DDf,G!(&amp;+[Integers()!v[i]*E[i]:i in [1..2*n]])); end if;
+   j:=(&amp;+[Integers()!v[i]*E[i]:i in [1..2*n]]);
+   if Coefficient(Df,j) eq 1 then Append(~DDf,G!(&amp;+[Integers()!v[i]*E[i]:i in [1..2*n]])); end if;
 end for;
 DDf:=&amp;+[A!g : g in DDf];
 J:=ideal&lt;A|DDf&gt;;
 
 DeltaRank:=Dimension(J);
-return DeltaRank;
+   return DeltaRank;
 end function;
 </pre></div>
 </td></tr></table></div>

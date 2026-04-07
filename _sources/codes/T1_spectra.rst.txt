@@ -1,3 +1,5 @@
+.. _T1_spectra:
+
 T1_spectra
 ==========
 

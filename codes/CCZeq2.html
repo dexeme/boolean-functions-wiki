@@ -41,18 +41,10 @@
           <div class="body" role="main">
             
   <div class="section" id="cczeq2">
-<h1>CCZeq2<a class="headerlink" href="#cczeq2" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>CCZeq2<a class="headerlink" href="#cczeq2" title="Permalink to this headline">¶</a></h1>
 <p>Given two functions in univariate form, returns true if they are CCZ-equivalent and false otherwise</p>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function CCZeq2(F1,F2)
-R:=Parent(F1);
-F&lt;a&gt;:=BaseRing(R);
-n:=Degree(F);
-</pre></div>
-</td></tr></table></div>
 <p>Returns the linear Code with columns (1,x,f(x))</p>
+<p>CF is in utils.rst.</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -60,13 +52,13 @@ n:=Degree(F);
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function CF(f)
-M:=Matrix( 2*n+1, 2^n, [1: u in F] cat [Trace(a^i * u): u in F, i in [1..n]] cat [Trace(a^i * f(u)): u in F, i in [1..n]]);
-return LinearCode( M );
-end function;
-f1:=func&lt;x | Evaluate(F1,x) &gt;;
-f2:=func&lt;x | Evaluate(F2,x) &gt;;
-return IsIsomorphic(CF(f1),CF(f2));
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function CCZeq2(F1,F2)
+    R:=Parent(F1);
+    F&lt;a&gt;:=BaseRing(R);
+    n:=Degree(F);
+    f1:=func&lt;x | Evaluate(F1,x) &gt;;
+    f2:=func&lt;x | Evaluate(F2,x) &gt;;
+    return IsIsomorphic(CF(f1),CF(f2));
 end function;
 </pre></div>
 </td></tr></table></div>

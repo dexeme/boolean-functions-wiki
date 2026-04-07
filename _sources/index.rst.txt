@@ -16,6 +16,76 @@ Introduction
    Sage-math <sage-math/sage_code>
    Map <sage-math/code_map>
 
+Foundations and Representations
+-------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Algebraic Normal Form <content/algebraic_normal_form>
+   Boolean Functions <content/boolean_functions>
+   Derivatives <content/derivatives>
+   Finite Fields <content/finite_fields>
+   Trace Representation <content/trace_representation>
+   Univariate Representation <content/univariate_representation>
+   Vectorial Boolean Functions <content/vectorial_boolean_functions>
+   Walsh Transform <content/walsh_transform>
+
+Cryptographic and Combinatorial Properties
+------------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Algebraic Degree <content/algebraic_degree>
+   Algebraic Immunity <content/algebraic_immunity>
+   Annihilators <content/annihilators>
+   Autocorrelation Function <content/autocorrelation_function>
+   Balanced Functions <content/balanced_functions>
+   Correlation Immunity <content/correlation_immunity>
+   Nonlinearity <content/nonlinearity>
+   Plateaued Functions <content/plateaued_functions>
+   Resilient Functions <content/resilient_functions>
+   Strongly-Plateaued Functions <content/strongly_plateaued_functions>
+
+Differential and Related Uniformity
+-----------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   APN-distance <content/apn_distance>
+   Almost Bent (AB) Functions <content/almost_bent_ab_functions>
+   Almost Perfect Nonlinear (APN) Functions <content/almost_perfect_nonlinear_apn_functions>
+   Bent Functions <content/bent_functions>
+   Boomerang Uniformity <content/boomerang_uniformity>
+   Differential Uniformity <content/differential_uniformity>
+   Jacobian <content/jacobian>
+   Niho Power Function <content/niho_power_function>
+   Planar Functions <content/planar_functions>
+
+Equivalence and Transformations
+-------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   APN Permutations <content/apn_permutations>
+   Affine Equivalence <content/affine_equivalence>
+   CCZ-equivalence <content/ccz_equivalence>
+   EA-equivalence <content/ea_equivalence>
+
+Algebraic Structures and Coding Theory
+--------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Binary Linear Code <content/binary_linear_code>
+   Presemifields <content/presemifields>
+   Semifields <content/semifields>
+   Simplex Codes <content/simplex_codes>
+
 Codes
 -----
 

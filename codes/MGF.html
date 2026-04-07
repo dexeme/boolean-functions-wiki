@@ -41,18 +41,10 @@
           <div class="body" role="main">
             
   <div class="section" id="mgf">
-<h1>MGF<a class="headerlink" href="#mgf" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>MGF<a class="headerlink" href="#mgf" title="Permalink to this headline">¶</a></h1>
 <p>Given a map in the univariate form, return its multiplier group</p>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function MGF(f)
-R:=Parent(f);
-F:=BaseRing(R); n:=Degree(F);
-a:=PrimitiveElement(F);
-</pre></div>
-</td></tr></table></div>
 <p>Returns the linear Code with columns (1,x,f(x))</p>
+<p>CF is in utils.rst.</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -60,13 +52,13 @@ a:=PrimitiveElement(F);
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function CF(f)
-M:=Matrix( 2*n+1, 2^n, [1: u in F] cat [Trace(a^i * u): u in F, i in [1..n]] cat [Trace(a^i * f(u)): u in F, i in [1..n]]);
-return LinearCode( M );
-end function;
-f1:=func&lt;x | Evaluate(f,x) &gt;;
-MM:=AutomorphismGroup(CF(f1));
-return MM;
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function MGF(f)
+    R:=Parent(f);
+    F:=BaseRing(R); n:=Degree(F);
+    a:=PrimitiveElement(F);
+    f1:=func&lt;x | Evaluate(f,x) &gt;;
+    MM:=AutomorphismGroup(CF(f1));
+    return MM;
 end function;
 </pre></div>
 </td></tr></table></div>

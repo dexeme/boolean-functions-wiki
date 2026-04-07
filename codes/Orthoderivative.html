@@ -41,22 +41,9 @@
           <div class="body" role="main">
             
   <div class="section" id="orthoderivative">
-<h1>Orthoderivative<a class="headerlink" href="#orthoderivative" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Orthoderivative<a class="headerlink" href="#orthoderivative" title="Permalink to this headline">¶</a></h1>
 <p>Orthoderivative of quadratic APN (n,n)-functions</p>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function IntToSequence(i,n)
-    return PowerSequence(GF(2))!Intseq(i,2,n);
-end function;
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function IntToElt(i,n,K)
-    return Seqelt(IntToSequence(i,n),K);
-end function;
-</pre></div>
-</td></tr></table></div>
+<p>IntToSequence, IntToElt, getConvertionFunction</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -88,37 +75,7 @@ end function;
 29
 30
 31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function getConvertionFunction(n :vector:=false)
-    D:=AssociativeArray();
-    if vector then
-        for i:=0 to (2^n-1) do
-            D[i]:=IntToSequence(i,n);
-        end for;
-    else
-        K:=GF(2^n);
-        for i:=0 to (2^n-1) do
-            D[i]:=IntToElt(i,n,K);
-        end for;
-    end if;
-    return D;
-end function;
-
-Orthoderivative:=function(F : anf:=false)
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Orthoderivative:=function(F : anf:=false)
     if anf then
         n:=#F;
         D:=getConvertionFunction(n: vector:=true);

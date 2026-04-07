@@ -41,7 +41,7 @@
           <div class="body" role="main">
             
   <div class="section" id="cubic">
-<h1>Cubic<a class="headerlink" href="#cubic" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Cubic<a class="headerlink" href="#cubic" title="Permalink to this headline">¶</a></h1>
 <p>Generates the only known non-quadratic APN polynomial, which is defined over GF(2^6)</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -51,12 +51,12 @@
 6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function generateCubicPolynomial()
-     n := 6;
-     FF&lt;p&gt; := GF(2^n);
-     P&lt;x&gt; := PolynomialRing(FF);
-     F1 := x^3 + p^17 * (x^17 + x^18 + x^20 + x^24);
-     F2 := p^14 * (Trace( p^52 * x^3 + p^6 * x^5 + p^19 * x^7 + p^28 * x^11 + p^2 * x^13) + (p^2*x)^9 + (p^2*x)^18 + (p^2*x)^36 + x^21 + x^42);
-     return (F1 + F2);
+    n := 6;
+    FF&lt;p&gt; := GF(2^n);
+    P&lt;x&gt; := PolynomialRing(FF);
+    F1 := x^3 + p^17 * (x^17 + x^18 + x^20 + x^24);
+    F2 := p^14 * (Trace( p^52 * x^3 + p^6 * x^5 + p^19 * x^7 + p^28 * x^11 + p^2 * x^13) + (p^2*x)^9 + (p^2*x)^18 + (p^2*x)^36 + x^21 + x^42);
+ return (F1 + F2);
 end function;
 </pre></div>
 </td></tr></table></div>
