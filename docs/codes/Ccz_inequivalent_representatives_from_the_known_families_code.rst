@@ -1,4 +1,4 @@
-.. _Ccz_inequivalent_representatives_from_the_known_families:
+.. _Ccz_inequivalent_representatives_from_the_known_families_code:
 
 Ccz_inequivalent_representatives_from_the_known_families
 ========================================================

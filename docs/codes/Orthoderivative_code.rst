@@ -1,7 +1,9 @@
-.. _Orthoderivative:
+.. _Orthoderivative_code:
 
 Orthoderivative
 ===============
+
+Related: :ref:`APN <APN>`
 
 Orthoderivative of quadratic APN (n,n)-functions
 

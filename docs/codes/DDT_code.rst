@@ -1,4 +1,4 @@
-.. _DDT:
+.. _DDT_code:
 
 DDT
 ===

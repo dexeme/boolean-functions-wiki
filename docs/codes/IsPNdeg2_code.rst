@@ -1,4 +1,4 @@
-.. _IsPNdeg2:
+.. _IsPNdeg2_code:
 
 IsPNdeg2
 ========

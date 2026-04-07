@@ -15,12 +15,16 @@ author = 'Tiago Siqueira'
 
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.mathjax',
     'sphinx.ext.napoleon',
     'sphinx.ext.todo',
 ]
 
 templates_path = ['_templates']
 exclude_patterns = []
+language = 'en'
+default_role = 'math'
+pygments_style = 'sphinx'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -28,6 +32,14 @@ exclude_patterns = []
 html_theme = 'classic'
 html_static_path = ['_static']
 html_theme_options = {
-    'globaltoc_collapse': False,
-    'globaltoc_maxdepth': 5,
+    'sidebarwidth' : 300,
+    'collapsiblesidebar': True,
+    'bodyfont': "'arial', sans-serif",
+    'headfont': "'arial', sans-serif",
+    'sidebarbtncolor': '#666',
+    'sidebarbgcolor': '#444',
+    'sidebarlinkcolor': '#ddd',
+    'relbarbgcolor': '#333',
+    'footerbgcolor': '#333',
+    'headbgcolor': '#fff',
 }

@@ -1,4 +1,4 @@
-.. _Walsh:
+.. _Walsh_code:
 
 Walsh
 =====

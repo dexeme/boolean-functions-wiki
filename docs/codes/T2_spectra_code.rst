@@ -1,4 +1,4 @@
-.. _T2_spectra:
+.. _T2_spectra_code:
 
 T2_spectra
 ==========

@@ -1,4 +1,4 @@
-.. _MGF:
+.. _MGF_code:
 
 MGF
 ===

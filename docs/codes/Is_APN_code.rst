@@ -1,7 +1,9 @@
-.. _Is_APN:
+.. _Is_APN_code:
 
 Is_APN
 ======
+
+Related: :ref:`APN <APN>`
 
 Given a function in its univariate form, return true if it is APN and false otherwise
 

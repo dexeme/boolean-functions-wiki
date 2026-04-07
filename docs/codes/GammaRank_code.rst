@@ -1,4 +1,4 @@
-.. _GammaRank:
+.. _GammaRank_code:
 
 GammaRank
 =========

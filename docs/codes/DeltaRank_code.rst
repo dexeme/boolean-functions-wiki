@@ -1,4 +1,4 @@
-.. _DeltaRank :
+.. _DeltaRank_code:
 
 DeltaRank
 =========

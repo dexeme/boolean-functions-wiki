@@ -1,4 +1,4 @@
-.. _Switching_classes:
+.. _Switching_classes_code:
 
 Switching_classes
 =================

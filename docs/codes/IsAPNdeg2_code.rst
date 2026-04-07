@@ -1,9 +1,12 @@
-.. _IsAPNdeg2:
+.. _IsAPNdeg2_code:
 
 IsAPNdeg2
 =========
 
+Related: :ref:`APN <APN>`
+
 Given f a quadratic function defined over PolynomialRing(FiniteField(2,n)), it returns true if f is APN, false otherwise
+
 
 .. code-block:: text
    :linenos:

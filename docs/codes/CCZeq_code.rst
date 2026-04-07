@@ -1,4 +1,4 @@
-.. _CCZeq:
+.. _CCZeq_code:
 
 CCZeq
 =====

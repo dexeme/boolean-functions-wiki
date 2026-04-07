@@ -1,4 +1,4 @@
-.. _IsPN:
+.. _IsPN_code:
 
 IsPN
 ====
