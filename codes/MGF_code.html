@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>CCZeq2 &#8212; Boolean Functions  documentation</title>
+    <title>MGF &#8212; Boolean Functions  documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -17,7 +17,9 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Orthoderivative" href="Orthoderivative_code.html" />
+    <link rel="prev" title="IsPNdeg2" href="IsPNdeg2_code.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -25,6 +27,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Orthoderivative_code.html" title="Orthoderivative"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="IsPNdeg2_code.html" title="IsPNdeg2"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -34,9 +42,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="cczeq2">
-<span id="cczeq2-code"></span><h1>CCZeq2<a class="headerlink" href="#cczeq2" title="Permalink to this headline">¶</a></h1>
-<p>Given two functions in univariate form, returns true if they are CCZ-equivalent and false otherwise</p>
+  <div class="section" id="mgf">
+<span id="mgf-code"></span><h1>MGF<a class="headerlink" href="#mgf" title="Permalink to this headline">¶</a></h1>
+<p>Given a map in the univariate form, return its multiplier group</p>
 <p>Returns the linear Code with columns (1,x,f(x))</p>
 <p>CF is in utils.rst.</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -46,13 +54,13 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function CCZeq2(F1,F2)
-    R:=Parent(F1);
-    F&lt;a&gt;:=BaseRing(R);
-    n:=Degree(F);
-    f1:=func&lt;x | Evaluate(F1,x) &gt;;
-    f2:=func&lt;x | Evaluate(F2,x) &gt;;
-    return IsIsomorphic(CF(f1),CF(f2));
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function MGF(f)
+    R:=Parent(f);
+    F:=BaseRing(R); n:=Degree(F);
+    a:=PrimitiveElement(F);
+    f1:=func&lt;x | Evaluate(f,x) &gt;;
+    MM:=AutomorphismGroup(CF(f1));
+    return MM;
 end function;
 </pre></div>
 </td></tr></table></div>
@@ -64,10 +72,16 @@ end function;
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="IsPNdeg2_code.html"
+                        title="previous chapter">IsPNdeg2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Orthoderivative_code.html"
+                        title="next chapter">Orthoderivative</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/codes/CCZeq2.rst.txt"
+      <li><a href="../_sources/codes/MGF_code.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -91,6 +105,12 @@ end function;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="Orthoderivative_code.html" title="Orthoderivative"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="IsPNdeg2_code.html" title="IsPNdeg2"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
       </ul>
     </div>

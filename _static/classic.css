@@ -19,16 +19,16 @@ html {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'arial', sans-serif;
     font-size: 100%;
-    background-color: #11303d;
+    background-color: #333;
     color: #000;
     margin: 0;
     padding: 0;
 }
 
 div.document {
-    background-color: #1c4e63;
+    background-color: #444;
 }
 
 div.documentwrapper {
@@ -37,7 +37,7 @@ div.documentwrapper {
 }
 
 div.bodywrapper {
-    margin: 0 0 0 230px;
+    margin: 0 0 0 300px;
 }
 
 div.body {
@@ -60,7 +60,7 @@ div.footer a {
 }
 
 div.related {
-    background-color: #133f52;
+    background-color: #333;
     line-height: 30px;
     color: #ffffff;
 }
@@ -73,7 +73,7 @@ div.sphinxsidebar {
 }
 
 div.sphinxsidebar h3 {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'arial', sans-serif;
     color: #ffffff;
     font-size: 1.4em;
     font-weight: normal;
@@ -86,7 +86,7 @@ div.sphinxsidebar h3 a {
 }
 
 div.sphinxsidebar h4 {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'arial', sans-serif;
     color: #ffffff;
     font-size: 1.3em;
     font-weight: normal;
@@ -109,15 +109,20 @@ div.sphinxsidebar ul {
 }
 
 div.sphinxsidebar a {
-    color: #98dbcc;
+    color: #ddd;
 }
 
 div.sphinxsidebar input {
-    border: 1px solid #98dbcc;
+    border: 1px solid #ddd;
     font-family: sans-serif;
     font-size: 1em;
 }
 
+
+/* for collapsible sidebar */
+div#sidebarbutton {
+    background-color: #666;
+}
 
 
 /* -- hyperlink styles ------------------------------------------------------ */
@@ -146,8 +151,8 @@ div.body h3,
 div.body h4,
 div.body h5,
 div.body h6 {
-    font-family: 'Trebuchet MS', sans-serif;
-    background-color: #f2f2f2;
+    font-family: 'arial', sans-serif;
+    background-color: #fff;
     font-weight: normal;
     color: #20435c;
     border-bottom: 1px solid #ccc;
@@ -251,7 +256,7 @@ th, dl.field-list > dt {
 }
 
 .viewcode-back {
-    font-family: sans-serif;
+    font-family: 'arial', sans-serif;
 }
 
 div.viewcode-block:target {

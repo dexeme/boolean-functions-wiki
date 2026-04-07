@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>CCZeq2 &#8212; Boolean Functions  documentation</title>
+    <title>Cubic &#8212; Boolean Functions  documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -17,7 +17,9 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DDT" href="DDT_code.html" />
+    <link rel="prev" title="CCZeq" href="CCZeq_code.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -25,6 +27,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="DDT_code.html" title="DDT"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CCZeq_code.html" title="CCZeq"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -34,11 +42,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="cczeq2">
-<span id="cczeq2-code"></span><h1>CCZeq2<a class="headerlink" href="#cczeq2" title="Permalink to this headline">¶</a></h1>
-<p>Given two functions in univariate form, returns true if they are CCZ-equivalent and false otherwise</p>
-<p>Returns the linear Code with columns (1,x,f(x))</p>
-<p>CF is in utils.rst.</p>
+  <div class="section" id="cubic">
+<span id="cubic-code"></span><h1>Cubic<a class="headerlink" href="#cubic" title="Permalink to this headline">¶</a></h1>
+<p>Related: <span class="xref std std-ref">APN</span></p>
+<p>Generates the only known non-quadratic APN polynomial, which is defined over GF(2^6)</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -46,13 +53,13 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function CCZeq2(F1,F2)
-    R:=Parent(F1);
-    F&lt;a&gt;:=BaseRing(R);
-    n:=Degree(F);
-    f1:=func&lt;x | Evaluate(F1,x) &gt;;
-    f2:=func&lt;x | Evaluate(F2,x) &gt;;
-    return IsIsomorphic(CF(f1),CF(f2));
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function generateCubicPolynomial()
+    n := 6;
+    FF&lt;p&gt; := GF(2^n);
+    P&lt;x&gt; := PolynomialRing(FF);
+    F1 := x^3 + p^17 * (x^17 + x^18 + x^20 + x^24);
+    F2 := p^14 * (Trace( p^52 * x^3 + p^6 * x^5 + p^19 * x^7 + p^28 * x^11 + p^2 * x^13) + (p^2*x)^9 + (p^2*x)^18 + (p^2*x)^36 + x^21 + x^42);
+ return (F1 + F2);
 end function;
 </pre></div>
 </td></tr></table></div>
@@ -64,10 +71,16 @@ end function;
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CCZeq_code.html"
+                        title="previous chapter">CCZeq</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DDT_code.html"
+                        title="next chapter">DDT</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/codes/CCZeq2.rst.txt"
+      <li><a href="../_sources/codes/Cubic_code.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -91,6 +104,12 @@ end function;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="DDT_code.html" title="DDT"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CCZeq_code.html" title="CCZeq"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
       </ul>
     </div>
