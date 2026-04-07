@@ -3,9 +3,6 @@
 DeltaRank
 =========
 
-Explicit targets
-~~~~~~~~~~~~~~~~
-
 Given a vectorial Booleand function in univariate form, returns its :ref:`delta rank <DeltaRank>`:
 
 .. code-block:: text

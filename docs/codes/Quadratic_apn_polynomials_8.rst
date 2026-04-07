@@ -1,3 +1,5 @@
+.. _Quadratic_apn_polynomials_8:
+
 Quadratic_apn_polynomials_8
 ===========================
 

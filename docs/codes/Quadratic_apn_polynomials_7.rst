@@ -1,3 +1,5 @@
+.. _Quadratic_apn_polynomials_7:
+
 Quadratic_apn_polynomials_7
 ===========================
 

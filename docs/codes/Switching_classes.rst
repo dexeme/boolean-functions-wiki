@@ -1,3 +1,5 @@
+.. _Switching_classes:
+
 Switching_classes
 =================
 
