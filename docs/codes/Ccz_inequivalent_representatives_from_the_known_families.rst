@@ -20,7 +20,7 @@ The following functions generate lists of CCZ-inequivalent representatives from 
    	return G6;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPNRepresentatives7()
@@ -41,7 +41,7 @@ The following functions generate lists of CCZ-inequivalent representatives from 
    	return G7;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPNRepresentatives8()
@@ -62,7 +62,7 @@ The following functions generate lists of CCZ-inequivalent representatives from 
    	return G8;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPNRepresentatives9()
@@ -88,7 +88,7 @@ The following functions generate lists of CCZ-inequivalent representatives from 
    	return G9;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPNRepresentatives10()
@@ -111,7 +111,7 @@ The following functions generate lists of CCZ-inequivalent representatives from 
    	return G10;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPNRepresentatives11()

@@ -7,15 +7,18 @@ Given two functions in univariate form, returns true if they are CCZ-equivalent 
    :linenos:
 
    function CCZeq(f1,f2)
-   R:=Parent(f1);
-   F:=BaseRing(R); 
-   n:=Degree(F); p:=Characteristic(F);
-   V,phi:=VectorSpace(GF(p^n),GF(p));
-   M:=KMatrixSpace(GF(p),2*n+1,p^n);
+      R:=Parent(f1);
+      F:=BaseRing(R);
+      n:=Degree(F); p:=Characteristic(F);
+      V,phi:=VectorSpace(GF(p^n),GF(p));
+      M:=KMatrixSpace(GF(p),2*n+1,p^n);
+
    f:=function(x)
-   return Evaluate(f1,x); end function;
+      return Evaluate(f1,x); end function;
+
    g:=function(x)
-   return Evaluate(f2,x); end function;
+      return Evaluate(f2,x); end function;
+
    T:=M!0; i:=0;
    for x in GF(p^n) do
    i:=i+1;

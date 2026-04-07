@@ -13,14 +13,14 @@ Switching_classes
    	return &+ [ x^(2^i) : i in [0..n-1] ];
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function variableTrace(a)
        return Evaluate( polynomialTrace(BaseRing(a)), a );
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPN5()
@@ -35,7 +35,7 @@ Switching_classes
        return G5;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPN6()
@@ -60,7 +60,7 @@ Switching_classes
        return G6;
    end function;
    
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPN7()
@@ -91,7 +91,7 @@ Switching_classes
        return G7;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function listAPN8()

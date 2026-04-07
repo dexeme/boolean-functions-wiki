@@ -6,37 +6,7 @@ The ANF of a vectorial Boolean (n,m)-function is a sequence of m ANFs of n varia
 The univariate representation of an n variables Boolean function is an univariate polynomial with coefficients in GF(2^n) such that its image is in GF(2)
 The univariate representation of a vectorial Boolean (n,n)-function is an univariate polynomial with coefficients in GF(2^n)
 
-.. code-block:: text
-   :linenos:
-
-   function IntToSequence(i,n)
-       return PowerSequence(GF(2))!Intseq(i,2,n);
-   end function;
-   
-.. code-block:: text
-   :linenos:
-
-   function IntToElt(i,n,K)
-       return Seqelt(IntToSequence(i,n),K);
-   end function;
-   
-.. code-block:: text
-   :linenos:
-
-   function getConvertionFunction(n :vector:=false)
-       D:=AssociativeArray();
-       if vector then
-           for i:=0 to (2^n-1) do
-               D[i]:=IntToSequence(i,n);
-           end for;
-       else
-           K:=GF(2^n);
-           for i:=0 to (2^n-1) do
-               D[i]:=IntToElt(i,n,K);
-           end for;
-       end if;
-       return D;
-   end function;
+IntToSequence, IntToElt, getConvertionFunction
 
 Maps a to b such that a\cdot x=\Tr(bx)
 
@@ -61,7 +31,7 @@ Maps a to b such that a\cdot x=\Tr(bx)
        return B;
    end function;
 
-.. code-block:: text
+   .. code-block:: text
    :linenos:
 
    function getTraceConvertion(D,n)
@@ -74,7 +44,10 @@ Maps a to b such that a\cdot x=\Tr(bx)
        end for;
        return trD;
    end function;
-   
+
+   .. code-block:: text
+   :linenos:
+
    FourierHadamard:=procedure(~H,n : initialIndex:=0)
        for i:=1 to n do
            for r:=0 to (2^n -1) by 2^i do
@@ -91,7 +64,10 @@ Maps a to b such that a\cdot x=\Tr(bx)
            end for;
        end for;
    end procedure;
-   
+
+   .. code-block:: text
+   :linenos:
+
    TruthTableToWalshMatrix:=function(TT,n)
        m:=#TT;
        WF:=ZeroMatrix(Integers(), 2^n, 2^m);
@@ -117,7 +93,10 @@ Maps a to b such that a\cdot x=\Tr(bx)
        FourierHadamard(~WF,n : initialIndex:=1);
        return WF;  
    end function;
-   
+
+   .. code-block:: text
+   :linenos:
+
    //Walsh transform for Boolean functions
    bWalsh:=function(f: anf:=false)
        Wf:=AssociativeArray();
@@ -149,7 +128,10 @@ Maps a to b such that a\cdot x=\Tr(bx)
        end if;
        return Wf2;
    end function;
-   
+
+   .. code-block:: text
+   :linenos:
+
    //Walsh transform for vectorial Boolean functions
    vWalsh:=function(F:  anf:=false)
        //vWalsh starts here
@@ -193,7 +175,10 @@ Maps a to b such that a\cdot x=\Tr(bx)
        end if;
        return WF;
    end function;
-   
+
+   .. code-block:: text
+   :linenos:
+
    TruthTableToBoolean:=function(TT)
        n:=Integers()!Log(2,#TT);
        R<[x]>:=PolynomialRing(GF(2),n);
@@ -216,6 +201,9 @@ Maps a to b such that a\cdot x=\Tr(bx)
        end for; 
        return f;
    end function;
+
+   .. code-block:: text
+   :linenos:
 
    InverseVectorialWalsh:=function(WF : anf:=false)
        n:=Integers()!Log(2,#Keys(WF));

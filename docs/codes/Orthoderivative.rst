@@ -3,37 +3,10 @@ Orthoderivative
 
 Orthoderivative of quadratic APN (n,n)-functions
 
-.. code-block:: text
-   :linenos:
-
-   function IntToSequence(i,n)
-       return PowerSequence(GF(2))!Intseq(i,2,n);
-   end function;
+IntToSequence, IntToElt, getConvertionFunction
 
 .. code-block:: text
    :linenos:
-   
-   function IntToElt(i,n,K)
-       return Seqelt(IntToSequence(i,n),K);
-   end function;
-
-.. code-block:: text
-   :linenos:
-   
-   function getConvertionFunction(n :vector:=false)
-       D:=AssociativeArray();
-       if vector then
-           for i:=0 to (2^n-1) do
-               D[i]:=IntToSequence(i,n);
-           end for;
-       else
-           K:=GF(2^n);
-           for i:=0 to (2^n-1) do
-               D[i]:=IntToElt(i,n,K);
-           end for;
-       end if;
-       return D;
-   end function;
    
    Orthoderivative:=function(F : anf:=false)
        if anf then
