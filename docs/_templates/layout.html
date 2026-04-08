@@ -1,0 +1,21 @@
+{# Override footer to add a project status note. #}
+{%- extends "classic/layout.html" %}
+
+{%- block footer %}
+  <div class="footer" role="contentinfo">
+    {%- if show_copyright %}
+      {{- copyright_block() -}}
+    {%- endif %}
+    {%- if last_updated %}
+      {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+    {%- endif %}
+    {%- if show_sphinx %}
+      {% trans sphinx_version=sphinx_version|e %}Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+    {%- endif %}
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
+{%- endblock %}
