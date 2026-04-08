@@ -4,7 +4,11 @@
 {%- block footer %}
   <div class="footer" role="contentinfo">
     {%- if show_copyright %}
-      {{- copyright_block() -}}
+      {%- if copyright_block is defined -%}
+        {{- copyright_block() -}}
+      {%- else -%}
+        <p>&copy; {{ copyright|e }}.</p>
+      {%- endif -%}
     {%- endif %}
     {%- if last_updated %}
       {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}

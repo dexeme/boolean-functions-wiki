@@ -3,8 +3,6 @@
 IsAPNdeg2
 =========
 
-Related: :ref:`APN <APN>`
-
 Given f a quadratic function defined over PolynomialRing(FiniteField(2,n)), it returns true if f is APN, false otherwise
 
 

@@ -3,8 +3,6 @@
 APN_families
 ============
 
-Related: :ref:`APN <APN>`
-
 .. code-block:: text
    :linenos:
 

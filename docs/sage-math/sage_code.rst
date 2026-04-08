@@ -3,8 +3,6 @@ Sage Code
 
 .. https://sagecell.sagemath.org/
 
-ffffff
-
 .. raw:: html
 
    <link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">

@@ -3,8 +3,6 @@
 ANF Code
 ======
 
-Related: :ref:`ANF <ANF>`
-
 Given a vectorial Boolean function in the univariate form, return its algebraic normal form
 
 .. code-block:: text

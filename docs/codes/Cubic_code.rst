@@ -3,8 +3,6 @@
 Cubic
 =====
 
-Related: :ref:`APN <APN>`
-
 Generates the only known non-quadratic APN polynomial, which is defined over GF(2^6)
 
 .. code-block:: text
