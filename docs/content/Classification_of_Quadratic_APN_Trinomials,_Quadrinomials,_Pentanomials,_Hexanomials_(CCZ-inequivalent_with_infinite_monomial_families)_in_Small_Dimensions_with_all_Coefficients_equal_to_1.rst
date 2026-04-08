@@ -1,0 +1,5 @@
+Classification of Quadratic APN Trinomials, Quadrinomials, Pentanomials, Hexanomials (CCZ-inequivalent with infinite monomial families) in Small Dimensions with all Coefficients equal to 1
+============================================================================================================================================================================================
+
+Content partially extracted from ``data/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1.txt``.
+Original page: `https://boolean.wiki.uib.no/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1 <https://boolean.wiki.uib.no/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1>`_

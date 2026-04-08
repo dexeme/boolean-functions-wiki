@@ -1,0 +1,5 @@
+Placeholder Page
+================
+
+Content partially extracted from ``data/--------------------------------.txt``.
+Original page: `https://boolean.wiki.uib.no/-------------------------------- <https://boolean.wiki.uib.no/-------------------------------->`_
