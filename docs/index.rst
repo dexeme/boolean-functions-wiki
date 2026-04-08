@@ -57,7 +57,7 @@ Cryptographic and Combinatorial Properties
 .. toctree::
    :maxdepth: 1
 
-   Algebraic Immunity <content/algebraic_immunity>
+   Algebraic Immunity of Boolean Functions <content/algebraic_immunity_of_boolean_functions>
 
 Differential and Related Uniformity
 -----------------------------------
@@ -70,6 +70,22 @@ Differential and Related Uniformity
    Bent Functions <content/bent_functions>
    Bent Boolean Functions <content/bent_boolean_functions>
    Boomerang Uniformity <content/boomerang_uniformity>
+
+CCZ Tables
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   content/CCZ-equivalence_of_Familes_of_APN_Polynomials_over_GF(2%5En)_from_table_(for_n_is_equal_or_larger_than_6_and_equal_or_smaller_than_11)
+   content/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11)
+   content/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_is_equal_or_larger_than_6_and_equal_or_smaller_than_11)
+   content/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11)
+   content/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11)_html
+   content/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_is_equal_or_larger_than_6_and_equal_or_smaller_than_11)
+   content/CCZ-inequivalent_representatives_from_the_known_APN_families_for_dimensions_up_to_11
+   content/CCZ-invariants_for_all_known_APN_functions_in_dimension_7
+   content/CCZ-invariants_for_all_known_APN_functions_in_dimension_8
 
 Equivalence and Transformations
 -------------------------------
