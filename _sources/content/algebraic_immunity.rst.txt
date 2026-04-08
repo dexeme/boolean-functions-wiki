@@ -89,20 +89,42 @@ Example through Code
 
 .. sagecell::
 
-   _, g = F.algebraic_immunity(annihilator=True)
-   G = BooleanFunction(g)
-   F_plus_G = BooleanFunction(f + g)
+    from sage.crypto.boolean_function import BooleanFunction
 
-   wf = F.walsh_hadamard_transform()
-   wg = G.walsh_hadamard_transform()
-   wfg = F_plus_G.walsh_hadamard_transform()
+    B.<x0, x1, x2, x3> = BooleanPolynomialRing(4)
+    f = x0*x1*x2*x3 + x0*x2*x3 + x1*x2*x3 + x0*x1 + x0*x3 + x1*x2 + x3 + 1
+    F = BooleanFunction(f)
+    _, g = F.algebraic_immunity(annihilator=True)
+    G = BooleanFunction(g)
+    F_plus_G = BooleanFunction(f + g)
+
+    wf = F.walsh_hadamard_transform()
+    wg = G.walsh_hadamard_transform()
+    wfg = F_plus_G.walsh_hadamard_transform()
+
+    pretty_print("wf = ", wf)
+    pretty_print("wg = ", wg)
+    pretty_print("wfg = ", wfg)
 
 Verification:
 
 .. sagecell::
 
-   n = F.nvariables()
-   for a in range(1, 2^n):
+    from sage.crypto.boolean_function import BooleanFunction
+
+    B.<x0, x1, x2, x3> = BooleanPolynomialRing(4)
+    f = x0*x1*x2*x3 + x0*x2*x3 + x1*x2*x3 + x0*x1 + x0*x3 + x1*x2 + x3 + 1
+    F = BooleanFunction(f)
+    _, g = F.algebraic_immunity(annihilator=True)
+    G = BooleanFunction(g)
+    F_plus_G = BooleanFunction(f + g)
+
+    wf = F.walsh_hadamard_transform()
+    wg = G.walsh_hadamard_transform()
+    wfg = F_plus_G.walsh_hadamard_transform()
+
+    n = F.nvariables()
+    for a in range(1, 2^n):
        assert wfg[a] == wf[a] + wg[a]
 
 
