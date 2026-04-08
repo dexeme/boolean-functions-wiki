@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Almost Perfect Nonlinear (APN) Functions &#8212; Boolean Functions  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script src="../_static/sagecell-init.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="APN Functions Obtained via Polynomial Expansion in Small Dimensions" href="apn_functions_obtained_via_polynomial_expansion_in_small_dimensions.html" />
+    <link rel="prev" title="Algebraic Immunity" href="algebraic_immunity.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="apn_functions_obtained_via_polynomial_expansion_in_small_dimensions.html" title="APN Functions Obtained via Polynomial Expansion in Small Dimensions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="algebraic_immunity.html" title="Algebraic Immunity"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="almost-perfect-nonlinear-apn-functions">
+<h1>Almost Perfect Nonlinear (APN) Functions<a class="headerlink" href="#almost-perfect-nonlinear-apn-functions" title="Permalink to this headline">¶</a></h1>
+<p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/Almost_Perfect_Nonlinear_(APN)_Functions.txt</span></code>.
+Original page: <a class="reference external" href="https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions">https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions</a></p>
+<div class="section" id="background-and-definition">
+<h2>Background and Definition<a class="headerlink" href="#background-and-definition" title="Permalink to this headline">¶</a></h2>
+<p>APN functions are <span class="math notranslate nohighlight">\((n,n)\)</span> vectorial Boolean functions with optimal resistance to differential attacks.</p>
+<p>For <span class="math notranslate nohighlight">\(F:\mathbb{F}_{2^n}\to\mathbb{F}_{2^n}\)</span>, define
+<span class="math notranslate nohighlight">\({\displaystyle \Delta_F(a,b)=|\{x\in\mathbb{F}_{2^n}:F(x)+F(x+a)=b\}|}\)</span>.
+The differential uniformity is
+<span class="math notranslate nohighlight">\({\displaystyle \Delta_F=\max\{\Delta_F(a,b):a\in\mathbb{F}_{2^n}^*,\ b\in\mathbb{F}_{2^n}\}}\)</span>.</p>
+<p>Always <span class="math notranslate nohighlight">\(\Delta_F\ge 2\)</span>; functions achieving <span class="math notranslate nohighlight">\(\Delta_F=2\)</span> are APN.</p>
+</div>
+<div class="section" id="walsh-characterization">
+<h2>Walsh Characterization<a class="headerlink" href="#walsh-characterization" title="Permalink to this headline">¶</a></h2>
+<p>For <span class="math notranslate nohighlight">\((n,m)\)</span>-functions:
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{a\in\mathbb{F}_{2^n},\ b\in\mathbb{F}_{2^m}^*}W_F^4(a,b)\ge
+2^{2n}(3\cdot 2^{n+m}-2^{m+1}-2^{2n})}\)</span>,
+with equality iff <span class="math notranslate nohighlight">\(F\)</span> is APN.</p>
+<p>For <span class="math notranslate nohighlight">\((n,n)\)</span>-functions this becomes:
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{a\in\mathbb{F}_{2^n},\ b\in\mathbb{F}_{2^n}^*}W_F^4(a,b)\ge 2^{3n+1}(2^n-1)}\)</span>,
+again with equality iff APN.</p>
+<p>Equivalent formulations summing over all <span class="math notranslate nohighlight">\(b\in\mathbb{F}_{2^m}\)</span> are also used.</p>
+</div>
+<div class="section" id="autocorrelation-derivative-characterization">
+<h2>Autocorrelation/Derivative Characterization<a class="headerlink" href="#autocorrelation-derivative-characterization" title="Permalink to this headline">¶</a></h2>
+<p>For Boolean <span class="math notranslate nohighlight">\(f\)</span>, define:
+<span class="math notranslate nohighlight">\({\displaystyle \mathcal{F}(f)=\sum_{x\in\mathbb{F}_{2^n}}(-1)^{f(x)}=2^n-2wt(f)}\)</span>.</p>
+<p>For <span class="math notranslate nohighlight">\((n,n)\)</span>-functions:
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{\lambda\in\mathbb{F}_{2^n}}\mathcal{F}(D_af_\lambda)=2^{2n+1}}\)</span>
+for all <span class="math notranslate nohighlight">\(a\in\mathbb{F}_{2^n}^*\)</span>, with equality characterization of APN.</p>
+<p>Using the sum-of-square-indicator
+<span class="math notranslate nohighlight">\({\displaystyle \nu(f)=\sum_{a\in\mathbb{F}_{2^n}}\mathcal{F}^2(D_af)}\)</span>,
+one gets:
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{\lambda\in\mathbb{F}_{2^n}^*}\nu(f_\lambda)\ge (2^n-1)2^{2n+1}}\)</span>,
+with equality iff <span class="math notranslate nohighlight">\(F\)</span> is APN.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Almost Perfect Nonlinear (APN) Functions</a><ul>
+<li><a class="reference internal" href="#background-and-definition">Background and Definition</a></li>
+<li><a class="reference internal" href="#walsh-characterization">Walsh Characterization</a></li>
+<li><a class="reference internal" href="#autocorrelation-derivative-characterization">Autocorrelation/Derivative Characterization</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="algebraic_immunity.html"
+                        title="previous chapter">Algebraic Immunity</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="apn_functions_obtained_via_polynomial_expansion_in_small_dimensions.html"
+                        title="next chapter">APN Functions Obtained via Polynomial Expansion in Small Dimensions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/content/almost_perfect_nonlinear_apn_functions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="apn_functions_obtained_via_polynomial_expansion_in_small_dimensions.html" title="APN Functions Obtained via Polynomial Expansion in Small Dimensions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="algebraic_immunity.html" title="Algebraic Immunity"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer" role="contentinfo"><p>&copy; 2026, Tiago Siqueira.</p>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
+  </body>
+</html>

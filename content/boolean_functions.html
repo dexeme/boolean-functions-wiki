@@ -13,12 +13,15 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script src="../_static/sagecell-init.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script src="../_static/sidebar.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Algebraic Immunity" href="algebraic_immunity.html" />
     <link rel="prev" title="Code Map" href="../sage-math/code_map.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -27,6 +30,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="algebraic_immunity.html" title="Algebraic Immunity"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../sage-math/code_map.html" title="Code Map"
              accesskey="P">previous</a> |</li>
@@ -41,7 +47,8 @@
             
   <div class="section" id="boolean-functions">
 <h1>Boolean Functions<a class="headerlink" href="#boolean-functions" title="Permalink to this headline">¶</a></h1>
-<p>Conteudo parcial extraido de <code class="docutils literal notranslate"><span class="pre">data/Boolean_Functions.txt</span></code>.</p>
+<p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/Boolean_Functions.txt</span></code>.
+Original page: <a class="reference external" href="https://boolean.wiki.uib.no/Boolean_Functions">https://boolean.wiki.uib.no/Boolean_Functions</a></p>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathbb{F}_{2}^{n}\)</span> be the vector space of dimension <span class="math notranslate nohighlight">\(n\)</span> over the finite field with two elements. The vector space can also
@@ -55,35 +62,112 @@ Given <span class="math notranslate nohighlight">\({\displaystyle x=(x_{1},\ldot
 </div>
 <div class="section" id="representation-of-a-boolean-function">
 <h2>Representation of a Boolean function<a class="headerlink" href="#representation-of-a-boolean-function" title="Permalink to this headline">¶</a></h2>
+<p>There exist different ways to represent a Boolean function. A simple, but often not efficient, one is by its truth-table.
+For example consider the following truth-table for a 3-variable Boolean function <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <div class="section" id="algebraic-normal-form-anf">
 <h3>Algebraic Normal Form (ANF)<a class="headerlink" href="#algebraic-normal-form-anf" title="Permalink to this headline">¶</a></h3>
+<p>An <span class="math notranslate nohighlight">\(n\)</span>-variable Boolean function can be represented by a multivariate polynomial over <span class="math notranslate nohighlight">\(\mathbb{F}_2\)</span> of the form
+<span class="math notranslate nohighlight">\({\displaystyle f(x)=\bigoplus_{I\subseteq\{1,\ldots,n\}}a_I\left(\prod_{i\in I}x_i\right)\in \mathbb{F}_2 /(x_1^2\oplus x_1,\ldots,x_n^2\oplus x_n)}\)</span>.
+Such representation is unique and is the algebraic normal form of <span class="math notranslate nohighlight">\(f\)</span> (ANF).</p>
+<p>The degree of the ANF is called the algebraic degree of the function:
+<span class="math notranslate nohighlight">\(d^\circ f = \max\{|I|:a_I\neq 0\}\)</span>.
+Based on the algebraic degree:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is affine if <span class="math notranslate nohighlight">\(d^\circ f = 1\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is linear if <span class="math notranslate nohighlight">\(d^\circ f = 1\)</span> and <span class="math notranslate nohighlight">\(f(0)=0\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is quadratic if <span class="math notranslate nohighlight">\(d^\circ f = 2\)</span>.</p></li>
+</ul>
+<p>Affine functions are of the form <span class="math notranslate nohighlight">\(f(x)=u\cdot x + e\)</span>, with <span class="math notranslate nohighlight">\(u\in\mathbb{F}_2^n\)</span> and <span class="math notranslate nohighlight">\(e\in\mathbb{F}_2\)</span>.</p>
 </div>
 <div class="section" id="trace-representation">
 <h3>Trace representation<a class="headerlink" href="#trace-representation" title="Permalink to this headline">¶</a></h3>
+<p>Identifying the vector space with the finite field, an <span class="math notranslate nohighlight">\(n\)</span>-variable Boolean function of even weight
+(thus with algebraic degree at most <span class="math notranslate nohighlight">\(n-1\)</span>) admits a unique trace representation:</p>
+<p><span class="math notranslate nohighlight">\({\displaystyle f(x)=\sum_{j\in\Gamma_n}\mathrm{Tr}_{\mathbb{F}_{2^{o(j)}}/\mathbb{F}_2}(A_jx^j),\quad x\in\mathbb{F}_{2^n}}\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(\Gamma_n\)</span> is a set of representatives of cyclotomic cosets of 2 modulo <span class="math notranslate nohighlight">\((2^n-1)\)</span>, <span class="math notranslate nohighlight">\(o(j)\)</span> is the size of the cyclotomic coset containing <span class="math notranslate nohighlight">\(j\)</span>,
+<span class="math notranslate nohighlight">\(A_j\in\mathbb{F}_{2^{o(j)}}\)</span>, and <span class="math notranslate nohighlight">\(\mathrm{Tr}_{\mathbb{F}_{2^{o(j)}}/\mathbb{F}_2}\)</span> is the trace map to <span class="math notranslate nohighlight">\(\mathbb{F}_2\)</span>.</p>
+<p>This is also called the univariate representation.
+One may also write <span class="math notranslate nohighlight">\(f\)</span> as <span class="math notranslate nohighlight">\({\displaystyle \mathrm{Tr}_{\mathbb{F}_{2^n}/\mathbb{F}_2}(P(x))}\)</span>, for a polynomial <span class="math notranslate nohighlight">\(P\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{2^n}\)</span>,
+but this form is not unique in general.</p>
+<p>In trace representation, the algebraic degree is given by
+<span class="math notranslate nohighlight">\({\displaystyle \max_{j\in\Gamma_n,\ A_j\neq 0} w_2(j)}\)</span>,
+where <span class="math notranslate nohighlight">\(w_2(j)\)</span> is the Hamming weight of the binary expansion of <span class="math notranslate nohighlight">\(j\)</span>.</p>
 </div>
 </div>
 <div class="section" id="on-the-weight-of-a-boolean-function">
 <h2>On the weight of a Boolean function<a class="headerlink" href="#on-the-weight-of-a-boolean-function" title="Permalink to this headline">¶</a></h2>
+<p>For an <span class="math notranslate nohighlight">\(n\)</span>-variable Boolean function <span class="math notranslate nohighlight">\(f\)</span>, the following relations hold:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(d^\circ f=1\)</span>, then <span class="math notranslate nohighlight">\(w_H(f)=2^{n-1}\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(d^\circ f=2\)</span>, then <span class="math notranslate nohighlight">\(w_H(f)=2^{n-1}\)</span> or <span class="math notranslate nohighlight">\(w_H(f)=2^{n-1}\pm 2^{n-1-h}\)</span>, with <span class="math notranslate nohighlight">\(0\leq h\leq n/2\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(d^\circ f\le r\)</span> and <span class="math notranslate nohighlight">\(f\neq 0\)</span>, then <span class="math notranslate nohighlight">\(w_H(f)\ge 2^{n-r}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_H(f)\)</span> is odd if and only if <span class="math notranslate nohighlight">\(d^\circ f=n\)</span>.</p></li>
+</ul>
 </div>
 <div class="section" id="the-walsh-transform">
 <h2>The Walsh transform<a class="headerlink" href="#the-walsh-transform" title="Permalink to this headline">¶</a></h2>
+<p>The Walsh transform <span class="math notranslate nohighlight">\(W_f\)</span> is the discrete Fourier transform of the sign function <span class="math notranslate nohighlight">\((-1)^{f(x)}\)</span>.
+With inner product <span class="math notranslate nohighlight">\(x\cdot u\)</span> in <span class="math notranslate nohighlight">\(\mathbb{F}_2^n\)</span>, the Walsh value at <span class="math notranslate nohighlight">\(u\in\mathbb{F}_2^n\)</span> is</p>
+<p><span class="math notranslate nohighlight">\({\displaystyle W_f(u)=\sum_{x\in\mathbb{F}_2^n}(-1)^{f(x)+x\cdot u}}\)</span>.</p>
+<p>The Walsh support of <span class="math notranslate nohighlight">\(f\)</span> is the set
+<span class="math notranslate nohighlight">\({\displaystyle \{u\in\mathbb{F}_2^n:W_f(u)\neq 0\}}\)</span>.</p>
 <div class="section" id="properties-of-the-walsh-transform">
 <h3>Properties of the Walsh transform<a class="headerlink" href="#properties-of-the-walsh-transform" title="Permalink to this headline">¶</a></h3>
+<p>For every <span class="math notranslate nohighlight">\(n\)</span>-variable Boolean function <span class="math notranslate nohighlight">\(f\)</span>, we have:</p>
+<ul class="simple">
+<li><p>Inverse Walsh transform:
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{u\in\mathbb{F}_2^n}W_f(u)(-1)^{u\cdot x}=2^n(-1)^{f(x)}}\)</span>.</p></li>
+<li><p>Parseval relation:
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{u\in\mathbb{F}_2^n}W_f(u)^2=2^{2n}}\)</span>.</p></li>
+<li><p>Poisson summation formula:
+for any subspace <span class="math notranslate nohighlight">\(E\subseteq\mathbb{F}_2^n\)</span> and <span class="math notranslate nohighlight">\(a,b\in\mathbb{F}_2^n\)</span>,
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{u\in a+E^\perp}(-1)^{b\cdot u}W_f(u)=|E^\perp|(-1)^{a\cdot b}\sum_{x\in b+E}(-1)^{f(x)+a\cdot x}}\)</span>,
+where <span class="math notranslate nohighlight">\(E^\perp=\{u\in\mathbb{F}_2^n:u\cdot x=0,\ \forall x\in E\}\)</span>.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="equivalences-of-boolean-functions">
 <h2>Equivalences of Boolean functions<a class="headerlink" href="#equivalences-of-boolean-functions" title="Permalink to this headline">¶</a></h2>
+<p>Two <span class="math notranslate nohighlight">\(n\)</span>-variable Boolean functions <span class="math notranslate nohighlight">\(f,g\)</span> are affine equivalent if there exist a linear automorphism <span class="math notranslate nohighlight">\(L\)</span>
+and a vector <span class="math notranslate nohighlight">\(a\)</span> such that <span class="math notranslate nohighlight">\(g(x)=f(L(x)+a)\)</span>.</p>
+<p>They are extended-affine equivalent (EA-equivalent) if there exist a linear automorphism <span class="math notranslate nohighlight">\(L\)</span>,
+an affine Boolean function <span class="math notranslate nohighlight">\(\ell\)</span>, and a vector <span class="math notranslate nohighlight">\(a\)</span> such that
+<span class="math notranslate nohighlight">\(g(x)=f(L(x)+a)+\ell(x)\)</span>.</p>
+<p>A parameter preserved by an equivalence relation is called an invariant.
+The algebraic degree is invariant under affine equivalence, and for non-affine functions also under EA-equivalence.</p>
+<p>If <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are affine equivalent, then
+<span class="math notranslate nohighlight">\({\displaystyle W_g(u)=(-1)^{u\cdot L^{-1}(a)}W_f(L^{-1}(u))}\)</span>.</p>
 </div>
 <div class="section" id="properties-important-for-cryptographic-applications">
 <h2>Properties important for cryptographic applications<a class="headerlink" href="#properties-important-for-cryptographic-applications" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="balanced-functions">
 <h3>Balanced functions<a class="headerlink" href="#balanced-functions" title="Permalink to this headline">¶</a></h3>
+<p>An <span class="math notranslate nohighlight">\(n\)</span>-variable Boolean function <span class="math notranslate nohighlight">\(f\)</span> is balanced if <span class="math notranslate nohighlight">\(w_H(f)=2^{n-1}\)</span>, i.e. its output is uniformly distributed.
+Balanced functions do not have maximal algebraic degree.
+Most cryptographic applications use balanced Boolean functions.</p>
 </div>
 <div class="section" id="the-nonlinearity">
 <h3>The Nonlinearity<a class="headerlink" href="#the-nonlinearity" title="Permalink to this headline">¶</a></h3>
+<p>The nonlinearity of <span class="math notranslate nohighlight">\(f\)</span> is its minimal Hamming distance to the set <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> of affine <span class="math notranslate nohighlight">\(n\)</span>-variable functions:
+<span class="math notranslate nohighlight">\({\displaystyle \mathcal{NL}(f)=\min_{g\in\mathcal{A}}d_H(f,g)}\)</span>.</p>
+<p>Equivalent Walsh expression:
+<span class="math notranslate nohighlight">\({\displaystyle \mathcal{NL}(f)=2^{n-1}-\frac{1}{2}\max_{u\in\mathbb{F}_2^n}|W_f(u)|}\)</span>.</p>
+<p>From Parseval relation, the covering radius bound is
+<span class="math notranslate nohighlight">\({\displaystyle \mathcal{NL}(f)\le 2^{n-1}-2^{n/2-1}}\)</span>.</p>
+<p>A function attaining this bound is called bent (<span class="math notranslate nohighlight">\(n\)</span> even, and the function is not balanced).
+<span class="math notranslate nohighlight">\(f\)</span> is bent iff <span class="math notranslate nohighlight">\(W_f(u)=\pm 2^{n/2}\)</span> for every <span class="math notranslate nohighlight">\(u\in\mathbb{F}_2^n\)</span>.
+Equivalently, <span class="math notranslate nohighlight">\(f\)</span> is bent iff for every nonzero <span class="math notranslate nohighlight">\(a\)</span>, the derivative
+<span class="math notranslate nohighlight">\(D_af(x)=f(x+a)+f(x)\)</span> is balanced.</p>
 </div>
 <div class="section" id="correlation-immunity-order">
 <h3>Correlation-immunity order<a class="headerlink" href="#correlation-immunity-order" title="Permalink to this headline">¶</a></h3>
+<p>A Boolean function <span class="math notranslate nohighlight">\(f\)</span> is <span class="math notranslate nohighlight">\(m\)</span>-th order correlation-immune if the output distribution is unchanged
+when any <span class="math notranslate nohighlight">\(m\)</span> input variables are fixed.</p>
+<p>Balanced <span class="math notranslate nohighlight">\(m\)</span>-th order correlation-immune functions are called <span class="math notranslate nohighlight">\(m\)</span>-resilient.
+If <span class="math notranslate nohighlight">\(f\)</span> is an <span class="math notranslate nohighlight">\(n\)</span>-variable function with correlation-immunity order <span class="math notranslate nohighlight">\(m\)</span>, then
+<span class="math notranslate nohighlight">\(m+d^\circ f\le n\)</span>.
+If <span class="math notranslate nohighlight">\(f\)</span> is also balanced, then
+<span class="math notranslate nohighlight">\(m+d^\circ f\le n-1\)</span>.</p>
 </div>
 </div>
 </div>
@@ -122,6 +206,9 @@ Given <span class="math notranslate nohighlight">\({\displaystyle x=(x_{1},\ldot
   <h4>Previous topic</h4>
   <p class="topless"><a href="../sage-math/code_map.html"
                         title="previous chapter">Code Map</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="algebraic_immunity.html"
+                        title="next chapter">Algebraic Immunity</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -150,14 +237,21 @@ Given <span class="math notranslate nohighlight">\({\displaystyle x=(x_{1},\ldot
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="algebraic_immunity.html" title="Algebraic Immunity"
+             >next</a> |</li>
+        <li class="right" >
           <a href="../sage-math/code_map.html" title="Code Map"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2026, Tiago Siqueira.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
-    </div>
+  <div class="footer" role="contentinfo"><p>&copy; 2026, Tiago Siqueira.</p>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
   </body>
 </html>
