@@ -5,6 +5,9 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import os, sys
+sys.path.append(os.path.abspath("_ext"))
+
 
 project = 'Boolean Functions'
 copyright = '2026, Tiago Siqueira'
@@ -18,6 +21,8 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.napoleon',
     'sphinx.ext.todo',
+    'sage_block',
+    'sagecell_directive',
 ]
 
 templates_path = ['_templates']
@@ -52,6 +57,9 @@ latex_elements = {
 
 html_theme = 'classic'
 html_static_path = ['_static']
+html_js_files = [
+    'sagecell-init.js',
+]
 html_theme_options = {
     'sidebarwidth' : 300,
     'collapsiblesidebar': True,
