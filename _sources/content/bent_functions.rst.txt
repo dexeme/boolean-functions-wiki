@@ -2,7 +2,8 @@ Bent Functions
 ==============
 
 Content partially extracted from ``data/Bent_Functions.txt``.
-Original page: `https://boolean.wiki.uib.no/Bent_Functions <https://boolean.wiki.uib.no/Bent_Functions>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/Bent_Functions  <https://boolean.wiki.uib.no/Bent_Functions>`
 
 Background and Definition
 -------------------------

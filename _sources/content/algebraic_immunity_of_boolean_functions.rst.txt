@@ -2,7 +2,8 @@ Algebraic Immunity
 ==================
 
 Content partially extracted from `data/Algebraic_immunity_of_Boolean_functions.txt`.
-Original page: `https://boolean.wiki.uib.no/Algebraic_immunity_of_Boolean_functions <https://boolean.wiki.uib.no/Algebraic_immunity_of_Boolean_functions>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/Algebraic_immunity_of_Boolean_functions  <https://boolean.wiki.uib.no/Algebraic_immunity_of_Boolean_functions>`
 
 Algebraic Immunity of Boolean Functions
 =======================================

@@ -2,7 +2,8 @@ Algorithms for Testing Equivalence
 ==================================
 
 Content partially extracted from ``data/Algorithms_for_testing_equivalence.txt``.
-Original page: `https://boolean.wiki.uib.no/Algorithms_for_testing_equivalence <https://boolean.wiki.uib.no/Algorithms_for_testing_equivalence>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/Algorithms_for_testing_equivalence  <https://boolean.wiki.uib.no/Algorithms_for_testing_equivalence>`
 
 Testing EA-Equivalence
 ----------------------

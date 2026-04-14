@@ -2,7 +2,8 @@ Boomerang Uniformity
 ====================
 
 Content partially extracted from ``data/Boomerang_uniformity.txt``.
-Original page: `https://boolean.wiki.uib.no/Boomerang_uniformity <https://boolean.wiki.uib.no/Boomerang_uniformity>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/Boomerang_uniformity  <https://boolean.wiki.uib.no/Boomerang_uniformity>`
 
 Background and Definitions
 --------------------------

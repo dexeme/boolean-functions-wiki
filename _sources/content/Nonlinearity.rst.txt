@@ -2,4 +2,6 @@ Nonlinearity
 ============
 
 Content partially extracted from ``data/Nonlinearity.txt``.
-Original page: `https://boolean.wiki.uib.no/Nonlinearity <https://boolean.wiki.uib.no/Nonlinearity>`_
+Original page:
+
+:link:`https://boolean.wiki.uib.no/Nonlinearity  <https://boolean.wiki.uib.no/Nonlinearity>`

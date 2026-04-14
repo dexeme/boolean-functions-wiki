@@ -2,7 +2,8 @@ Almost Perfect Nonlinear (APN) Functions
 ========================================
 
 Content partially extracted from ``data/Almost_Perfect_Nonlinear_(APN)_Functions.txt``.
-Original page: `https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions <https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions  <https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions>`
 
 Background and Definition
 -------------------------
@@ -16,7 +17,7 @@ The differential uniformity is
 
 Always `\Delta_F\ge 2`; functions achieving `\Delta_F=2` are APN.
 
-Walsh Characterization
+Walsh Characterization :zotero:`[1] <DYHN6BVD>`
 ----------------------
 
 For `(n,m)`-functions:
@@ -30,7 +31,7 @@ again with equality iff APN.
 
 Equivalent formulations summing over all `b\in\mathbb{F}_{2^m}` are also used.
 
-Autocorrelation/Derivative Characterization
+Autocorrelation/Derivative Characterization :zotero:`[2] <WGJ8Y98G>`
 -------------------------------------------
 
 For Boolean `f`, define:
@@ -45,3 +46,4 @@ Using the sum-of-square-indicator
 one gets:
 `{\displaystyle \sum_{\lambda\in\mathbb{F}_{2^n}^*}\nu(f_\lambda)\ge (2^n-1)2^{2n+1}}`,
 with equality iff `F` is APN.
+

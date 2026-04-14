@@ -2,7 +2,8 @@ APN Functions Obtained via Polynomial Expansion in Small Dimensions
 ===================================================================
 
 Content partially extracted from ``data/APN_functions_obtained_via_polynomial_expansion_in_small_dimensions.txt``.
-Original page: `https://boolean.wiki.uib.no/APN_functions_obtained_via_polynomial_expansion_in_small_dimensions <https://boolean.wiki.uib.no/APN_functions_obtained_via_polynomial_expansion_in_small_dimensions>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/APN_functions_obtained_via_polynomial_expansion_in_small_dimensions  <https://boolean.wiki.uib.no/APN_functions_obtained_via_polynomial_expansion_in_small_dimensions>`
 
 Overview
 --------

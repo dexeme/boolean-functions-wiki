@@ -2,7 +2,9 @@ CCZ-invariants for All Known APN Functions in Dimension 7
 =========================================================
 
 Content partially extracted from ``data/CCZ-invariants_for_all_known_APN_functions_in_dimension_7.txt``.
-Original page: `https://boolean.wiki.uib.no/CCZ-invariants_for_all_known_APN_functions_in_dimension_7 <https://boolean.wiki.uib.no/CCZ-invariants_for_all_known_APN_functions_in_dimension_7>`_
+Original page:
+
+:link:`https://boolean.wiki.uib.no/CCZ-invariants_for_all_known_APN_functions_in_dimension_7  <https://boolean.wiki.uib.no/CCZ-invariants_for_all_known_APN_functions_in_dimension_7>`
 
 Overview
 --------
