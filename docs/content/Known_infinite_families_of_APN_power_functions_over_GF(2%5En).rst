@@ -17,44 +17,34 @@ Original page: `https://boolean.wiki.uib.no/Known_infinite_families_of_APN_power
      - $2^i + 1$
      - $gcd(i, n) = 1$
      - $2$
-     - [1], [2]
+     - :link:`[1] <zotero://select/library/items/MW7LUF34>`, :link:`[2] <zotero://select/library/items/RUTZTC4C>`
    * - Kasami
      - $2^{2i} - 2^i + 1$
      - $gcd(i, n) = 1$
      - $i + 1$
-     - [3], [4]
+     - :link:`[3] <zotero://select/library/items/LP9RGHEK>`, :link:`[4] <zotero://select/library/items/FA89NBDP>`
    * - Welch
      - $2^t + 3$
      - $n = 2t + 1$
      - $3$
-     - [5]
+     - :link:`[5] <zotero://select/library/items/2RXUUXXD>`
    * - Niho
      - $2^t + 2^{t/2} - 1$, $t$ even
      - $n = 2t + 1$
      - $(t+2)/2$
-     - [6]
+     - :link:`[6] <zotero://select/library/items/6MJDRIVT>`
    * - Niho
      - $2^t + 2^{(3t+1)/2} - 1$, $t$ odd
      - $n = 2t + 1$
      - $t + 1$
-     - [6]
+     - :link:`[6] <zotero://select/library/items/6MJDRIVT>`
    * - Inverse
      - $2^{2t} - 1$
      - $n = 2t + 1$
      - $n - 1$
-     - [2], [7]
+     - :link:`[2] <zotero://select/library/items/RUTZTC4C>`, :link:`[7] <zotero://select/library/items/XRMX3IYQ>`
    * - Dobbertin
      - $2^{4i} + 2^{3i} + 2^{2i} + 2^i - 1$
      - $n = 5i$
      - $i + 3$
-     - [8]
-
-
-[1] -
-[2] -
-[3] -
-[4] -
-[5] -
-[6] -
-[7] -
-[8] -
+     - :link:`[8] <zotero://select/library/items/ZPX35BIH>`
