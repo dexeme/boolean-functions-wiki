@@ -39,10 +39,3 @@ For a permutation `F`, the following properties hold:
   `{\displaystyle T_F(a,b)=\left|\left\{(x,y):\ F(x+a)+F(y+a)=b,\ F(x)+F(y)=b\right\}\right|}`.
 - If `F` is a power permutation, then `{\displaystyle \beta_F=\max_{b\neq 0}T_F(1,b)}`.
 - If `F` is quadratic, then `{\displaystyle \delta_F\le \beta_F\le \delta_F(\delta_F-1)}`.
-
-SageCell Demo
--------------
-
-.. sagecell::
-
-   2 + 2
