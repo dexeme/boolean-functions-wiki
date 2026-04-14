@@ -23,6 +23,7 @@ extensions = [
     'sphinx.ext.todo',
     'sage_block',
     'sagecell_directive',
+    'link'
 ]
 
 templates_path = ['_templates']
