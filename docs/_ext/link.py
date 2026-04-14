@@ -12,12 +12,10 @@ def link_role(name, rawtext, text, lineno, inliner, options=None, content=None):
         display_text = text
         url = text
 
-    node = nodes.reference(rawtext, display_text, refuri=url)
+    html_code = f'<a href="{url}" target="_blank" rel="noopener noreferrer">{display_text}</a>'
+    raw_node = nodes.raw('', html_code, format='html')
 
-    if not url.startswith('zotero://'):
-        node['classes'].append('external')
-
-    return [node], []
+    return [raw_node], []
 
 def setup(app):
     app.add_role('link', link_role)

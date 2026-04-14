@@ -2,4 +2,6 @@ Some APN functions CCZ-equivalent to ----- and CCZ-equivalent to the Gold functi
 ================================================================================================
 
 Content partially extracted from ``data/Some_APN_functions_CCZ-equivalent_to_-----_and_CCZ-equivalent_to_the_Gold_functions_over_GF(2%5En).txt``.
-Original page: `https://boolean.wiki.uib.no/Some_APN_functions_CCZ-equivalent_to_-----_and_CCZ-equivalent_to_the_Gold_functions_over_GF(2%5En) <https://boolean.wiki.uib.no/Some_APN_functions_CCZ-equivalent_to_-----_and_CCZ-equivalent_to_the_Gold_functions_over_GF(2%5En)>`_
+Original page:
+
+:link:`https://boolean.wiki.uib.no/Some_APN_functions_CCZ-equivalent_to_-----_and_CCZ-equivalent_to_the_Gold_functions_over_GF(2%5En)  <https://boolean.wiki.uib.no/Some_APN_functions_CCZ-equivalent_to_-----_and_CCZ-equivalent_to_the_Gold_functions_over_GF(2%5En)>`

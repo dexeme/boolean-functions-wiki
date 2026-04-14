@@ -106,3 +106,4 @@ Algebraic Structures and Coding Theory
     Commutative Presemifields and Semifields <content/Commutative_Presemifields_and_Semifields>
     Correlation immunity and resiliency of Boolean functions <content/Correlation_immunity_and_resiliency_of_Boolean_functions>
     Known infinite families of APN power functions over GF(2^n) <content/Known_infinite_families_of_APN_power_functions_over_GF(2%5En)>
+    Known instances of APN functions over GF(2^7) <content/Known_instances_of_APN_functions_over_GF(2%5E7)>

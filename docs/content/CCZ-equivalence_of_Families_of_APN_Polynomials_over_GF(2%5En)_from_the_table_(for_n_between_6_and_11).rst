@@ -2,7 +2,8 @@ CCZ-equivalence of Families of APN Polynomials over GF(2^n) (6 <= n <= 11)
 ============================================================================
 
 Content partially extracted from ``data/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11).txt``.
-Original page: `https://boolean.wiki.uib.no/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11) <https://boolean.wiki.uib.no/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11)>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11)  <https://boolean.wiki.uib.no/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11)>`
 
 Overview
 --------

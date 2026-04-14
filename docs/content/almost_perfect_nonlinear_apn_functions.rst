@@ -2,7 +2,8 @@ Almost Perfect Nonlinear (APN) Functions
 ========================================
 
 Content partially extracted from ``data/Almost_Perfect_Nonlinear_(APN)_Functions.txt``.
-Original page: `https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions <https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions  <https://boolean.wiki.uib.no/Almost_Perfect_Nonlinear_(APN)_Functions>`
 
 Background and Definition
 -------------------------

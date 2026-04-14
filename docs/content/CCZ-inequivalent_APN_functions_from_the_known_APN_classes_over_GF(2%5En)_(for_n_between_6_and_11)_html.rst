@@ -2,7 +2,8 @@ CCZ-inequivalent APN Functions over GF(2^n) from Known APN Classes (HTML summary
 ===================================================================================
 
 Content partially extracted from ``data/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11)_html.txt``.
-Original page: `https://boolean.wiki.uib.no/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11)_html <https://boolean.wiki.uib.no/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11)_html>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11)_html  <https://boolean.wiki.uib.no/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11)_html>`
 
 Overview
 --------

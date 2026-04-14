@@ -2,7 +2,9 @@ CCZ-inequivalent Representatives from Known APN Families (Dimensions up to 11)
 ===============================================================================
 
 Content partially extracted from ``data/CCZ-inequivalent_representatives_from_the_known_APN_families_for_dimensions_up_to_11.txt``.
-Original page: `https://boolean.wiki.uib.no/CCZ-inequivalent_representatives_from_the_known_APN_families_for_dimensions_up_to_11 <https://boolean.wiki.uib.no/CCZ-inequivalent_representatives_from_the_known_APN_families_for_dimensions_up_to_11>`_
+Original page:
+
+:link:`https://boolean.wiki.uib.no/CCZ-inequivalent_representatives_from_the_known_APN_families_for_dimensions_up_to_11  <https://boolean.wiki.uib.no/CCZ-inequivalent_representatives_from_the_known_APN_families_for_dimensions_up_to_11>`
 
 Overview
 --------

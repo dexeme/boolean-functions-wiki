@@ -2,7 +2,8 @@ APN Permutations
 ================
 
 Content partially extracted from ``data/APN_Permutations.txt``.
-Original page: `https://boolean.wiki.uib.no/APN_Permutations <https://boolean.wiki.uib.no/APN_Permutations>`_
+Original page:
+:link:`https://boolean.wiki.uib.no/APN_Permutations  <https://boolean.wiki.uib.no/APN_Permutations>`
 
 Characterization of Permutations
 --------------------------------
