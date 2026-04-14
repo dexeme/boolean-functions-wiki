@@ -5,3 +5,4 @@ Content partially extracted from ``data/Known_instances_of_APN_functions_over_GF
 Original page:
 :link:`https://boolean.wiki.uib.no/Known_instances_of_APN_functions_over_GF(2%5E7)  <https://boolean.wiki.uib.no/Known_instances_of_APN_functions_over_GF(2%5E7)>`
 
+:zotero:`[1] <MFMEUAZX>`
