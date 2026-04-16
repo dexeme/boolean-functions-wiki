@@ -23,11 +23,12 @@ extensions = [
     'sphinx.ext.todo',
     'sage_block',
     'sagecell_directive',
-    'link'
+    'link',
+    'lazy_chunks',
 ]
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['content/_includes/*.rst']
 language = 'en'
 default_role = 'math'
 pygments_style = 'sphinx'
