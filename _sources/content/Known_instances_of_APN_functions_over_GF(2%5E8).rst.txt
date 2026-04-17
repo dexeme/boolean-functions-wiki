@@ -11,5 +11,15 @@ Click to expand each range.
 .. lazychunks::
    known_instances_apn_gf2_8
 
-:zotero:`[1] <MFMEUAZX>`
-:zotero:`[2] <HJ7HR7BL>`
+The majority of these were obtained by the matrix method described in :zotero:`[1] <MFMEUAZX>`
+(:zotero:`[Codigos] <NRFTSID8>` O apêndice desse nao tem o codigo, só todas as funcoes, entao nao tem como saber quais sao as funcoes hardcoded)
+
+The functions at indices 8181 -- 8190 were obtained in :zotero:`[2] <HJ7HR7BL>`
+
+The functions at indices 8191 -- 8192 were obtained in :zotero:`[3] <PIM5GI9S>`
+
+The representation of function number 8181 was obtained in :zotero:`[4] <RU5BPDDZ>`
+
+#todo achei esse repo https://github.com/lpp-crypto/sboxU
+
+:zotero:`[PseudoCodigo] <AFHQHD9D>`  pra tentar implementar depois, eles usaram n=7

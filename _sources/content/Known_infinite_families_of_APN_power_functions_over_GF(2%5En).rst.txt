@@ -50,3 +50,6 @@ Original page:
      - $n = 5i$
      - $i + 3$
      - :zotero:`[8] <ZPX35BIH>`
+
+
+#todo Verificar tabela 1 de :zotero:`[2] <HJ7HR7BL>`. Encontrei divergencias

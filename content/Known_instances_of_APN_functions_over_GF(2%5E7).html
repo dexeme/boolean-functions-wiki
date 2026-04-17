@@ -50,7 +50,51 @@
 <p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/Known_instances_of_APN_functions_over_GF(2%5E7).txt</span></code>.
 Original page:
 <a href="https://boolean.wiki.uib.no/Known_instances_of_APN_functions_over_GF(2%5E7)" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/Known_instances_of_APN_functions_over_GF(2%5E7)</a></p>
-<p><a class="reference external" href="zotero://select/library/items/MFMEUAZX">[1]</a>
+<p>Click to expand each range.</p>
+<div id="lazychunks-0" class="lazychunks">
+<details class="apn-range-chunk"><summary><strong>IDs 1-500</strong></summary>
+<div class="lazychunks lazychunks-sub">
+<details class="apn-lazy-chunk" data-src="../_static/apn_chunks/known_instances_apn_gf2_7_1_100.html"><summary><strong>IDs 1-100</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="../_static/apn_chunks/known_instances_apn_gf2_7_101_200.html"><summary><strong>IDs 101-200</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="../_static/apn_chunks/known_instances_apn_gf2_7_201_300.html"><summary><strong>IDs 201-300</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="../_static/apn_chunks/known_instances_apn_gf2_7_301_400.html"><summary><strong>IDs 301-400</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="../_static/apn_chunks/known_instances_apn_gf2_7_401_500.html"><summary><strong>IDs 401-500</strong></summary><div class="apn-lazy-body"></div></details>
+</div>
+</details>
+</div>
+<script>
+(function () {
+  if (window.__lazyChunksBound !== true) {
+    window.__lazyChunksBound = true;
+    document.addEventListener('toggle', async function (event) {
+      const chunk = event.target;
+      if (!(chunk instanceof HTMLDetailsElement)) return;
+      if (!chunk.classList.contains('apn-lazy-chunk')) return;
+      if (!chunk.open || chunk.dataset.loaded === '1') return;
+      const body = chunk.querySelector('.apn-lazy-body');
+      const src = chunk.dataset.src;
+      if (!body || !src) return;
+      body.textContent = 'Loading...';
+      try {
+        const response = await fetch(src);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        body.innerHTML = await response.text();
+        chunk.dataset.loaded = '1';
+      } catch (err) {
+        body.innerHTML = '';
+        const frame = document.createElement('iframe');
+        frame.src = src;
+        frame.loading = 'lazy';
+        frame.style.width = '100%';
+        frame.style.minHeight = '600px';
+        frame.style.border = '1px solid #ccc';
+        body.appendChild(frame);
+        chunk.dataset.loaded = '1';
+      }
+    }, true);
+  }
+})();
+</script><p><a class="reference external" href="zotero://select/library/items/MFMEUAZX">[1]</a>
 <a class="reference external" href="zotero://select/library/items/HJ7HR7BL">[2]</a>
 <a class="reference external" href="zotero://select/library/items/PIM5GI9S">[3]</a>
 <a class="reference external" href="zotero://select/library/items/RU5BPDDZ">[4]</a></p>
