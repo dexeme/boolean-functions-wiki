@@ -165,6 +165,114 @@ class LazyChunksDirective(Directive):
         return [nodes.raw("", html, format="html")]
 
 
+def _parse_list_table_rows(rst_text: str) -> list[tuple[str, str]]:
+    rows: list[tuple[str, str]] = []
+    lines = rst_text.splitlines()
+    i = 0
+    while i < len(lines):
+        m = re.match(r"\s*\* -\s*(.+)\s*$", lines[i])
+        if not m:
+            i += 1
+            continue
+        c1 = m.group(1).strip()
+        c2 = ""
+        if i + 1 < len(lines):
+            m2 = re.match(r"\s*-\s*(.+)\s*$", lines[i + 1])
+            if m2:
+                c2 = m2.group(1).strip()
+                i += 1
+        rows.append((c1, c2))
+        i += 1
+    return rows
+
+
+def _list_table_rst_to_html(rst_text: str) -> str | None:
+    rows = _parse_list_table_rows(rst_text)
+    if len(rows) < 2:
+        return None
+
+    header = rows[0]
+    body = rows[1:]
+    parts = [
+        '<table class="docutils align-default">',
+        "<thead><tr><th>{}</th><th>{}</th></tr></thead>".format(
+            html_escape(header[0]), html_escape(header[1])
+        ),
+        "<tbody>",
+    ]
+    for c1, c2 in body:
+        value = c2
+        if len(value) >= 2 and value[0] == "`" and value[-1] == "`":
+            value = value[1:-1]
+        parts.append(
+            "<tr><td>{}</td><td><code>{}</code></td></tr>".format(
+                html_escape(c1), html_escape(value)
+            )
+        )
+    parts.extend(["</tbody>", "</table>"])
+    return "\n".join(parts) + "\n"
+
+
+def _discover_lazychunks_folders(src_dir: Path) -> set[str]:
+    folders: set[str] = set()
+    for rst_file in src_dir.rglob("*.rst"):
+        try:
+            lines = rst_file.read_text(encoding="utf-8").splitlines()
+        except OSError:
+            continue
+        i = 0
+        while i < len(lines):
+            if lines[i].strip() != ".. lazychunks::":
+                i += 1
+                continue
+            i += 1
+            while i < len(lines):
+                line = lines[i]
+                stripped = line.strip()
+                if not stripped:
+                    i += 1
+                    continue
+                if not line.startswith((" ", "\t")):
+                    break
+                if stripped.startswith("#"):
+                    i += 1
+                    continue
+                if "|" not in stripped:
+                    folders.add(stripped)
+                i += 1
+            continue
+    return folders
+
+
+def _generate_apn_chunks(app, _exception):
+    src_dir = Path(app.srcdir)
+    out_chunks = Path(app.outdir) / "_static" / "apn_chunks"
+    out_chunks.mkdir(parents=True, exist_ok=True)
+
+    range_re = re.compile(r"^(\d+)_(\d+)$")
+    for folder in sorted(_discover_lazychunks_folders(src_dir)):
+        includes_base = src_dir / "content" / "_includes" / folder
+        if not includes_base.is_dir():
+            continue
+        for interval_dir in sorted(includes_base.iterdir()):
+            if not interval_dir.is_dir() or not range_re.fullmatch(interval_dir.name):
+                continue
+            for rst_file in sorted(interval_dir.glob("*.rst")):
+                if not range_re.fullmatch(rst_file.stem):
+                    continue
+                try:
+                    html = _list_table_rst_to_html(
+                        rst_file.read_text(encoding="utf-8")
+                    )
+                except OSError:
+                    continue
+                if not html:
+                    continue
+                out_file = out_chunks / f"{folder}_{rst_file.stem}.html"
+                out_file.write_text(html, encoding="utf-8")
+
+
 def setup(app):
     app.add_directive("lazychunks", LazyChunksDirective)
+    app.connect("build-finished", _generate_apn_chunks)
     return {"version": "0.1", "parallel_read_safe": True, "parallel_write_safe": True}
