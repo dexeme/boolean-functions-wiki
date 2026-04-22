@@ -28,7 +28,11 @@ extensions = [
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ['content/_includes/*.rst']
+exclude_patterns = [
+    'content/_includes/*.rst',
+    '_includes/*.rst',
+    'pages/_includes/*.rst',
+]
 language = 'en'
 default_role = 'math'
 pygments_style = 'sphinx'

@@ -148,11 +148,25 @@ def _resolve_csv_path(src_dir: Path, value: str) -> Path:
     rel = Path(value)
     candidates = [
         src_dir / "content" / "tables" / rel,
+        src_dir / "tables" / rel,
         src_dir / "content" / rel,
+        src_dir / "pages" / rel,
         src_dir / rel,
     ]
     for candidate in candidates:
         if candidate.is_file():
+            return candidate
+    return candidates[0]
+
+
+def _resolve_includes_base(src_dir: Path, folder_name: str) -> Path:
+    candidates = [
+        src_dir / "content" / "_includes" / folder_name,
+        src_dir / "_includes" / folder_name,
+        src_dir / "pages" / "_includes" / folder_name,
+    ]
+    for candidate in candidates:
+        if candidate.exists() and candidate.is_dir():
             return candidate
     return candidates[0]
 
@@ -211,10 +225,12 @@ class LazyChunksDirective(Directive):
     ) -> list[tuple[int, int, list[tuple[int, int]]]]:
         env = self.state.document.settings.env
         src_dir = Path(env.app.srcdir)
-        base = src_dir / "content" / "_includes" / folder_name
+        base = _resolve_includes_base(src_dir, folder_name)
         if not base.exists() or not base.is_dir():
             raise self.error(
-                f"Auto lazychunks folder not found: content/_includes/{folder_name}"
+                "Auto lazychunks folder not found in any of: "
+                f"content/_includes/{folder_name}, _includes/{folder_name}, "
+                f"pages/_includes/{folder_name}"
             )
 
         intervals: list[tuple[int, int, list[tuple[int, int]]]] = []
@@ -239,7 +255,8 @@ class LazyChunksDirective(Directive):
 
         if not intervals:
             raise self.error(
-                f"No interval subfolders found in content/_includes/{folder_name}"
+                "No interval subfolders found in: "
+                f"{base}"
             )
 
         intervals.sort()
@@ -302,9 +319,9 @@ class LazyChunksDirective(Directive):
         parts = [f'<div id="{wrapper_id}" class="lazychunks">']
         if csv_mode:
             for start, end, first_id, last_id in csv_chunks:
-                src = f"../_static/apn_chunks/{csv_dataset}_{start}_{end}.html"
+                src = f"{csv_dataset}_{start}_{end}.html"
                 parts.append(
-                    '<details class="apn-lazy-chunk" data-src="{}">'
+                    '<details class="apn-lazy-chunk" data-src="{}" data-src-kind="apn-chunk">'
                     '<summary><strong>{}</strong></summary>'
                     '<div class="apn-lazy-body"></div>'
                     "</details>".format(
@@ -323,9 +340,9 @@ class LazyChunksDirective(Directive):
                 parts.append('<div class="lazychunks lazychunks-sub">')
                 if subintervals:
                     for sa, sb in subintervals:
-                        src = f"../_static/apn_chunks/{folder_name}_{sa}_{sb}.html"
+                        src = f"{folder_name}_{sa}_{sb}.html"
                         parts.append(
-                            '<details class="apn-lazy-chunk" data-src="{}">'
+                            '<details class="apn-lazy-chunk" data-src="{}" data-src-kind="apn-chunk">'
                             '<summary><strong>{}</strong></summary>'
                             '<div class="apn-lazy-body"></div>'
                             "</details>".format(
@@ -334,9 +351,9 @@ class LazyChunksDirective(Directive):
                             )
                         )
                 else:
-                    src = f"../_static/apn_chunks/{folder_name}_{a}_{b}.html"
+                    src = f"{folder_name}_{a}_{b}.html"
                     parts.append(
-                        '<details class="apn-lazy-chunk" data-src="{}">'
+                        '<details class="apn-lazy-chunk" data-src="{}" data-src-kind="apn-chunk">'
                         '<summary><strong>{}</strong></summary>'
                         '<div class="apn-lazy-body"></div>'
                         "</details>".format(
@@ -405,6 +422,17 @@ class LazyChunksDirective(Directive):
         parts.append("      };")
         parts.append("    }")
         parts.append("    const lazyChunksUseIframeOnly = window.location.protocol === 'file:';")
+        parts.append("    const lazyChunksContentRoot = (document.documentElement && document.documentElement.getAttribute('data-content_root')) || '';")
+        parts.append("    const lazyChunksResolveSrc = function (chunk, src) {")
+        parts.append("      if (!src) return src;")
+        parts.append("      if (chunk.dataset.srcKind !== 'apn-chunk') return src;")
+        parts.append("      let root = lazyChunksContentRoot;")
+        parts.append("      if (!root && typeof DOCUMENTATION_OPTIONS !== 'undefined' && DOCUMENTATION_OPTIONS && DOCUMENTATION_OPTIONS.URL_ROOT) {")
+        parts.append("        root = DOCUMENTATION_OPTIONS.URL_ROOT;")
+        parts.append("      }")
+        parts.append("      const normalizedRoot = root && !root.endsWith('/') ? root + '/' : root;")
+        parts.append("      return normalizedRoot + '_static/apn_chunks/' + src;")
+        parts.append("    };")
         parts.append("    const lazyChunksLoadIframe = function (body, src, chunk) {")
         parts.append("      body.innerHTML = '';")
         parts.append("      const frame = document.createElement('iframe');")
@@ -422,8 +450,9 @@ class LazyChunksDirective(Directive):
         parts.append("      if (!chunk.classList.contains('apn-lazy-chunk')) return;")
         parts.append("      if (!chunk.open || chunk.dataset.loaded === '1') return;")
         parts.append("      const body = chunk.querySelector('.apn-lazy-body');")
-        parts.append("      const src = chunk.dataset.src;")
-        parts.append("      if (!body || !src) return;")
+        parts.append("      const rawSrc = chunk.dataset.src;")
+        parts.append("      if (!body || !rawSrc) return;")
+        parts.append("      const src = lazyChunksResolveSrc(chunk, rawSrc);")
         parts.append("      body.textContent = 'Loading...';")
         parts.append("      if (lazyChunksUseIframeOnly) {")
         parts.append("        lazyChunksLoadIframe(body, src, chunk);")
@@ -549,7 +578,7 @@ def _generate_apn_chunks(app, _exception):
 
     range_re = re.compile(r"^(\d+)_(\d+)$")
     for folder in sorted(_discover_lazychunks_folders(src_dir)):
-        includes_base = src_dir / "content" / "_includes" / folder
+        includes_base = _resolve_includes_base(src_dir, folder)
         if not includes_base.is_dir():
             continue
         for interval_dir in sorted(includes_base.iterdir()):

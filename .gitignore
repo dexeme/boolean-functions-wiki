@@ -1,4 +1,38 @@
-/venv
+# Virtual environments
+/venv/
+.venv/
+env/
+
+# Python cache/artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Sphinx build outputs and cache
 /build/
-.idea
-/data
+/docs/build/
+/docs/.doctrees/
+*.doctree
+*.bak
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local data/scratch
+/data/
