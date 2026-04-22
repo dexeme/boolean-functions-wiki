@@ -139,6 +139,63 @@ Original page:</p>
 (function () {
   if (window.__lazyChunksBound !== true) {
     window.__lazyChunksBound = true;
+    if (typeof window.__lazyChunksQueueTypeset !== 'function') {
+      window.__lazyChunksPendingTypeset = new Set();
+      window.__lazyChunksTryTypeset = async function (el) {
+        if (!el || !document.contains(el)) return true;
+        const mj = window.MathJax;
+        if (!mj) return false;
+        try {
+          if (mj.startup && mj.startup.promise) {
+            await mj.startup.promise;
+          }
+          if (typeof mj.typesetPromise === 'function') {
+            await mj.typesetPromise([el]);
+            return true;
+          }
+          if (mj.Hub && typeof mj.Hub.Queue === 'function') {
+            mj.Hub.Queue(['Typeset', mj.Hub, el]);
+            return true;
+          }
+        } catch (_err) {
+          return false;
+        }
+        return false;
+      };
+      window.__lazyChunksFlushTypeset = async function () {
+        const pending = Array.from(window.__lazyChunksPendingTypeset);
+        for (const el of pending) {
+          const ok = await window.__lazyChunksTryTypeset(el);
+          if (ok) window.__lazyChunksPendingTypeset.delete(el);
+        }
+        if (window.__lazyChunksPendingTypeset.size === 0 && window.__lazyChunksTypesetTimer) {
+          clearInterval(window.__lazyChunksTypesetTimer);
+          window.__lazyChunksTypesetTimer = null;
+        }
+      };
+      window.__lazyChunksQueueTypeset = function (el) {
+        if (!el) return;
+        window.__lazyChunksPendingTypeset.add(el);
+        void window.__lazyChunksFlushTypeset();
+        if (!window.__lazyChunksTypesetTimer) {
+          window.__lazyChunksTypesetTimer = setInterval(function () {
+            void window.__lazyChunksFlushTypeset();
+          }, 300);
+        }
+      };
+    }
+    const lazyChunksUseIframeOnly = window.location.protocol === 'file:';
+    const lazyChunksLoadIframe = function (body, src, chunk) {
+      body.innerHTML = '';
+      const frame = document.createElement('iframe');
+      frame.src = src;
+      frame.loading = 'lazy';
+      frame.style.width = '100%';
+      frame.style.minHeight = '600px';
+      frame.style.border = '1px solid #ccc';
+      body.appendChild(frame);
+      chunk.dataset.loaded = '1';
+    };
     document.addEventListener('toggle', async function (event) {
       const chunk = event.target;
       if (!(chunk instanceof HTMLDetailsElement)) return;
@@ -148,21 +205,18 @@ Original page:</p>
       const src = chunk.dataset.src;
       if (!body || !src) return;
       body.textContent = 'Loading...';
+      if (lazyChunksUseIframeOnly) {
+        lazyChunksLoadIframe(body, src, chunk);
+        return;
+      }
       try {
         const response = await fetch(src);
         if (!response.ok) throw new Error('HTTP ' + response.status);
         body.innerHTML = await response.text();
+        window.__lazyChunksQueueTypeset(body);
         chunk.dataset.loaded = '1';
       } catch (err) {
-        body.innerHTML = '';
-        const frame = document.createElement('iframe');
-        frame.src = src;
-        frame.loading = 'lazy';
-        frame.style.width = '100%';
-        frame.style.minHeight = '600px';
-        frame.style.border = '1px solid #ccc';
-        body.appendChild(frame);
-        chunk.dataset.loaded = '1';
+        lazyChunksLoadIframe(body, src, chunk);
       }
     }, true);
   }

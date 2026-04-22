@@ -1,0 +1,36 @@
+/* Keep tables inside content width and avoid cell overlap. */
+table.docutils,
+.apn-lazy-body table.docutils {
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table.docutils th,
+table.docutils td,
+.apn-lazy-body table.docutils th,
+.apn-lazy-body table.docutils td {
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 0;
+}
+
+/* Math nodes are usually nowrap; allow wrapping inside table cells. */
+table.docutils mjx-container,
+table.docutils .math {
+  white-space: normal !important;
+}
+
+/* Keep lazy chunk sections usable on smaller widths. */
+.apn-lazy-body {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Give a bit more room to the main content in classic theme pages. */
+div.document {
+  width: min(96vw, 1600px);
+}

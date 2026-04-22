@@ -9,7 +9,7 @@ Click to expand each range.
 
 .. lazychunks::
    :csv: known_instances_apn_gf2_7.csv
-   :max-rows: 100
+   :max-rows: 50
 
    known_instances_apn_gf2_7
 
