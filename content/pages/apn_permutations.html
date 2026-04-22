@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>APN Permutations &#8212; Boolean Functions  documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script src="../../_static/sagecell-init.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="../../_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="apn-permutations">
+<h1>APN Permutations<a class="headerlink" href="#apn-permutations" title="Permalink to this headline">¶</a></h1>
+<p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/APN_Permutations.txt</span></code>.
+Original page:
+<a href="https://boolean.wiki.uib.no/APN_Permutations" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/APN_Permutations</a></p>
+<div class="section" id="characterization-of-permutations">
+<h2>Characterization of Permutations<a class="headerlink" href="#characterization-of-permutations" title="Permalink to this headline">¶</a></h2>
+<p>For an <span class="math notranslate nohighlight">\((n,n)\)</span>-function <span class="math notranslate nohighlight">\(F\)</span>, permutation can be characterized by balanced component functions:
+<span class="math notranslate nohighlight">\(F\)</span> is a permutation iff all nonzero components <span class="math notranslate nohighlight">\(f_\lambda\)</span> are balanced.</p>
+<p>Using directional derivatives and
+<span class="math notranslate nohighlight">\({\displaystyle \mathcal{F}(f)=\sum_{x\in\mathbb{F}_{2^n}}(-1)^{f(x)}=2^n-2wt(f)}\)</span>,
+equivalent criteria are:</p>
+<p><span class="math notranslate nohighlight">\({\displaystyle \sum_{a\in\mathbb{F}_{2^n}^*}\mathcal{F}(D_af_\lambda)=-2^n}\)</span>
+for all <span class="math notranslate nohighlight">\(\lambda\in\mathbb{F}_{2^n}^*\)</span>,
+or equivalently
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{\lambda\in\mathbb{F}_{2^n}^*}\mathcal{F}(D_af_\lambda)=-2^n}\)</span>
+for all <span class="math notranslate nohighlight">\(a\in\mathbb{F}_{2^n}^*\)</span>.</p>
+</div>
+<div class="section" id="characterization-of-apn-permutations">
+<h2>Characterization of APN Permutations<a class="headerlink" href="#characterization-of-apn-permutations" title="Permalink to this headline">¶</a></h2>
+<p>Known APN permutations (up to CCZ-equivalence) belong to a few families:</p>
+<ol class="arabic simple">
+<li><p>APN monomials in odd dimension.</p></li>
+<li><p>One infinite quadratic family in dimension <span class="math notranslate nohighlight">\(3n\)</span> (odd <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\gcd(n,3)=1\)</span>).</p></li>
+<li><p>Dillon’s APN permutation in dimension 6.</p></li>
+<li><p>Two sporadic quadratic APN permutations in dimension 9.</p></li>
+</ol>
+<p>For APN maps, no component has degree 1.
+For even <span class="math notranslate nohighlight">\(n\)</span>, components are not partially bent, hence not quadratic.</p>
+</div>
+<div class="section" id="autocorrelation-characterization">
+<h2>Autocorrelation Characterization<a class="headerlink" href="#autocorrelation-characterization" title="Permalink to this headline">¶</a></h2>
+<p>An <span class="math notranslate nohighlight">\((n,n)\)</span>-function <span class="math notranslate nohighlight">\(F\)</span> is an APN permutation iff, for every <span class="math notranslate nohighlight">\(a\in\mathbb{F}_{2^n}^*\)</span>:</p>
+<p><span class="math notranslate nohighlight">\({\displaystyle \sum_{\lambda\in\mathbb{F}_{2^n}^*}\mathcal{F}(D_af_\lambda)=-2^n}\)</span>
+and
+<span class="math notranslate nohighlight">\({\displaystyle \sum_{\lambda\in\mathbb{F}_{2^n}^*}\mathcal{F}^2(D_af_\lambda)=2^{2n}}\)</span>.</p>
+</div>
+<div class="section" id="apn-power-functions">
+<h2>APN Power Functions<a class="headerlink" href="#apn-power-functions" title="Permalink to this headline">¶</a></h2>
+<p>If <span class="math notranslate nohighlight">\(F(x)=x^d\)</span> is APN over <span class="math notranslate nohighlight">\(\mathbb{F}_{2^n}\)</span>:</p>
+<ul class="simple">
+<li><p>for odd <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\gcd(d,2^n-1)=1\)</span>, so APN power functions are permutations;</p></li>
+<li><p>for even <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\gcd(d,2^n-1)=3\)</span>, so they are 3-to-1 on <span class="math notranslate nohighlight">\(\mathbb{F}_{2^n}^*\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="codes-and-apn-permutations">
+<h2>Codes and APN Permutations<a class="headerlink" href="#codes-and-apn-permutations" title="Permalink to this headline">¶</a></h2>
+<p>APN properties can be expressed via associated binary linear codes.
+In particular, <span class="math notranslate nohighlight">\(F\)</span> is APN iff the associated code has minimum distance 5.</p>
+<p>Also, <span class="math notranslate nohighlight">\(F\)</span> is CCZ-equivalent to an APN permutation iff the dual associated code is a double simplex code.</p>
+</div>
+<div class="section" id="dimension-6-and-the-open-problem">
+<h2>Dimension 6 and the Open Problem<a class="headerlink" href="#dimension-6-and-the-open-problem" title="Permalink to this headline">¶</a></h2>
+<p>The long-standing conjecture against APN permutations in even dimension was broken in dimension 6
+by Dillon (2009), with a function CCZ-equivalent to the Kim function.</p>
+<p>The existence of APN permutations for even dimensions <span class="math notranslate nohighlight">\(n\ge 8\)</span> remains open.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">APN Permutations</a><ul>
+<li><a class="reference internal" href="#characterization-of-permutations">Characterization of Permutations</a></li>
+<li><a class="reference internal" href="#characterization-of-apn-permutations">Characterization of APN Permutations</a></li>
+<li><a class="reference internal" href="#autocorrelation-characterization">Autocorrelation Characterization</a></li>
+<li><a class="reference internal" href="#apn-power-functions">APN Power Functions</a></li>
+<li><a class="reference internal" href="#codes-and-apn-permutations">Codes and APN Permutations</a></li>
+<li><a class="reference internal" href="#dimension-6-and-the-open-problem">Dimension 6 and the Open Problem</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/content/pages/apn_permutations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer" role="contentinfo"><p>&copy; 2026, Tiago Siqueira.</p>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
+  </body>
+</html>
