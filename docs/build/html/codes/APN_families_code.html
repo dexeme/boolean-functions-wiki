@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>APN_families &#8212; Boolean Functions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=b602aa31" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script src="../_static/sagecell-init.js?v=dde391b2"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ccz_inequivalent_representatives_from_the_known_families" href="Ccz_inequivalent_representatives_from_the_known_families_code.html" />
+    <link rel="prev" title="ANF Code" href="ANF_code.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Ccz_inequivalent_representatives_from_the_known_families_code.html" title="Ccz_inequivalent_representatives_from_the_known_families"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ANF_code.html" title="ANF Code"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">APN_families</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="apn-families">
+<span id="apn-families-code"></span><h1>APN_families<a class="headerlink" href="#apn-families" title="Link to this heading">¶</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>//Li, Kangquan, and Nikolay Kaleyski. &quot;Two new infinite families of APN functions in trivariate form.&quot; IEEE Transactions on Information Theory (2023).
+<span class="linenos">  2</span>
+<span class="linenos">  3</span>ReduceMod:=procedure(~f,n)
+<span class="linenos">  4</span>    T:=Terms(f);
+<span class="linenos">  5</span>    x:=Parent(f).1;
+<span class="linenos">  6</span>    M:=2^n-1;
+<span class="linenos">  7</span>    for t in T do
+<span class="linenos">  8</span>        e:=Exponents(t)[1];
+<span class="linenos">  9</span>        if e ge M then
+<span class="linenos"> 10</span>            f +:=t;
+<span class="linenos"> 11</span>            c:=LeadingCoefficient(t);
+<span class="linenos"> 12</span>            e:=e mod M;
+<span class="linenos"> 13</span>            f +:=(c*x^e);
+<span class="linenos"> 14</span>        end if;
+<span class="linenos"> 15</span>    end for;
+<span class="linenos"> 16</span>end procedure;
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span>//--------------------------------------------------
+<span class="linenos"> 19</span>//Power functions
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span>Gold:=function(n,i)
+<span class="linenos"> 22</span>    if not IsOne(GCD(i,n)) then
+<span class="linenos"> 23</span>        error &quot;GCD(i,n) is not 1&quot;;
+<span class="linenos"> 24</span>    end if;
+<span class="linenos"> 25</span>    R:=PolynomialRing(GF(2^n));
+<span class="linenos"> 26</span>    x:=R.1;
+<span class="linenos"> 27</span>    return x^(2^i+1);
+<span class="linenos"> 28</span>end function;
+<span class="linenos"> 29</span>
+<span class="linenos"> 30</span>Kasami:=function(n,i)
+<span class="linenos"> 31</span>    if not IsOne(GCD(i,n)) then
+<span class="linenos"> 32</span>        error &quot;GCD(i,n) is not 1&quot;;
+<span class="linenos"> 33</span>    end if;
+<span class="linenos"> 34</span>    R:=PolynomialRing(GF(2^n));
+<span class="linenos"> 35</span>    x:=R.1;
+<span class="linenos"> 36</span>    return x^(2^(2*i)-2^i+1);
+<span class="linenos"> 37</span>end function;
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span>Welch:=function(n)
+<span class="linenos"> 40</span>    if not IsOdd(n) then
+<span class="linenos"> 41</span>        error &quot;n is not odd&quot;;
+<span class="linenos"> 42</span>    end if;
+<span class="linenos"> 43</span>    R:=PolynomialRing(GF(2^n));
+<span class="linenos"> 44</span>    x:=R.1;
+<span class="linenos"> 45</span>    t:=(n-1) div 2;
+<span class="linenos"> 46</span>    return x^(2^t+3);
+<span class="linenos"> 47</span>end function;
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span>Niho:=function(n)
+<span class="linenos"> 50</span>    if not IsOdd(n) then
+<span class="linenos"> 51</span>        error &quot;n is not odd&quot;;
+<span class="linenos"> 52</span>    end if;
+<span class="linenos"> 53</span>    R:=PolynomialRing(GF(2^n));
+<span class="linenos"> 54</span>    x:=R.1;
+<span class="linenos"> 55</span>    t:=(n-1) div 2;
+<span class="linenos"> 56</span>    if IsEven(t) then
+<span class="linenos"> 57</span>        d:=2^t+2^(t div 2) -1;
+<span class="linenos"> 58</span>    else
+<span class="linenos"> 59</span>        d:=2^t+2^((3*t+1) div 2)-1;
+<span class="linenos"> 60</span>    end if;
+<span class="linenos"> 61</span>    return x^d;
+<span class="linenos"> 62</span>end function;
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span>Inverse:=function(n)
+<span class="linenos"> 65</span>    if not IsOdd(n) then
+<span class="linenos"> 66</span>        error &quot;n is not odd&quot;;
+<span class="linenos"> 67</span>    end if;
+<span class="linenos"> 68</span>    R:=PolynomialRing(GF(2^n));
+<span class="linenos"> 69</span>    x:=R.1;
+<span class="linenos"> 70</span>    return x^(2^n-2);
+<span class="linenos"> 71</span>end function;
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span>Dobbertin:=function(n)
+<span class="linenos"> 74</span>    if not IsDivisibleBy(n,5) then
+<span class="linenos"> 75</span>        error &quot;n is not divisible by 5&quot;;
+<span class="linenos"> 76</span>    end if;
+<span class="linenos"> 77</span>    R:=PolynomialRing(GF(2^n));
+<span class="linenos"> 78</span>    x:=R.1;
+<span class="linenos"> 79</span>    i:=n div 5;
+<span class="linenos"> 80</span>    return x^(2^(4*i)+2^(3*i)+2^(2*i)+2^(i)-1);
+<span class="linenos"> 81</span>end function;
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span>//--------------------------------------------------
+<span class="linenos"> 84</span>//Quadratic APN polynomials
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span>//p=3
+<span class="linenos"> 87</span>Family1:=function(n,s,u : CheckParameters:=true)
+<span class="linenos"> 88</span>    p:=3;
+<span class="linenos"> 89</span>    k:=n div p;
+<span class="linenos"> 90</span>    K:=GF(2^n);
+<span class="linenos"> 91</span>    if CheckParameters then
+<span class="linenos"> 92</span>        if n lt 12 then
+<span class="linenos"> 93</span>            error &quot;n is not greather than or equal to 12&quot;;
+<span class="linenos"> 94</span>        elif not IsDivisibleBy(n,p) then
+<span class="linenos"> 95</span>            error &quot;n is not divisible by p=3&quot;;
+<span class="linenos"> 96</span>        elif not IsOne(GCD(k,3)) then
+<span class="linenos"> 97</span>            error &quot;GCD(k,3) is not 1&quot;;
+<span class="linenos"> 98</span>        elif not IsOne(GCD(s,3*k)) then
+<span class="linenos"> 99</span>            error &quot;GCD(s,3k) is not 1&quot;;
+<span class="linenos">100</span>        elif not IsPrimitive(u) then
+<span class="linenos">101</span>            error &quot;u is not primitive&quot;;
+<span class="linenos">102</span>        end if;
+<span class="linenos">103</span>    end if;
+<span class="linenos">104</span>    R:=PolynomialRing(K);
+<span class="linenos">105</span>    x:=R.1;
+<span class="linenos">106</span>    i:=(s*k) mod p;
+<span class="linenos">107</span>    m:=p-i;
+<span class="linenos">108</span>    e:=(2^(i*k)+2^(m*k+s)) mod (2^n-1);
+<span class="linenos">109</span>    return (x^(2^s+1) +u^(2^k-1) * x^(e));
+<span class="linenos">110</span>end function;
+<span class="linenos">111</span>
+<span class="linenos">112</span>//p=4
+<span class="linenos">113</span>Family2:=function(n,s,u : CheckParameters:=true)
+<span class="linenos">114</span>    p:=4;
+<span class="linenos">115</span>    k:=n div p;
+<span class="linenos">116</span>    K:=GF(2^n);
+<span class="linenos">117</span>    if CheckParameters then
+<span class="linenos">118</span>        if n lt 12 then
+<span class="linenos">119</span>            error &quot;n is not greather than or equal to 12&quot;;
+<span class="linenos">120</span>        elif not IsDivisibleBy(n,p) then
+<span class="linenos">121</span>            error &quot;n is not divisible by p=4&quot;;
+<span class="linenos">122</span>        elif not IsOne(GCD(k,3)) then
+<span class="linenos">123</span>            error &quot;GCD(k,3) is not 1&quot;;
+<span class="linenos">124</span>        elif not IsOne(GCD(s,3*k)) then
+<span class="linenos">125</span>            error &quot;GCD(s,3k) is not 1&quot;;
+<span class="linenos">126</span>        elif not IsPrimitive(u) then
+<span class="linenos">127</span>            error &quot;u is not primitive&quot;;
+<span class="linenos">128</span>        end if;
+<span class="linenos">129</span>    end if;
+<span class="linenos">130</span>    R:=PolynomialRing(K);
+<span class="linenos">131</span>    x:=R.1;
+<span class="linenos">132</span>    i:=(s*k) mod p;
+<span class="linenos">133</span>    m:=p-i;
+<span class="linenos">134</span>    e:=(2^(i*k)+2^(m*k+s)) mod (2^n-1);
+<span class="linenos">135</span>    return (x^(2^s+1) +u^(2^k-1) * x^(e));
+<span class="linenos">136</span>end function;
+<span class="linenos">137</span>
+<span class="linenos">138</span>
+<span class="linenos">139</span>Family3:=function(n,i,c,s : CheckParameters:=true)
+<span class="linenos">140</span>    m:=n div 2;
+<span class="linenos">141</span>    q:=2^m;
+<span class="linenos">142</span>    K:=GF(q^2);
+<span class="linenos">143</span>    R:=PolynomialRing(K);
+<span class="linenos">144</span>    x:=R.1;
+<span class="linenos">145</span>    if CheckParameters then
+<span class="linenos">146</span>        if not IsEven(n) then
+<span class="linenos">147</span>            error &quot;n is not even&quot;;
+<span class="linenos">148</span>        elif not IsOne(GCD(i,m)) then
+<span class="linenos">149</span>            error &quot;GCD(i,m) is not 1 where m=n/2&quot;;
+<span class="linenos">150</span>        elif s in GF(2^m) then
+<span class="linenos">151</span>            error &quot;s is in GF(2^m) where m=n/2&quot;;
+<span class="linenos">152</span>        else
+<span class="linenos">153</span>            P:=x^(2^i+1)+c*x^(2^i)+c^q *x+1;
+<span class="linenos">154</span>            ErrorMessage:=&quot;The polynomial P=X^(2^i+1)+c*X^(2^i)+c^q*X+1 has a solution x s.t. x^(q+1)=1&quot;;
+<span class="linenos">155</span>            if IsZero(Evaluate(P,One(K))) then
+<span class="linenos">156</span>                error ErrorMessage;
+<span class="linenos">157</span>            end if;
+<span class="linenos">158</span>            u:=(K.1)^(q-1); //generator of the cyclic subgroup of order q+1
+<span class="linenos">159</span>            if IsZero(Evaluate(P,u)) then
+<span class="linenos">160</span>                error ErrorMessage;
+<span class="linenos">161</span>            end if;
+<span class="linenos">162</span>            v:=u;
+<span class="linenos">163</span>            for j:=2 to q do
+<span class="linenos">164</span>                v *:=u;
+<span class="linenos">165</span>                if IsZero(Evaluate(P,v)) then
+<span class="linenos">166</span>                    error ErrorMessage;
+<span class="linenos">167</span>                end if;
+<span class="linenos">168</span>            end for;
+<span class="linenos">169</span>        end if;
+<span class="linenos">170</span>    end if;
+<span class="linenos">171</span>    return x*(x^(2^i) + x^q +c*x^((2^i) *q))+ x^(2^i) *(c^q *x^q + s*x^((2^i)*q))+x^((2^i+1)*q);
+<span class="linenos">172</span>end function;
+<span class="linenos">173</span>
+<span class="linenos">174</span>
+<span class="linenos">175</span>Family4:=function(n,a : CheckParameters:=true)
+<span class="linenos">176</span>    K:=GF(2^n);
+<span class="linenos">177</span>    if CheckParameters then
+<span class="linenos">178</span>        if IsZero(a) then
+<span class="linenos">179</span>            error &quot;a is zero&quot;;
+<span class="linenos">180</span>        elif not a in K then
+<span class="linenos">181</span>            error &quot;a is not in GF(2^n)&quot;;
+<span class="linenos">182</span>        end if;
+<span class="linenos">183</span>    end if;
+<span class="linenos">184</span>    R:=PolynomialRing(K);
+<span class="linenos">185</span>    x:=R.1;
+<span class="linenos">186</span>    return x^3+ a^(2^n-2) *(&amp;+[a^(3*2^i) *x^((9*2^i) mod (2^n-1) ) : i in [0..(n-1)]]);
+<span class="linenos">187</span>end function;
+<span class="linenos">188</span>
+<span class="linenos">189</span>
+<span class="linenos">190</span>Family5:=function(n,a : CheckParameters:=true)
+<span class="linenos">191</span>    K:=GF(2^n);
+<span class="linenos">192</span>    if CheckParameters then
+<span class="linenos">193</span>        if not IsDivisibleBy(n,3) then
+<span class="linenos">194</span>            error &quot;n is not divisible by 3&quot;;
+<span class="linenos">195</span>        elif IsZero(a) then
+<span class="linenos">196</span>            error &quot;a is zero&quot;;
+<span class="linenos">197</span>        end if;
+<span class="linenos">198</span>    end if;
+<span class="linenos">199</span>    k:=n div 3;
+<span class="linenos">200</span>    R:=PolynomialRing(K);
+<span class="linenos">201</span>    x:=R.1;
+<span class="linenos">202</span>    return x^3+ a^(2^n-2) *(&amp;+[a^(3*2^(3*i) ) *x^((9*2^(3*i) ) mod (2^n-1) ) +a^(6*2^(3*i) ) *x^((18*2^(3*i) ) mod (2^n-1) ) : i in [0..(k-1)]]);
+<span class="linenos">203</span>end function;
+<span class="linenos">204</span>
+<span class="linenos">205</span>
+<span class="linenos">206</span>Family6:=function(n,a : CheckParameters:=true)
+<span class="linenos">207</span>    K:=GF(2^n);
+<span class="linenos">208</span>    if CheckParameters then
+<span class="linenos">209</span>        if not IsDivisibleBy(n,3) then
+<span class="linenos">210</span>            error &quot;n is not divisible by 3&quot;;
+<span class="linenos">211</span>        elif IsZero(a) then
+<span class="linenos">212</span>            error &quot;a is zero&quot;;
+<span class="linenos">213</span>        end if;
+<span class="linenos">214</span>    end if;
+<span class="linenos">215</span>    k:=n div 3;
+<span class="linenos">216</span>    R:=PolynomialRing(K);
+<span class="linenos">217</span>    x:=R.1;
+<span class="linenos">218</span>    return x^3+ a^(2^n-2) *(&amp;+[a^(12*2^(3*i) ) *x^((36*2^(3*i) ) mod (2^n-1) ) +a^(6*2^(3*i) ) *x^((18*2^(3*i) ) mod (2^n-1) ) : i in [0..(k-1)]]);
+<span class="linenos">219</span>end function;
+<span class="linenos">220</span>
+<span class="linenos">221</span>
+<span class="linenos">222</span>Family7to9:=function(n,s,u,v,w : CheckParameters:=true)
+<span class="linenos">223</span>    k:=n div 3;
+<span class="linenos">224</span>    K:=GF(2^n);
+<span class="linenos">225</span>    if CheckParameters then
+<span class="linenos">226</span>        if not IsDivisibleBy(n,3) then
+<span class="linenos">227</span>            error &quot;n is not divisible by 3&quot;;
+<span class="linenos">228</span>        elif not IsOne(GCD(k,3)) then
+<span class="linenos">229</span>            error &quot;GCD(k,3) is not 1&quot;;
+<span class="linenos">230</span>        elif not IsOne(GCD(s,n)) then
+<span class="linenos">231</span>            error &quot;GCD(s,3k) is not 1&quot;;
+<span class="linenos">232</span>        elif not IsDivisibleBy(k+s,3) then
+<span class="linenos">233</span>            error &quot;k+s is not divisible by 3 where k=n/3&quot;;
+<span class="linenos">234</span>        elif not IsPrimitive(u) then
+<span class="linenos">235</span>            error &quot;u is not primitive&quot;;
+<span class="linenos">236</span>        elif not v in GF(2^k) then
+<span class="linenos">237</span>            error &quot;v is not in GF(2^k) where k=n/3&quot;;
+<span class="linenos">238</span>        elif not w in GF(2^k) then
+<span class="linenos">239</span>            error &quot;w is not in GF(2^k) where k=n/3&quot;;
+<span class="linenos">240</span>        elif IsOne(v*w) then
+<span class="linenos">241</span>            error &quot;v*w=1&quot;;
+<span class="linenos">242</span>        end if;
+<span class="linenos">243</span>    end if;
+<span class="linenos">244</span>    R:=PolynomialRing(K);
+<span class="linenos">245</span>    x:=R.1;
+<span class="linenos">246</span>    return u*x^(2^s+1) + u^(2^k) *x^(2^(n-k)+2^(k+s)) +v*x^(2^(n-k)+1)+w*u^(2^k+1) *x^(2^s+2^(k+s));
+<span class="linenos">247</span>end function;
+<span class="linenos">248</span>
+<span class="linenos">249</span>
+<span class="linenos">250</span>Family10:=function(n,a,b,c : CheckParameters:=true)
+<span class="linenos">251</span>    m:=(n div 3);
+<span class="linenos">252</span>    q:=2^m;
+<span class="linenos">253</span>    K:=GF(q^3);
+<span class="linenos">254</span>    R:=PolynomialRing(K);
+<span class="linenos">255</span>    x:=R.1;
+<span class="linenos">256</span>    if CheckParameters then
+<span class="linenos">257</span>        if not IsDivisibleBy(n,3) then
+<span class="linenos">258</span>            error &quot;n is not divisible by 3&quot;;
+<span class="linenos">259</span>        elif not IsOdd(m) then
+<span class="linenos">260</span>            error &quot;m=n/3 is not odd&quot;;
+<span class="linenos">261</span>        else
+<span class="linenos">262</span>            L:=a*x^(q^2)+b*x^q+c*x;
+<span class="linenos">263</span>            ErrorMessage:=&quot;L=a*x^(q^2)+b*x^q+c*x where q=2^(n/3) does not satisfy the conditions&quot;;
+<span class="linenos">264</span>            d:=GCD(q-1,q^2+q+1);
+<span class="linenos">265</span>            if IsOne(d) then
+<span class="linenos">266</span>                d1:=d;
+<span class="linenos">267</span>            else
+<span class="linenos">268</span>                Fac:=Factorization(d);
+<span class="linenos">269</span>                d1:=1;
+<span class="linenos">270</span>                v:=q^2+q+1;
+<span class="linenos">271</span>                for t in Fac do
+<span class="linenos">272</span>                    p:=t[1];
+<span class="linenos">273</span>                    while IsDivisibleBy(v,p) do
+<span class="linenos">274</span>                        v:=v div p;
+<span class="linenos">275</span>                        d1 *:=p;
+<span class="linenos">276</span>                    end while;
+<span class="linenos">277</span>                end for;
+<span class="linenos">278</span>            end if;
+<span class="linenos">279</span>            zeta:=K.1;
+<span class="linenos">280</span>            u:=zeta^(d1*(q-1));
+<span class="linenos">281</span>            W:=[u^i *zeta^j: i in [1..( (q^2+q^1) div d1)], j in [0..(d1-1)]];
+<span class="linenos">282</span>            EvW:=[Evaluate(L,w): w in W];
+<span class="linenos">283</span>            for i1:=1 to #W do
+<span class="linenos">284</span>                if IsZero(EvW[i1]) or EvW[i1] eq W[i1] then
+<span class="linenos">285</span>                    error ErrorMessage;
+<span class="linenos">286</span>                end if;
+<span class="linenos">287</span>                for i2:=(i1+1) to #W do
+<span class="linenos">288</span>                    D:=W[i1]^2 *EvW[i2]+W[i2] *EvW[i1]^2;
+<span class="linenos">289</span>                    if not IsZero(D) then
+<span class="linenos">290</span>                        N:=W[i2]^2 *EvW[i1]+W[i1] *EvW[i2]^2;
+<span class="linenos">291</span>                        if IsZero(N) or N*(D^(-1)) in GF(q) then
+<span class="linenos">292</span>                            error ErrorMessage;
+<span class="linenos">293</span>                        end if;
+<span class="linenos">294</span>                    end if;
+<span class="linenos">295</span>                end for;
+<span class="linenos">296</span>            end for;
+<span class="linenos">297</span>        end if;
+<span class="linenos">298</span>    end if;
+<span class="linenos">299</span>    return (a^2*x^(2*q^2+1) +b^2*x^(2*q+1) +a*x^(q^2+2) +b*x^(q+2) +(c^2+c)*x^3 );
+<span class="linenos">300</span>end function;
+<span class="linenos">301</span>
+<span class="linenos">302</span>
+<span class="linenos">303</span>Family11:=function(n,i,k,a,b,c : CheckParameters:=true)
+<span class="linenos">304</span>    m:=n div 2;
+<span class="linenos">305</span>    if CheckParameters then
+<span class="linenos">306</span>        if not IsEven(n) then
+<span class="linenos">307</span>            error &quot;n is not even&quot;;
+<span class="linenos">308</span>        elif not IsOdd(m) then
+<span class="linenos">309</span>            error &quot;m is not odd&quot;;
+<span class="linenos">310</span>        elif IsDivisibleBy(m,3) then
+<span class="linenos">311</span>            error &quot;m is divisible by 3&quot;;
+<span class="linenos">312</span>        elif not a in GF(4) and not IsPrimitive(GF(4)!a) then
+<span class="linenos">313</span>            error &quot;a is not primitive in GF(4)&quot;;
+<span class="linenos">314</span>        elif not &lt;n,i,k,b,c&gt; eq &lt;10,3,2,Zero(GF(2^n)),Zero(GF(2^n))&gt; then
+<span class="linenos">315</span>            if not &lt;a,b,c&gt; eq &lt;a,a^2,One(GF(2^n))&gt; then
+<span class="linenos">316</span>                    error &quot;(b,c) is not (a^2,1)&quot;;
+<span class="linenos">317</span>            elif IsEven(k) then
+<span class="linenos">318</span>                if not i in {m-2,m,n-1} and not IsOne((i*(m-2)) mod n) then
+<span class="linenos">319</span>                    error &quot;i is not valid&quot;;
+<span class="linenos">320</span>                end if;
+<span class="linenos">321</span>            else
+<span class="linenos">322</span>                if not i in {m+2,m} and not IsOne((i*(m+2)) mod n) then
+<span class="linenos">323</span>                    error &quot;i is not valid&quot;;
+<span class="linenos">324</span>                end if;
+<span class="linenos">325</span>            end if;
+<span class="linenos">326</span>        end if;
+<span class="linenos">327</span>    end if;
+<span class="linenos">328</span>    K:=GF(2^n);
+<span class="linenos">329</span>    R:=PolynomialRing(K);
+<span class="linenos">330</span>    x:=R.1;
+<span class="linenos">331</span>    q:=2^m;
+<span class="linenos">332</span>    return x^3+ a*x^((2^k) *(2^i+1)) + b*x^(3*q) + c*x^((2^k)*q*(2^i+1));
+<span class="linenos">333</span>end function;
+<span class="linenos">334</span>
+<span class="linenos">335</span>
+<span class="linenos">336</span>Family12:=function(n,i,s,a,b,c : CheckParameters:=true)
+<span class="linenos">337</span>    m:=(n div 2);
+<span class="linenos">338</span>    q:=2^m;
+<span class="linenos">339</span>    if CheckParameters then
+<span class="linenos">340</span>        if not IsEven(n) then
+<span class="linenos">341</span>            error &quot;n is not even&quot;;
+<span class="linenos">342</span>        elif not IsOdd(m) then
+<span class="linenos">343</span>            error &quot;m is not odd&quot;;
+<span class="linenos">344</span>        elif not IsOne(GCD(i,n)) then
+<span class="linenos">345</span>            error &quot;GCD(i,n) is not 1&quot;;
+<span class="linenos">346</span>        elif a in GF(q) then
+<span class="linenos">347</span>            error &quot;a is in GF(q) where q=2^(n/2)&quot;;
+<span class="linenos">348</span>        elif IsZero(b*c) then
+<span class="linenos">349</span>            error &quot;b*c is zero&quot;;
+<span class="linenos">350</span>        else
+<span class="linenos">351</span>            bol:=false;
+<span class="linenos">352</span>            Cube:={u^3: u in GF(q^2)};
+<span class="linenos">353</span>            if s eq (3*i) then
+<span class="linenos">354</span>                bol:=(not b in Cube) and ((b^(2^(2*i)-2^i+1) *c^(-1)) in GF(q));
+<span class="linenos">355</span>            elif s eq (m-2*i) then
+<span class="linenos">356</span>                bol:=(not b in Cube) and ((b^(2^i-1) *c^(-2^(2*i))) in GF(q));
+<span class="linenos">357</span>            elif s eq (m+2*i) then
+<span class="linenos">358</span>                bol:=(not b in Cube) and ((c*b^(2^i-1)) in GF(q));
+<span class="linenos">359</span>            elif IsOne(i) and IsOne((s*(m-2)) mod n) then
+<span class="linenos">360</span>                bol:=(not b in Cube) and ((b^(2^(2*s)) *c^(-(2^s-1))) in GF(q));
+<span class="linenos">361</span>            elif s eq m then
+<span class="linenos">362</span>                bol:=(not b in Cube) and not (c in GF(q));
+<span class="linenos">363</span>            elif s eq (n-i) then
+<span class="linenos">364</span>                bol:=not ((b *c^(-2^i)) in GF(q));
+<span class="linenos">365</span>            end if;
+<span class="linenos">366</span>            if not bol then
+<span class="linenos">367</span>                error &quot;The parameters do not satisfy Theorem 2&quot;;
+<span class="linenos">368</span>            end if;
+<span class="linenos">369</span>        end if;
+<span class="linenos">370</span>    end if;
+<span class="linenos">371</span>    K:=GF(2^n);
+<span class="linenos">372</span>    R:=PolynomialRing(K);
+<span class="linenos">373</span>    x:=R.1;
+<span class="linenos">374</span>    return a*((b*x^(2^i+1))+(b*x^(2^i+1))^q )+a^q*((c*x^(2^s+1))+(c*x^(2^s+1))^q);
+<span class="linenos">375</span>end function;
+<span class="linenos">376</span>
+<span class="linenos">377</span>
+<span class="linenos">378</span>Family13:=function(n,s,v,mu : CheckParameters:=true)
+<span class="linenos">379</span>    m:=(n div 3);
+<span class="linenos">380</span>    K:=GF(2^n);
+<span class="linenos">381</span>    R:=PolynomialRing(K);
+<span class="linenos">382</span>    x:=R.1;
+<span class="linenos">383</span>    L:=x^(2^(m+s))+mu*x^(2^s)+x;
+<span class="linenos">384</span>    if CheckParameters then
+<span class="linenos">385</span>        if not IsDivisibleBy(n,3) then
+<span class="linenos">386</span>            error &quot;n is not divisible by 3&quot;;
+<span class="linenos">387</span>        elif not IsOne(GCD(s,m)) then
+<span class="linenos">388</span>            error &quot;GCD(s,m) is not 1 where m=n/3&quot;;
+<span class="linenos">389</span>        elif not v in GF(2^m) or IsZero(v) then
+<span class="linenos">390</span>            error &quot;v is not in the cyclic group of GF(2^m) where m=n/3&quot;;
+<span class="linenos">391</span>        elif IsZero(mu) then
+<span class="linenos">392</span>            error &quot;mu is zero&quot;;
+<span class="linenos">393</span>        elif IsOne(mu^(2^(2*m)+2^m+1)) then
+<span class="linenos">394</span>            error &quot;mu is zero&quot;;
+<span class="linenos">395</span>        else
+<span class="linenos">396</span>            for a in K do
+<span class="linenos">397</span>                if not IsZero(a) and IsZero(Evaluate(L,a)) then
+<span class="linenos">398</span>                    error &quot;L=x^(2^(m+s))+mu*x^(2^s)+x does not permute GF(2^n)&quot;;
+<span class="linenos">399</span>                end if;
+<span class="linenos">400</span>            end for;
+<span class="linenos">401</span>        end if;
+<span class="linenos">402</span>    end if;
+<span class="linenos">403</span>    f:=L^(2^m+1) + v*x^(2^m+1);
+<span class="linenos">404</span>    ReduceMod(~f,n);
+<span class="linenos">405</span>    return f;
+<span class="linenos">406</span>end function;
+<span class="linenos">407</span>
+<span class="linenos">408</span>//--------------------------------------------------
+<span class="linenos">409</span>//Quadratic APN polynomials in bivariate form
+<span class="linenos">410</span>
+<span class="linenos">411</span>Family14:=function(m,k,i,a : CheckParameters:=true)
+<span class="linenos">412</span>    K:=GF(2^m);
+<span class="linenos">413</span>    if CheckParameters then
+<span class="linenos">414</span>        if IsOdd(m) then
+<span class="linenos">415</span>            error &quot;m is not even&quot;;
+<span class="linenos">416</span>        elif not IsOne(GCD(k,m)) then
+<span class="linenos">417</span>            error &quot;GCD(k,m) is not 1&quot;;
+<span class="linenos">418</span>        elif IsOdd(i) then
+<span class="linenos">419</span>            error &quot;i is not even&quot;;
+<span class="linenos">420</span>        else
+<span class="linenos">421</span>            for b in K do
+<span class="linenos">422</span>                if b^3 eq a then
+<span class="linenos">423</span>                    error &quot;a is a cube&quot;;
+<span class="linenos">424</span>                end if;
+<span class="linenos">425</span>            end for;
+<span class="linenos">426</span>        end if;
+<span class="linenos">427</span>    end if;
+<span class="linenos">428</span>    R:=PolynomialRing(K,2);
+<span class="linenos">429</span>    x:=R.1;
+<span class="linenos">430</span>    y:=R.2;
+<span class="linenos">431</span>    return [x*y,x^(2^k+1)+a*y^( (2^i) *(2^k+1))];
+<span class="linenos">432</span>end function;
+<span class="linenos">433</span>
+<span class="linenos">434</span>Family15:=function(m,i,a,b : CheckParameters:=true)
+<span class="linenos">435</span>    K:=GF(2^m);
+<span class="linenos">436</span>    if CheckParameters then
+<span class="linenos">437</span>        if not IsOne(GCD(i,m)) then
+<span class="linenos">438</span>            error &quot;GCD(i,m) is not 1&quot;;
+<span class="linenos">439</span>        elif not a in GF(2) then
+<span class="linenos">440</span>            error &quot;a is not in GF(2)&quot;;
+<span class="linenos">441</span>        else
+<span class="linenos">442</span>            L:=function(x) return x^(2^i+1) +a*x+b; end function;
+<span class="linenos">443</span>            for x in K do
+<span class="linenos">444</span>                if IsZero(L(x)) then
+<span class="linenos">445</span>                    error &quot;x^(2^i+1) +a*b+b has a root in GF(2^m)&quot;;
+<span class="linenos">446</span>                end if;
+<span class="linenos">447</span>            end for;
+<span class="linenos">448</span>        end if;
+<span class="linenos">449</span>    end if;
+<span class="linenos">450</span>    R:=PolynomialRing(K,2);
+<span class="linenos">451</span>    x:=R.1;
+<span class="linenos">452</span>    y:=R.2;
+<span class="linenos">453</span>    return [x*y,x^(2^(2*i)+2^(3*i))+a*x^(2^(2*i)) *y^(2^i) +b*y^(2^i+1) ];
+<span class="linenos">454</span>end function;
+<span class="linenos">455</span>
+<span class="linenos">456</span>Family16:=function(m,i,b,c : CheckParameters:=true)
+<span class="linenos">457</span>    K:=GF(2^m);
+<span class="linenos">458</span>    l:=m div 2;
+<span class="linenos">459</span>    if CheckParameters then
+<span class="linenos">460</span>        if IsOdd(m) then
+<span class="linenos">461</span>            error &quot;m is not even&quot;;
+<span class="linenos">462</span>        elif not IsOne(GCD(i,m)) then
+<span class="linenos">463</span>            error &quot;GCD(i,m) is not 1&quot;;
+<span class="linenos">464</span>        else
+<span class="linenos">465</span>            L:=function(x) return (c*x^(2^i+1)+b*x^(2^i)+1)^(2^l+1)+x^(2^l+1); end function;
+<span class="linenos">466</span>            for x in K do
+<span class="linenos">467</span>                if IsZero(L(x)) then
+<span class="linenos">468</span>                    error &quot;(c*x^(2^i+1)+b*x^(2^i)+1)^(2^l+1)+x^(2^l+1) has a root in GF(2^m)&quot;;
+<span class="linenos">469</span>                end if;
+<span class="linenos">470</span>            end for;
+<span class="linenos">471</span>        end if;
+<span class="linenos">472</span>    end if;
+<span class="linenos">473</span>    R:=PolynomialRing(K,2);
+<span class="linenos">474</span>    x:=R.1;
+<span class="linenos">475</span>    y:=R.2;
+<span class="linenos">476</span>    return [x*y,x^(2^i+1)+x^(2^(l+i)) *y^(2^l)+b*x*y^(2^i)+c*y^(2^i+1)];
+<span class="linenos">477</span>end function;
+<span class="linenos">478</span>
+<span class="linenos">479</span>Family17:=function(m,i : CheckParameters:=true)
+<span class="linenos">480</span>    K:=GF(2^m);
+<span class="linenos">481</span>    if CheckParameters then
+<span class="linenos">482</span>        if not IsOne(GCD(3*i,m)) then
+<span class="linenos">483</span>            error &quot;GCD(3*i,m) is not 1&quot;;
+<span class="linenos">484</span>        end if;
+<span class="linenos">485</span>    end if;
+<span class="linenos">486</span>    R:=PolynomialRing(K,2);
+<span class="linenos">487</span>    x:=R.1;
+<span class="linenos">488</span>    y:=R.2;
+<span class="linenos">489</span>    return [x^(2^i+1)+x*y^(2^i)+y^(2^i+1) , x^(2^(2*i)+1)+x^(2^(2*i)) *y+y^(2^(2*i)+1)];
+<span class="linenos">490</span>end function;
+<span class="linenos">491</span>
+<span class="linenos">492</span>Family18:=function(m,i : CheckParameters:=true)
+<span class="linenos">493</span>    K:=GF(2^m);
+<span class="linenos">494</span>    if CheckParameters then
+<span class="linenos">495</span>        if not IsOne(GCD(3*i,m)) then
+<span class="linenos">496</span>            error &quot;GCD(3*i,m) is not 1&quot;;
+<span class="linenos">497</span>        elif IsEven(m) then
+<span class="linenos">498</span>            error &quot;m is not odd&quot;;
+<span class="linenos">499</span>        end if;
+<span class="linenos">500</span>    end if;
+<span class="linenos">501</span>    R:=PolynomialRing(K,2);
+<span class="linenos">502</span>    x:=R.1;
+<span class="linenos">503</span>    y:=R.2;
+<span class="linenos">504</span>    return [x^(2^i+1)+x*y^(2^i) +y^(2^i+1) , x^(2^(3*i)) *y+x*y^(2^(3*i))];
+<span class="linenos">505</span>end function;
+<span class="linenos">506</span>
+<span class="linenos">507</span>Family19:=function(m,i : CheckParameters:=true)
+<span class="linenos">508</span>    K:=GF(2^m);
+<span class="linenos">509</span>    if CheckParameters then
+<span class="linenos">510</span>        if not IsOne(GCD(3*i,m)) then
+<span class="linenos">511</span>            error &quot;GCD(3*i,m) is not 1&quot;;
+<span class="linenos">512</span>        end if;
+<span class="linenos">513</span>    end if;
+<span class="linenos">514</span>    R:=PolynomialRing(K,2);
+<span class="linenos">515</span>    x:=R.1;
+<span class="linenos">516</span>    y:=R.2;
+<span class="linenos">517</span>    return [x^3+x*y^2+y^3+x*y,x^5+x^4*y+y^5+x*y+x^2 *y^2];
+<span class="linenos">518</span>end function;
+<span class="linenos">519</span>
+<span class="linenos">520</span>Family20:=function(m,k,a,B : CheckParameters:=true)
+<span class="linenos">521</span>    K:=GF(2^m);
+<span class="linenos">522</span>    r:=2^(k+ (m div 2));
+<span class="linenos">523</span>    q:=2^k;
+<span class="linenos">524</span>    if CheckParameters then
+<span class="linenos">525</span>        if not (m mod 4) eq 2 then
+<span class="linenos">526</span>            error &quot;m mod 4 is not 2&quot;;
+<span class="linenos">527</span>        elif k le 0 or k ge m then
+<span class="linenos">528</span>            error &quot;Not true that 0&lt;k&lt;m&quot;;
+<span class="linenos">529</span>        elif not IsOne(GCD(k,m)) then
+<span class="linenos">530</span>            error &quot;GCD(k,m) is not 1&quot;;
+<span class="linenos">531</span>        elif IsZero(a) or not a in GF(2^(m div 2)) then
+<span class="linenos">532</span>            error &quot;a is not in the cyclic group of GF(2^(m/2))&quot;;
+<span class="linenos">533</span>        elif IsZero(B^(q+r)+a^(q+1)) then
+<span class="linenos">534</span>            error &quot;B^(q+r)=a^(q+1) where q=2^k, r=2^(k+m/2)&quot;;
+<span class="linenos">535</span>        else
+<span class="linenos">536</span>            for x in K do
+<span class="linenos">537</span>                if x^3 eq B then
+<span class="linenos">538</span>                    error &quot;B is a cube&quot;;
+<span class="linenos">539</span>                end if;
+<span class="linenos">540</span>            end for;
+<span class="linenos">541</span>        end if;
+<span class="linenos">542</span>    end if;
+<span class="linenos">543</span>    R:=PolynomialRing(K,2);
+<span class="linenos">544</span>    x:=R.1;
+<span class="linenos">545</span>    y:=R.2;
+<span class="linenos">546</span>    return [x^(q+1)+B*y^(q+1), x^r *y+(a*B^(-1))*x*y^r];
+<span class="linenos">547</span>end function;
+<span class="linenos">548</span>
+<span class="linenos">549</span>Family21:=function(m,k,a : CheckParameters:=true)
+<span class="linenos">550</span>    K:=GF(2^m);
+<span class="linenos">551</span>    q:=2^k;
+<span class="linenos">552</span>    if CheckParameters then
+<span class="linenos">553</span>        if IsZero(k*m) then
+<span class="linenos">554</span>            error &quot;Either m or k are zero&quot;;
+<span class="linenos">555</span>        elif not IsOne(GCD(k,m)) then
+<span class="linenos">556</span>            error &quot;GCD(k,m) is not 1&quot;;
+<span class="linenos">557</span>        else
+<span class="linenos">558</span>            L:=function(x) return x^(q+1)+x+a; end function;
+<span class="linenos">559</span>            for x in K do
+<span class="linenos">560</span>                if IsZero(L(x)) then
+<span class="linenos">561</span>                    error &quot;x^(2^k+1)+x+a has a root in GF(2^m)&quot;;
+<span class="linenos">562</span>                end if;
+<span class="linenos">563</span>            end for;
+<span class="linenos">564</span>        end if;
+<span class="linenos">565</span>    end if;
+<span class="linenos">566</span>    R:=PolynomialRing(K,2);
+<span class="linenos">567</span>    x:=R.1;
+<span class="linenos">568</span>    y:=R.2;
+<span class="linenos">569</span>    return [x^(q+1) +x*y^q+a*y^(q+1), x^(q^2+1)+a*x^(q^2)*y +(1+a)^q *x*y^(q^2)+a*y^(q^2+1)];
+<span class="linenos">570</span>end function;
+<span class="linenos">571</span>
+<span class="linenos">572</span>Family22:=function(m,a : CheckParameters:=true)
+<span class="linenos">573</span>    K:=GF(2^m);
+<span class="linenos">574</span>    if CheckParameters then
+<span class="linenos">575</span>        L:=function(x) return x^(3)+x+a; end function;
+<span class="linenos">576</span>        for x in K do
+<span class="linenos">577</span>            if IsZero(L(x)) then
+<span class="linenos">578</span>                error &quot;x^3+x+a has a root in GF(2^m)&quot;;
+<span class="linenos">579</span>            end if;
+<span class="linenos">580</span>        end for;
+<span class="linenos">581</span>    end if;
+<span class="linenos">582</span>    R:=PolynomialRing(K,2);
+<span class="linenos">583</span>    x:=R.1;
+<span class="linenos">584</span>    y:=R.2;
+<span class="linenos">585</span>    return [x^3+x*y+x*y^2+a*y^3, x^5+x*y+a*x^2 *y^2 +a*x^4 *y +(1+a)^2 *x*y^4 +a*y^5];
+<span class="linenos">586</span>end function;
+<span class="linenos">587</span>
+<span class="linenos">588</span>//--------------------------------------------------
+<span class="linenos">589</span>//Quadratic APN polynomials in trivariate form
+<span class="linenos">590</span>
+<span class="linenos">591</span>Family23:=function(m,i : CheckParameters:=true)
+<span class="linenos">592</span>    K:=GF(2^m);
+<span class="linenos">593</span>    q:=2^i;
+<span class="linenos">594</span>    if CheckParameters then
+<span class="linenos">595</span>        if not IsOne(GCD(i,m)) then
+<span class="linenos">596</span>            error &quot;GCD(i,m) is not 1&quot;;
+<span class="linenos">597</span>        elif not IsOdd(m) then
+<span class="linenos">598</span>            error &quot;m is not odd&quot;;
+<span class="linenos">599</span>        elif not IsOne(GCD(m,7)) then
+<span class="linenos">600</span>            error &quot;GCD(m,7) is not 1&quot;;
+<span class="linenos">601</span>        elif i gt 1 then
+<span class="linenos">602</span>            ErrorMessage:=&quot;Conditions not satisfied&quot;;
+<span class="linenos">603</span>            R2:=PolynomialRing(K,2);
+<span class="linenos">604</span>            X:=R2.1;
+<span class="linenos">605</span>            Y:=R2.2;
+<span class="linenos">606</span>            p:=1+Y^q+Y^(q^2)+Y^(q^2+q)+Y^(q^2+q+1)+X^(q^2)*Y+X^q*Y^(q^2)+X^(q^2+q)+X*Y^q+X*Y^(q^2+q)+X^(q^2+q+1);
+<span class="linenos">607</span>            for x,y in K do
+<span class="linenos">608</span>                if IsZero(Evaluate(p,[x,y])) then
+<span class="linenos">609</span>                    error ErrorMessage;
+<span class="linenos">610</span>                end if;
+<span class="linenos">611</span>            end for;
+<span class="linenos">612</span>        end if;
+<span class="linenos">613</span>    end if;
+<span class="linenos">614</span>    R:=PolynomialRing(K,3);
+<span class="linenos">615</span>    x:=R.1;
+<span class="linenos">616</span>    y:=R.2;
+<span class="linenos">617</span>    z:=R.3;
+<span class="linenos">618</span>    return [x^(q+1)+x^q*z+y*z^q, x^q *z +y^(q+1), x*y^q +y^q *z+z^(q+1)];
+<span class="linenos">619</span>end function;
+<span class="linenos">620</span>
+<span class="linenos">621</span>Family24:=function(m,i : CheckParameters:=true)
+<span class="linenos">622</span>    K:=GF(2^m);
+<span class="linenos">623</span>    q:=2^i;
+<span class="linenos">624</span>    if CheckParameters then
+<span class="linenos">625</span>        if not IsOne(GCD(i,m)) then
+<span class="linenos">626</span>            error &quot;GCD(i,m) is not 1&quot;;
+<span class="linenos">627</span>        elif not IsOdd(m) then
+<span class="linenos">628</span>            error &quot;m is not odd&quot;;
+<span class="linenos">629</span>        elif not IsOne(GCD(m,7)) then
+<span class="linenos">630</span>            error &quot;GCD(m,7) is not 1&quot;;
+<span class="linenos">631</span>        elif i gt 1 then
+<span class="linenos">632</span>            ErrorMessage:=&quot;Conditions not satisfied&quot;;
+<span class="linenos">633</span>            R2:=PolynomialRing(K,2);
+<span class="linenos">634</span>            X:=R2.1;
+<span class="linenos">635</span>            Y:=R2.2;
+<span class="linenos">636</span>            p:=1+Y^(q^2)+Y^(q^2+q)+Y^(q^2+1)+Y^(q^2+q+1)+X^(q^2)+X^(q^2)*Y +X^q *Y^(q^2) +X*Y^q +X^(q+1)*Y^(q^2) +X^(q^2+q+1);
+<span class="linenos">637</span>            for x,y in K do
+<span class="linenos">638</span>                if IsZero(Evaluate(p,[x,y])) then
+<span class="linenos">639</span>                    error ErrorMessage;
+<span class="linenos">640</span>                end if;
+<span class="linenos">641</span>            end for;
+<span class="linenos">642</span>        end if;
+<span class="linenos">643</span>    end if;
+<span class="linenos">644</span>    R:=PolynomialRing(K,3);
+<span class="linenos">645</span>    x:=R.1;
+<span class="linenos">646</span>    y:=R.2;
+<span class="linenos">647</span>    z:=R.3;
+<span class="linenos">648</span>    return [x^(q+1)+x*y^q+y*z^q, x*y^q +z^(q+1), x^q *z +y^(q+1)+y^q *z];
+<span class="linenos">649</span>end function;
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ANF_code.html"
+                          title="previous chapter">ANF Code</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="Ccz_inequivalent_representatives_from_the_known_families_code.html"
+                          title="next chapter">Ccz_inequivalent_representatives_from_the_known_families</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/codes/APN_families_code.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+<div id="sidebarbutton" title="Collapse sidebar">
+<span>«</span>
+</div>
+
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Ccz_inequivalent_representatives_from_the_known_families_code.html" title="Ccz_inequivalent_representatives_from_the_known_families"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ANF_code.html" title="ANF Code"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Boolean Functions  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">APN_families</a></li> 
+      </ul>
+    </div>
+  <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Tiago Siqueira.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
+  </body>
+</html>
