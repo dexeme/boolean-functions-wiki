@@ -9,6 +9,9 @@ Original page:
 Click to expand each range.
 
 .. lazychunks::
+   :csv: known_instances_apn_gf2_8.csv
+   :max-rows: 100
+
    known_instances_apn_gf2_8
 
 The majority of these were obtained by the matrix method described in :zotero:`[1] <MFMEUAZX>`
