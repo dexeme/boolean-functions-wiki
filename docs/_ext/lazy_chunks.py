@@ -9,6 +9,65 @@ from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 
 
+_CHUNK_MATHJAX_BOOTSTRAP = """
+<script>
+(function () {
+  function renderWithParentMathJax() {
+    try {
+      if (!window.parent || window.parent === window) return false;
+      const pmj = window.parent.MathJax;
+      if (!pmj || typeof pmj.tex2chtml !== 'function') return false;
+      const nodes = document.querySelectorAll('span.math.notranslate.nohighlight');
+      for (const node of nodes) {
+        const source = (node.textContent || '').trim();
+        const m = source.match(/^\\\\\\((.*)\\\\\\)$/s);
+        if (!m) continue;
+        const rendered = pmj.tex2chtml(m[1], { display: false });
+        node.textContent = '';
+        node.appendChild(document.importNode(rendered, true));
+      }
+      return true;
+    } catch (_err) {
+      return false;
+    }
+  }
+
+  async function ensureMathJaxAndTypeset() {
+    if (renderWithParentMathJax()) return;
+
+    const tryTypeset = async () => {
+      if (!window.MathJax) return false;
+      try {
+        if (window.MathJax.startup && window.MathJax.startup.promise) {
+          await window.MathJax.startup.promise;
+        }
+        if (typeof window.MathJax.typesetPromise === 'function') {
+          await window.MathJax.typesetPromise([document.body]);
+          return true;
+        }
+        if (window.MathJax.Hub && typeof window.MathJax.Hub.Queue === 'function') {
+          window.MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, document.body]);
+          return true;
+        }
+      } catch (_err) {
+      }
+      return false;
+    };
+
+    if (await tryTypeset()) return;
+
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.async = true;
+    script.onload = async () => { await tryTypeset(); };
+    document.head.appendChild(script);
+  }
+
+  ensureMathJaxAndTypeset();
+})();
+</script>
+""".strip()
+
 def _read_csv_table(csv_path: Path) -> tuple[list[str], list[list[str]]]:
     with csv_path.open("r", encoding="utf-8", newline="") as handle:
         rows = list(csv.reader(handle))
@@ -20,7 +79,20 @@ def _read_csv_table(csv_path: Path) -> tuple[list[str], list[list[str]]]:
 def _cell_html(value: str) -> str:
     text = value.strip()
     if len(text) >= 2 and text[0] == "`" and text[-1] == "`":
-        return "<code>{}</code>".format(html_escape(text[1:-1]))
+        inner_math = text[1:-1].strip()
+        return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
+            html_escape(inner_math)
+        )
+    if len(text) >= 2 and text[0] == "$" and text[-1] == "$":
+        inner_math = text[1:-1].strip()
+        return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
+            html_escape(inner_math)
+        )
+    if text.startswith("\\(") and text.endswith("\\)"):
+        inner_math = text[2:-2].strip()
+        return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
+            html_escape(inner_math)
+        )
     return html_escape(text)
 
 
@@ -29,7 +101,7 @@ def _csv_rows_to_html(header: list[str], rows: list[list[str]]) -> str | None:
         return None
     parts = ['<table class="docutils align-default">', "<thead><tr>"]
     for col in header:
-        parts.append("<th>{}</th>".format(html_escape(col)))
+        parts.append("<th>{}</th>".format(_cell_html(col)))
     parts.extend(["</tr></thead>", "<tbody>"])
     width = len(header)
     for row in rows:
@@ -39,6 +111,7 @@ def _csv_rows_to_html(header: list[str], rows: list[list[str]]) -> str | None:
             parts.append("<td>{}</td>".format(_cell_html(cell)))
         parts.append("</tr>")
     parts.extend(["</tbody>", "</table>"])
+    parts.append(_CHUNK_MATHJAX_BOOTSTRAP)
     return "\n".join(parts) + "\n"
 
 
@@ -106,6 +179,32 @@ class LazyChunksDirective(Directive):
         "max-rows": directives.positive_int,
     }
     _RANGE_RE = re.compile(r"^(\d+)_(\d+)$")
+
+    @staticmethod
+    def _append_mathjax_retypeset(parts: list[str], scope_expr: str) -> None:
+        parts.append("        for (let i = 0; i < 20; i += 1) {")
+        parts.append("          const mj = window.MathJax;")
+        parts.append("          if (!mj) {")
+        parts.append("            await new Promise((resolve) => setTimeout(resolve, 150));")
+        parts.append("            continue;")
+        parts.append("          }")
+        parts.append("          try {")
+        parts.append("            if (mj.startup && mj.startup.promise) {")
+        parts.append("              await mj.startup.promise;")
+        parts.append("            }")
+        parts.append("            if (typeof mj.typesetPromise === 'function') {")
+        parts.append(f"              await mj.typesetPromise([{scope_expr}]);")
+        parts.append("              break;")
+        parts.append("            }")
+        parts.append("            if (mj.Hub && typeof mj.Hub.Queue === 'function') {")
+        parts.append(f"              mj.Hub.Queue(['Typeset', mj.Hub, {scope_expr}]);")
+        parts.append("              break;")
+        parts.append("            }")
+        parts.append("          } catch (_err) {")
+        parts.append("            // Retry below.")
+        parts.append("          }")
+        parts.append("          await new Promise((resolve) => setTimeout(resolve, 150));")
+        parts.append("        }")
 
     def _discover_tree_from_folder(
         self, folder_name: str
@@ -260,6 +359,63 @@ class LazyChunksDirective(Directive):
         parts.append("(function () {")
         parts.append("  if (window.__lazyChunksBound !== true) {")
         parts.append("    window.__lazyChunksBound = true;")
+        parts.append("    if (typeof window.__lazyChunksQueueTypeset !== 'function') {")
+        parts.append("      window.__lazyChunksPendingTypeset = new Set();")
+        parts.append("      window.__lazyChunksTryTypeset = async function (el) {")
+        parts.append("        if (!el || !document.contains(el)) return true;")
+        parts.append("        const mj = window.MathJax;")
+        parts.append("        if (!mj) return false;")
+        parts.append("        try {")
+        parts.append("          if (mj.startup && mj.startup.promise) {")
+        parts.append("            await mj.startup.promise;")
+        parts.append("          }")
+        parts.append("          if (typeof mj.typesetPromise === 'function') {")
+        parts.append("            await mj.typesetPromise([el]);")
+        parts.append("            return true;")
+        parts.append("          }")
+        parts.append("          if (mj.Hub && typeof mj.Hub.Queue === 'function') {")
+        parts.append("            mj.Hub.Queue(['Typeset', mj.Hub, el]);")
+        parts.append("            return true;")
+        parts.append("          }")
+        parts.append("        } catch (_err) {")
+        parts.append("          return false;")
+        parts.append("        }")
+        parts.append("        return false;")
+        parts.append("      };")
+        parts.append("      window.__lazyChunksFlushTypeset = async function () {")
+        parts.append("        const pending = Array.from(window.__lazyChunksPendingTypeset);")
+        parts.append("        for (const el of pending) {")
+        parts.append("          const ok = await window.__lazyChunksTryTypeset(el);")
+        parts.append("          if (ok) window.__lazyChunksPendingTypeset.delete(el);")
+        parts.append("        }")
+        parts.append("        if (window.__lazyChunksPendingTypeset.size === 0 && window.__lazyChunksTypesetTimer) {")
+        parts.append("          clearInterval(window.__lazyChunksTypesetTimer);")
+        parts.append("          window.__lazyChunksTypesetTimer = null;")
+        parts.append("        }")
+        parts.append("      };")
+        parts.append("      window.__lazyChunksQueueTypeset = function (el) {")
+        parts.append("        if (!el) return;")
+        parts.append("        window.__lazyChunksPendingTypeset.add(el);")
+        parts.append("        void window.__lazyChunksFlushTypeset();")
+        parts.append("        if (!window.__lazyChunksTypesetTimer) {")
+        parts.append("          window.__lazyChunksTypesetTimer = setInterval(function () {")
+        parts.append("            void window.__lazyChunksFlushTypeset();")
+        parts.append("          }, 300);")
+        parts.append("        }")
+        parts.append("      };")
+        parts.append("    }")
+        parts.append("    const lazyChunksUseIframeOnly = window.location.protocol === 'file:';")
+        parts.append("    const lazyChunksLoadIframe = function (body, src, chunk) {")
+        parts.append("      body.innerHTML = '';")
+        parts.append("      const frame = document.createElement('iframe');")
+        parts.append("      frame.src = src;")
+        parts.append("      frame.loading = 'lazy';")
+        parts.append("      frame.style.width = '100%';")
+        parts.append("      frame.style.minHeight = '600px';")
+        parts.append("      frame.style.border = '1px solid #ccc';")
+        parts.append("      body.appendChild(frame);")
+        parts.append("      chunk.dataset.loaded = '1';")
+        parts.append("    };")
         parts.append("    document.addEventListener('toggle', async function (event) {")
         parts.append("      const chunk = event.target;")
         parts.append("      if (!(chunk instanceof HTMLDetailsElement)) return;")
@@ -269,21 +425,18 @@ class LazyChunksDirective(Directive):
         parts.append("      const src = chunk.dataset.src;")
         parts.append("      if (!body || !src) return;")
         parts.append("      body.textContent = 'Loading...';")
+        parts.append("      if (lazyChunksUseIframeOnly) {")
+        parts.append("        lazyChunksLoadIframe(body, src, chunk);")
+        parts.append("        return;")
+        parts.append("      }")
         parts.append("      try {")
         parts.append("        const response = await fetch(src);")
         parts.append("        if (!response.ok) throw new Error('HTTP ' + response.status);")
         parts.append("        body.innerHTML = await response.text();")
+        parts.append("        window.__lazyChunksQueueTypeset(body);")
         parts.append("        chunk.dataset.loaded = '1';")
         parts.append("      } catch (err) {")
-        parts.append("        body.innerHTML = '';")
-        parts.append("        const frame = document.createElement('iframe');")
-        parts.append("        frame.src = src;")
-        parts.append("        frame.loading = 'lazy';")
-        parts.append("        frame.style.width = '100%';")
-        parts.append("        frame.style.minHeight = '600px';")
-        parts.append("        frame.style.border = '1px solid #ccc';")
-        parts.append("        body.appendChild(frame);")
-        parts.append("        chunk.dataset.loaded = '1';")
+        parts.append("        lazyChunksLoadIframe(body, src, chunk);")
         parts.append("      }")
         parts.append("    }, true);")
         parts.append("  }")
@@ -333,12 +486,18 @@ def _list_table_rst_to_html(rst_text: str) -> str | None:
         value = c2
         if len(value) >= 2 and value[0] == "`" and value[-1] == "`":
             value = value[1:-1]
-        parts.append(
-            "<tr><td>{}</td><td><code>{}</code></td></tr>".format(
-                html_escape(c1), html_escape(value)
+            rendered = (
+                '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
+                    html_escape(value)
+                )
             )
+        else:
+            rendered = html_escape(value)
+        parts.append(
+            "<tr><td>{}</td><td>{}</td></tr>".format(html_escape(c1), rendered)
         )
     parts.extend(["</tbody>", "</table>"])
+    parts.append(_CHUNK_MATHJAX_BOOTSTRAP)
     return "\n".join(parts) + "\n"
 
 

@@ -1,0 +1,5 @@
+`N^{\circ}`,Functions,Conditions,`d^{\circ}`
+`1`,`x^3 + \mathrm{Tr}_n(x^9) + (x^2+x)\mathrm{Tr}_n(x^3+x^9)`,"| `n \geqslant 5` odd, | `\gcd(i,n)=1`",`3`
+`2`,`x^3 + \mathrm{Tr}_n(x^9) + (x^2+x+1)\mathrm{Tr}_n(x^3)`,"| `n \geqslant 4` even, | `\gcd(i,n)=1`",`3`
+`3`,| `\Big(x + \mathrm{Tr}_n^3(x^6+x^{12}) + \mathrm{Tr}_n(x)\mathrm{Tr}_n^3(x^3+x^{12})\Big)^3 +` | `\mathrm{Tr}_n\Big(\left(x + \mathrm{Tr}_n^3(x^6+x^{12}) + \mathrm{Tr}_n(x)\mathrm{Tr}_n^3(x^3+x^{12})\right)^9\Big)`,"| `6|n,` | `\gcd(i,n)=1`",`4`
+`4`,`\left(x^{\frac{1}{3}} + \mathrm{Tr}_n^3(x+x^4)\right)^{-1} + \mathrm{Tr}_n\left(\left(\left(x^{\frac{1}{3}} + \mathrm{Tr}_n^3(x+x^4)\right)^{-1}\right)^9\right)`,"| `3|n,` | `n` odd",`4`
