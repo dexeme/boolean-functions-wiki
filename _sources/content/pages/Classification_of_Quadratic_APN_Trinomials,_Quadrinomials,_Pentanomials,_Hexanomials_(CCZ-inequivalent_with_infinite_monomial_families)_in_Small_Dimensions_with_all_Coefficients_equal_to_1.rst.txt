@@ -14,27 +14,26 @@ Trinomials
 ----------
 
 .. csv-table::
-   :file: tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_01.csv
+   :file: ../tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_01.csv
    :header-rows: 1
 
 Quadrinomials
 -------------
 
 .. csv-table::
-   :file: tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_02.csv
+   :file: ../tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_02.csv
    :header-rows: 1
 
 Pentanomials
 ------------
 
 .. csv-table::
-   :file: tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_03.csv
+   :file: ../tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_03.csv
    :header-rows: 1
 
 Hexanomials
 -----------
 
 .. csv-table::
-   :file: tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_04.csv
+   :file: ../tables/Classification_of_Quadratic_APN_Trinomials,_Quadrinomials,_Pentanomials,_Hexanomials_(CCZ-inequivalent_with_infinite_monomial_families)_in_Small_Dimensions_with_all_Coefficients_equal_to_1_table_04.csv
    :header-rows: 1
-

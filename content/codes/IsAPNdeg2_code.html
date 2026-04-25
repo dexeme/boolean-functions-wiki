@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>IsAPNdeg2 &#8212; Boolean Functions  documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script src="../../_static/sagecell-init.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="../../_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IsPN" href="IsPN_code.html" />
+    <link rel="prev" title="Is_APN" href="Is_APN_code.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="IsPN_code.html" title="IsPN"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Is_APN_code.html" title="Is_APN"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="isapndeg2">
+<span id="isapndeg2-code"></span><h1>IsAPNdeg2<a class="headerlink" href="#isapndeg2" title="Permalink to this headline">¶</a></h1>
+<p>Given f a quadratic function defined over PolynomialRing(FiniteField(2,n)), it returns true if f is APN, false otherwise</p>
+<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span>IsAPNdeg2:= function(f)
+R&lt;x&gt;:=Parent(f);
+F:=BaseRing(R);
+n:=Degree(F);
+E:=Basis(F);
+for a in F do
+if a ne 0 then
+           m:=Matrix(GF(Characteristic(F)),[Eltseq(Evaluate(f,x)-Evaluate(f,x+a)+Evaluate(f,a)):x in E]);
+            if Rank(m) ne (n-1) then return false;
+            end if;
+    end if;
+ end for;
+return  true;
+end function;
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Is_APN_code.html"
+                        title="previous chapter">Is_APN</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="IsPN_code.html"
+                        title="next chapter">IsPN</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/content/codes/IsAPNdeg2_code.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="IsPN_code.html" title="IsPN"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Is_APN_code.html" title="Is_APN"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer" role="contentinfo"><p>&copy; 2026, Tiago Siqueira.</p>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
+  </body>
+</html>

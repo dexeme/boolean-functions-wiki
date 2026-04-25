@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CCZeq &#8212; Boolean Functions  documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script src="../../_static/sagecell-init.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="../../_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CCZeq2" href="CCZeq2.html" />
+    <link rel="prev" title="Ccz_inequivalent_representatives_from_the_known_families" href="Ccz_inequivalent_representatives_from_the_known_families_code.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="CCZeq2.html" title="CCZeq2"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Ccz_inequivalent_representatives_from_the_known_families_code.html" title="Ccz_inequivalent_representatives_from_the_known_families"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cczeq">
+<span id="cczeq-code"></span><h1>CCZeq<a class="headerlink" href="#cczeq" title="Permalink to this headline">¶</a></h1>
+<p>Given two functions in univariate form, returns true if they are CCZ-equivalent and false otherwise</p>
+<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function CCZeq(f1,f2)
+   R:=Parent(f1);
+   F:=BaseRing(R);
+   n:=Degree(F); p:=Characteristic(F);
+   V,phi:=VectorSpace(GF(p^n),GF(p));
+   M:=KMatrixSpace(GF(p),2*n+1,p^n);
+
+f:=function(x)
+   return Evaluate(f1,x); end function;
+
+g:=function(x)
+   return Evaluate(f2,x); end function;
+
+T:=M!0; i:=0;
+for x in GF(p^n) do
+i:=i+1;
+for j in [1..n] do
+T[j,i]:=phi(x)[j];
+T[j+n,i]:=phi(g(x))[j];
+end for;
+T[2*n+1,i]:=1;
+end for;
+C:=LinearCode(T);
+T:=M!0; i:=0;
+for x in GF(p^n) do
+i:=i+1;
+for j in [1..n] do
+T[j,i]:=phi(x)[j];
+T[j+n,i]:=phi(f(x))[j];
+end for;
+T[2*n+1,i]:=1;
+end for;
+D:=LinearCode(T);
+return IsEquivalent(C,D);
+end function;
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Ccz_inequivalent_representatives_from_the_known_families_code.html"
+                        title="previous chapter">Ccz_inequivalent_representatives_from_the_known_families</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CCZeq2.html"
+                        title="next chapter">CCZeq2</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/content/codes/CCZeq_code.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="CCZeq2.html" title="CCZeq2"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Ccz_inequivalent_representatives_from_the_known_families_code.html" title="Ccz_inequivalent_representatives_from_the_known_families"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer" role="contentinfo"><p>&copy; 2026, Tiago Siqueira.</p>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
+  </body>
+</html>

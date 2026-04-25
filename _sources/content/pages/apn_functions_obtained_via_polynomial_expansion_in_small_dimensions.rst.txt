@@ -47,12 +47,11 @@ by Maren Hestad Aleksandersen.
 The complete experimental datasets are referenced here https://universityofbergen-my.sharepoint.com/personal/nikolay_kaleyski_uib_no/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fnikolay%5Fkaleyski%5Fuib%5Fno%2FDocuments%2Fpolynomial%2Dextension%2Ddata%2Ezip&parent=%2Fpersonal%2Fnikolay%5Fkaleyski%5Fuib%5Fno%2FDocuments&ga=1. The same data sorted by the differential spectrum of the orthoderivative is available here https://universityofbergen-my.sharepoint.com/personal/nadiia_ichanska_uib_no/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fnadiia%5Fichanska%5Fuib%5Fno%2FDocuments%2FExpansion%20results&ga=1.
 
 .. csv-table::
-   :file: tables/apn_functions_obtained_via_polynomial_expansion_in_small_dimensions_table_01.csv
+   :file: ../tables/apn_functions_obtained_via_polynomial_expansion_in_small_dimensions_table_01.csv
    :widths: 5 40 15 40
    :header-rows: 1
 
 .. csv-table::
-   :file: tables/apn_functions_obtained_via_polynomial_expansion_in_small_dimensions_table_02.csv
+   :file: ../tables/apn_functions_obtained_via_polynomial_expansion_in_small_dimensions_table_02.csv
    :widths: 5 40 10 45
    :header-rows: 1
-

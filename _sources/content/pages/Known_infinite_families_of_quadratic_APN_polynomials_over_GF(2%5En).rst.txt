@@ -9,7 +9,6 @@ Original page:
 The mathematical expressions below are kept as literals (`...`) to avoid parsing failures from the original source.
 
 .. csv-table::
-   :file: tables/Known_infinite_families_of_quadratic_APN_polynomials_over_GF(2%5En)_table_01.csv
+   :file: ../tables/Known_infinite_families_of_quadratic_APN_polynomials_over_GF(2%5En)_table_01.csv
    :widths: 5 45 40 10
    :header-rows: 1
-

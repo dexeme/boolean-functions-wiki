@@ -15,7 +15,6 @@ Representative rows
 -------------------
 
 .. csv-table::
-   :file: tables/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11)_table_01.csv
+   :file: ../tables/CCZ-equivalence_of_Families_of_APN_Polynomials_over_GF(2%5En)_from_the_table_(for_n_between_6_and_11)_table_01.csv
    :widths: 5 40 10 10 10 10 10 10
    :header-rows: 1
-
