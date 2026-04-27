@@ -14,4 +14,4 @@ where :math:`\alpha` is a primitive in :math:`GF(2^6)`, is the only known exampl
 A :ref:`Magma implementation of the polynomial <Cubic_code>` is available.
 
 :zotero:`[1] <XYYT7E4Y>`
-:zotero:`[2] <X2RFXSN5>`
+:zotero:`[2 - Theorem 11] <X2RFXSN5>`
