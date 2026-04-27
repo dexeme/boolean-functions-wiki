@@ -9,7 +9,7 @@ Original page:
 Overview
 --------
 
-This page studies 8192 known APN functions over ``GF(2^8)`` and reports their main CCZ-invariants.
+This page studies 8192 known APN functions over `GF(2^8)` and reports their main CCZ-invariants.
 The tables below list the index sets for each observed invariant value.
 
 Gamma-rank Table
