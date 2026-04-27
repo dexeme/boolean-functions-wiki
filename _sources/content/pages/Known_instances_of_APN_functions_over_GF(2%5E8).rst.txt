@@ -8,11 +8,10 @@ Original page:
 
 Click to expand each range.
 
-.. lazychunks::
-   :csv: known_instances_apn_gf2_8.csv
+.. csv-table::
+   :file: ../tables/known_instances_apn_gf2_8.csv
+   :header-rows: 1
    :max-rows: 100
-
-   known_instances_apn_gf2_8
 
 The majority of these were obtained by the matrix method described in :zotero:`[1] <MFMEUAZX>`
 (:zotero:`[Codigos] <NRFTSID8>` O apêndice desse nao tem o codigo, só todas as funcoes, entao nao tem como saber quais sao as funcoes hardcoded)

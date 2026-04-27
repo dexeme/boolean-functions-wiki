@@ -7,11 +7,10 @@ Original page:
 
 Click to expand each range.
 
-.. lazychunks::
-   :csv: known_instances_apn_gf2_7.csv
+.. csv-table::
+   :file: ../tables/known_instances_apn_gf2_7.csv
+   :header-rows: 1
    :max-rows: 50
-
-   known_instances_apn_gf2_7
 
 :zotero:`[1] <MFMEUAZX>`
 :zotero:`[2] <HJ7HR7BL>`
