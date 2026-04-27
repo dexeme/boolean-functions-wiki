@@ -1,6 +1,11 @@
 div.bodywrapper {
-  margin: 0 !important;
-  width: 100% !important;
+  /*margin: 1.5% !important;*/
+  margin: 1.5% !important;
+  display: flex;
+ justify-content: left;
+  width: 80% !important;
+  /*background-color: #444 !important;*/
+
 }
 
 div.related {
@@ -10,6 +15,7 @@ div.related {
   width: 100% !important;
   height: 30px !important;
   z-index: 2000 !important;
+  background-color: #333 !important;
 }
 
 div.sphinxsidebar {
@@ -21,46 +27,104 @@ div.sphinxsidebar {
   overflow-y: auto !important;
   z-index: 1000 !important;
   margin-left: 0 !important;
-
+  background-color: #444 !important;
   float: none !important;
 }
 
 div.document {
   margin-top: 30px !important;
   margin-left: 300px !important;
+  width: calc(100% - 600px) !important;
   background-color: #ffffff !important;
   min-height: 100vh !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  position: relative !important;
 }
 
-div.footer {
-  clear: both !important;
-  margin-left: 300px !important;
-  width: auto !important;
+body::after {
+  content: "";
+  position: fixed;
+  top: 30px;
+  right: 0;
+  width: 300px;
+  height: calc(100vh - 30px);
+  background-color: #444;
+  z-index: 500;
+  pointer-events: none;
 }
 
-#sidebarbutton {
-  display: none !important;
+
+
+div.documentwrapper {
+  float: none !important;
+  width: 100% !important;
+  border: none !important;
+  box-sizing: border-box !important;
 }
 
+div.bodywrapper {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+div.body {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  padding: 20px !important;
+  background-color: #ffffff !important;
+}
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+  font-family: 'arial', sans-serif;
+  background-color: #fff;
+  font-weight: normal;
+  color: #20435c;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0 10px 0 !important;
+  padding: 3px 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  display: block !important;
+}
+
+div.body p,
+div.body dd,
+div.body li,
+div.body blockquote {
+  text-align: unset !important;
+  line-height: 130%;
+}
+
+div.body img,
+div.body figure,
+div.body table,
+div.body pre,
+div.body code,
+div.body .highlight {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+div.body pre,
+div.body .highlight,
+div.body table {
+  overflow-x: auto !important;
+}
+
+#sidebarbutton,
 div.clearer {
   display: none !important;
-}
-
-div.body .apn-lazy-body {
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-div.body table.docutils {
-  max-width: 100%;
-  table-layout: auto;
-}
-
-div.body table.docutils th,
-div.body table.docutils td {
-  vertical-align: top;
-}
-
-div.body table.docutils td {
-  overflow-wrap: break-word;
 }
