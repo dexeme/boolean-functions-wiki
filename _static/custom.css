@@ -1,0 +1,66 @@
+div.bodywrapper {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+div.related {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 30px !important;
+  z-index: 2000 !important;
+}
+
+div.sphinxsidebar {
+  position: fixed !important;
+  top: 30px !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 300px !important;
+  overflow-y: auto !important;
+  z-index: 1000 !important;
+  margin-left: 0 !important;
+
+  float: none !important;
+}
+
+div.document {
+  margin-top: 30px !important;
+  margin-left: 300px !important;
+  background-color: #ffffff !important;
+  min-height: 100vh !important;
+}
+
+div.footer {
+  clear: both !important;
+  margin-left: 300px !important;
+  width: auto !important;
+}
+
+#sidebarbutton {
+  display: none !important;
+}
+
+div.clearer {
+  display: none !important;
+}
+
+div.body .apn-lazy-body {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+div.body table.docutils {
+  max-width: 100%;
+  table-layout: auto;
+}
+
+div.body table.docutils th,
+div.body table.docutils td {
+  vertical-align: top;
+}
+
+div.body table.docutils td {
+  overflow-wrap: break-word;
+}
