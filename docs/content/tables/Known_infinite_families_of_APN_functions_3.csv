@@ -1,0 +1,10 @@
+ID,Functions,Conditions,Source
+F14,"`(xy,\ x^{2^k+1}+\alpha y^{(2^k+1)2^i})`","`i\text{ even},\ \gcd(k,m)=1,\ m\text{ even},\ \alpha\text{ not a cube}`",[24]
+F15,"`(xy,\ x^{2^{2i}+2^{3i}} + ax^{2^{2i}}y^{2^i} + by^{2^i+1})`","`\gcd(i,m)=1,\ a\in\mathbb{F}_2,\ x^{2^i+1}+ax+b\text{ has no root in }\mathbb{F}_{2^m}`",[22]
+F16,"`(xy,\ x^{2^i+1}+x^{2^{i+m/2}}y^{2^{m/2}}+bxy^{2^i}+cy^{2^i+1})`","`\gcd(i,m)=1,\ (cx^{2^i+1}+bx^{2^i}+1)^{2^{m/2}+1}+x^{2^{m/2}+1}\text{ has no roots in }\mathbb{F}_{2^m}`",[9]
+F17,"`(x^{2^i+1}+xy^{2^i}+y^{2^i+1},\ x^{2^{2i}+1}+x^{2^{2i}}y+y^{2^{2i}+1})`","`\gcd(3i,m)=1`",[15]
+F18,"`(x^{2^i+1}+xy^{2^i}+y^{2^i+1},\ x^{2^{3i}}y+xy^{2^{3i}})`","`\gcd(3i,m)=1,\ m\text{ odd}`",[15]
+F19,"`(x^3+xy^2+y^3+xy,\ x^5+x^4y+y^5+xy+x^2y^2)`","`\gcd(3,m)=1`",[20]
+F20,"`(x^{q+1}+By^{q+1},\ x^r y+\frac{a}{B}xy^r)`","`0<k<m,\ q=2^k,\ r=2^{k+m/2},\ m\equiv 2\pmod 4,\ \gcd(k,m)=1,\ a\in\mathbb{F}_{2^{m/2}}^{*},\ B\in\mathbb{F}_{2^m},\ B\text{ not a cube},\ B^{q+r}\ne a^{q+1}`",[16]
+F21,"`(x^{q+1}+xy^q+\alpha y^{q+1},\ x^{q^2+1}+\alpha x^{q^2}y+(1+\alpha)^qxy^{q^2}+\alpha y^{q^2+1})`","`k,m>0,\ \gcd(k,m)=1,\ q=2^k,\ \alpha\in\mathbb{F}_{2^m},\ x^{q+1}+x+\alpha\text{ has no roots in }\mathbb{F}_{2^m}`",[10]
+F22,"`(x^3+xy+xy^2+\alpha y^3,\ x^5+xy+\alpha x^2y^2+\alpha x^4y+(1+\alpha)^2xy^4+\alpha y^5)`","`\alpha\in\mathbb{F}_{2^m},\ x^3+x+\alpha\text{ has no roots in }\mathbb{F}_{2^m}`",[10]

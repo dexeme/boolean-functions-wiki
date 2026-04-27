@@ -1,0 +1,11 @@
+ID,Functions,Conditions,Source
+F1-F2,`x^{2^s+1} + u^{2^k-1}x^{2^{ik}+2^{mk+s}}`,"`n=pk,\ \gcd(k,3)=\gcd(s,3k)=1,\ p\in\{3,4\},\ i \equiv sk \pmod p,\ m=p-i,\ n\ge 12,\ u\text{ primitive in }\mathbb{F}_{2^n}^{*}`",[5]
+F3,`s x^{q+1} + x^{2^i+1} + x^{q(2^i+1)} + c x^{2^i q+1} + c^q x^{2^i+q}`,"`q=2^m,\ n=2m,\ \gcd(i,m)=1,\ c\in\mathbb{F}_{2^n},\ s\in\mathbb{F}_{2^n}\setminus\mathbb{F}_q,\ X^{2^i+1}+cX^{2^i}+c^qX+1\text{ has no solution }x\text{ s.t. }x^{q+1}=1`",[4]
+F4,`x^3 + a^{-1}\operatorname{Tr}_{n}(a^3x^9)`,`a\ne 0`,[6]
+F5,`x^3 + a^{-1}\operatorname{Tr}_{n}^{3}(a^3x^9 + a^6x^{18})`,"`3\mid n,\ a\ne 0`",[7]
+F6,`x^3 + a^{-1}\operatorname{Tr}_{n}^{3}(a^6x^{18} + a^{12}x^{36})`,"`3\mid n,\ a\ne 0`",[7]
+F7-F9,`u x^{2^s+1} + u^{2^k}x^{2^{-k}+2^{k+s}} + v x^{2^{-k}+1} + w u^{2^k+1}x^{2^s+2^{k+s}}`,"`n=3k,\ \gcd(k,3)=\gcd(s,3k)=1,\ v,w\in\mathbb{F}_{2^k},\ vw\ne 1,\ 3\mid(k+s),\ u\text{ primitive in }\mathbb{F}_{2^n}^{*}`",[2]
+F10,`a^2x^{2^{2m+1}+1} + b^2x^{2^{m+1}+1} + ax^{2^{2m}+2} + bx^{2^m+2} + (c^2+c)x^3`,"`n=3m,\ m\text{ odd},\ L(x)=ax^{2^{2m}}+bx^{2^m}+cx\text{ satisfies the conditions of Lemma 8 of }[3]`",[3]
+F11,`x^3 + a(x^{2^i+1})^{2^k} + bx^{3\cdot 2^m} + c(x^{2^{i+m}+2^m})^{2^k}`,"`n=2m=10,\ (a,b,c)=(\beta,0,0),\ i=3,\ k=2,\ \beta\text{ primitive in }\mathbb{F}_{2^2};\ n=2m,\ m\text{ odd},\ 3\nmid m,\ (a,b,c)=(\beta,\beta^2,1),\ \beta\text{ primitive in }\mathbb{F}_{2^2},\ i\in\{m-2,m,2m-1,(m-2)^{-1}\bmod n\}\text{ if }k\text{ is even and }i\in\{m+2,m,(m+2)^{-1}\bmod n\}\text{ if }k\text{ is odd}`",[8]
+F12,`a\operatorname{Tr}_{m}^{n}(bx^{2^i+1}) + a^q\operatorname{Tr}_{m}^{n}(cx^{2^s+1})`,"`n=2m,\ m\text{ odd},\ q=2^m,\ a\notin\mathbb{F}_q,\ \gcd(i,n)=1,\ i,s,b,c\text{ satisfy the conditions of Theorem 2}`",[23]
+F13,`L(z)^{2^m+1} + vz^{2^m+1}`,"`\gcd(s,m)=1,\ v\in\mathbb{F}_{2^m}^{*},\ \mu\in\mathbb{F}_{2^{3m}}^{*}:\ \mu^{2^{2m}+2^m+1}\ne 1,\ L(z)=z^{2^{m+s}}+\mu z^{2^s}+z\text{ permutes }\mathbb{F}_{2^{3m}}`",[20]
