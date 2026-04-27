@@ -21,6 +21,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.napoleon',
     'sphinx.ext.todo',
+    'center',
     'sage_block',
     'sagecell_directive',
     'link',
@@ -42,23 +43,14 @@ pygments_style = 'sphinx'
 
 # https://github.com/flintlib/flint/blob/main/doc/source/conf.py
 latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
     'papersize': 'a4paper',
     'fontpkg': '',
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-    'preamble': '\\usepackage{lmodern}\n\\setcounter{tocdepth}{2}\n\\urlstyle{tt}',
-    'preamble': '\\usepackage{mathrsfs}\n\\usepackage{lmodern}\n\\setcounter{tocdepth}{2}\n\\urlstyle{tt}',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
+    'preamble': r'''
+\usepackage{mathrsfs}
+\usepackage{lmodern}
+\setcounter{tocdepth}{2}
+\urlstyle{tt}
+''',
 }
 
 html_theme = 'classic'
