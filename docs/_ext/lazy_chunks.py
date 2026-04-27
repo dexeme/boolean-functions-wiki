@@ -159,6 +159,14 @@ def _resolve_csv_path(src_dir: Path, value: str) -> Path:
     return candidates[0]
 
 
+def _resolve_csv_for_doc(src_dir: Path, doc_dir: Path, value: str) -> Path:
+    rel = Path(value)
+    direct = doc_dir / rel
+    if direct.is_file():
+        return direct
+    return _resolve_csv_path(src_dir, value)
+
+
 def _resolve_includes_base(src_dir: Path, folder_name: str) -> Path:
     candidates = [
         src_dir / "content" / "_includes" / folder_name,
@@ -169,6 +177,83 @@ def _resolve_includes_base(src_dir: Path, folder_name: str) -> Path:
         if candidate.exists() and candidate.is_dir():
             return candidate
     return candidates[0]
+
+
+def _parse_csv_table_blocks(rst_text: str) -> list[dict[str, str]]:
+    blocks: list[dict[str, str]] = []
+    lines = rst_text.splitlines()
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if not line.strip().startswith(".. csv-table::"):
+            i += 1
+            continue
+        base_indent = len(line) - len(line.lstrip(" \t"))
+        i += 1
+        options: dict[str, str] = {}
+        while i < len(lines):
+            cur = lines[i]
+            cur_stripped = cur.strip()
+            cur_indent = len(cur) - len(cur.lstrip(" \t"))
+            if cur_stripped and cur_indent <= base_indent:
+                break
+            opt = re.match(r"\s*:([A-Za-z0-9_-]+):\s*(.*?)\s*$", cur)
+            if opt:
+                options[opt.group(1)] = opt.group(2)
+            i += 1
+        blocks.append(options)
+    return blocks
+
+
+def _rewrite_csv_table_with_max_rows(_app, _docname, source) -> None:
+    text = source[0]
+    lines = text.splitlines()
+    out: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if not line.strip().startswith(".. csv-table::"):
+            out.append(line)
+            i += 1
+            continue
+
+        base_indent = len(line) - len(line.lstrip(" \t"))
+        indent = line[:base_indent]
+        block = [line]
+        i += 1
+        options: dict[str, str] = {}
+
+        while i < len(lines):
+            cur = lines[i]
+            cur_stripped = cur.strip()
+            cur_indent = len(cur) - len(cur.lstrip(" \t"))
+            if cur_stripped and cur_indent <= base_indent:
+                break
+            block.append(cur)
+            opt = re.match(r"\s*:([A-Za-z0-9_-]+):\s*(.*?)\s*$", cur)
+            if opt:
+                options[opt.group(1)] = opt.group(2)
+            i += 1
+
+        csv_value = (options.get("file") or "").strip()
+        max_rows = (options.get("max-rows") or "").strip()
+
+        if csv_value and max_rows:
+            dataset = Path(csv_value).stem
+            out.append(f"{indent}.. lazychunks::")
+            out.append(f"{indent}   :csv: {csv_value}")
+            out.append(f"{indent}   :max-rows: {max_rows}")
+            out.append("")
+            out.append(f"{indent}   {dataset}")
+            out.append("")
+            continue
+
+        out.extend(block)
+
+    rewritten = "\n".join(out)
+    if text.endswith("\n"):
+        rewritten += "\n"
+    source[0] = rewritten
 
 
 def _csv_chunk_meta(rows: list[list[str]], max_rows: int) -> list[tuple[int, int, str, str]]:
@@ -283,7 +368,8 @@ class LazyChunksDirective(Directive):
         if csv_mode:
             env = self.state.document.settings.env
             src_dir = Path(env.app.srcdir)
-            csv_path = _resolve_csv_path(src_dir, self.options["csv"])
+            current_source = Path(self.state.document.current_source).parent
+            csv_path = _resolve_csv_for_doc(src_dir, current_source, self.options["csv"])
             if not csv_path.is_file():
                 raise self.error(
                     f"CSV file not found for lazychunks: {self.options['csv']}"
@@ -557,7 +643,7 @@ def _discover_csv_specs(src_dir: Path) -> list[tuple[str, Path, int]]:
             if "csv" not in options:
                 continue
             csv_value = options["csv"]
-            csv_path = _resolve_csv_path(src_dir, csv_value)
+            csv_path = _resolve_csv_for_doc(src_dir, rst_file.parent, csv_value)
             max_rows_str = options.get("max-rows", "100").strip() or "100"
             try:
                 max_rows = int(max_rows_str)
@@ -566,6 +652,21 @@ def _discover_csv_specs(src_dir: Path) -> list[tuple[str, Path, int]]:
             if max_rows <= 0:
                 continue
             dataset = content[0] if content else Path(csv_value).stem
+            key = (dataset, str(csv_path), max_rows)
+            specs[key] = (dataset, csv_path, max_rows)
+        for options in _parse_csv_table_blocks(text):
+            csv_value = (options.get("file") or "").strip()
+            max_rows_str = (options.get("max-rows") or "").strip()
+            if not csv_value or not max_rows_str:
+                continue
+            try:
+                max_rows = int(max_rows_str)
+            except ValueError:
+                continue
+            if max_rows <= 0:
+                continue
+            csv_path = _resolve_csv_for_doc(src_dir, rst_file.parent, csv_value)
+            dataset = Path(csv_value).stem
             key = (dataset, str(csv_path), max_rows)
             specs[key] = (dataset, csv_path, max_rows)
     return [specs[k] for k in sorted(specs)]
@@ -620,5 +721,6 @@ def _generate_apn_chunks(app, _exception):
 
 def setup(app):
     app.add_directive("lazychunks", LazyChunksDirective)
+    app.connect("source-read", _rewrite_csv_table_with_max_rows)
     app.connect("build-finished", _generate_apn_chunks)
     return {"version": "0.1", "parallel_read_safe": True, "parallel_write_safe": True}

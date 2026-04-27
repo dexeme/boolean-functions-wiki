@@ -67,6 +67,9 @@ html_js_files = [
     'https://sagecell.sagemath.org/static/embedded_sagecell.js',
     'sagecell-init.js',
 ]
+html_css_files = [
+    'custom.css',
+]
 html_theme_options = {
     'sidebarwidth' : 300,
     'collapsiblesidebar': True,
