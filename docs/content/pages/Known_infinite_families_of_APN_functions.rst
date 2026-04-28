@@ -15,7 +15,6 @@ Original page:
     :header-rows: 1
     :font-size: [{ID, -1}]
 
-.. center::
 .. csv-table::
     :file: ../tables/Known_infinite_families_of_APN_functions_3.csv
     :header-rows: 1

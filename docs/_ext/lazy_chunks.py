@@ -11,10 +11,24 @@ from docutils.parsers.rst import Directive, directives
 
 _NO_SPLIT_MAX_ROWS = 10**9
 
+_MATHJAX_SCRIPT_URL = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+
 
 _CHUNK_MATHJAX_BOOTSTRAP = """
 <script>
 (function () {
+  function ensureMathJaxConfig() {
+    const config = window.MathJax || {};
+    const output = config.output || {};
+    if (!output.displayOverflow) output.displayOverflow = 'linebreak';
+    const linebreaks = output.linebreaks || {};
+    if (typeof linebreaks.inline === 'undefined') linebreaks.inline = true;
+    if (!linebreaks.width) linebreaks.width = '100%';
+    output.linebreaks = linebreaks;
+    config.output = output;
+    window.MathJax = config;
+  }
+
   function renderWithParentMathJax() {
     try {
       if (!window.parent || window.parent === window) return false;
@@ -36,6 +50,7 @@ _CHUNK_MATHJAX_BOOTSTRAP = """
   }
 
   async function ensureMathJaxAndTypeset() {
+    ensureMathJaxConfig();
     if (renderWithParentMathJax()) return;
 
     const tryTypeset = async () => {
@@ -60,7 +75,7 @@ _CHUNK_MATHJAX_BOOTSTRAP = """
     if (await tryTypeset()) return;
 
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.src = '__MATHJAX_URL__';
     script.async = true;
     script.onload = async () => { await tryTypeset(); };
     document.head.appendChild(script);
@@ -69,7 +84,7 @@ _CHUNK_MATHJAX_BOOTSTRAP = """
   ensureMathJaxAndTypeset();
 })();
 </script>
-""".strip()
+""".strip().replace("__MATHJAX_URL__", _MATHJAX_SCRIPT_URL)
 
 def _read_csv_table(csv_path: Path) -> tuple[list[str], list[list[str]]]:
     with csv_path.open("r", encoding="utf-8", newline="") as handle:
@@ -344,7 +359,7 @@ def _rewrite_csv_table_with_max_rows(_app, _docname, source) -> None:
         max_rows = (options.get("max-rows") or "").strip()
         font_size = (options.get("font-size") or "").strip()
 
-        if csv_value and (max_rows or font_size):
+        if csv_value:
             dataset = Path(csv_value).stem
             out.append(f"{indent}.. lazychunks::")
             out.append(f"{indent}   :csv: {csv_value}")
@@ -632,6 +647,51 @@ class LazyChunksDirective(Directive):
         parts.append("      };")
         parts.append("    }")
         parts.append("    const lazyChunksUseIframeOnly = window.location.protocol === 'file:';")
+        parts.append("    const lazyChunksEnsureMathJaxConfig = function () {")
+        parts.append("      const config = window.MathJax || {};")
+        parts.append("      const output = config.output || {};")
+        parts.append("      if (!output.displayOverflow) output.displayOverflow = 'linebreak';")
+        parts.append("      const linebreaks = output.linebreaks || {};")
+        parts.append("      if (typeof linebreaks.inline === 'undefined') linebreaks.inline = true;")
+        parts.append("      if (!linebreaks.width) linebreaks.width = '100%';")
+        parts.append("      output.linebreaks = linebreaks;")
+        parts.append("      config.output = output;")
+        parts.append("      window.MathJax = config;")
+        parts.append("    };")
+        parts.append("    const lazyChunksEnsureMathJax = async function () {")
+        parts.append("      lazyChunksEnsureMathJaxConfig();")
+        parts.append("      if (window.MathJax && (typeof window.MathJax.tex2chtml === 'function' || typeof window.MathJax.typesetPromise === 'function' || (window.MathJax.Hub && typeof window.MathJax.Hub.Queue === 'function'))) return window.MathJax;")
+        parts.append("      if (!window.__lazyChunksMathJaxLoading) {")
+        parts.append("        window.__lazyChunksMathJaxLoading = new Promise((resolve) => {")
+        parts.append("          const script = document.createElement('script');")
+        parts.append("          script.src = '%s';" % _MATHJAX_SCRIPT_URL)
+        parts.append("          script.async = true;")
+        parts.append("          script.onload = () => resolve(window.MathJax || null);")
+        parts.append("          script.onerror = () => resolve(null);")
+        parts.append("          document.head.appendChild(script);")
+        parts.append("        });")
+        parts.append("      }")
+        parts.append("      return await window.__lazyChunksMathJaxLoading;")
+        parts.append("    };")
+        parts.append("    const lazyChunksRenderMathSpans = async function (scope) {")
+        parts.append("      const mj = await lazyChunksEnsureMathJax();")
+        parts.append("      if (!mj || typeof mj.tex2chtml !== 'function') return false;")
+        parts.append("      try {")
+        parts.append("        const nodes = scope.querySelectorAll('span.math.notranslate.nohighlight');")
+        parts.append("        for (const node of nodes) {")
+        parts.append("          const source = (node.textContent || '').trim();")
+        parts.append("          let m = source.match(/^\\\\\\((.*)\\\\\\)$/s);")
+        parts.append("          if (!m) m = source.match(/^\\((.*)\\)$/s);")
+        parts.append("          if (!m) continue;")
+        parts.append("          const rendered = mj.tex2chtml(m[1], { display: false });")
+        parts.append("          node.textContent = '';")
+        parts.append("          node.appendChild(document.importNode(rendered, true));")
+        parts.append("        }")
+        parts.append("        return true;")
+        parts.append("      } catch (_err) {")
+        parts.append("        return false;")
+        parts.append("      }")
+        parts.append("    };")
         parts.append("    const lazyChunksColumnCells = function (table, colIndex) {")
         parts.append("      return table.querySelectorAll('[data-col-index=\"' + colIndex + '\"]');")
         parts.append("    };")
@@ -664,12 +724,35 @@ class LazyChunksDirective(Directive):
         parts.append("      if (!scope) return;")
         parts.append("      const tables = scope.querySelectorAll('table.docutils');")
         parts.append("      for (const table of tables) {")
-        parts.append("        const headers = Array.from(table.querySelectorAll('thead th[data-col-index]'));")
+        parts.append("        const headers = Array.from(table.querySelectorAll('thead th'));")
         parts.append("        if (!headers.length) continue;")
-        parts.append("        const cols = headers.map((th) => ({")
-        parts.append("          colIndex: Number(th.dataset.colIndex || '0'),")
-        parts.append("          score: Number(th.dataset.colWidthScore || '0'),")
-        parts.append("        })).filter((c) => c.colIndex > 0);")
+        parts.append("        const cols = [];")
+        parts.append("        for (let i = 0; i < headers.length; i += 1) {")
+        parts.append("          const th = headers[i];")
+        parts.append("          const colIndex = Number(th.dataset.colIndex || String(i + 1));")
+        parts.append("          let score = Number(th.dataset.colWidthScore || '0');")
+        parts.append("          if (!Number.isFinite(score) || score <= 0) {")
+        parts.append("            score = (th.textContent || '').trim().length;")
+        parts.append("            const bodyRows = table.querySelectorAll('tbody tr');")
+        parts.append("            for (const row of bodyRows) {")
+        parts.append("              const cells = row.children;")
+        parts.append("              const idx = colIndex - 1;")
+        parts.append("              if (idx < 0 || idx >= cells.length) continue;")
+        parts.append("              const len = (cells[idx].textContent || '').trim().length;")
+        parts.append("              if (len > score) score = len;")
+        parts.append("            }")
+        parts.append("            th.dataset.colWidthScore = String(score);")
+        parts.append("          }")
+        parts.append("          th.dataset.colIndex = String(colIndex);")
+        parts.append("          cols.push({ colIndex: colIndex, score: score });")
+        parts.append("        }")
+        parts.append("        const bodyRows = table.querySelectorAll('tbody tr');")
+        parts.append("        for (const row of bodyRows) {")
+        parts.append("          const cells = row.children;")
+        parts.append("          for (let i = 0; i < cells.length; i += 1) {")
+        parts.append("            if (!cells[i].dataset.colIndex) cells[i].dataset.colIndex = String(i + 1);")
+        parts.append("          }")
+        parts.append("        }")
         parts.append("        if (!cols.length) continue;")
         parts.append("        const shortCols = cols.filter((c) => c.score <= 15);")
         parts.append("        const longCols = cols.filter((c) => c.score > 15).sort((a, b) => b.score - a.score);")
@@ -730,8 +813,10 @@ class LazyChunksDirective(Directive):
         parts.append("        const response = await fetch(src);")
         parts.append("        if (!response.ok) throw new Error('HTTP ' + response.status);")
         parts.append("        body.innerHTML = await response.text();")
+        parts.append("        await lazyChunksRenderMathSpans(body);")
         parts.append("        lazyChunksApplyBreakPriority(body);")
         parts.append("        window.__lazyChunksQueueTypeset(body);")
+        parts.append("        setTimeout(function () { window.__lazyChunksQueueTypeset(body); }, 120);")
         parts.append("        chunk.dataset.loaded = '1';")
         parts.append("      } catch (err) {")
         parts.append("        lazyChunksLoadIframe(body, src, chunk);")
