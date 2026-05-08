@@ -36,3 +36,5 @@ Thumbs.db
 
 # Local data/scratch
 /data/
+*.sqlite
+*.sqlite3
