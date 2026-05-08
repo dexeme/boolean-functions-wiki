@@ -180,6 +180,20 @@ div.body table td mjx-container {
   max-width: 100% !important;
 }
 
+div.body table th.col-break-target mjx-container,
+div.body table td.col-break-target mjx-container,
+div.body table th.col-break-extra mjx-container,
+div.body table td.col-break-extra mjx-container {
+  max-width: 100% !important;
+}
+
+div.body table th.col-break-target mjx-math,
+div.body table td.col-break-target mjx-math,
+div.body table th.col-break-extra mjx-math,
+div.body table td.col-break-extra mjx-math {
+  white-space: normal !important;
+}
+
 div.body table th[data-col-id="id"],
 div.body table td[data-col-id="id"] {
   white-space: nowrap !important;
@@ -228,4 +242,19 @@ div.sphinxsidebar #searchbox input[type="text"] {
     width: 77%;
     padding: 0.25em;
     box-sizing: border-box;
+}
+
+table.docutils {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #444;
+    border-collapse: collapse;
+}
+
+table.docutils td, table.docutils th {
+    padding: 10px 10px 10px 10px;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
 }

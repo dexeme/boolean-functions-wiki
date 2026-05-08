@@ -53,16 +53,16 @@ Original page:
 <a href="https://boolean.wiki.uib.no/Known_instances_of_APN_functions_over_GF(2%5E7)" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/Known_instances_of_APN_functions_over_GF(2%5E7)</a></p>
 <p>Click to expand each range.</p>
 <div id="lazychunks-0" class="lazychunks">
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_1_50.html" data-src-kind="apn-chunk"><summary><strong>IDs 1-50</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_51_100.html" data-src-kind="apn-chunk"><summary><strong>IDs 51-100</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_101_150.html" data-src-kind="apn-chunk"><summary><strong>IDs 101-150</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_151_200.html" data-src-kind="apn-chunk"><summary><strong>IDs 151-200</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_201_250.html" data-src-kind="apn-chunk"><summary><strong>IDs 201-250</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_251_300.html" data-src-kind="apn-chunk"><summary><strong>IDs 251-300</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_301_350.html" data-src-kind="apn-chunk"><summary><strong>IDs 301-350</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_351_400.html" data-src-kind="apn-chunk"><summary><strong>IDs 351-400</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_401_450.html" data-src-kind="apn-chunk"><summary><strong>IDs 401-450</strong></summary><div class="apn-lazy-body"></div></details>
-<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_c2ab1715ba_451_490.html" data-src-kind="apn-chunk"><summary><strong>IDs 451-490</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_1_50.html" data-src-kind="apn-chunk"><summary><strong>IDs 1-50</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_51_100.html" data-src-kind="apn-chunk"><summary><strong>IDs 51-100</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_101_150.html" data-src-kind="apn-chunk"><summary><strong>IDs 101-150</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_151_200.html" data-src-kind="apn-chunk"><summary><strong>IDs 151-200</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_201_250.html" data-src-kind="apn-chunk"><summary><strong>IDs 201-250</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_251_300.html" data-src-kind="apn-chunk"><summary><strong>IDs 251-300</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_301_350.html" data-src-kind="apn-chunk"><summary><strong>IDs 301-350</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_351_400.html" data-src-kind="apn-chunk"><summary><strong>IDs 351-400</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_401_450.html" data-src-kind="apn-chunk"><summary><strong>IDs 401-450</strong></summary><div class="apn-lazy-body"></div></details>
+<details class="apn-lazy-chunk" data-src="known_instances_apn_gf2_7_49d66fdb67_451_490.html" data-src-kind="apn-chunk"><summary><strong>IDs 451-490</strong></summary><div class="apn-lazy-body"></div></details>
 </div>
 <script>
 (function () {
@@ -114,6 +114,51 @@ Original page:
       };
     }
     const lazyChunksUseIframeOnly = window.location.protocol === 'file:';
+    const lazyChunksEnsureMathJaxConfig = function () {
+      const config = window.MathJax || {};
+      const output = config.output || {};
+      if (!output.displayOverflow) output.displayOverflow = 'linebreak';
+      const linebreaks = output.linebreaks || {};
+      if (typeof linebreaks.inline === 'undefined') linebreaks.inline = true;
+      if (!linebreaks.width) linebreaks.width = '100%';
+      output.linebreaks = linebreaks;
+      config.output = output;
+      window.MathJax = config;
+    };
+    const lazyChunksEnsureMathJax = async function () {
+      lazyChunksEnsureMathJaxConfig();
+      if (window.MathJax && (typeof window.MathJax.tex2chtml === 'function' || typeof window.MathJax.typesetPromise === 'function' || (window.MathJax.Hub && typeof window.MathJax.Hub.Queue === 'function'))) return window.MathJax;
+      if (!window.__lazyChunksMathJaxLoading) {
+        window.__lazyChunksMathJaxLoading = new Promise((resolve) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+          script.async = true;
+          script.onload = () => resolve(window.MathJax || null);
+          script.onerror = () => resolve(null);
+          document.head.appendChild(script);
+        });
+      }
+      return await window.__lazyChunksMathJaxLoading;
+    };
+    const lazyChunksRenderMathSpans = async function (scope) {
+      const mj = await lazyChunksEnsureMathJax();
+      if (!mj || typeof mj.tex2chtml !== 'function') return false;
+      try {
+        const nodes = scope.querySelectorAll('span.math.notranslate.nohighlight');
+        for (const node of nodes) {
+          const source = (node.textContent || '').trim();
+          let m = source.match(/^\\\((.*)\\\)$/s);
+          if (!m) m = source.match(/^\((.*)\)$/s);
+          if (!m) continue;
+          const rendered = mj.tex2chtml(m[1], { display: false });
+          node.textContent = '';
+          node.appendChild(document.importNode(rendered, true));
+        }
+        return true;
+      } catch (_err) {
+        return false;
+      }
+    };
     const lazyChunksColumnCells = function (table, colIndex) {
       return table.querySelectorAll('[data-col-index="' + colIndex + '"]');
     };
@@ -146,12 +191,35 @@ Original page:
       if (!scope) return;
       const tables = scope.querySelectorAll('table.docutils');
       for (const table of tables) {
-        const headers = Array.from(table.querySelectorAll('thead th[data-col-index]'));
+        const headers = Array.from(table.querySelectorAll('thead th'));
         if (!headers.length) continue;
-        const cols = headers.map((th) => ({
-          colIndex: Number(th.dataset.colIndex || '0'),
-          score: Number(th.dataset.colWidthScore || '0'),
-        })).filter((c) => c.colIndex > 0);
+        const cols = [];
+        for (let i = 0; i < headers.length; i += 1) {
+          const th = headers[i];
+          const colIndex = Number(th.dataset.colIndex || String(i + 1));
+          let score = Number(th.dataset.colWidthScore || '0');
+          if (!Number.isFinite(score) || score <= 0) {
+            score = (th.textContent || '').trim().length;
+            const bodyRows = table.querySelectorAll('tbody tr');
+            for (const row of bodyRows) {
+              const cells = row.children;
+              const idx = colIndex - 1;
+              if (idx < 0 || idx >= cells.length) continue;
+              const len = (cells[idx].textContent || '').trim().length;
+              if (len > score) score = len;
+            }
+            th.dataset.colWidthScore = String(score);
+          }
+          th.dataset.colIndex = String(colIndex);
+          cols.push({ colIndex: colIndex, score: score });
+        }
+        const bodyRows = table.querySelectorAll('tbody tr');
+        for (const row of bodyRows) {
+          const cells = row.children;
+          for (let i = 0; i < cells.length; i += 1) {
+            if (!cells[i].dataset.colIndex) cells[i].dataset.colIndex = String(i + 1);
+          }
+        }
         if (!cols.length) continue;
         const shortCols = cols.filter((c) => c.score <= 15);
         const longCols = cols.filter((c) => c.score > 15).sort((a, b) => b.score - a.score);
@@ -212,8 +280,10 @@ Original page:
         const response = await fetch(src);
         if (!response.ok) throw new Error('HTTP ' + response.status);
         body.innerHTML = await response.text();
+        await lazyChunksRenderMathSpans(body);
         lazyChunksApplyBreakPriority(body);
         window.__lazyChunksQueueTypeset(body);
+        setTimeout(function () { window.__lazyChunksQueueTypeset(body); }, 120);
         chunk.dataset.loaded = '1';
       } catch (err) {
         lazyChunksLoadIframe(body, src, chunk);
