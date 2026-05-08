@@ -243,3 +243,18 @@ div.sphinxsidebar #searchbox input[type="text"] {
     padding: 0.25em;
     box-sizing: border-box;
 }
+
+table.docutils {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #444;
+    border-collapse: collapse;
+}
+
+table.docutils td, table.docutils th {
+    padding: 10px 10px 10px 10px;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+}

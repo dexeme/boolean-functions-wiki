@@ -5,14 +5,25 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
+SPHINXAUTOBUILD ?= sphinx-autobuild
 SOURCEDIR     = .
 BUILDDIR      = build
+LIVESERVERHOST ?= 127.0.0.1
+LIVESERVERPORT ?= 8000
 
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY: help Makefile
+
+.PHONY: livehtml
+livehtml:
+	@$(SPHINXAUTOBUILD) "$(SOURCEDIR)" "$(BUILDDIR)/html" \
+		--host "$(LIVESERVERHOST)" \
+		--port "$(LIVESERVERPORT)" \
+		--watch "$(SOURCEDIR)" \
+		--ignore "$(BUILDDIR)/*"
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

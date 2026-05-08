@@ -111,6 +111,27 @@ def _cell_html(value: str) -> str:
         return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
             html_escape(inner_math)
         )
+    zotero_re = re.compile(r":zotero:`([^`<>]+?)\s*<([A-Za-z0-9]+)>(?:`)?")
+    parts: list[str] = []
+    last = 0
+    for match in zotero_re.finditer(text):
+        start, end = match.span()
+        if start > last:
+            parts.append(html_escape(text[last:start]))
+        label = match.group(1).strip()
+        item_key = match.group(2).strip()
+        href = f"zotero://select/library/items/{item_key}"
+        parts.append(
+            '<a class="reference external" href="{}">{}</a>'.format(
+                html_escape(href, quote=True),
+                html_escape(label),
+            )
+        )
+        last = end
+    if last < len(text):
+        parts.append(html_escape(text[last:]))
+    if parts:
+        return "".join(parts)
     return html_escape(text)
 
 
