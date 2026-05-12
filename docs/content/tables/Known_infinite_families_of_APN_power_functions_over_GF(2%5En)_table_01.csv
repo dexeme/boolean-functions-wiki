@@ -2,7 +2,6 @@ Family,Exponent,Conditions,$deg(x^d)$,Reference
 Gold,$2^i + 1$,"$gcd(i, n) = 1$",$2$,":cite:p:`Gold:196801`, :cite:p:`Nyberg:199400`"
 Kasami,$2^{2i} - 2^i + 1$,"$gcd(i, n) = 1$",$i + 1$,":cite:p:`Janwa:199300`, :cite:p:`Kasami:19710`"
 Welch,$2^t + 3$,$n = 2t + 1$,$3$,:cite:p:`Dobbertin:199905b`
-Niho,$2^t + 2^{t/2} - 1$, $t$ even,$n = 2t + 1$,$(t+2)/2$,:cite:p:`Dobbertin:199905`
-Niho,$2^t + 2^{(3t+1)/2} - 1$, $t$ odd,$n = 2t + 1$,$t + 1$,:cite:p:`Dobbertin:199905`
+Niho,"$2^t + 2^{t/2} - 1$, $t$ even<br>$2^t + 2^{(3t+1)/2} - 1$, $t$ odd",$n = 2t + 1$,"$(t+2)/2$<br>$t + 1$",:cite:p:`Dobbertin:199905`
 Inverse,$2^{2t} - 1$,$n = 2t + 1$,$n - 1$,":cite:p:`Nyberg:199400`, :cite:p:`Beth:199400`"
 Dobbertin,$2^{4i} + 2^{3i} + 2^{2i} + 2^i - 1$,$n = 5i$,$i + 3$,:cite:p:`Dobbertin:200100`
