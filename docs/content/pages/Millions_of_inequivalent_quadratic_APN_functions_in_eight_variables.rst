@@ -8,13 +8,13 @@ Description
 
 This dataset contains the look-up tables of the new 3,775,599 inequivalent quadratic APN functions in dimension
 eight (up to EA-equivalence) found by the approaches described in our work
-:zotero:`[Millions of inequivalent quadratic APN functions in eight variables] <2ZE3TSG9>`.
+:cite:p:`Beierle:202508`.
 
 The file new_apns.txt contains the look-up tables of these 3,775,599 new quadratic APN functions.
 
 Prior to our work, 32,892 quadratic APN functions in eight variables are known (up to EA-equivalence).
 
-Those are: The 22 quadratic APN functions listed in :zotero:`[EP09] <3677DD5X>`, the 8,157 APN functions constructed by the QAM
-method :zotero:`[YWL14] <MEYG336W>`, the 10 APN functions presented in :zotero:`[WTG13] <HJ7HR7BL>`, the two APN functions from the Taniguchi family :zotero:`[Tan19] <VDSS6RPJ>`,
-the 12,921 APN functions from :zotero:`[BL22] <AFHQHD9D>`, the 5,412 APN functions presented in :zotero:`[YP22] <XTZPMJJH>`,
-and the 6,368 APN functions constructed in :zotero:`[BL22] <AFHQHD9D>`.
+Those are: The 22 quadratic APN functions listed in :cite:p:`Edel:200900`, the 8,157 APN functions constructed by the QAM
+method :cite:p:`Yu:201411`, the 10 APN functions presented in :cite:p:`Weng:000`, the two APN functions from the Taniguchi family :cite:p:`Taniguchi:201909`,
+the 12,921 APN functions from :cite:p:`Beierle:202201`, the 5,412 APN functions presented in :cite:p:`Yu:202211`,
+and the 6,368 APN functions constructed in :cite:p:`Beierle:202201`.

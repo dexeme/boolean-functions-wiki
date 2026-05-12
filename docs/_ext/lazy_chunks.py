@@ -12,6 +12,7 @@ from docutils.parsers.rst import Directive, directives
 _NO_SPLIT_MAX_ROWS = 10**9
 
 _MATHJAX_SCRIPT_URL = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+_CITATION_LABEL_CACHE: dict[tuple[str, ...], dict[str, str]] = {}
 
 
 _CHUNK_MATHJAX_BOOTSTRAP = """
@@ -94,7 +95,42 @@ def _read_csv_table(csv_path: Path) -> tuple[list[str], list[list[str]]]:
     return [c.strip() for c in rows[0]], [[c.strip() for c in row] for row in rows[1:]]
 
 
-def _cell_html(value: str) -> str:
+def _citation_labels(bibfiles: list[str] | tuple[str, ...] | None) -> dict[str, str]:
+    if not bibfiles:
+        return {}
+
+    cache_key = tuple(str(Path(path)) for path in bibfiles)
+    if cache_key in _CITATION_LABEL_CACHE:
+        return _CITATION_LABEL_CACHE[cache_key]
+
+    labels: dict[str, str] = {}
+    try:
+        from pybtex.database import BibliographyData
+        from pybtex.database.input import bibtex
+        from pybtex.plugin import find_plugin
+
+        entries = {}
+        for bibfile in cache_key:
+            path = Path(bibfile)
+            if not path.is_file():
+                continue
+            entries.update(bibtex.Parser().parse_file(str(path)).entries)
+
+        if entries:
+            style = find_plugin("pybtex.style.formatting", "alpha")()
+            bib_data = BibliographyData(entries=entries)
+            formatted_labels = style.label_style.format_labels(
+                bib_data.entries.values()
+            )
+            labels = dict(zip(bib_data.entries.keys(), formatted_labels))
+    except Exception:
+        labels = {}
+
+    _CITATION_LABEL_CACHE[cache_key] = labels
+    return labels
+
+
+def _cell_html(value: str, citation_labels: dict[str, str] | None = None) -> str:
     text = value.strip()
     if len(text) >= 2 and text[0] == "`" and text[-1] == "`":
         inner_math = text[1:-1].strip()
@@ -111,20 +147,27 @@ def _cell_html(value: str) -> str:
         return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
             html_escape(inner_math)
         )
-    zotero_re = re.compile(r":zotero:`([^`<>]+?)\s*<([A-Za-z0-9]+)>(?:`)?")
+
+    cite_re = re.compile(r":cite:p:`([^`]+)`")
     parts: list[str] = []
     last = 0
-    for match in zotero_re.finditer(text):
+    for match in cite_re.finditer(text):
         start, end = match.span()
         if start > last:
             parts.append(html_escape(text[last:start]))
-        label = match.group(1).strip()
-        item_key = match.group(2).strip()
-        href = f"zotero://select/library/items/{item_key}"
+        keys = [key.strip() for key in match.group(1).split(",") if key.strip()]
+        rendered_keys = []
+        for key in keys:
+            label = (citation_labels or {}).get(key, key)
+            rendered_keys.append(
+                '<a class="reference internal" href="{}">{}</a>'.format(
+                    html_escape("../../index.html", quote=True),
+                    html_escape(label),
+                )
+            )
         parts.append(
-            '<a class="reference external" href="{}">{}</a>'.format(
-                html_escape(href, quote=True),
-                html_escape(label),
+            '<span class="bibtex-citation">[{}]</span>'.format(
+                ", ".join(rendered_keys)
             )
         )
         last = end
@@ -170,7 +213,10 @@ def _font_size_style(delta: int) -> str:
 
 
 def _csv_rows_to_html(
-    header: list[str], rows: list[list[str]], font_size_spec: str = ""
+    header: list[str],
+    rows: list[list[str]],
+    font_size_spec: str = "",
+    citation_labels: dict[str, str] | None = None,
 ) -> str | None:
     if not header:
         return None
@@ -225,7 +271,7 @@ def _csv_rows_to_html(
                 f'<th class="col-{col_id} col-index-{col_index} {break_class} {size_class}" '
                 f'data-col-id="{col_id}" data-col-index="{col_index}" '
                 f'data-col-width-score="{width_score}" data-break-rank="{rank_attr}"{style}>'
-                f"{_cell_html(col)}</th>"
+                f"{_cell_html(col, citation_labels)}</th>"
             )
         )
     parts.extend(["</tr></thead>", "<tbody>"])
@@ -247,7 +293,7 @@ def _csv_rows_to_html(
                     f'<td class="col-{col_id} col-index-{col_index} {break_class} {size_class}" '
                     f'data-col-id="{col_id}" data-col-index="{col_index}" '
                     f'data-col-width-score="{width_score}" data-break-rank="{rank_attr}"{style}>'
-                    f"{_cell_html(cell)}</td>"
+                    f"{_cell_html(cell, citation_labels)}</td>"
                 )
             )
         parts.append("</tr>")
@@ -535,7 +581,10 @@ class LazyChunksDirective(Directive):
             csv_header, csv_rows = _read_csv_table(csv_path)
             if "inline-csv" in self.options:
                 inline_html = _csv_rows_to_html(
-                    csv_header, csv_rows, font_size_spec=font_size_spec
+                    csv_header,
+                    csv_rows,
+                    font_size_spec=font_size_spec,
+                    citation_labels=_citation_labels(env.app.config.bibtex_bibfiles),
                 )
                 if not inline_html:
                     return []
@@ -999,6 +1048,7 @@ def _generate_apn_chunks(app, _exception):
                 out_file = out_chunks / f"{folder}_{rst_file.stem}.html"
                 out_file.write_text(html, encoding="utf-8")
 
+    citation_labels = _citation_labels(app.config.bibtex_bibfiles)
     for prefix, csv_path, max_rows, font_size_spec in _discover_csv_specs(src_dir):
         if not csv_path.is_file():
             continue
@@ -1013,7 +1063,10 @@ def _generate_apn_chunks(app, _exception):
                 continue
         for start, end, _first_id, _last_id in _csv_chunk_meta(rows, max_rows):
             html = _csv_rows_to_html(
-                header, rows[start - 1:end], font_size_spec=font_size_spec
+                header,
+                rows[start - 1:end],
+                font_size_spec=font_size_spec,
+                citation_labels=citation_labels,
             )
             if not html:
                 continue
