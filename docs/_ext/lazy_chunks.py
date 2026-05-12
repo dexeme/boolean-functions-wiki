@@ -13,6 +13,7 @@ _NO_SPLIT_MAX_ROWS = 10**9
 
 _MATHJAX_SCRIPT_URL = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 _CITATION_LABEL_CACHE: dict[tuple[str, ...], dict[str, str]] = {}
+_CITE_RE = re.compile(r":cite:p:`([^`]+)`")
 
 
 _CHUNK_MATHJAX_BOOTSTRAP = """
@@ -152,6 +153,30 @@ def _citation_html(keys_text: str, citation_labels: dict[str, str] | None = None
     )
 
 
+def _citation_keys_from_text(text: str) -> list[str]:
+    keys: list[str] = []
+    for match in _CITE_RE.finditer(text):
+        keys.extend(key.strip() for key in match.group(1).split(",") if key.strip())
+    return keys
+
+
+def _citation_keys_from_csv(csv_path: Path) -> list[str]:
+    try:
+        header, rows = _read_csv_table(csv_path)
+    except OSError:
+        return []
+
+    keys: list[str] = []
+    seen: set[str] = set()
+    for cell in [*header, *(cell for row in rows for cell in row)]:
+        for key in _citation_keys_from_text(cell):
+            if key in seen:
+                continue
+            seen.add(key)
+            keys.append(key)
+    return keys
+
+
 def _escape_cell_text(value: str) -> str:
     parts = re.split(r"(<br\s*/?>)", value, flags=re.IGNORECASE)
     return "".join(
@@ -165,7 +190,7 @@ def _escape_cell_text(value: str) -> str:
 def _cell_html(value: str, citation_labels: dict[str, str] | None = None) -> str:
     text = value.strip()
     token_re = re.compile(
-        r":cite:p:`([^`]+)`|`([^`]+)`|\$([^$]+)\$|\\\((.*?)\\\)",
+        _CITE_RE.pattern + r"|`([^`]+)`|\$([^$]+)\$|\\\((.*?)\\\)",
         re.DOTALL,
     )
     parts: list[str] = []
@@ -455,10 +480,12 @@ def _parse_csv_table_blocks(rst_text: str) -> list[dict[str, str]]:
     return blocks
 
 
-def _rewrite_csv_table_with_max_rows(_app, _docname, source) -> None:
+def _rewrite_csv_table_with_max_rows(app, docname, source) -> None:
     text = source[0]
     lines = text.splitlines()
     out: list[str] = []
+    src_dir = Path(app.srcdir)
+    doc_dir = (src_dir / docname).parent
     i = 0
     while i < len(lines):
         line = lines[i]
@@ -491,6 +518,8 @@ def _rewrite_csv_table_with_max_rows(_app, _docname, source) -> None:
         widths = (options.get("widths") or "").strip()
 
         if csv_value:
+            csv_path = _resolve_csv_for_doc(src_dir, doc_dir, csv_value)
+            citation_keys = _citation_keys_from_csv(csv_path)
             dataset = Path(csv_value).stem
             out.append(f"{indent}.. lazychunks::")
             out.append(f"{indent}   :csv: {csv_value}")
@@ -505,6 +534,12 @@ def _rewrite_csv_table_with_max_rows(_app, _docname, source) -> None:
             out.append("")
             out.append(f"{indent}   {dataset}")
             out.append("")
+            if citation_keys:
+                out.append(f"{indent}.. container::")
+                out.append(f"{indent}   :class: table-citation-refs")
+                out.append("")
+                out.append(f"{indent}   :cite:p:`{', '.join(citation_keys)}`")
+                out.append("")
             continue
 
         out.extend(block)

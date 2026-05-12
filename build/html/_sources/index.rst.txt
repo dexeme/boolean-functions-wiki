@@ -42,6 +42,7 @@ Introduction
 
    Sage-math <sage-math/sage_code>
    Map <sage-math/code_map>
+   References <references>
 
 Content
 -------
@@ -51,5 +52,3 @@ Content
    :glob:
 
    content/pages/*
-
-.. bibliography::
