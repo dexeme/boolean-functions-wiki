@@ -11,8 +11,9 @@ Click to expand each range.
 .. csv-table::
    :file: ../tables/known_instances_apn_gf2_8.csv
    :header-rows: 1
-   :max-rows: 50
-    :font-size: [{ID, -2}]
+    :widths: 1 30
+    :max-rows: 50
+    :font-size: -2 +2
 
 The majority of these were obtained by the matrix method described in :cite:p:`Yu:201411`
 (:cite:p:`Taniguchi:201909` O apêndice desse nao tem o codigo, só todas as funcoes, entao nao tem como saber quais sao as funcoes hardcoded)

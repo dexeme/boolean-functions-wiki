@@ -9,6 +9,7 @@ Original page:
 Cases regarding Proposition 3 of :cite:p:`Budaghyan:200904`
 
 .. csv-table::
-   :file: ../tables/Some_APN_functions_CCZ-equivalent_to_x%5E3_%2B_tr_n(x%5E9)_and_CCZ-inequivalent_to_the_Gold_functions_over_GF(2%5En)_table_01.csv
-   :widths: 5 45 40 10
-   :header-rows: 1
+    :file: ../tables/Some_APN_functions_CCZ-equivalent_to_x%5E3_%2B_tr_n(x%5E9)_and_CCZ-inequivalent_to_the_Gold_functions_over_GF(2%5En)_table_01.csv
+    :header-rows: 1
+    :widths: 4 45 40 3
+    :font-size: -3 -1 -1 -1
