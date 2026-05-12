@@ -62,6 +62,7 @@ latex_elements = {
 
 html_theme = 'classic'
 html_static_path = ['_static']
+html_extra_path = ['.nojekyll']
 html_js_files = [
     'https://sagecell.sagemath.org/static/embedded_sagecell.js',
     'sagecell-init.js',

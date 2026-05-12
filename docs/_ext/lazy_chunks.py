@@ -535,8 +535,7 @@ def _rewrite_csv_table_with_max_rows(app, docname, source) -> None:
             out.append(f"{indent}   {dataset}")
             out.append("")
             if citation_keys:
-                out.append(f"{indent}.. container::")
-                out.append(f"{indent}   :class: table-citation-refs")
+                out.append(f"{indent}.. container:: table-citation-refs")
                 out.append("")
                 out.append(f"{indent}   :cite:p:`{', '.join(citation_keys)}`")
                 out.append("")

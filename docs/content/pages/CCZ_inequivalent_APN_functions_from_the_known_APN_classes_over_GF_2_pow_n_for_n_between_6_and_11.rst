@@ -14,7 +14,7 @@ Representative rows
 -------------------
 
 .. csv-table::
-    :file: ../tables/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_for_n_between_6_and_11_table_01.csv
+    :file: ../tables/CCZ_inequivalent_APN_functions_from_the_known_APN_classes_over_GF_2_pow_n_for_n_between_6_and_11_table_01.csv
     :widths: 4 5 40 10 8 10 10 10
     :header-rows: 1
     :font-size: -3 -4 -1 -3 -3 -3 -3 -3
