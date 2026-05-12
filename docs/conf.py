@@ -6,6 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os, sys
+from pathlib import Path
+
 sys.path.append(os.path.abspath("_ext"))
 
 
@@ -26,7 +28,12 @@ extensions = [
     'sagecell_directive',
     'link',
     'lazy_chunks',
+    'sphinxcontrib.bibtex'
 ]
+
+CONF_DIR = Path(__file__).parent
+
+bibtex_bibfiles = [str(CONF_DIR / "refs.bib")]
 
 templates_path = ['_templates']
 exclude_patterns = [

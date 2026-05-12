@@ -51,3 +51,5 @@ Content
    :glob:
 
    content/pages/*
+
+.. bibliography::

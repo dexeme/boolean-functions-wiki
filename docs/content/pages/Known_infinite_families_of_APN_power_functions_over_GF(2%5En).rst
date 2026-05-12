@@ -11,4 +11,4 @@ Original page:
    :widths: 20 30 20 15 15
    :header-rows: 1
 
-#todo Verificar tabela 1 de :zotero:`[2] <HJ7HR7BL>`. Encontrei divergencias
+#todo Verificar tabela 1 de :cite:p:`Weng:000`. Encontrei divergencias

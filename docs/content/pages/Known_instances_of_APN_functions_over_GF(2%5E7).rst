@@ -13,7 +13,7 @@ Click to expand each range.
     :max-rows: 50
     :font-size: [{ID, -2}]
 
-:zotero:`[1] <MFMEUAZX>`
-:zotero:`[2] <HJ7HR7BL>`
-:zotero:`[3] <PIM5GI9S>`
-:zotero:`[4] <RU5BPDDZ>`
+:cite:p:`Yu:201411`
+:cite:p:`Weng:000`
+:cite:p:`Taniguchi:201909`
+:cite:p:`Budaghyan:202101`

@@ -17,7 +17,7 @@ The differential uniformity is
 
 Always `\Delta_F\ge 2`; functions achieving `\Delta_F=2` are APN.
 
-Walsh Characterization :zotero:`[1] <DYHN6BVD>`
+Walsh Characterization :cite:p:`Chabaud:199500`
 ----------------------
 
 For `(n,m)`-functions:
@@ -31,7 +31,7 @@ again with equality iff APN.
 
 Equivalent formulations summing over all `b\in\mathbb{F}_{2^m}` are also used.
 
-Autocorrelation/Derivative Characterization :zotero:`[2] <WGJ8Y98G>`
+Autocorrelation/Derivative Characterization :cite:p:`Berger:200609`
 -------------------------------------------
 
 For Boolean `f`, define:

@@ -55,6 +55,7 @@ printf 'Building temporary database: %s\n' "$TMP_DB"
 .read db/sql/seed.sql
 .read db/sql/import_apn_n7.sql
 .read db/generated/import_ccz_invariants_n7.sql
+.read db/sql/import_apn_function_properties.sql
 SQL
 
 printf 'Running checks...\n'
@@ -79,6 +80,11 @@ FROM v_apn_function_ccz_invariants
 WHERE gamma_rank IS NOT NULL
   AND delta_rank IS NOT NULL
   AND multiplier_group_order IS NOT NULL;
+
+SELECT 'apn_function_property_columns' AS check_name, COUNT(*) AS actual, 490 AS expected
+FROM v_apn_function_ccz_invariants
+WHERE (equivalent_to IS NULL OR length(equivalent_to) <= 512)
+  AND (walsh_spectrum IS NULL OR length(walsh_spectrum) <= 512);
 
 SELECT
     stable_id,
@@ -107,6 +113,7 @@ check_count "SELECT COUNT(*) FROM function_delta_ranks;" "490"
 check_count "SELECT COUNT(*) FROM function_multiplier_group_orders;" "490"
 check_count "SELECT COUNT(*) FROM v_apn_function_ccz_invariants WHERE gamma_rank IS NOT NULL AND delta_rank IS NOT NULL AND multiplier_group_order IS NOT NULL;" "490"
 check_count "SELECT COUNT(*) FROM v_apn_function_ccz_invariants WHERE gamma_rank = 3610;" "2"
+check_count "SELECT COUNT(*) FROM pragma_table_info('apn_functions') WHERE name IN ('equivalent_to', 'walsh_spectrum');" "2"
 
 DB_DIR="${DB_PATH%/*}"
 if [ "$DB_DIR" = "$DB_PATH" ]; then

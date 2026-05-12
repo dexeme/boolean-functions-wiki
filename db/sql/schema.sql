@@ -35,6 +35,8 @@ CREATE TABLE IF NOT EXISTS apn_functions (
     field_label TEXT NOT NULL,
     formula_latex TEXT NOT NULL,
     formula_normalized TEXT,
+    equivalent_to VARCHAR(512) CHECK (equivalent_to IS NULL OR length(equivalent_to) <= 512),
+    walsh_spectrum VARCHAR(512) CHECK (walsh_spectrum IS NULL OR length(walsh_spectrum) <= 512),
     notes TEXT
 );
 
@@ -149,6 +151,8 @@ SELECT
     f.dimension,
     f.field_label,
     f.formula_latex,
+    f.equivalent_to,
+    f.walsh_spectrum,
     e.id_kind,
     e.external_id,
     p.slug AS source_page,
@@ -166,6 +170,8 @@ SELECT
     f.stable_id,
     f.formula_latex,
     f.dimension,
+    f.equivalent_to,
+    f.walsh_spectrum,
     it.slug AS invariant_slug,
     it.label AS invariant_label,
     fi.value_text,
@@ -207,6 +213,8 @@ SELECT
     f.dimension,
     f.field_label,
     f.formula_latex,
+    f.equivalent_to,
+    f.walsh_spectrum,
     GROUP_CONCAT(DISTINCT e.external_id) AS source_ids,
     GROUP_CONCAT(DISTINCT it.label || '=' || fi.value_text) AS invariants
 FROM apn_functions f
@@ -220,7 +228,9 @@ GROUP BY
     f.stable_id,
     f.dimension,
     f.field_label,
-    f.formula_latex;
+    f.formula_latex,
+    f.equivalent_to,
+    f.walsh_spectrum;
 
 CREATE VIEW IF NOT EXISTS v_apn_function_ccz_invariants AS
 SELECT
@@ -229,6 +239,8 @@ SELECT
     f.dimension,
     f.field_label,
     f.formula_latex,
+    f.equivalent_to,
+    f.walsh_spectrum,
     g.gamma_rank,
     d.delta_rank,
     m.multiplier_group_order

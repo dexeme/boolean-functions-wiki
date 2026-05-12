@@ -13,4 +13,4 @@ Lower bounds on APN-distance for all known APN functions
    :file: ../tables/Lower_bounds_on_APN-distance_for_all_known_APN_functions.csv
    :header-rows: 1
 
-:zotero:`[1] <8EKG5ZVG>`
+:cite:p:`Budaghyan:202009`
