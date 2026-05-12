@@ -1,31 +1,29 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Lower bounds on APN-distance for all known APN functions &#8212; Boolean Functions  documentation</title>
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=b602aa31" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=185a0eb9" />
     
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
-    <script src="../../_static/sagecell-init.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../_static/sagecell-init.js?v=dde391b2"></script>
     
     <script src="../../_static/sidebar.js"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lower bounds on APN-distance for all known APN functions in dimension 8" href="Lower_bounds_on_APN-distance_for_all_known_APN_functions_in_dimension_8.html" />
-    <link rel="prev" title="Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8" href="Known_switching_classes_of_APN_functions_over_GF(2%5En)_for_n_%3D_5,6,7,8.html" /> 
+    <link rel="prev" title="Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8" href="Known_switching_classes_of_APN_functions_over_GF_2_pow_n_for_n_eq_5_6_7_8.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -35,9 +33,10 @@
           <a href="Lower_bounds_on_APN-distance_for_all_known_APN_functions_in_dimension_8.html" title="Lower bounds on APN-distance for all known APN functions in dimension 8"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Known_switching_classes_of_APN_functions_over_GF(2%5En)_for_n_%3D_5,6,7,8.html" title="Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8"
+          <a href="Known_switching_classes_of_APN_functions_over_GF_2_pow_n_for_n_eq_5_6_7_8.html" title="Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Lower bounds on APN-distance for all known APN functions</a></li> 
       </ul>
     </div>  
 
@@ -46,229 +45,235 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="lower-bounds-on-apn-distance-for-all-known-apn-functions">
-<h1>Lower bounds on APN-distance for all known APN functions<a class="headerlink" href="#lower-bounds-on-apn-distance-for-all-known-apn-functions" title="Permalink to this headline">¶</a></h1>
+  <section id="lower-bounds-on-apn-distance-for-all-known-apn-functions">
+<h1>Lower bounds on APN-distance for all known APN functions<a class="headerlink" href="#lower-bounds-on-apn-distance-for-all-known-apn-functions" title="Link to this heading">¶</a></h1>
 <p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/Lower_bounds_on_APN-distance_for_all_known_APN_functions.txt</span></code>.
 Original page:</p>
 <p><a href="https://boolean.wiki.uib.no/Lower_bounds_on_APN-distance_for_all_known_APN_functions" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/Lower_bounds_on_APN-distance_for_all_known_APN_functions</a></p>
 <p>Lower bounds on APN-distance for all known APN functions</p>
-<table class="docutils align-default">
+<table class="docutils align-default explicit-widths" style="table-layout: fixed;">
+<colgroup>
+<col style="width: 4.34783%;">
+<col style="width: 31.8841%;">
+<col style="width: 31.8841%;">
+<col style="width: 31.8841%;">
+</colgroup>
 <thead><tr>
-<th class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">Dimension</th>
-<th class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">F</th>
-<th class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">mF</th>
-<th class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">Lower bound</th>
+<th class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1">Dim</th>
+<th class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0">Function</th>
+<th class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1"><span class="math notranslate nohighlight">\(m_{F}\)</span></th>
+<th class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">Lower bound</th>
 </tr></thead>
 <tbody>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">4</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">x3</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">3</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">2</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">4</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);"><span class="math notranslate nohighlight">\(x^{3}\)</span></td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">3</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">2</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">5</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">x3</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">5</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);"><span class="math notranslate nohighlight">\(x^{3}\)</span></td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">5</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">x5</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">5</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);"><span class="math notranslate nohighlight">\(x^{5}\)</span></td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">5</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">x15</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">9</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">4</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">5</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);"><span class="math notranslate nohighlight">\(x^{15}\)</span></td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">9</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">4</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">1.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">27</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">10</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">1.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">27</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">10</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">1.2</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">27</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">10</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">1.2</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">27</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">10</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.2</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">27</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">10</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.2</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">27</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">10</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.3</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">27</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">10</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.3</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">27</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">10</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.4</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.4</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.5</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.5</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.6</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.6</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.7</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.7</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.8</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.8</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.9</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">21</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">8</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.9</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">21</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">8</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.10</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">21</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">8</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.10</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">21</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">8</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.11</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.11</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">6</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.12</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">15</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">6</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">6</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.12</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">15</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">6</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">7</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">7.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">54</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">19</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">7</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">7.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">54</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">19</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">7</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">all others</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">63</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">22</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">7</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">all others</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">63</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">22</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">1.1 - 1.13</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">111</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">38</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">1.1 - 1.13</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">111</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">38</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">1.14</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">99</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">34</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">1.14</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">99</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">34</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">1.15 - 1.17</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">111</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">38</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">1.15 - 1.17</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">111</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">38</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">2.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">111</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">38</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">2.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">111</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">38</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">3.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">111</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">38</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">3.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">111</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">38</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">4.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">99</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">34</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">4.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">99</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">34</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">5.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">105</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">36</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">5.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">105</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">36</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">6.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">105</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">36</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">6.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">105</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">36</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">8</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">7.1</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">111</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">38</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">8</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">7.1</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">111</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">38</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">9</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">9.7</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">231</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">78</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">9</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">9.7</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">231</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">78</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">9</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">all others</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">255</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">86</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">9</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">all others</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">255</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">86</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">10</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">10.4</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">477</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">160</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">10</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">10.4</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">477</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">160</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">10</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">all others</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">495</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">166</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">10</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">all others</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">495</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">166</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">11</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">11.12</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">978</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">327</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">11</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">11.12</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">978</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">327</td>
 </tr>
 <tr>
-<td class="col-dimension col-index-1 col-break-keep col-short" data-col-id="dimension" data-col-index="1" data-col-width-score="9" data-break-rank="-1">11</td>
-<td class="col-f col-index-2 col-break-target col-short" data-col-id="f" data-col-index="2" data-col-width-score="11" data-break-rank="0">all others</td>
-<td class="col-mf col-index-3 col-break-keep col-short" data-col-id="mf" data-col-index="3" data-col-width-score="4" data-break-rank="-1">1023</td>
-<td class="col-lower-bound col-index-4 col-break-keep col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1">342</td>
+<td class="col-dim col-index-1 col-width-explicit col-short" data-col-id="dim" data-col-index="1" data-col-width-score="3" data-break-rank="-1" style="font-size: calc(1em - 1px);">11</td>
+<td class="col-function col-index-2 col-width-explicit col-short" data-col-id="function" data-col-index="2" data-col-width-score="11" data-break-rank="0" style="font-size: calc(1em + 1px);">all others</td>
+<td class="col-m-f col-index-3 col-width-explicit col-short" data-col-id="m-f" data-col-index="3" data-col-width-score="7" data-break-rank="-1" style="font-size: calc(1em + 1px);">1023</td>
+<td class="col-lower-bound col-index-4 col-width-explicit col-short" data-col-id="lower-bound" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em + 1px);">342</td>
 </tr>
 </tbody>
 </table>
@@ -341,21 +346,26 @@ Original page:</p>
   ensureMathJaxAndTypeset();
 })();
 </script>
-<p><a class="reference external" href="zotero://select/library/items/8EKG5ZVG">[1]</a></p>
-</div>
+<p><span class="bibtex-citation" id="id1">[<a class="reference internal" href="../../references.html#id32" title="Lilya Budaghyan, Claude Carlet, Tor Helleseth, and Nikolay Kaleyski. On the Distance Between APN Functions. IEEE Transactions on Information Theory, 66(9):5742–5753, September 2020. doi:10.1109/TIT.2020.2983684.">BCHK20</a>]</span></p>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="Known_switching_classes_of_APN_functions_over_GF(2%5En)_for_n_%3D_5,6,7,8.html"
-                        title="previous chapter">Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="Lower_bounds_on_APN-distance_for_all_known_APN_functions_in_dimension_8.html"
-                        title="next chapter">Lower bounds on APN-distance for all known APN functions in dimension 8</a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="Known_switching_classes_of_APN_functions_over_GF_2_pow_n_for_n_eq_5_6_7_8.html"
+                          title="previous chapter">Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="Lower_bounds_on_APN-distance_for_all_known_APN_functions_in_dimension_8.html"
+                          title="next chapter">Lower bounds on APN-distance for all known APN functions in dimension 8</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -363,21 +373,25 @@ Original page:</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
+<div id="sidebarbutton" title="Collapse sidebar">
+<span>«</span>
+</div>
+
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -387,13 +401,15 @@ Original page:</p>
           <a href="Lower_bounds_on_APN-distance_for_all_known_APN_functions_in_dimension_8.html" title="Lower bounds on APN-distance for all known APN functions in dimension 8"
              >next</a> |</li>
         <li class="right" >
-          <a href="Known_switching_classes_of_APN_functions_over_GF(2%5En)_for_n_%3D_5,6,7,8.html" title="Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8"
+          <a href="Known_switching_classes_of_APN_functions_over_GF_2_pow_n_for_n_eq_5_6_7_8.html" title="Known switching classes of APN functions over GF(2^n) for n = 5,6,7,8"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Lower bounds on APN-distance for all known APN functions</a></li> 
       </ul>
     </div>
-  <div class="footer" role="contentinfo"><p>&copy; 2026, Tiago Siqueira.</p>
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+  <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Tiago Siqueira.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
 
     <p style="margin: 0.6em 0 0 0;">
       Work in progress: I am improving
