@@ -130,52 +130,61 @@ def _citation_labels(bibfiles: list[str] | tuple[str, ...] | None) -> dict[str, 
     return labels
 
 
+def _math_html(value: str) -> str:
+    return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
+        html_escape(value.strip())
+    )
+
+
+def _citation_html(keys_text: str, citation_labels: dict[str, str] | None = None) -> str:
+    keys = [key.strip() for key in keys_text.split(",") if key.strip()]
+    rendered_keys = []
+    for key in keys:
+        label = (citation_labels or {}).get(key, key)
+        rendered_keys.append(
+            '<a class="reference internal" href="{}">{}</a>'.format(
+                html_escape("../../index.html", quote=True),
+                html_escape(label),
+            )
+        )
+    return '<span class="bibtex-citation">[{}]</span>'.format(
+        ", ".join(rendered_keys)
+    )
+
+
+def _escape_cell_text(value: str) -> str:
+    parts = re.split(r"(<br\s*/?>)", value, flags=re.IGNORECASE)
+    return "".join(
+        "<br>"
+        if re.fullmatch(r"<br\s*/?>", part, flags=re.IGNORECASE)
+        else html_escape(part)
+        for part in parts
+    )
+
+
 def _cell_html(value: str, citation_labels: dict[str, str] | None = None) -> str:
     text = value.strip()
-    if len(text) >= 2 and text[0] == "`" and text[-1] == "`":
-        inner_math = text[1:-1].strip()
-        return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
-            html_escape(inner_math)
-        )
-    if len(text) >= 2 and text[0] == "$" and text[-1] == "$":
-        inner_math = text[1:-1].strip()
-        return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
-            html_escape(inner_math)
-        )
-    if text.startswith("\\(") and text.endswith("\\)"):
-        inner_math = text[2:-2].strip()
-        return '<span class="math notranslate nohighlight">\\({}\\)</span>'.format(
-            html_escape(inner_math)
-        )
-
-    cite_re = re.compile(r":cite:p:`([^`]+)`")
+    token_re = re.compile(
+        r":cite:p:`([^`]+)`|`([^`]+)`|\$([^$]+)\$|\\\((.*?)\\\)",
+        re.DOTALL,
+    )
     parts: list[str] = []
     last = 0
-    for match in cite_re.finditer(text):
+    for match in token_re.finditer(text):
         start, end = match.span()
         if start > last:
-            parts.append(html_escape(text[last:start]))
-        keys = [key.strip() for key in match.group(1).split(",") if key.strip()]
-        rendered_keys = []
-        for key in keys:
-            label = (citation_labels or {}).get(key, key)
-            rendered_keys.append(
-                '<a class="reference internal" href="{}">{}</a>'.format(
-                    html_escape("../../index.html", quote=True),
-                    html_escape(label),
-                )
-            )
-        parts.append(
-            '<span class="bibtex-citation">[{}]</span>'.format(
-                ", ".join(rendered_keys)
-            )
-        )
+            parts.append(_escape_cell_text(text[last:start]))
+        if match.group(1) is not None:
+            parts.append(_citation_html(match.group(1), citation_labels))
+        else:
+            math_source = next(group for group in match.groups()[1:] if group is not None)
+            parts.append(_math_html(math_source))
         last = end
     if last < len(text):
-        parts.append(html_escape(text[last:]))
+        parts.append(_escape_cell_text(text[last:]))
     if parts:
         return "".join(parts)
-    return html_escape(text)
+    return _escape_cell_text(text)
 
 
 def _column_slug(value: str, index: int) -> str:
@@ -187,14 +196,16 @@ def _column_slug(value: str, index: int) -> str:
     return slug
 
 
-def _csv_chunk_prefix(dataset: str, csv_value: str, max_rows: int, font_size_spec: str) -> str:
+def _csv_chunk_prefix(
+    dataset: str, csv_value: str, max_rows: int, font_size_spec: str, widths_spec: str
+) -> str:
     digest = hashlib.sha1(
-        f"{csv_value}|{max_rows}|{font_size_spec}".encode("utf-8")
+        f"{csv_value}|{max_rows}|{font_size_spec}|{widths_spec}".encode("utf-8")
     ).hexdigest()[:10]
     return f"{dataset}_{digest}"
 
 
-def _parse_font_size_spec(raw_spec: str) -> dict[str, int]:
+def _parse_font_size_mapping(raw_spec: str) -> dict[str, int]:
     spec = (raw_spec or "").strip()
     if not spec:
         return {}
@@ -205,6 +216,19 @@ def _parse_font_size_spec(raw_spec: str) -> dict[str, int]:
     return out
 
 
+def _parse_font_size_list(raw_spec: str, column_count: int) -> list[int]:
+    spec = (raw_spec or "").strip()
+    if not spec or "{" in spec or "}" in spec or column_count <= 0:
+        return []
+    try:
+        deltas = [int(part) for part in re.split(r"[\s,]+", spec) if part]
+    except ValueError:
+        return []
+    if len(deltas) != column_count:
+        return []
+    return deltas
+
+
 def _font_size_style(delta: int) -> str:
     if delta == 0:
         return ""
@@ -212,15 +236,34 @@ def _font_size_style(delta: int) -> str:
     return f' style="font-size: calc(1em {sign} {abs(delta)}px);"'
 
 
+def _parse_widths_spec(raw_spec: str, column_count: int) -> list[float]:
+    spec = (raw_spec or "").strip()
+    if not spec or column_count <= 0:
+        return []
+    try:
+        widths = [float(part) for part in re.split(r"[\s,]+", spec) if part]
+    except ValueError:
+        return []
+    if len(widths) != column_count or any(width <= 0 for width in widths):
+        return []
+    total = sum(widths)
+    if total <= 0:
+        return []
+    return [(width / total) * 100 for width in widths]
+
+
 def _csv_rows_to_html(
     header: list[str],
     rows: list[list[str]],
     font_size_spec: str = "",
+    widths_spec: str = "",
     citation_labels: dict[str, str] | None = None,
 ) -> str | None:
     if not header:
         return None
-    font_overrides = _parse_font_size_spec(font_size_spec)
+    font_overrides = _parse_font_size_mapping(font_size_spec)
+    font_deltas = _parse_font_size_list(font_size_spec, len(header))
+    explicit_widths = _parse_widths_spec(widths_spec, len(header))
     col_ids: list[str] = []
     used_ids: dict[str, int] = {}
     col_styles: list[str] = []
@@ -231,14 +274,27 @@ def _csv_rows_to_html(
         used_ids[base] = suffix + 1
         col_id = base if suffix == 0 else f"{base}-{suffix + 1}"
         col_ids.append(col_id)
-        style_delta = 0
-        for key in (col_id, col.strip().lower(), str(idx), str(idx + 1)):
-            if key in font_overrides:
-                style_delta = font_overrides[key]
-                break
+        if font_deltas:
+            style_delta = font_deltas[idx]
+        else:
+            style_delta = 0
+            for key in (col_id, col.strip().lower(), str(idx), str(idx + 1)):
+                if key in font_overrides:
+                    style_delta = font_overrides[key]
+                    break
         col_styles.append(_font_size_style(style_delta))
 
-    parts = ['<table class="docutils align-default">', "<thead><tr>"]
+    table_classes = "docutils align-default"
+    if explicit_widths:
+        table_classes += " explicit-widths"
+    table_style = ' style="table-layout: fixed;"' if explicit_widths else ""
+    parts = [f'<table class="{table_classes}"{table_style}>']
+    if explicit_widths:
+        parts.append("<colgroup>")
+        for width in explicit_widths:
+            parts.append(f'<col style="width: {width:.6g}%;">')
+        parts.append("</colgroup>")
+    parts.append("<thead><tr>")
     width = len(header)
     for row in rows:
         normalized = list(row[:width]) + [""] * max(0, width - len(row))
@@ -259,10 +315,12 @@ def _csv_rows_to_html(
     for idx, col in enumerate(header):
         col_id = html_escape(col_ids[idx], quote=True)
         col_index = idx + 1
-        style = col_styles[idx]
-        break_class = (
-            "col-break-target" if idx == break_target_idx else "col-break-keep"
-        )
+        if explicit_widths:
+            break_class = "col-width-explicit"
+        else:
+            break_class = (
+                "col-break-target" if idx == break_target_idx else "col-break-keep"
+            )
         size_class = "col-short" if col_width_scores[idx] <= 15 else "col-long"
         width_score = col_width_scores[idx]
         rank_attr = break_rank.get(idx, -1)
@@ -270,7 +328,7 @@ def _csv_rows_to_html(
             (
                 f'<th class="col-{col_id} col-index-{col_index} {break_class} {size_class}" '
                 f'data-col-id="{col_id}" data-col-index="{col_index}" '
-                f'data-col-width-score="{width_score}" data-break-rank="{rank_attr}"{style}>'
+                f'data-col-width-score="{width_score}" data-break-rank="{rank_attr}">'
                 f"{_cell_html(col, citation_labels)}</th>"
             )
         )
@@ -282,9 +340,12 @@ def _csv_rows_to_html(
             col_id = html_escape(col_ids[idx], quote=True)
             col_index = idx + 1
             style = col_styles[idx]
-            break_class = (
-                "col-break-target" if idx == break_target_idx else "col-break-keep"
-            )
+            if explicit_widths:
+                break_class = "col-width-explicit"
+            else:
+                break_class = (
+                    "col-break-target" if idx == break_target_idx else "col-break-keep"
+                )
             size_class = "col-short" if col_width_scores[idx] <= 15 else "col-long"
             width_score = col_width_scores[idx]
             rank_attr = break_rank.get(idx, -1)
@@ -425,6 +486,7 @@ def _rewrite_csv_table_with_max_rows(_app, _docname, source) -> None:
         csv_value = (options.get("file") or "").strip()
         max_rows = (options.get("max-rows") or "").strip()
         font_size = (options.get("font-size") or "").strip()
+        widths = (options.get("widths") or "").strip()
 
         if csv_value:
             dataset = Path(csv_value).stem
@@ -436,6 +498,8 @@ def _rewrite_csv_table_with_max_rows(_app, _docname, source) -> None:
                 out.append(f"{indent}   :inline-csv:")
             if font_size:
                 out.append(f"{indent}   :font-size: {font_size}")
+            if widths:
+                out.append(f"{indent}   :widths: {widths}")
             out.append("")
             out.append(f"{indent}   {dataset}")
             out.append("")
@@ -470,6 +534,7 @@ class LazyChunksDirective(Directive):
         "csv": directives.path,
         "max-rows": directives.positive_int,
         "font-size": directives.unchanged,
+        "widths": directives.unchanged,
         "inline-csv": directives.flag,
     }
     _RANGE_RE = re.compile(r"^(\d+)_(\d+)$")
@@ -571,12 +636,13 @@ class LazyChunksDirective(Directive):
                 )
             max_rows = self.options.get("max-rows", 100)
             font_size_spec = (self.options.get("font-size") or "").strip()
+            widths_spec = (self.options.get("widths") or "").strip()
             if items:
                 csv_dataset = items[0]
             else:
                 csv_dataset = Path(self.options["csv"]).stem
             csv_prefix = _csv_chunk_prefix(
-                csv_dataset, self.options["csv"], max_rows, font_size_spec
+                csv_dataset, self.options["csv"], max_rows, font_size_spec, widths_spec
             )
             csv_header, csv_rows = _read_csv_table(csv_path)
             if "inline-csv" in self.options:
@@ -584,6 +650,7 @@ class LazyChunksDirective(Directive):
                     csv_header,
                     csv_rows,
                     font_size_spec=font_size_spec,
+                    widths_spec=widths_spec,
                     citation_labels=_citation_labels(env.app.config.bibtex_bibfiles),
                 )
                 if not inline_html:
@@ -970,8 +1037,10 @@ def _discover_lazychunks_folders(src_dir: Path) -> set[str]:
     return folders
 
 
-def _discover_csv_specs(src_dir: Path) -> list[tuple[str, Path, int, str]]:
-    specs: dict[tuple[str, str, int, str], tuple[str, Path, int, str]] = {}
+def _discover_csv_specs(src_dir: Path) -> list[tuple[str, Path, int, str, str]]:
+    specs: dict[
+        tuple[str, str, int, str, str], tuple[str, Path, int, str, str]
+    ] = {}
     for rst_file in src_dir.rglob("*.rst"):
         try:
             text = rst_file.read_text(encoding="utf-8")
@@ -993,18 +1062,22 @@ def _discover_csv_specs(src_dir: Path) -> list[tuple[str, Path, int, str]]:
                 continue
             dataset = content[0] if content else Path(csv_value).stem
             font_size_spec = (options.get("font-size") or "").strip()
-            prefix = _csv_chunk_prefix(dataset, csv_value, max_rows, font_size_spec)
-            key = (prefix, str(csv_path), max_rows, font_size_spec)
-            specs[key] = (prefix, csv_path, max_rows, font_size_spec)
+            widths_spec = (options.get("widths") or "").strip()
+            prefix = _csv_chunk_prefix(
+                dataset, csv_value, max_rows, font_size_spec, widths_spec
+            )
+            key = (prefix, str(csv_path), max_rows, font_size_spec, widths_spec)
+            specs[key] = (prefix, csv_path, max_rows, font_size_spec, widths_spec)
         for options in _parse_csv_table_blocks(text):
             csv_value = (options.get("file") or "").strip()
             max_rows_str = (options.get("max-rows") or "").strip()
             font_size_spec = (options.get("font-size") or "").strip()
+            widths_spec = (options.get("widths") or "").strip()
             if not csv_value:
                 continue
-            if not max_rows_str and not font_size_spec:
+            if not max_rows_str and not font_size_spec and not widths_spec:
                 continue
-            if font_size_spec and not max_rows_str:
+            if (font_size_spec or widths_spec) and not max_rows_str:
                 # Rendered inline via rewritten lazychunks (:inline-csv:), no chunk file needed.
                 continue
             try:
@@ -1015,9 +1088,11 @@ def _discover_csv_specs(src_dir: Path) -> list[tuple[str, Path, int, str]]:
                 continue
             csv_path = _resolve_csv_for_doc(src_dir, rst_file.parent, csv_value)
             dataset = Path(csv_value).stem
-            prefix = _csv_chunk_prefix(dataset, csv_value, max_rows, font_size_spec)
-            key = (prefix, str(csv_path), max_rows, font_size_spec)
-            specs[key] = (prefix, csv_path, max_rows, font_size_spec)
+            prefix = _csv_chunk_prefix(
+                dataset, csv_value, max_rows, font_size_spec, widths_spec
+            )
+            key = (prefix, str(csv_path), max_rows, font_size_spec, widths_spec)
+            specs[key] = (prefix, csv_path, max_rows, font_size_spec, widths_spec)
     return [specs[k] for k in sorted(specs)]
 
 
@@ -1049,7 +1124,9 @@ def _generate_apn_chunks(app, _exception):
                 out_file.write_text(html, encoding="utf-8")
 
     citation_labels = _citation_labels(app.config.bibtex_bibfiles)
-    for prefix, csv_path, max_rows, font_size_spec in _discover_csv_specs(src_dir):
+    for prefix, csv_path, max_rows, font_size_spec, widths_spec in _discover_csv_specs(
+        src_dir
+    ):
         if not csv_path.is_file():
             continue
         try:
@@ -1066,6 +1143,7 @@ def _generate_apn_chunks(app, _exception):
                 header,
                 rows[start - 1:end],
                 font_size_spec=font_size_spec,
+                widths_spec=widths_spec,
                 citation_labels=citation_labels,
             )
             if not html:

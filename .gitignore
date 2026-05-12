@@ -18,8 +18,8 @@ __pycache__/
 htmlcov/
 
 # Sphinx build outputs and cache
-#/build/
-#/docs/build/
+/build/
+/docs/build/
 /docs/.doctrees/
 *.doctree
 *.bak

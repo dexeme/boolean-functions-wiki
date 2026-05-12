@@ -144,6 +144,10 @@ div.body table {
   overflow-x: hidden !important;
 }
 
+div.body table.explicit-widths {
+  table-layout: fixed !important;
+}
+
 div.body table th,
 div.body table td {
   white-space: normal !important;
