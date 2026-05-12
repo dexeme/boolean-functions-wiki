@@ -1,4 +1,4 @@
-Dim,N,Function,Equivalent to,Walsh<br>spectrum,`\Gamma`-rank,`\Delta`-rank,Multiplier group
+Dim,`N^\circ`,Function,Equivalent to,Walsh<br>spectrum,`\Gamma`-rank,`\Delta`-rank,Multiplier group
 `6`,`6.1`,`x^{3}`,`Gold`,`Gold`,`1102`,`94`,`24192 = \newline 2^{7} * 3^{3} * 7`
 `6`,`6.2`,`x^{24}+ax^{17}+a^{8}x^{10}+ax^{9}+x^{3}`,`C3`,`Gold`,`1146`,`94`,`4032 = \newline 2^{6} * 3^{2} * 7`
 `6`,`6.3`,`ax^{3}+x^{17}+a^{4}x^{24}`,`C7-C9`,`Gold`,`1166`,`96`,`896 = \newline 2^{7} * 7`

@@ -12,3 +12,6 @@ The mathematical expressions below are kept as literals (`...`) to avoid parsing
    :file: ../tables/Known_infinite_families_of_quadratic_APN_polynomials_over_GF(2%5En)_table_01.csv
    :widths: 5 45 40 10
    :header-rows: 1
+
+
+https://boolean.w.uib.no/files/2018/07/quadratic_APN_poly.pdf

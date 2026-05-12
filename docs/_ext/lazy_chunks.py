@@ -224,6 +224,8 @@ def _parse_font_size_list(raw_spec: str, column_count: int) -> list[int]:
         deltas = [int(part) for part in re.split(r"[\s,]+", spec) if part]
     except ValueError:
         return []
+    if len(deltas) == 1:
+        return deltas * column_count
     if len(deltas) != column_count:
         return []
     return deltas
