@@ -63,3 +63,8 @@ Its dual is
 `{\displaystyle \tilde{f}(x,y)=y\cdot\pi^{-1}(x)\oplus g(\pi^{-1}(x))}`.
 
 Up to affine equivalence, this construction contains all quadratic bent functions and all bent functions in at most 6 variables.
+
+References
+==========
+
+.. references::

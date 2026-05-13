@@ -32,3 +32,8 @@ Walsh transform
 
 Example
 -------
+
+References
+==========
+
+.. references::

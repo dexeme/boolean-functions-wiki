@@ -18,3 +18,8 @@ Click to expand each range.
 :cite:p:`Weng:000`
 :cite:p:`Taniguchi:201909`
 :cite:p:`Budaghyan:202101`
+
+References
+==========
+
+.. references::

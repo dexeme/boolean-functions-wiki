@@ -16,3 +16,8 @@ Lower bounds on APN-distance for all known APN functions
     :font-size: -1 1 1 1
 
 :cite:p:`Budaghyan:202009`
+
+References
+==========
+
+.. references::

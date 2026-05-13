@@ -47,3 +47,7 @@ one gets:
 `{\displaystyle \sum_{\lambda\in\mathbb{F}_{2^n}^*}\nu(f_\lambda)\ge (2^n-1)2^{2n+1}}`,
 with equality iff `F` is APN.
 
+References
+==========
+
+.. references::

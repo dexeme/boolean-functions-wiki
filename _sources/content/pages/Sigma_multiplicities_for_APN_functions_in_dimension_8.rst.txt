@@ -5,3 +5,8 @@ Content partially extracted from ``data/Sigma_multiplicities_for_APN_functions_i
 Original page:
 
 :link:`https://boolean.wiki.uib.no/Sigma_multiplicities_for_APN_functions_in_dimension_8  <https://boolean.wiki.uib.no/Sigma_multiplicities_for_APN_functions_in_dimension_8>`
+
+References
+==========
+
+.. references::

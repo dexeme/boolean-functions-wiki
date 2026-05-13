@@ -18,3 +18,8 @@ Those are: The 22 quadratic APN functions listed in :cite:p:`Edel:200900`, the 8
 method :cite:p:`Yu:201411`, the 10 APN functions presented in :cite:p:`Weng:000`, the two APN functions from the Taniguchi family :cite:p:`Taniguchi:201909`,
 the 12,921 APN functions from :cite:p:`Beierle:202201`, the 5,412 APN functions presented in :cite:p:`Yu:202211`,
 and the 6,368 APN functions constructed in :cite:p:`Beierle:202201`.
+
+References
+==========
+
+.. references::

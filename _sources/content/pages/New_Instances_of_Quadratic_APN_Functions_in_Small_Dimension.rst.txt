@@ -33,3 +33,8 @@ found by this approach.
 
 Changelog: In this version, we removed the two 8-bit APN instances found in :cite:p:`Taniguchi:201909` from the list of our
 new 8-bit APN instances. In Version 2.0, we claimed those two APN instances to be new.
+
+References
+==========
+
+.. references::

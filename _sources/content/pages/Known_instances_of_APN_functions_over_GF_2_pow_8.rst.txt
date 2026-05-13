@@ -27,3 +27,8 @@ The representation of function number 8181 was obtained in :cite:p:`Budaghyan:20
 #todo achei esse repo https://github.com/lpp-crypto/sboxU
 
 :cite:p:`Beierle:202201`  pra tentar implementar depois, eles usaram n=7
+
+References
+==========
+
+.. references::

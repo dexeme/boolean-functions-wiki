@@ -5,3 +5,8 @@ Content partially extracted from ``data/Known_switching_classes_of_APN_functions
 Original page:
 
 :link:`https://boolean.wiki.uib.no/Known_switching_classes_of_APN_functions_over_GF(2%5En)_for_n_%3D_5,6,7,8  <https://boolean.wiki.uib.no/Known_switching_classes_of_APN_functions_over_GF(2%5En)_for_n_%3D_5,6,7,8>`
+
+References
+==========
+
+.. references::

@@ -193,3 +193,8 @@ Number of variables: `D = \sum_{i=0}^{d^\circ(g)} \binom{n}{i}`.
 Gaussian elimination complexity: `O(D^\omega)`,
 
 where `\omega \approx 3` is the exponent of Gaussian elimination.
+
+References
+==========
+
+.. references::
