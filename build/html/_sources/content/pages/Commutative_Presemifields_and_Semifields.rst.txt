@@ -109,7 +109,7 @@ Hence two quadratic planar functions `F,F'` are isotopic equivalent if
 their corresponding presemifields are isotopic. Moreover, we have:
 
 * `F,F'` are CCZ-equivalent if and only if the corresponding
-  presemifields are strongly isotopic :cite:p:`Coulter:200801`;
+  presemifields are strongly isotopic :cite:p:`Budaghyan:201109`;
 * for `n` odd, isotopic coincides with strongly isotopic;
 * if `F,F'` are isotopic equivalent, then there exists a linear map
   `L` such that `F'` is EA-equivalent to
