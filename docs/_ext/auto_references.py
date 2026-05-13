@@ -102,14 +102,37 @@ def _collect_reference_keys(app, docname: str, text: str) -> list[str]:
 
 
 def _references_block(keys: list[str], indent: str) -> list[str]:
+    block = [
+        f"{indent}.. raw:: html",
+        "",
+        f"{indent}   <span id=\"references\"></span>",
+        "",
+        f"{indent}.. rubric:: References",
+        "",
+    ]
     if not keys:
-        return []
-
+        return block
     quoted_keys = ", ".join(f'"{key}"' for key in keys)
-    return [
+    block.extend([
         f"{indent}.. bibliography::",
         f"{indent}    :filter: key in {{{quoted_keys}}}",
-    ]
+    ])
+    return block
+
+
+def _remove_trailing_references_heading(lines: list[str]) -> None:
+    while lines and not lines[-1].strip():
+        lines.pop()
+    if len(lines) < 2:
+        return
+    underline = lines[-1].strip()
+    title = lines[-2].strip()
+    if title != "References":
+        return
+    if not underline or set(underline) not in ({"="}, {"-"}, {"~"}, {"^"}, {"."}):
+        return
+    lines.pop()
+    lines.pop()
 
 
 def _replace_references_directives(app, docname, source) -> None:
@@ -131,6 +154,7 @@ def _replace_references_directives(app, docname, source) -> None:
         changed = True
         base_indent = len(line) - len(line.lstrip(" \t"))
         indent = line[:base_indent]
+        _remove_trailing_references_heading(out)
         out.extend(_references_block(keys, indent))
         i += 1
         while i < len(lines):

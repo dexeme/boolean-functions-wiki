@@ -13,6 +13,7 @@
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     <script src="../../_static/sagecell-init.js?v=dde391b2"></script>
     
@@ -20,7 +21,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Projective plane" href="Projective_plane.html" />
+    <link rel="next" title="Sigma multiplicities for APN functions in dimension 8" href="Sigma_multiplicities_for_APN_functions_in_dimension_8.html" />
     <link rel="prev" title="Plateaued Functions" href="Plateaued_Functions.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="Related">
@@ -30,7 +31,7 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Projective_plane.html" title="Projective plane"
+          <a href="Sigma_multiplicities_for_APN_functions_in_dimension_8.html" title="Sigma multiplicities for APN functions in dimension 8"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="Plateaued_Functions.html" title="Plateaued Functions"
@@ -46,13 +47,95 @@
           <div class="body" role="main">
             
   <section id="polygon">
-<h1>Polygon<a class="headerlink" href="#polygon" title="Link to this heading">¶</a></h1>
-<p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/Polygon.txt</span></code>.
+<span id="id1"></span><h1>Polygon<a class="headerlink" href="#polygon" title="Link to this heading">¶</a></h1>
+<p>Content extracted from <code class="docutils literal notranslate"><span class="pre">data/Polygon.txt</span></code>.
 Original page:</p>
 <p><a href="https://boolean.wiki.uib.no/Polygon" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/Polygon</a></p>
+<section id="ccz-inequivalent-apn-functions">
+<h2>CCZ-Inequivalent APN Functions<a class="headerlink" href="#ccz-inequivalent-apn-functions" title="Link to this heading">¶</a></h2>
+<p>The following table lists CCZ-inequivalent APN functions over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{2^n}\)</span> from the known APN classes for <span class="math notranslate nohighlight">\(6\leq n\leq 11\)</span>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9.1%" />
+<col style="width: 72.7%" />
+<col style="width: 18.2%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dimension</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Equivalent to</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(6\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^{24}+ax^{17}+a^8x^{10}+ax^9+x^3\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C3\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(6\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(ax^3+x^{17}+a^4x^{24}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C7-C9\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(7\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+\operatorname{Tr}_7(x^9)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C4\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(8\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+x^{17}+p^{48}x^{18}+p^3x^{33}+px^{34}+x^{48}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C3\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(8\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+\operatorname{Tr}_8(x^9)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C4\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(8\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+a^{-1}\operatorname{Tr}_8(a^3x^9)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C4\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(8\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(a(x+x^{16})(ax+a^{16}x^{16})+a^{17}(ax+a^{16}x^{16})^{12}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C10\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(9\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+\operatorname{Tr}_9(x^9)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C4\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(9\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+\operatorname{Tr}^3_9(x^9+x^{18})\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C5\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(9\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+\operatorname{Tr}^3_9(x^{18}+x^{36})\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C6\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(9\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+a^{246}x^{10}+a^{47}x^{17}+a^{181}x^{66}+a^{428}x^{129}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C11\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(10\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^6+x^{33}+p^{31}x^{192}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C3\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(10\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+x^{72}+p^{31}x^{258}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C3\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(10\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+\operatorname{Tr}_{10}(x^9)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C4\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(10\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+a^{-1}\operatorname{Tr}_{10}(a^3x^9)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C4\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(11\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^3+\operatorname{Tr}_{11}(x^9)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C4\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<span id="references"></span><p class="rubric">References</p>
 </section>
-<section id="references">
-<h1>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h1>
 </section>
 
 
@@ -65,8 +148,10 @@ Original page:</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Polygon</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#">Polygon</a><ul>
+<li><a class="reference internal" href="#ccz-inequivalent-apn-functions">CCZ-Inequivalent APN Functions</a></li>
+</ul>
+</li>
 </ul>
 
   </div>
@@ -77,8 +162,8 @@ Original page:</p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="Projective_plane.html"
-                          title="next chapter">Projective plane</a></p>
+    <p class="topless"><a href="Sigma_multiplicities_for_APN_functions_in_dimension_8.html"
+                          title="next chapter">Sigma multiplicities for APN functions in dimension 8</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -112,7 +197,7 @@ Original page:</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Projective_plane.html" title="Projective plane"
+          <a href="Sigma_multiplicities_for_APN_functions_in_dimension_8.html" title="Sigma multiplicities for APN functions in dimension 8"
              >next</a> |</li>
         <li class="right" >
           <a href="Plateaued_Functions.html" title="Plateaued Functions"

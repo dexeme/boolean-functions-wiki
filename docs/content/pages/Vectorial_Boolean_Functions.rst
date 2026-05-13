@@ -1,3 +1,5 @@
+.. _vectorial_boolean_functions:
+
 Vectorial Boolean Functions
 ===========================
 

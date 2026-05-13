@@ -196,8 +196,10 @@ def _citation_html(keys_text: str, citation_labels: dict[str, str] | None = None
     for key in keys:
         label = (citation_labels or {}).get(key, key)
         rendered_keys.append(
-            '<a class="reference internal" href="{}">{}</a>'.format(
-                html_escape("../../index.html", quote=True),
+            '<a class="reference internal" href="#references" '
+            'data-bibtex-key="{}" onclick="if (window.parent && window.parent !== window) '
+            '{{ window.parent.location.hash = \'references\'; return false; }}">{}</a>'.format(
+                html_escape(key, quote=True),
                 html_escape(label),
             )
         )
