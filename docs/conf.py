@@ -28,6 +28,7 @@ extensions = [
     'sagecell_directive',
     'link',
     'lazy_chunks',
+    'auto_references',
     'sphinxcontrib.bibtex'
 ]
 

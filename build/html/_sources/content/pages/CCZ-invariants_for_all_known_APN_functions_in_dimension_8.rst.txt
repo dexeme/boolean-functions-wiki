@@ -16,19 +16,27 @@ Gamma-rank Table
 ----------------
 
 .. csv-table::
-   :file: ../tables/CCZ-invariants_for_all_known_APN_functions_in_dimension_8_table_01.csv
-   :header-rows: 1
+    :file: ../tables/CCZ-invariants_for_all_known_APN_functions_in_dimension_8_table_01.csv
+    :header-rows: 1
+    :widths: 1 12
+    :font-size: 1 -1
 
 Delta-rank Table
 ----------------
 
 .. csv-table::
-   :file: ../tables/CCZ-invariants_for_all_known_APN_functions_in_dimension_8_table_02.csv
-   :header-rows: 1
+    :file: ../tables/CCZ-invariants_for_all_known_APN_functions_in_dimension_8_table_02.csv
+    :header-rows: 1
+    :widths: 1 12
+    :font-size: 1 -1
 
 Multiplier Group Order Table
 ----------------------------
 
 .. csv-table::
-   :file: ../tables/CCZ-invariants_for_all_known_APN_functions_in_dimension_8_table_03.csv
-   :header-rows: 1
+    :file: ../tables/CCZ-invariants_for_all_known_APN_functions_in_dimension_8_table_03.csv
+    :header-rows: 1
+    :widths: 1 12
+    :font-size: 1 -1
+
+.. references::

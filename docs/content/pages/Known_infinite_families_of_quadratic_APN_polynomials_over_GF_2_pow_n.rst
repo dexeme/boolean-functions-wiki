@@ -1,3 +1,5 @@
+.. _know_infinite_families_of_quadratic_APN_polynomials_over_GF_2_pow_n:
+
 Known infinite families of quadratic APN polynomials over GF(2^n)
 =================================================================
 

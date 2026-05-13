@@ -38,3 +38,5 @@ Multiplier Group Order Table
     :header-rows: 1
     :widths: 1 12
     :font-size: 1 -1
+
+.. references::
