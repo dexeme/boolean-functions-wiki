@@ -137,6 +137,59 @@ def _math_html(value: str) -> str:
     )
 
 
+def _split_math_at_commas(value: str) -> list[tuple[str, str]]:
+    parts: list[tuple[str, str]] = []
+    start = 0
+    brace_depth = 0
+    bracket_depth = 0
+    paren_depth = 0
+    escaped = False
+    idx = 0
+    while idx < len(value):
+        char = value[idx]
+        if escaped:
+            escaped = False
+            idx += 1
+            continue
+        if char == "\\":
+            escaped = True
+        elif char == "{":
+            brace_depth += 1
+        elif char == "}":
+            brace_depth = max(0, brace_depth - 1)
+        elif char == "[":
+            bracket_depth += 1
+        elif char == "]":
+            bracket_depth = max(0, bracket_depth - 1)
+        elif char == "(":
+            paren_depth += 1
+        elif char == ")":
+            paren_depth = max(0, paren_depth - 1)
+        elif char == "," and not (brace_depth or bracket_depth or paren_depth):
+            j = idx + 1
+            while j < len(value) and value[j].isspace():
+                j += 1
+            parts.append((value[start:idx], value[idx + 1:j]))
+            start = j
+        idx += 1
+    if not parts:
+        return [(value, "")]
+    parts.append((value[start:], ""))
+    return parts
+
+
+def _math_html_with_soft_breaks(value: str) -> str:
+    parts = _split_math_at_commas(value.strip())
+    if len(parts) == 1:
+        return _math_html(value)
+    rendered: list[str] = []
+    for idx, (part, following_space) in enumerate(parts):
+        rendered.append(_math_html(part))
+        if idx < len(parts) - 1:
+            rendered.append("," + html_escape(following_space) + "<wbr>")
+    return "".join(rendered)
+
+
 def _citation_html(keys_text: str, citation_labels: dict[str, str] | None = None) -> str:
     keys = [key.strip() for key in keys_text.split(",") if key.strip()]
     rendered_keys = []
@@ -203,7 +256,7 @@ def _cell_html(value: str, citation_labels: dict[str, str] | None = None) -> str
             parts.append(_citation_html(match.group(1), citation_labels))
         else:
             math_source = next(group for group in match.groups()[1:] if group is not None)
-            parts.append(_math_html(math_source))
+            parts.append(_math_html_with_soft_breaks(math_source))
         last = end
     if last < len(text):
         parts.append(_escape_cell_text(text[last:]))
