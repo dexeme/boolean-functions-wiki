@@ -1,0 +1,1 @@
+Walsh_transform https://boolean.wiki.uib.no/Walsh_transform $href="File:Walsh.txt",text="File:Walsh.txt"

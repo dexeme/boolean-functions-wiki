@@ -22,4 +22,7 @@ form `F(x) = x^d`.
 
 #todo Verificar tabela 1 de `Nyberg:199400`.
 
+References
+==========
+
 .. references::

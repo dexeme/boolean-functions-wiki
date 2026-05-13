@@ -5,3 +5,8 @@ Content partially extracted from ``data/Differentially_4-uniform_permutation.txt
 Original page:
 
 :link:`https://boolean.wiki.uib.no/Differentially_4-uniform_permutation  <https://boolean.wiki.uib.no/Differentially_4-uniform_permutation>`
+
+References
+==========
+
+.. references::

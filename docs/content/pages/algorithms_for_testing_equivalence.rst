@@ -20,3 +20,8 @@ An adapted implementation of Kaleyski's approach for linear and affine equivalen
 including EA-equivalence tests for quadratic APN functions via orthoderivatives, is available at:
 
 - ``github/heggebakk/affine-equivalence``
+
+References
+==========
+
+.. references::

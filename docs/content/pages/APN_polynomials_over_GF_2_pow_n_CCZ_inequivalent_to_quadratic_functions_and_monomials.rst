@@ -18,5 +18,7 @@ A :ref:`Magma implementation of the polynomial <Cubic_code>` is available.
 
 :cite:p:`Edel:200900` Theorem 11
 
-.. references::
+References
+==========
 
+.. references::

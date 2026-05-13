@@ -35,7 +35,7 @@ htmlcov/
 Thumbs.db
 
 # Local data/scratch
-/data/
+#/data/
 *.sqlite
 *.sqlite3
 /build/

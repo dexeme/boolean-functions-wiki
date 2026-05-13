@@ -55,3 +55,8 @@ The complete experimental datasets are referenced here https://universityofberge
    :file: ../tables/apn_functions_obtained_via_polynomial_expansion_in_small_dimensions_table_02.csv
    :widths: 5 40 10 45
    :header-rows: 1
+
+References
+==========
+
+.. references::

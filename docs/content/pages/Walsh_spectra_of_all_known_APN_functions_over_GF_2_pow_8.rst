@@ -5,3 +5,8 @@ Content partially extracted from ``data/Walsh_spectra_of_all_known_APN_functions
 Original page:
 
 :link:`https://boolean.wiki.uib.no/Walsh_spectra_of_all_known_APN_functions_over_GF(2%5E8)  <https://boolean.wiki.uib.no/Walsh_spectra_of_all_known_APN_functions_over_GF(2%5E8)>`
+
+References
+==========
+
+.. references::

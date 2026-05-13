@@ -9,7 +9,7 @@ Original page:
 Overview
 --------
 
-This page studies 490 known APN functions over `GF(2^7)` and reports their main CCZ-invariants.
+This page studies 490 known APN functions over `GF(2^7)` and reports their main `CCZ`-invariants.
 Most functions have Gold-like Walsh spectrum; the inverse function is the main exception.
 
 Gamma-rank Table
@@ -38,5 +38,8 @@ Multiplier Group Order Table
     :header-rows: 1
     :widths: 1 12
     :font-size: 1 -1
+
+References
+==========
 
 .. references::

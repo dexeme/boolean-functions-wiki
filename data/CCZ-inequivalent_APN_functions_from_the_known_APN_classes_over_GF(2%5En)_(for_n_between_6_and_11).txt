@@ -1,0 +1,641 @@
+CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11) https://boolean.wiki.uib.no/CCZ-inequivalent_APN_functions_from_the_known_APN_classes_over_GF(2%5En)_(for_n_between_6_and_11) The following table presents CCZ-inequivalent representatives from all CCZ-equivalence classes corresponding to the $href="Known_infinite_families_of_APN_power_functions_over_GF(2%5En)",text="known infinite families of APN power functions over GF(2^n)" and the $href="Known_infinite_families_of_quadratic_APN_polynomials_over_GF(2%5En)",text="known infinite families of quadratic APN polynomials over GF(2^n)" over GF(2 n ) for n from 6 to 11. Values of various invariants are given in the cases when this is possible; empty cells in the invariant columns indicate that their computation is infeasible using our current resources. Dimension N^{○} Functions Equivalent to Walsh spectrum Γ-rank Δ-rank Multiplier group 6 6.1 x^{3} Gold Gold 1102 94 24192 = 2 7 * 3 3 * 7 6.2 x^{24}+ax^{17}+a^{8}x^{10}+ax^{9}+x^{3} C3 Gold 1146 94 4032 = 2 6 * 3 2 * 7 6.3 ax^{3}+x^{17}+a^{4}x^{24} C7-C9 Gold 1166 96 896 = 2 7 * 7 7 7.1 x^{3} Gold Gold 3610 198 113792 = 2 7 * 7 * 127 7.2 x^{5} Gold Gold 3708 198 113792 = 2 7 * 7 * 127 7.3 x^{9} Gold Gold 3610 198 113792 = 2 7 * 7 * 127 7.4 x^{13} Kasami Gold 4270 338 889 = 7 * 127 7.5 x^{57} Kasami Gold 4704 436 889 = 7 * 127 7.6 x^{63} Inverse Inverse 8128 4928 1778 = 2 * 7 * 127 7.7 x^{3}+ Tr_{7}(x^{9}) C4 Gold 4026 212 896 = 2 7 * 7 8 8.1 x^{3} Gold Gold 11818 420 522240 = 2 11 * 3 * 5 * 17 8.2 x^{9} Gold Gold 12370 420 522240 = 2 11 * 3 * 5 * 17 8.3 x^{57} Kasami Gold 15358 960 2040 = 2 3 * 3 * 5 * 17 8.4 x^{3}+x^{17}+p^{48}x^{18}+p^{3}x^{33}+px^{34}+x^{48} C3 Gold 13200 414 46080 = 2 10 * 3 2 * 5 8.5 x^{3}+ Tr_{8}(x^{9}) C4 Gold 13800 432 6144 = 2 11 * 3 8.6 x^{3}+a^{-1} Tr_{8}(a^{3}x^{9}) C4 Gold 13842 436 3072 = 2 10 * 3 8.7 (x+x^{16})^{3}+a(x+x^{16})(ax+a^{16}x^{16})+a^{17}(ax+a^{16}x^{16})^{12} C10 Gold 13642 436 46080 = 2 10 * 3 2 * 5 8.8 x^{9}+ Tr_{8}(x^{3}) C11 Gold 13804 434 6144 = 2 11 * 3 8.9 a(a^{16}x+x^{16}a)(x^{16}+x) + (a^{16}x+x^{16}a)^{12} + a^{17}(a^{16}x+x^{16}a)^{4}(x^{16}+x)^{2} + a^{17}(x^{16}+x)^{3}, where a is a zero of X^{8} + X^{4} + X^{3} + X^{2} + 1 C12 Gold 13798 438 3840 = 2 8 * 3 * 5 8.10 a(a^{16}x+x^{16}a)(x^{16}+x) + (a^{16}x+x^{16}a)^{66} + a^{17}(a^{16}x+x^{16}a)^{64}(x^{16}+x)^{8} + a^{51}(x^{16}+x)^{9}, where a is a zero of X^{8} + X^{4} + X^{3} + X^{2} + 1 C12 Gold 13700 438 15360 = 2 10 * 3 * 5 9 9.1 x^{3} Gold Gold 38470 872 2354688 = 2 9 * 3 2 * 7 * 73 9.2 x^{5} Gold Gold 41494 872 2354688 = 2 9 * 3 2 * 7 * 73 9.3 x^{17} Gold Gold 38470 872 2354688 = 2 9 * 3 2 * 7 * 73 9.4 x^{13} Kasami Gold 58676 3086 4599 = 3 2 * 7 * 73 9.5 x^{241} Kasami Gold 61726 3482 4599 = 3 2 * 7 * 73 9.6 x^{19} Welch Gold 60894 3956 4599 = 3 2 * 7 * 73 9.7 x^{255} Inverse Inverse 130816 93024 9198 = 2 * 3 2 * 7 * 73 9.8 x^{3}+ Tr_{9}(x^{9}) C4 Gold 47890 920 4608 = 2 9 * 3 2 9.9 x^{3}+ Tr^{3}_{9}(x^{9}+x^{18}) C5 Gold 48428 930 4608 = 2 9 * 3 2 9.10 x^{3}+ Tr^{3}_{9}(x^{18}+x^{36}) C6 Gold 48460 944 4608 = 2 9 * 3 2 9.11 x^{3}+a^{246}x^{10}+a^{47}x^{17}+a^{181}x^{66}+a^{428}x^{129} C11 Gold 48596 944 10752 = 2 9 * 3 * 7 10 10.1 x^{3} Gold Gold 125042 10475520 = 2 11 * 3 * 5 * 11 * 31 10.2 x^{9} Gold Gold 136492 10475520 = 2 11 * 3 * 5 * 11 * 31 10.3 x^{57} Kasami Gold 186416 10230 = 2 * 3 * 5 * 11 * 31 10.4 x^{339} Dobbertin Dobbertin 280604 10230 = 2 * 3 * 5 * 11 * 31 10.5 x^{6}+x^{33}+p^{31}x^{192} C3 Gold 151216 476160 = 2 10 * 3 * 5 * 31 10.6 x^{33}+x^{72}+p^{31}x^{258} C3 Gold 153896 476160 = 2 10 * 3 * 5 * 31 10.7 x^{3}+ Tr_{10}(x^{9}) C4 Gold 164034 30720 = 2 11 * 3 * 5 10.8 x^{3}+a^{-1} Tr_{10}(a^{3}x^{9}) C4 Gold 164098 15360 = 2 10 * 3 * 5 10.9 x^{3} + p^{341}x^{9} + p^{682}x^{96} + x^{288} C13 Gold 166068 476160 = 2 10 * 3 * 5 * 31 10.10 x^{3} + p^{341}x^{129} + p^{682}x^{96} + x^{36} C13 Gold 166168 476160 = 2 10 * 3 * 5 * 31 10.11 x^{3} + a^{128}x^{6} + a^{384}x^{12} + a^{133}x^{33} + x^{34} + a^{2}x^{64} + x^{65} + a^{128}x^{68} + x^{96} + a^{4}x^{130} + a^{260}x^{136} + a^{4}x^{192} + a^{136}x^{260} + a^{12}x^{384} C12 Gold 162550 158720 10.12 x^{3} + a^{920}x^{6} + a^{153}x^{12} + a^{925}x^{33} + x^{34} + a^{794}x^{64} + x^{65} + a^{920}x^{68} + x^{96} + a^{796}x^{130} + a^{29}x^{136} + a^{796}x^{192} + a^{928}x^{260} + a^{804}x^{384} C12 Gold 163400 31744 10.13 x^{3} + p^{788}x^{6} + p^{21}x^{12} + p^{793}x^{33} + x^{34} + p^{662}x^{64} + x^{65} + p^{788}x^{68} + x^{96} + p^{664}x^{130} + p^{920}x^{136} + p^{664}x^{192} + p^{796}x^{260} + p^{672}x^{384} C12 Gold 163398 31744 10.14 x^{5} + p^{576}x^{18} + p^{512}x^{20} + p^{133}x^{33} + x^{36} + p^{2}x^{64} + p^{514}x^{80} + x^{129} + p^{512}x^{144} + x^{160} + p^{80}x^{514} + p^{16}x^{516} + p^{18}x^{576} + p^{16}x^{640} C12 Gold 163308 158720 10.15 x^{5} + a^{477}x^{18} + a^{413}x^{20} + a^{34}x^{33} + x^{36} + a^{926}x^{64} + a^{415}x^{80} + x^{129} + a^{413}x^{144} + x^{160} + a^{1004}x^{514} + a^{940}x^{516} + a^{942}x^{576} + a^{940}x^{640} C12 Gold 164026 31744 10.16 x^{5} + a^{81}x^{18} + a^{17}x^{20} + a^{661}x^{33} + x^{36} + a^{530}x^{64} + a^{19}x^{80} + x^{129} + a^{17}x^{144} + x^{160} + a^{608}x^{514} + a^{544}x^{516} + a^{546}x^{576} + a^{544}x^{640} C12 Gold 164026 31744 10.17 x^{3} + p^{341}x^{36} C13 Gold 169984 168960 11 11.1 x^{3} Gold Gold 11.2 x^{5} Gold Gold 11.3 x^{9} Gold Gold 11.4 x^{17} Gold Gold 11.5 x^{33} Gold Gold 11.6 x^{13} Kasami Gold 11.7 x^{57} Kasami Gold 11.8 x^{241} Kasami Gold 11.9 x^{993} Kasami Gold 11.10 x^{35} Welch Gold 11.11 x^{287} Niho Gold 11.12 x^{1023} Inverse Inverse 11.13 x^{3}+ Tr_{11}(x^{9}) C4 Gold Note: In dimension 10, not all instances of family C11 have been checked. The ones that we have checked are CCZ-equivalent to the representatives currently given in the table above, but, at the moment, we cannot assert that the representatives from the table exhaust all possible CCZ-classes corresponding to C11 in dimension 10.
+
+The following table presents CCZ-inequivalent representatives from all CCZ-equivalence classes corresponding to the [[known infinite families of APN power functions over GF(2^n)]] and the [[known infinite families of quadratic APN polynomials over GF(2^n)]] over GF(2<sup>n</sup>) for n from 6 to 11. Values of various invariants are given in the cases when this is possible; empty cells in the invariant columns indicate that their computation is infeasible using our current resources.
+
+<table class="borderless">
+<tr>
+<th>Dimension</th>
+<th><span class="htmlMath">N<sup>○</sup></span></th>
+<th>Functions</th>
+<th>Equivalent to</th>
+<th>Walsh spectrum</th>
+<th>Γ-rank</th>
+<th>Δ-rank</th>
+<th>Multiplier group</th>
+</tr>
+
+<tr class="divider">
+<td rowspan="3"><span class="htmlMath">6</span></td>
+<td class="noborderbelow"><span class="htmlMath">6.1</span></td>
+<td><span class="htmlMath">x<sup>3</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>1102</td>
+<td>94</td>
+<td>24192 = 2<sup>7</sup> * 3<sup>3</sup> * 7</td>
+</tr>
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">6.2</span></td>
+<td><span class="htmlMath">x<sup>24</sup>+ax<sup>17</sup>+a<sup>8</sup>x<sup>10</sup>+ax<sup>9</sup>+x<sup>3</sup></span></td>
+<td><span class="htmlMath">C3</span></td>
+<td>Gold</td>
+<td>1146</td>
+<td>94</td>
+<td>4032 = 2<sup>6</sup> * 3<sup>2</sup> * 7</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">6.3</span></td>
+<td><span class="htmlMath">ax<sup>3</sup>+x<sup>17</sup>+a<sup>4</sup>x<sup>24</sup></span></td>
+<td><span class="htmlMath">C7-C9</span></td>
+<td>Gold</td>
+<td>1166</td>
+<td>96</td>
+<td>896 = 2<sup>7</sup> * 7</td>
+</tr>
+
+
+<tr class="divider">
+<td rowspan="7"><span class="htmlMath">7</span></td>
+<td class="noborderbelow"><span class="htmlMath">7.1</span></td>
+<td><span class="htmlMath">x<sup>3</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>3610</td>
+<td>198</td>
+<td>113792 = 2<sup>7</sup> * 7 * 127 </td>
+</tr>
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">7.2</span></td>
+<td><span class="htmlMath">x<sup>5</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>3708</td>
+<td>198</td>
+<td>113792 = 2<sup>7</sup> * 7 * 127 </td>
+</tr>
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">7.3</span></td>
+<td><span class="htmlMath">x<sup>9</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>3610</td>
+<td>198</td>
+<td>113792 = 2<sup>7</sup> * 7 * 127 </td>
+</tr>
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">7.4</span></td>
+<td><span class="htmlMath">x<sup>13</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td>4270</td>
+<td>338</td>
+<td>889 = 7 * 127</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">7.5</span></td>
+<td><span class="htmlMath">x<sup>57</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td>4704</td>
+<td>436</td>
+<td>889 = 7 * 127</td>
+</tr>
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">7.6</span></td>
+<td><span class="htmlMath">x<sup>63</sup></span></td>
+<td><span class="htmlMath">Inverse</span></td>
+<td>Inverse</td>
+<td>8128</td>
+<td>4928</td>
+<td>1778 = 2 * 7 * 127</td>
+</tr>
+
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">7.7</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+<span class="latexCommand">Tr</span><sub>7</sub>(x<sup>9</sup>)</span></td>
+<td><span class="htmlMath">C4</span></td>
+<td>Gold</td>
+<td>4026</td>
+<td>212</td>
+<td>896 = 2<sup>7</sup> * 7</td>
+</tr>
+
+
+<tr class="divider">
+<td rowspan="10"><span class="htmlMath">8</span></td>
+<td class="noborderbelow"><span class="htmlMath">8.1</span></td>
+<td><span class="htmlMath">x<sup>3</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>11818</td>
+<td>420</td>
+<td>522240 = 2<sup>11</sup> * 3 * 5 * 17</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.2</span></td>
+<td><span class="htmlMath">x<sup>9</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>12370</td>
+<td>420</td>
+<td>522240 = 2<sup>11</sup> * 3 * 5 * 17</td>
+</tr>
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.3</span></td>
+<td><span class="htmlMath">x<sup>57</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td>15358</td>
+<td>960</td>
+<td>2040 = 2<sup>3</sup> * 3 * 5 * 17</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.4</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+x<sup>17</sup>+p<sup>48</sup>x<sup>18</sup>+p<sup>3</sup>x<sup>33</sup>+px<sup>34</sup>+x<sup>48</sup></span></td>
+<td><span class="htmlMath">C3</span></td>
+<td>Gold</td>
+<td>13200</td>
+<td>414</td>
+<td>46080 = 2<sup>10</sup> * 3<sup>2</sup> * 5</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.5</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+<span class="latexCommand">Tr</span><sub>8</sub>(x<sup>9</sup>)</span></td>
+<td><span class="htmlMath">C4</span></td>
+<td>Gold</td>
+<td>13800</td>
+<td>432</td>
+<td>6144 = 2<sup>11</sup> * 3</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.6</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+a<sup>-1</sup><span class="latexCommand">Tr</span><sub>8</sub>(a<sup>3</sup>x<sup>9</sup>)</span></td>
+<td><span class="htmlMath">C4</span></td>
+<td>Gold</td>
+<td>13842</td>
+<td>436</td>
+<td>3072 = 2<sup>10</sup> * 3</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.7</span></td>
+<td><span class="htmlMath">(x+x<sup>16</sup>)<sup>3</sup>+a(x+x<sup>16</sup>)(ax+a<sup>16</sup>x<sup>16</sup>)+a<sup>17</sup>(ax+a<sup>16</sup>x<sup>16</sup>)<sup>12</sup></span></td>
+<td><span class="htmlMath">C10</span></td>
+<td>Gold</td>
+<td>13642</td>
+<td>436</td>
+<td>46080 = 2<sup>10</sup> * 3<sup>2</sup> * 5</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.8</span></td>
+<td><span class="htmlMath">x<sup>9</sup>+<span class="latexCommand">Tr</span><sub>8</sub>(x<sup>3</sup>)</span></td>
+<td><span class="htmlMath">C11</span></td>
+<td>Gold</td>
+<td>13804</td>
+<td>434</td>
+<td>6144 = 2<sup>11</sup> * 3</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.9</span></td>
+<td><span class="htmlMath">a(a<sup>16</sup>x+x<sup>16</sup>a)(x<sup>16</sup>+x) + (a<sup>16</sup>x+x<sup>16</sup>a)<sup>12</sup> + a<sup>17</sup>(a<sup>16</sup>x+x<sup>16</sup>a)<sup>4</sup>(x<sup>16</sup>+x)<sup>2</sup> + a<sup>17</sup>(x<sup>16</sup>+x)<sup>3</sup>, where a is a zero of X<sup>8</sup> + X<sup>4</sup> + X<sup>3</sup> + X<sup>2</sup> + 1</span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>13798</td>
+<td>438</td>
+<td>3840 = 2<sup>8</sup> * 3 * 5</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">8.10</span></td>
+<td><span class="htmlMath">a(a<sup>16</sup>x+x<sup>16</sup>a)(x<sup>16</sup>+x) + (a<sup>16</sup>x+x<sup>16</sup>a)<sup>66</sup> + a<sup>17</sup>(a<sup>16</sup>x+x<sup>16</sup>a)<sup>64</sup>(x<sup>16</sup>+x)<sup>8</sup> + a<sup>51</sup>(x<sup>16</sup>+x)<sup>9</sup>, where a is a zero of X<sup>8</sup> + X<sup>4</sup> + X<sup>3</sup> + X<sup>2</sup> + 1</span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>13700</td>
+<td>438</td>
+<td>15360 = 2<sup>10</sup> * 3 * 5</td>
+</tr>
+
+<tr class="divider">
+<td rowspan="11"><span class="htmlMath">9</span></td>
+<td class="noborderbelow"><span class="htmlMath">9.1</span></td>
+<td><span class="htmlMath">x<sup>3</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>38470</td>
+<td>872</td>
+<td>2354688 = 2<sup>9</sup> * 3<sup>2</sup> * 7 * 73</td>
+</tr>
+
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.2</span></td>
+<td><span class="htmlMath">x<sup>5</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>41494</td>
+<td>872</td>
+<td>2354688 = 2<sup>9</sup> * 3<sup>2</sup> * 7 * 73</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.3</span></td>
+<td><span class="htmlMath">x<sup>17</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>38470</td>
+<td>872</td>
+<td>2354688 = 2<sup>9</sup> * 3<sup>2</sup> * 7 * 73</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.4</span></td>
+<td><span class="htmlMath">x<sup>13</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td>58676</td>
+<td>3086</td>
+<td>4599 = 3<sup>2</sup> * 7 * 73</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.5</span></td>
+<td><span class="htmlMath">x<sup>241</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td>61726</td>
+<td>3482</td>
+<td>4599 = 3<sup>2</sup> * 7 * 73</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.6</span></td>
+<td><span class="htmlMath">x<sup>19</sup></span></td>
+<td><span class="htmlMath">Welch</span></td>
+<td>Gold</td>
+<td>60894</td>
+<td>3956</td>
+<td>4599 = 3<sup>2</sup> * 7 * 73</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.7</span></td>
+<td><span class="htmlMath">x<sup>255</sup></span></td>
+<td><span class="htmlMath">Inverse</span></td>
+<td>Inverse</td>
+<td>130816</td>
+<td>93024</td>
+<td>9198 = 2 * 3<sup>2</sup> * 7 * 73</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.8</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+<span class="latexCommand">Tr</span><sub>9</sub>(x<sup>9</sup>)</span></td>
+<td><span class="htmlMath">C4</span></td>
+<td>Gold</td>
+<td>47890</td>
+<td>920</td>
+<td>4608 = 2<sup>9</sup> * 3<sup>2</sup></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.9</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+<span class="latexCommand">Tr</span><sup>3</sup><sub>9</sub>(x<sup>9</sup>+x<sup>18</sup>)</span></td>
+<td><span class="htmlMath">C5</span></td>
+<td>Gold</td>
+<td>48428</td>
+<td>930</td>
+<td>4608 = 2<sup>9</sup> * 3<sup>2</sup></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.10</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+<span class="latexCommand">Tr</span><sup>3</sup><sub>9</sub>(x<sup>18</sup>+x<sup>36</sup>)</span></td>
+<td><span class="htmlMath">C6</span></td>
+<td>Gold</td>
+<td>48460</td>
+<td>944</td>
+<td>4608 = 2<sup>9</sup> * 3<sup>2</sup></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">9.11</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+a<sup>246</sup>x<sup>10</sup>+a<sup>47</sup>x<sup>17</sup>+a<sup>181</sup>x<sup>66</sup>+a<sup>428</sup>x<sup>129</sup></span></td>
+<td><span class="htmlMath">C11</span></td>
+<td>Gold</td>
+<td>48596</td>
+<td>944</td>
+<td>10752 = 2<sup>9</sup> * 3 * 7</td>
+</tr>
+
+<tr class="divider">
+<td rowspan="17"><span class="htmlMath">10</span></td>
+<td class="noborderbelow"><span class="htmlMath">10.1</span></td>
+<td><span class="htmlMath">x<sup>3</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>125042</td>
+<td></td>
+<td>10475520 = 2<sup>11</sup> * 3 * 5 * 11 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.2</span></td>
+<td><span class="htmlMath">x<sup>9</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td>136492</td>
+<td></td>
+<td>10475520 = 2<sup>11</sup> * 3 * 5 * 11 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.3</span></td>
+<td><span class="htmlMath">x<sup>57</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td>186416</td>
+<td></td>
+<td>10230 = 2 * 3 * 5 * 11 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.4</span></td>
+<td><span class="htmlMath">x<sup>339</sup></span></td>
+<td><span class="htmlMath">Dobbertin</span></td>
+<td>Dobbertin</td>
+<td>280604</td>
+<td></td>
+<td>10230 = 2 * 3 * 5 * 11 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.5</span></td>
+<td><span class="htmlMath">x<sup>6</sup>+x<sup>33</sup>+p<sup>31</sup>x<sup>192</sup></span></td>
+<td><span class="htmlMath">C3</span></td>
+<td>Gold</td>
+<td>151216</td>
+<td></td>
+<td>476160 = 2<sup>10</sup> * 3 * 5 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.6</span></td>
+<td><span class="htmlMath">x<sup>33</sup>+x<sup>72</sup>+p<sup>31</sup>x<sup>258</sup></span></td>
+<td><span class="htmlMath">C3</span></td>
+<td>Gold</td>
+<td>153896</td>
+<td></td>
+<td>476160 = 2<sup>10</sup> * 3 * 5 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.7</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+<span class="latexCommand">Tr</span><sub>10</sub>(x<sup>9</sup>)</span></td>
+<td><span class="htmlMath">C4</span></td>
+<td>Gold</td>
+<td>164034</td>
+<td></td>
+<td>30720 = 2<sup>11</sup> * 3 * 5</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.8</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+a<sup>-1</sup><span class="latexCommand">Tr</span><sub>10</sub>(a<sup>3</sup>x<sup>9</sup>)</span></td>
+<td><span class="htmlMath">C4</span></td>
+<td>Gold</td>
+<td>164098</td>
+<td></td>
+<td>15360 = 2<sup>10</sup> * 3 * 5</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.9</span></td>
+<td><span class="htmlMath">x<sup>3</sup> + p<sup>341</sup>x<sup>9</sup> + p<sup>682</sup>x<sup>96</sup> + x<sup>288</sup></span></td>
+<td><span class="htmlMath">C13</span></td>
+<td>Gold</td>
+<td>166068</td>
+<td></td>
+<td>476160 = 2<sup>10</sup> * 3 * 5 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.10</span></td>
+<td><span class="htmlMath">x<sup>3</sup> + p<sup>341</sup>x<sup>129</sup> + p<sup>682</sup>x<sup>96</sup> + x<sup>36</sup></span></td>
+<td><span class="htmlMath">C13</span></td>
+<td>Gold</td>
+<td>166168</td>
+<td></td>
+<td>476160 = 2<sup>10</sup> * 3 * 5 * 31</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.11</span></td>
+<td><span class="htmlMath">x<sup>3</sup> + a<sup>128</sup>x<sup>6</sup> + a<sup>384</sup>x<sup>12</sup> + a<sup>133</sup>x<sup>33</sup> + x<sup>34</sup> + a<sup>2</sup>x<sup>64</sup> + x<sup>65</sup> + a<sup>128</sup>x<sup>68</sup> + x<sup>96</sup> + a<sup>4</sup>x<sup>130</sup> + a<sup>260</sup>x<sup>136</sup> + a<sup>4</sup>x<sup>192</sup> + a<sup>136</sup>x<sup>260</sup> + a<sup>12</sup>x<sup>384</sup></span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>162550</td>
+<td></td>
+<td>158720</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.12</span></td>
+<td><span class="htmlMath">x<sup>3</sup> + a<sup>920</sup>x<sup>6</sup> + a<sup>153</sup>x<sup>12</sup> + a<sup>925</sup>x<sup>33</sup> + x<sup>34</sup> + a<sup>794</sup>x<sup>64</sup> + x<sup>65</sup> + a<sup>920</sup>x<sup>68</sup> + x<sup>96</sup> + a<sup>796</sup>x<sup>130</sup> + a<sup>29</sup>x<sup>136</sup> + a<sup>796</sup>x<sup>192</sup> + a<sup>928</sup>x<sup>260</sup> + a<sup>804</sup>x<sup>384</sup>                                                                                                                          </span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>163400</td>
+<td></td>
+<td>31744</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.13</span></td>
+<td><span class="htmlMath">x<sup>3</sup> + p<sup>788</sup>x<sup>6</sup> + p<sup>21</sup>x<sup>12</sup> + p<sup>793</sup>x<sup>33</sup> + x<sup>34</sup> + p<sup>662</sup>x<sup>64</sup> + x<sup>65</sup> + p<sup>788</sup>x<sup>68</sup> + x<sup>96</sup> + p<sup>664</sup>x<sup>130</sup> + p<sup>920</sup>x<sup>136</sup> + p<sup>664</sup>x<sup>192</sup> + p<sup>796</sup>x<sup>260</sup> + p<sup>672</sup>x<sup>384</sup></span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>163398</td>
+<td></td>
+<td>31744</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.14</span></td>
+<td><span class="htmlMath">x<sup>5</sup> + p<sup>576</sup>x<sup>18</sup> + p<sup>512</sup>x<sup>20</sup> + p<sup>133</sup>x<sup>33</sup> + x<sup>36</sup> + p<sup>2</sup>x<sup>64</sup> + p<sup>514</sup>x<sup>80</sup> + x<sup>129</sup> + p<sup>512</sup>x<sup>144</sup> + x<sup>160</sup> + p<sup>80</sup>x<sup>514</sup> + p<sup>16</sup>x<sup>516</sup> + p<sup>18</sup>x<sup>576</sup> + p<sup>16</sup>x<sup>640</sup></span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>163308</td>
+<td></td>
+<td>158720</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.15</span></td>
+<td><span class="htmlMath">x<sup>5</sup> + a<sup>477</sup>x<sup>18</sup> + a<sup>413</sup>x<sup>20</sup> + a<sup>34</sup>x<sup>33</sup> + x<sup>36</sup> + a<sup>926</sup>x<sup>64</sup> + a<sup>415</sup>x<sup>80</sup> + x<sup>129</sup> + a<sup>413</sup>x<sup>144</sup> + x<sup>160</sup> + a<sup>1004</sup>x<sup>514</sup> + a<sup>940</sup>x<sup>516</sup> + a<sup>942</sup>x<sup>576</sup> + a<sup>940</sup>x<sup>640</sup></span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>164026</td>
+<td></td>
+<td>31744</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.16</span></td>
+<td><span class="htmlMath">x<sup>5</sup> + a<sup>81</sup>x<sup>18</sup> + a<sup>17</sup>x<sup>20</sup> + a<sup>661</sup>x<sup>33</sup> + x<sup>36</sup> + a<sup>530</sup>x<sup>64</sup> + a<sup>19</sup>x<sup>80</sup> + x<sup>129</sup> + a<sup>17</sup>x<sup>144</sup> + x<sup>160</sup> + a<sup>608</sup>x<sup>514</sup> + a<sup>544</sup>x<sup>516</sup> + a<sup>546</sup>x<sup>576</sup> + a<sup>544</sup>x<sup>640</sup></span></td>
+<td><span class="htmlMath">C12</span></td>
+<td>Gold</td>
+<td>164026</td>
+<td></td>
+<td>31744</td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">10.17</span></td>
+<td><span class="htmlMath">x<sup>3</sup> + p<sup>341</sup>x<sup>36</sup></span></td>
+<td><span class="htmlMath">C13</span></td>
+<td>Gold</td>
+<td>169984</td>
+<td></td>
+<td>168960</td>
+</tr>
+
+<tr class="divider">
+<td rowspan="13"><span class="htmlMath">11</span></td>
+<td class="noborderbelow"><span class="htmlMath">11.1</span></td>
+<td><span class="htmlMath">x<sup>3</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">11.2</span></td>
+<td><span class="htmlMath">x<sup>5</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">11.3</span></td>
+<td><span class="htmlMath">x<sup>9</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">11.4</span></td>
+<td><span class="htmlMath">x<sup>17</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">11.5</span></td>
+<td><span class="htmlMath">x<sup>33</sup></span></td>
+<td><span class="htmlMath">Gold</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">11.6</span></td>
+<td><span class="htmlMath">x<sup>13</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td class="noborderbelow"><span class="htmlMath">11.7</span></td>
+<td><span class="htmlMath">x<sup>57</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<td class="noborderbelow"><span class="htmlMath">11.8</span></td>
+<td><span class="htmlMath">x<sup>241</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<td class="noborderbelow"><span class="htmlMath">11.9</span></td>
+<td><span class="htmlMath">x<sup>993</sup></span></td>
+<td><span class="htmlMath">Kasami</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<td class="noborderbelow"><span class="htmlMath">11.10</span></td>
+<td><span class="htmlMath">x<sup>35</sup></span></td>
+<td><span class="htmlMath">Welch</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<td class="noborderbelow"><span class="htmlMath">11.11</span></td>
+<td><span class="htmlMath">x<sup>287</sup></span></td>
+<td><span class="htmlMath">Niho</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<td class="noborderbelow"><span class="htmlMath">11.12</span></td>
+<td><span class="htmlMath">x<sup>1023</sup></span></td>
+<td><span class="htmlMath">Inverse</span></td>
+<td>Inverse</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<td class="noborderbelow"><span class="htmlMath">11.13</span></td>
+<td><span class="htmlMath">x<sup>3</sup>+<span class="latexCommand">Tr</span><sub>11</sub>(x<sup>9</sup>)</span></td>
+<td><span class="htmlMath">C4</span></td>
+<td>Gold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+
+</table>
+
+Note: In dimension 10, not all instances of family C11 have been checked. The ones that we have checked are CCZ-equivalent to the representatives currently given in the table above, but, at the moment, we cannot assert that the representatives from the table exhaust all possible CCZ-classes corresponding to C11 in dimension 10.

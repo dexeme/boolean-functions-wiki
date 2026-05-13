@@ -66,3 +66,8 @@ The long-standing conjecture against APN permutations in even dimension was brok
 by Dillon (2009), with a function CCZ-equivalent to the Kim function.
 
 The existence of APN permutations for even dimensions `n\ge 8` remains open.
+
+References
+==========
+
+.. references::

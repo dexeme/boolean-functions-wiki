@@ -5,3 +5,8 @@ Content partially extracted from ``data/Differential_uniformity.txt``.
 Original page:
 
 :link:`https://boolean.wiki.uib.no/Differential_uniformity  <https://boolean.wiki.uib.no/Differential_uniformity>`
+
+References
+==========
+
+.. references::

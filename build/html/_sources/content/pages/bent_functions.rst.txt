@@ -25,3 +25,8 @@ In this sense, bent functions are also called perfect nonlinear (PN) functions.
 
 Bent (PN) `(n,m)`-functions exist only for `n` even and `m\leq n/2`.
 Conversely, for any pair of integers `(n,m)` satisfying this condition, there exists a bent `(n,m)`-function.
+
+References
+==========
+
+.. references::

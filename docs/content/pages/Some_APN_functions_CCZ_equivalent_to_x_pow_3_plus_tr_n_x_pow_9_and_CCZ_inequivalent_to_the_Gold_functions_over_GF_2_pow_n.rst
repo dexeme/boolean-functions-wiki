@@ -13,3 +13,8 @@ Cases regarding Proposition 3 of :cite:p:`Budaghyan:200904`
     :header-rows: 1
     :widths: 4 45 40 3
     :font-size: -3 -1 -1 -1
+
+References
+==========
+
+.. references::

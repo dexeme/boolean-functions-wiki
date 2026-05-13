@@ -148,3 +148,8 @@ If `f` is an `n`-variable function with correlation-immunity order `m`, then
 `m+d^\circ f\le n`.
 If `f` is also balanced, then
 `m+d^\circ f\le n-1`.
+
+References
+==========
+
+.. references::

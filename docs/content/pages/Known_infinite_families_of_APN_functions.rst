@@ -29,3 +29,7 @@ Original page:
     :header-rows: 1
     :font-size: -1 1 -1 -2
 
+References
+==========
+
+.. references::

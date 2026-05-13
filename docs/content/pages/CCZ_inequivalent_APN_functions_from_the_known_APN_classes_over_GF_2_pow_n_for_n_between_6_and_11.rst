@@ -30,4 +30,7 @@ The ones that we have checked are CCZ-equivalent to the representatives currentl
 at the moment, we cannot assert that the representatives from the table exhaust all possible CCZ-classes corresponding
 to C11 in dimension 10.
 
+References
+==========
+
 .. references::
