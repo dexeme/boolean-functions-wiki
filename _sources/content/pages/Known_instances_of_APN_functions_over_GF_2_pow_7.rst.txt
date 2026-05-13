@@ -1,3 +1,5 @@
+.. _known_instances_of_apn_functions_over_gf_2_pow_7:
+
 Known instances of APN functions over GF(2^7)
 =============================================
 

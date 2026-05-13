@@ -1,3 +1,5 @@
+.. _bent_functions:
+
 Bent Functions
 ==============
 

@@ -13,6 +13,7 @@
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     <script src="../../_static/sagecell-init.js?v=dde391b2"></script>
     
@@ -20,8 +21,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tables" href="Tables.html" />
-    <link rel="prev" title="Some APN functions CCZ-equivalent to gold functions and EA-inequivalent to power functions over GF(2^n)" href="Some_APN_functions_CCZ_equivalent_to_gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html" /> 
+    <link rel="next" title="Vectorial Boolean Functions" href="Vectorial_Boolean_Functions.html" />
+    <link rel="prev" title="Some APN functions CCZ-equivalent to Gold functions and EA-inequivalent to power functions over GF(2^n)" href="Some_APN_functions_CCZ_equivalent_to_Gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
@@ -30,10 +31,10 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Tables.html" title="Tables"
+          <a href="Vectorial_Boolean_Functions.html" title="Vectorial Boolean Functions"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Some_APN_functions_CCZ_equivalent_to_gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html" title="Some APN functions CCZ-equivalent to gold functions and EA-inequivalent to power functions over GF(2^n)"
+          <a href="Some_APN_functions_CCZ_equivalent_to_Gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html" title="Some APN functions CCZ-equivalent to Gold functions and EA-inequivalent to power functions over GF(2^n)"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Some APN functions CCZ-equivalent to x^3 + tr n(x^9) and CCZ-inequivalent to the Gold functions over GF(2^n)</a></li> 
@@ -50,43 +51,47 @@
 <p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/Some_APN_functions_CCZ-equivalent_to_x%5E3_%2B_tr_n(x%5E9)_and_CCZ-inequivalent_to_the_Gold_functions_over_GF(2%5En).txt</span></code>.
 Original page:</p>
 <p><a href="https://boolean.wiki.uib.no/Some_APN_functions_CCZ-equivalent_to_x%5E3_%2B_tr_n(x%5E9)_and_CCZ-inequivalent_to_the_Gold_functions_over_GF(2%5En)" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/Some_APN_functions_CCZ-equivalent_to_x%5E3_%2B_tr_n(x%5E9)_and_CCZ-inequivalent_to_the_Gold_functions_over_GF(2%5En)</a></p>
-<p>Cases regarding Proposition 3 of <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id31" title="Lilya Budaghyan, Claude Carlet, and Gregor Leander. Constructing new APN functions from known ones. Finite Fields and Their Applications, 15(2):150–159, April 2009. doi:10.1016/j.ffa.2008.10.001.">BCL09</a>]</span></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Some APN functions <span class="math notranslate nohighlight">\(CCZ\)</span>-equivalent to <span class="math notranslate nohighlight">\(x^3+{\mathrm Tr}_{n}(x^9)\)</span>
+and CCZ-inequivalent to the Gold functions over <span class="math notranslate nohighlight">\(\mathbb{F}_{2^n}\)</span></p>
+<p>Cases regarding Proposition 3 of <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id43" title="Lilya Budaghyan, Claude Carlet, and Gregor Leander. Constructing new APN functions from known ones. Finite Fields and Their Applications, 15(2):150–159, April 2009. doi:10.1016/j.ffa.2008.10.001.">BCL09</a>]</span></p>
 <table class="docutils align-default explicit-widths" style="table-layout: fixed;">
 <colgroup>
-<col style="width: 4.34783%;">
-<col style="width: 48.913%;">
-<col style="width: 43.4783%;">
-<col style="width: 3.26087%;">
+<col style="width: 3.125%;">
+<col style="width: 70.3125%;">
+<col style="width: 23.4375%;">
+<col style="width: 3.125%;">
 </colgroup>
 <thead><tr>
 <th class="col-n-circ col-index-1 col-width-explicit col-short" data-col-id="n-circ" data-col-index="1" data-col-width-score="11" data-break-rank="-1"><span class="math notranslate nohighlight">\(N^{\circ}\)</span></th>
-<th class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="215" data-break-rank="0">Function</th>
-<th class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="39" data-break-rank="1">Conditions</th>
+<th class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="212" data-break-rank="0">Function</th>
+<th class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="36" data-break-rank="1">Conditions</th>
 <th class="col-d-circ col-index-4 col-width-explicit col-short" data-col-id="d-circ" data-col-index="4" data-col-width-score="11" data-break-rank="-1"><span class="math notranslate nohighlight">\(d^{\circ}\)</span></th>
 </tr></thead>
 <tbody>
 <tr>
 <td class="col-n-circ col-index-1 col-width-explicit col-short" data-col-id="n-circ" data-col-index="1" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 3px);"><span class="math notranslate nohighlight">\(1\)</span></td>
-<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="215" data-break-rank="0" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(x^3 + \mathrm{Tr}_n(x^9) + (x^2+x)\mathrm{Tr}_n(x^3+x^9)\)</span></td>
-<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="39" data-break-rank="1" style="font-size: calc(1em - 1px);">| <span class="math notranslate nohighlight">\(n \geqslant 5\)</span> odd, | <span class="math notranslate nohighlight">\(\gcd(i,n)=1\)</span></td>
+<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="212" data-break-rank="0" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(x^3 + \mathrm{Tr}_n(x^9) + (x^2+x)\mathrm{Tr}_n(x^3+x^9)\)</span></td>
+<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="36" data-break-rank="1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(n \geqslant 5\)</span> odd,  <span class="math notranslate nohighlight">\(\gcd(i,n)=1\)</span></td>
 <td class="col-d-circ col-index-4 col-width-explicit col-short" data-col-id="d-circ" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(3\)</span></td>
 </tr>
 <tr>
 <td class="col-n-circ col-index-1 col-width-explicit col-short" data-col-id="n-circ" data-col-index="1" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 3px);"><span class="math notranslate nohighlight">\(2\)</span></td>
-<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="215" data-break-rank="0" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(x^3 + \mathrm{Tr}_n(x^9) + (x^2+x+1)\mathrm{Tr}_n(x^3)\)</span></td>
-<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="39" data-break-rank="1" style="font-size: calc(1em - 1px);">| <span class="math notranslate nohighlight">\(n \geqslant 4\)</span> even, | <span class="math notranslate nohighlight">\(\gcd(i,n)=1\)</span></td>
+<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="212" data-break-rank="0" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(x^3 + \mathrm{Tr}_n(x^9) + (x^2+x+1)\mathrm{Tr}_n(x^3)\)</span></td>
+<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="36" data-break-rank="1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(n \geqslant 4\)</span> even,  <span class="math notranslate nohighlight">\(\gcd(i,n)=1\)</span></td>
 <td class="col-d-circ col-index-4 col-width-explicit col-short" data-col-id="d-circ" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(3\)</span></td>
 </tr>
 <tr>
 <td class="col-n-circ col-index-1 col-width-explicit col-short" data-col-id="n-circ" data-col-index="1" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 3px);"><span class="math notranslate nohighlight">\(3\)</span></td>
-<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="215" data-break-rank="0" style="font-size: calc(1em - 1px);">| <span class="math notranslate nohighlight">\(\Big(x + \mathrm{Tr}_n^3(x^6+x^{12}) + \mathrm{Tr}_n(x)\mathrm{Tr}_n^3(x^3+x^{12})\Big)^3 +\)</span> | <span class="math notranslate nohighlight">\(\mathrm{Tr}_n\Big(\left(x + \mathrm{Tr}_n^3(x^6+x^{12}) + \mathrm{Tr}_n(x)\mathrm{Tr}_n^3(x^3+x^{12})\right)^9\Big)\)</span></td>
-<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="39" data-break-rank="1" style="font-size: calc(1em - 1px);">| <span class="math notranslate nohighlight">\(6|n\)</span>,<wbr><span class="math notranslate nohighlight">\(\)</span> | <span class="math notranslate nohighlight">\(\gcd(i,n)=1\)</span></td>
+<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="212" data-break-rank="0" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(\Big(x + \mathrm{Tr}_n^3(x^6+x^{12}) + \mathrm{Tr}_n(x)\mathrm{Tr}_n^3(x^3+x^{12})\Big)^3 +\)</span>  <span class="math notranslate nohighlight">\(\mathrm{Tr}_n\Big(\left(x + \mathrm{Tr}_n^3(x^6+x^{12}) + \mathrm{Tr}_n(x)\mathrm{Tr}_n^3(x^3+x^{12})\right)^9\Big)\)</span></td>
+<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="36" data-break-rank="1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(6n\)</span>,<wbr><span class="math notranslate nohighlight">\(\)</span>  <span class="math notranslate nohighlight">\(\gcd(i,n)=1\)</span></td>
 <td class="col-d-circ col-index-4 col-width-explicit col-short" data-col-id="d-circ" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(4\)</span></td>
 </tr>
 <tr>
 <td class="col-n-circ col-index-1 col-width-explicit col-short" data-col-id="n-circ" data-col-index="1" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 3px);"><span class="math notranslate nohighlight">\(4\)</span></td>
-<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="215" data-break-rank="0" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(\left(x^{\frac{1}{3}} + \mathrm{Tr}_n^3(x+x^4)\right)^{-1} + \mathrm{Tr}_n\left(\left(\left(x^{\frac{1}{3}} + \mathrm{Tr}_n^3(x+x^4)\right)^{-1}\right)^9\right)\)</span></td>
-<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="39" data-break-rank="1" style="font-size: calc(1em - 1px);">| <span class="math notranslate nohighlight">\(3|n\)</span>,<wbr><span class="math notranslate nohighlight">\(\)</span> | <span class="math notranslate nohighlight">\(n\)</span> odd</td>
+<td class="col-function col-index-2 col-width-explicit col-long" data-col-id="function" data-col-index="2" data-col-width-score="212" data-break-rank="0" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(\left(x^{\frac{1}{3}} + \mathrm{Tr}_n^3(x+x^4)\right)^{-1} + \mathrm{Tr}_n\left(\left(\left(x^{\frac{1}{3}} + \mathrm{Tr}_n^3(x+x^4)\right)^{-1}\right)^9\right)\)</span></td>
+<td class="col-conditions col-index-3 col-width-explicit col-long" data-col-id="conditions" data-col-index="3" data-col-width-score="36" data-break-rank="1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(3n\)</span>,<wbr><span class="math notranslate nohighlight">\(\)</span>  <span class="math notranslate nohighlight">\(n\)</span> odd</td>
 <td class="col-d-circ col-index-4 col-width-explicit col-short" data-col-id="d-circ" data-col-index="4" data-col-width-score="11" data-break-rank="-1" style="font-size: calc(1em - 1px);"><span class="math notranslate nohighlight">\(4\)</span></td>
 </tr>
 </tbody>
@@ -160,17 +165,16 @@ Original page:</p>
   ensureMathJaxAndTypeset();
 })();
 </script>
-</section>
-<section id="references">
-<h1>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h1>
+<span id="references"></span><p class="rubric">References</p>
 <div class="docutils container" id="id2">
 <div role="list" class="citation-list">
-<div class="citation" id="id31" role="doc-biblioentry">
+<div class="citation" id="id43" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">BCL09</a><span class="fn-bracket">]</span></span>
 <p>Lilya Budaghyan, Claude Carlet, and Gregor Leander. Constructing new APN functions from known ones. <em>Finite Fields and Their Applications</em>, 15(2):150–159, April 2009. <a class="reference external" href="https://doi.org/10.1016/j.ffa.2008.10.001">doi:10.1016/j.ffa.2008.10.001</a>.</p>
 </div>
 </div>
 </div>
+</section>
 </section>
 
 
@@ -183,20 +187,22 @@ Original page:</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Some APN functions CCZ-equivalent to x^3 + tr n(x^9) and CCZ-inequivalent to the Gold functions over GF(2^n)</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#">Some APN functions CCZ-equivalent to x^3 + tr n(x^9) and CCZ-inequivalent to the Gold functions over GF(2^n)</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
 </ul>
 
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="Some_APN_functions_CCZ_equivalent_to_gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html"
-                          title="previous chapter">Some APN functions CCZ-equivalent to gold functions and EA-inequivalent to power functions over GF(2^n)</a></p>
+    <p class="topless"><a href="Some_APN_functions_CCZ_equivalent_to_Gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html"
+                          title="previous chapter">Some APN functions CCZ-equivalent to Gold functions and EA-inequivalent to power functions over GF(2^n)</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="Tables.html"
-                          title="next chapter">Tables</a></p>
+    <p class="topless"><a href="Vectorial_Boolean_Functions.html"
+                          title="next chapter">Vectorial Boolean Functions</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -230,10 +236,10 @@ Original page:</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Tables.html" title="Tables"
+          <a href="Vectorial_Boolean_Functions.html" title="Vectorial Boolean Functions"
              >next</a> |</li>
         <li class="right" >
-          <a href="Some_APN_functions_CCZ_equivalent_to_gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html" title="Some APN functions CCZ-equivalent to gold functions and EA-inequivalent to power functions over GF(2^n)"
+          <a href="Some_APN_functions_CCZ_equivalent_to_Gold_functions_and_EA_inequivalent_to_power_functions_over_GF_2_pow_n.html" title="Some APN functions CCZ-equivalent to Gold functions and EA-inequivalent to power functions over GF(2^n)"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">Boolean Functions  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Some APN functions CCZ-equivalent to x^3 + tr n(x^9) and CCZ-inequivalent to the Gold functions over GF(2^n)</a></li> 

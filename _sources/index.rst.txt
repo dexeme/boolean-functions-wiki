@@ -52,7 +52,8 @@ Content
 -------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 0
+   :titlesonly:
    :glob:
 
    content/pages/*

@@ -13,6 +13,7 @@
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     <script src="../../_static/sagecell-init.js?v=dde391b2"></script>
     
@@ -20,7 +21,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Differential Distribution Table (DDT)" href="Differential_Distribution_Table_DDT.html" />
+    <link rel="next" title="Differential uniformity" href="Differential_uniformity.html" />
     <link rel="prev" title="Correlation immunity and resiliency of Boolean functions" href="Correlation_immunity_and_resiliency_of_Boolean_functions.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="Related">
@@ -30,7 +31,7 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Differential_Distribution_Table_DDT.html" title="Differential Distribution Table (DDT)"
+          <a href="Differential_uniformity.html" title="Differential uniformity"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="Correlation_immunity_and_resiliency_of_Boolean_functions.html" title="Correlation immunity and resiliency of Boolean functions"
@@ -47,12 +48,42 @@
             
   <section id="crooked-functions">
 <h1>Crooked Functions<a class="headerlink" href="#crooked-functions" title="Link to this heading">¶</a></h1>
-<p>Content partially extracted from <code class="docutils literal notranslate"><span class="pre">data/Crooked_Functions.txt</span></code>.
+<p>Content extracted from <code class="docutils literal notranslate"><span class="pre">data/Crooked_Functions.txt</span></code>.
 Original page:</p>
 <p><a href="https://boolean.wiki.uib.no/Crooked_Functions" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/Crooked_Functions</a></p>
+<p>An <span class="math notranslate nohighlight">\((n,n)\)</span>-function <span class="math notranslate nohighlight">\(F\)</span> is called crooked if, for every nonzero
+<span class="math notranslate nohighlight">\(a\)</span>, the set
+<span class="math notranslate nohighlight">\(\{D_{a}F(x)\colon x\in \mathbb {F} _{2}^{n}\}\)</span> is an affine hyperplane
+(i.e. a linear hyperplane or its complement).</p>
+<p>Conversely, crooked functions are strongly plateaued and APN. The component
+functions of a crooked function are all partially-bent. CCZ equivalence does
+not preserve crookedness.</p>
+<section id="characterization-of-crooked-functions">
+<h2>Characterization of Crooked Functions<a class="headerlink" href="#characterization-of-crooked-functions" title="Link to this heading">¶</a></h2>
+<p>For <span class="math notranslate nohighlight">\(n\)</span> odd, <span class="math notranslate nohighlight">\(F\)</span> is crooked if and only if <span class="math notranslate nohighlight">\(F\)</span> is almost
+bent (AB).</p>
+<p><span class="math notranslate nohighlight">\(F\)</span> is crooked if and only if, for every nonzero <span class="math notranslate nohighlight">\(a\)</span>, there exists
+a unique nonzero <span class="math notranslate nohighlight">\(v\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[W_{D_{a}F}(0,v)\neq 0.\]</div>
+<p>This characterization can be expressed by means of the Walsh transform of
+<span class="math notranslate nohighlight">\(F\)</span> since</p>
+<div class="math notranslate nohighlight">
+\[W_{D_{a}F}(0,v)
+=\Delta _{v\cdot F}(a)
+=2^{-n}\sum _{u\in \mathbb {F} _{2}^{n}}
+(-1)^{u\cdot a}W_{F}^{2}(u,v).\]</div>
 </section>
-<section id="references">
-<h1>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h1>
+<section id="known-crooked-functions">
+<h2>Known Crooked Functions<a class="headerlink" href="#known-crooked-functions" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>All quadratic APN functions are crooked.</p></li>
+<li><p>If a monomial is crooked, then it is quadratic.</p></li>
+<li><p>If a binomial is crooked, then it is quadratic.</p></li>
+<li><p>An open problem is to find a crooked function that is not quadratic.</p></li>
+</ul>
+<span id="references"></span><p class="rubric">References</p>
+</section>
 </section>
 
 
@@ -65,8 +96,11 @@ Original page:</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Crooked Functions</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#">Crooked Functions</a><ul>
+<li><a class="reference internal" href="#characterization-of-crooked-functions">Characterization of Crooked Functions</a></li>
+<li><a class="reference internal" href="#known-crooked-functions">Known Crooked Functions</a></li>
+</ul>
+</li>
 </ul>
 
   </div>
@@ -77,8 +111,8 @@ Original page:</p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="Differential_Distribution_Table_DDT.html"
-                          title="next chapter">Differential Distribution Table (DDT)</a></p>
+    <p class="topless"><a href="Differential_uniformity.html"
+                          title="next chapter">Differential uniformity</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -112,7 +146,7 @@ Original page:</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Differential_Distribution_Table_DDT.html" title="Differential Distribution Table (DDT)"
+          <a href="Differential_uniformity.html" title="Differential uniformity"
              >next</a> |</li>
         <li class="right" >
           <a href="Correlation_immunity_and_resiliency_of_Boolean_functions.html" title="Correlation immunity and resiliency of Boolean functions"

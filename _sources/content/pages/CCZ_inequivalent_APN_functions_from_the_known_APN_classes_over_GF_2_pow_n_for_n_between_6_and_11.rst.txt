@@ -1,3 +1,5 @@
+.. _ccz_inequivalent_apn_functions_from_the_known_apn_classes_over_gf_2_pow_n_for_n_between_6_and_11:
+
 CCZ-equivalence of Families of APN Polynomials over GF(2^n) (6 <= n <= 11)
 ============================================================================
 

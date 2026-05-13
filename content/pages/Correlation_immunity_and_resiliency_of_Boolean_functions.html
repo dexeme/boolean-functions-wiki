@@ -57,8 +57,8 @@ the function produces the keystream, which is then bitwise xored with the
 message to produce the cipher. The decryption consists symmetrically in xoring
 this same keystream with the ciphertext.</p>
 <p>There are a lot of divide-and-conquer attacks on this method of encryption,
-see <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id32" title="Anne Canteaut and Michaël Trabbia. Improved Fast Correlation Attacks Using Parity-Check Equations of Weight 4 and 5. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Bart Preneel, editors, Advances in Cryptology — EUROCRYPT 2000, volume 1807, pages 573–588. Springer Berlin Heidelberg, 2000. doi:10.1007/3-540-45539-6_40.">CT00</a>]</span>, <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id28" title="Thomas Johansson and Fredrik Jönsson. Improved Fast Correlation Attacks on Stream Ciphers via Convolutional Codes. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Jacques Stern, editors, Advances in Cryptology — EUROCRYPT ’99, volume 1592, pages 347–362. Springer Berlin Heidelberg, 1999. doi:10.1007/3-540-48910-X_24.">JJ99</a>]</span>, <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id29" title="Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, Thomas Johansson, and Fredrik Jönsson. Fast Correlation Attacks Based on Turbo Code Techniques. In Michael Wiener, editor, Advances in Cryptology — CRYPTO’ 99, volume 1666, pages 181–197. Springer Berlin Heidelberg, 1999. doi:10.1007/3-540-48405-1_12.">GHL+99</a>]</span>,
-<span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id20" title="Siegenthaler. Decrypting a Class of Stream Ciphers Using Ciphertext Only. IEEE Transactions on Computers, C-34(1):81–85, January 1985. doi:10.1109/TC.1985.1676518.">Sie85</a>]</span>. To resist these attacks the Boolean function must be
+see <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id41" title="Anne Canteaut and Michaël Trabbia. Improved Fast Correlation Attacks Using Parity-Check Equations of Weight 4 and 5. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Bart Preneel, editors, Advances in Cryptology — EUROCRYPT 2000, volume 1807, pages 573–588. Springer Berlin Heidelberg, 2000. doi:10.1007/3-540-45539-6_40.">CT00</a>]</span>, <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id37" title="Thomas Johansson and Fredrik Jönsson. Improved Fast Correlation Attacks on Stream Ciphers via Convolutional Codes. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Jacques Stern, editors, Advances in Cryptology — EUROCRYPT ’99, volume 1592, pages 347–362. Springer Berlin Heidelberg, 1999. doi:10.1007/3-540-48910-X_24.">JJ99</a>]</span>, <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id38" title="Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, Thomas Johansson, and Fredrik Jönsson. Fast Correlation Attacks Based on Turbo Code Techniques. In Michael Wiener, editor, Advances in Cryptology — CRYPTO’ 99, volume 1666, pages 181–197. Springer Berlin Heidelberg, 1999. doi:10.1007/3-540-48405-1_12.">GHL+99</a>]</span>,
+<span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id23" title="Siegenthaler. Decrypting a Class of Stream Ciphers Using Ciphertext Only. IEEE Transactions on Computers, C-34(1):81–85, January 1985. doi:10.1109/TC.1985.1676518.">Sie85</a>]</span>. To resist these attacks the Boolean function must be
 properly chosen: balanceness, large algebraic degree, high nonlinearity, and
 high order correlation immunity.</p>
 <p>The Boolean functions used in stream ciphers must be balanced for avoiding
@@ -67,7 +67,7 @@ large algebraic degree, because its degree conditions are the linear complexity
 of the produced running-key. A third usual criterion is that the function
 should be far from all affine functions regarding Hamming distance, since the
 existence of a “good” approximation of <span class="math notranslate nohighlight">\(f\)</span> by an affine function makes
-fast correlation attacks feasible, see <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id36" title="Claude Carlet. On the Coset Weight Divisibility and Nonlinearity of Resilient and Correlation-Immune Functions. In T. Helleseth, P. V. Kumar, and K. Yang, editors, Sequences and their Applications, pages 131–144. Springer London, 2002. doi:10.1007/978-1-4471-0673-9_9.">Car02</a>]</span>.</p>
+fast correlation attacks feasible, see <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id45" title="Claude Carlet. On the Coset Weight Divisibility and Nonlinearity of Resilient and Correlation-Immune Functions. In T. Helleseth, P. V. Kumar, and K. Yang, editors, Sequences and their Applications, pages 131–144. Springer London, 2002. doi:10.1007/978-1-4471-0673-9_9.">Car02</a>]</span>.</p>
 <p>A fourth criterion on the combining function is that the distribution
 probability of its output should be unaltered when any <span class="math notranslate nohighlight">\(m\)</span> of its inputs
 are fixed, with <span class="math notranslate nohighlight">\(m\)</span> as large as possible. This property is called
@@ -109,7 +109,7 @@ order correlation immune if and only if <span class="math notranslate nohighligh
 <h3>Importance of correlation-immune functions<a class="headerlink" href="#importance-of-correlation-immune-functions" title="Link to this heading">¶</a></h3>
 <p>The notion of correlation-immune function is related to the notion of
 orthogonal array. The notion of correlation immunity was introduced by
-Siegenthaler <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id19" title="T. Siegenthaler. Correlation-immunity of nonlinear combining functions for cryptographic applications (Corresp.). IEEE Transactions on Information Theory, 30(5):776–780, September 1984. doi:10.1109/TIT.1984.1056949.">Sie84</a>]</span>.</p>
+Siegenthaler <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id22" title="T. Siegenthaler. Correlation-immunity of nonlinear combining functions for cryptographic applications (Corresp.). IEEE Transactions on Information Theory, 30(5):776–780, September 1984. doi:10.1109/TIT.1984.1056949.">Sie84</a>]</span>.</p>
 <p>If a combining function is not <span class="math notranslate nohighlight">\(m\)</span>-th order correlation-immune, then
 there exists a correlation between the output of the function and <span class="math notranslate nohighlight">\(m\)</span>
 coordinates of its input. Moreover, if <span class="math notranslate nohighlight">\(m\)</span> is small enough, a
@@ -136,15 +136,15 @@ resiliency order of <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <p>Siegenthaler proved that an <span class="math notranslate nohighlight">\(n\)</span> input 1 output, <span class="math notranslate nohighlight">\(m\)</span>-resilient
 (balanced <span class="math notranslate nohighlight">\(m\)</span>-th order correlation immune) Boolean function with
 algebraic degree <span class="math notranslate nohighlight">\(d\)</span> satisfies the inequality
-<span class="math notranslate nohighlight">\(m + d \leq n - 1\)</span> <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id57" title="Claude Carlet. Boolean Functions for Cryptography and Coding Theory. Cambridge University Press, 1 edition, November 2020. ISBN 978-1-108-60680-6 978-1-108-47380-4. doi:10.1017/9781108606806.">Car20</a>]</span>.</p>
+<span class="math notranslate nohighlight">\(m + d \leq n - 1\)</span> <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id78" title="Claude Carlet. Boolean Functions for Cryptography and Coding Theory. Cambridge University Press, 1 edition, November 2020. ISBN 978-1-108-60680-6 978-1-108-47380-4. doi:10.1017/9781108606806.">Car20</a>]</span>.</p>
 <p>Any <span class="math notranslate nohighlight">\(m\)</span>-resilient function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\(\mathbb{F}^n_2\)</span> has
-nonlinearity smaller than or equal to <span class="math notranslate nohighlight">\(2^{n-1} - 2^{m+1}\)</span> <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id33" title="Palash Sarkar and Subhamoy Maitra. Nonlinearity Bounds and Constructions of Resilient Boolean Functions. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Mihir Bellare, editors, Advances in Cryptology — CRYPTO 2000, volume 1880, pages 515–532. Springer Berlin Heidelberg, 2000. doi:10.1007/3-540-44598-6_32.">SM00</a>]</span>, also
-independently obtained by <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id34" title="Yuriy V. Tarannikov. On Resilient Boolean Functions with Maximal Possible Nonlinearity. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, Bimal Roy, and Eiji Okamoto, editors, Progress in Cryptology —INDOCRYPT 2000, volume 1977, pages 19–30. Springer Berlin Heidelberg, 2000. doi:10.1007/3-540-44495-5_3.">Tar00</a>]</span>.</p>
+nonlinearity smaller than or equal to <span class="math notranslate nohighlight">\(2^{n-1} - 2^{m+1}\)</span> <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id42" title="Palash Sarkar and Subhamoy Maitra. Nonlinearity Bounds and Constructions of Resilient Boolean Functions. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Mihir Bellare, editors, Advances in Cryptology — CRYPTO 2000, volume 1880, pages 515–532. Springer Berlin Heidelberg, 2000. doi:10.1007/3-540-44598-6_32.">SM00</a>]</span>, also
+independently obtained by <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id43" title="Yuriy V. Tarannikov. On Resilient Boolean Functions with Maximal Possible Nonlinearity. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, Bimal Roy, and Eiji Okamoto, editors, Progress in Cryptology —INDOCRYPT 2000, volume 1977, pages 19–30. Springer Berlin Heidelberg, 2000. doi:10.1007/3-540-44495-5_3.">Tar00</a>]</span>.</p>
 </section>
 <section id="walsh-transform">
 <h2>Walsh transform<a class="headerlink" href="#walsh-transform" title="Link to this heading">¶</a></h2>
 <p>Correlation immunity and resiliency can be characterized through the Walsh
-transform of the Boolean function <span class="math notranslate nohighlight">\(f\)</span> <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id21" title="G.-Z. Xiao and J.L. Massey. A spectral characterization of correlation-immune combining functions. IEEE Transactions on Information Theory, 34(3):569–571, May 1988. doi:10.1109/18.6037.">XM88</a>]</span>.</p>
+transform of the Boolean function <span class="math notranslate nohighlight">\(f\)</span> <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id24" title="G.-Z. Xiao and J.L. Massey. A spectral characterization of correlation-immune combining functions. IEEE Transactions on Information Theory, 34(3):569–571, May 1988. doi:10.1109/18.6037.">XM88</a>]</span>.</p>
 <p>The discrete Fourier transform of <span class="math notranslate nohighlight">\(f\)</span> is by definition the function
 <span class="math notranslate nohighlight">\(\widehat{f}\)</span> defined by</p>
 <div class="math notranslate nohighlight">
@@ -172,54 +172,52 @@ mapping such that
 Then <span class="math notranslate nohighlight">\(f_{\phi , g}(x, y)\)</span> is <span class="math notranslate nohighlight">\(m\)</span>-resilient with <span class="math notranslate nohighlight">\(m \geq k\)</span>
 if every element in <span class="math notranslate nohighlight">\(\phi(\mathbb{F}_2^{n-r})\)</span> has Hamming weight
 strictly greater than <span class="math notranslate nohighlight">\(k\)</span> :cite:p:<a href="#id12"><span class="problematic" id="id13">``</span></a>.</p>
-</section>
-</section>
-<section id="references">
-<h1>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h1>
+<span id="references"></span><p class="rubric">References</p>
 <div class="docutils container" id="id14">
 <div role="list" class="citation-list">
-<div class="citation" id="id32" role="doc-biblioentry">
+<div class="citation" id="id41" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">CT00</a><span class="fn-bracket">]</span></span>
 <p>Anne Canteaut and Michaël Trabbia. Improved Fast Correlation Attacks Using Parity-Check Equations of Weight 4 and 5. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Bart Preneel, editors, <em>Advances in Cryptology — EUROCRYPT 2000</em>, volume 1807, pages 573–588. Springer Berlin Heidelberg, 2000. <a class="reference external" href="https://doi.org/10.1007/3-540-45539-6_40">doi:10.1007/3-540-45539-6_40</a>.</p>
 </div>
-<div class="citation" id="id36" role="doc-biblioentry">
+<div class="citation" id="id45" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Car02</a><span class="fn-bracket">]</span></span>
 <p>Claude Carlet. On the Coset Weight Divisibility and Nonlinearity of Resilient and Correlation-Immune Functions. In T. Helleseth, P. V. Kumar, and K. Yang, editors, <em>Sequences and their Applications</em>, pages 131–144. Springer London, 2002. <a class="reference external" href="https://doi.org/10.1007/978-1-4471-0673-9_9">doi:10.1007/978-1-4471-0673-9_9</a>.</p>
 </div>
-<div class="citation" id="id57" role="doc-biblioentry">
+<div class="citation" id="id78" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Car20</a><span class="fn-bracket">]</span></span>
 <p>Claude Carlet. <em>Boolean Functions for Cryptography and Coding Theory</em>. Cambridge University Press, 1 edition, November 2020. ISBN 978-1-108-60680-6 978-1-108-47380-4. <a class="reference external" href="https://doi.org/10.1017/9781108606806">doi:10.1017/9781108606806</a>.</p>
 </div>
-<div class="citation" id="id29" role="doc-biblioentry">
+<div class="citation" id="id38" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">GHL+99</a><span class="fn-bracket">]</span></span>
 <p>Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, Thomas Johansson, and Fredrik Jönsson. Fast Correlation Attacks Based on Turbo Code Techniques. In Michael Wiener, editor, <em>Advances in Cryptology — CRYPTO’ 99</em>, volume 1666, pages 181–197. Springer Berlin Heidelberg, 1999. <a class="reference external" href="https://doi.org/10.1007/3-540-48405-1_12">doi:10.1007/3-540-48405-1_12</a>.</p>
 </div>
-<div class="citation" id="id28" role="doc-biblioentry">
+<div class="citation" id="id37" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">JJ99</a><span class="fn-bracket">]</span></span>
 <p>Thomas Johansson and Fredrik Jönsson. Improved Fast Correlation Attacks on Stream Ciphers via Convolutional Codes. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Jacques Stern, editors, <em>Advances in Cryptology — EUROCRYPT ’99</em>, volume 1592, pages 347–362. Springer Berlin Heidelberg, 1999. <a class="reference external" href="https://doi.org/10.1007/3-540-48910-X_24">doi:10.1007/3-540-48910-X_24</a>.</p>
 </div>
-<div class="citation" id="id33" role="doc-biblioentry">
+<div class="citation" id="id42" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">SM00</a><span class="fn-bracket">]</span></span>
 <p>Palash Sarkar and Subhamoy Maitra. Nonlinearity Bounds and Constructions of Resilient Boolean Functions. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, and Mihir Bellare, editors, <em>Advances in Cryptology — CRYPTO 2000</em>, volume 1880, pages 515–532. Springer Berlin Heidelberg, 2000. <a class="reference external" href="https://doi.org/10.1007/3-540-44598-6_32">doi:10.1007/3-540-44598-6_32</a>.</p>
 </div>
-<div class="citation" id="id20" role="doc-biblioentry">
+<div class="citation" id="id23" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Sie85</a><span class="fn-bracket">]</span></span>
 <p>Siegenthaler. Decrypting a Class of Stream Ciphers Using Ciphertext Only. <em>IEEE Transactions on Computers</em>, C-34(1):81–85, January 1985. <a class="reference external" href="https://doi.org/10.1109/TC.1985.1676518">doi:10.1109/TC.1985.1676518</a>.</p>
 </div>
-<div class="citation" id="id19" role="doc-biblioentry">
+<div class="citation" id="id22" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Sie84</a><span class="fn-bracket">]</span></span>
 <p>T. Siegenthaler. Correlation-immunity of nonlinear combining functions for cryptographic applications (Corresp.). <em>IEEE Transactions on Information Theory</em>, 30(5):776–780, September 1984. <a class="reference external" href="https://doi.org/10.1109/TIT.1984.1056949">doi:10.1109/TIT.1984.1056949</a>.</p>
 </div>
-<div class="citation" id="id34" role="doc-biblioentry">
+<div class="citation" id="id43" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">Tar00</a><span class="fn-bracket">]</span></span>
 <p>Yuriy V. Tarannikov. On Resilient Boolean Functions with Maximal Possible Nonlinearity. In Gerhard Goos, Juris Hartmanis, Jan Van Leeuwen, Bimal Roy, and Eiji Okamoto, editors, <em>Progress in Cryptology —INDOCRYPT 2000</em>, volume 1977, pages 19–30. Springer Berlin Heidelberg, 2000. <a class="reference external" href="https://doi.org/10.1007/3-540-44495-5_3">doi:10.1007/3-540-44495-5_3</a>.</p>
 </div>
-<div class="citation" id="id21" role="doc-biblioentry">
+<div class="citation" id="id24" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">XM88</a><span class="fn-bracket">]</span></span>
 <p>G.-Z. Xiao and J.L. Massey. A spectral characterization of correlation-immune combining functions. <em>IEEE Transactions on Information Theory</em>, 34(3):569–571, May 1988. <a class="reference external" href="https://doi.org/10.1109/18.6037">doi:10.1109/18.6037</a>.</p>
 </div>
 </div>
 </div>
+</section>
 </section>
 
 
@@ -248,7 +246,6 @@ strictly greater than <span class="math notranslate nohighlight">\(k\)</span> :c
 <li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 
   </div>
