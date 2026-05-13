@@ -1,8 +1,12 @@
 Boolean Functions Wiki
 ======================
 
-Lorem ipsum dolor sit amet.
-
+**Work in Progress**: This site is currently being redesigned as part of my final graduation project.
+My goal is to breathe new life into the Boolean Functions Wiki by turning it into a truly practical
+resource for the community. Rather than just listing results, I’m building a relational database to
+map functions and equations, making everything searchable and interconnected. Most importantly, I’m
+focusing on reproducibility, replacing broken links and pseudocode with actual, executable code in C and Julia.
+It's still a work in progress, but the aim is to create a reliable, centralized hub where the math actually runs.
 
 Codes
 -----
