@@ -20,6 +20,7 @@ htmlcov/
 # Sphinx build outputs and cache
 /build/
 /docs/build/
+/docs/_build/
 /docs/.doctrees/
 *.doctree
 *.bak
@@ -38,4 +39,6 @@ Thumbs.db
 #/data/
 *.sqlite
 *.sqlite3
+/build/
+/_build/
 /build/
