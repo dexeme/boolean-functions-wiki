@@ -1,3 +1,3 @@
-ID,Functions,Conditions,Source
+ID,Function,Conditions,Source
 F23,"`(x^{q+1}+x^qz+yz^q,\ x^qz+y^{q+1},\ xy^q+y^qz+z^{q+1})`","`\gcd(m,7)=1`<br>`q=2^i`<br>`\gcd(i,m)=1\text{ and the bivariate polynomial in }[\text{Conjecture }6]\text{ has no root}`",":cite:p:`Li:202402`"
 F24,"`(x^{q+1}+xy^q+yz^q,\ xy^q+z^{q+1},\ x^qz+y^{q+1}+y^qz)`","`\gcd(m,7)=1`<br>`q=2^i`<br>`\gcd(i,m)=1\text{ and the bivariate polynomial in }[\text{Conjecture }11]\text{ has no root}`",":cite:p:`Li:202402`"

@@ -1,4 +1,4 @@
-`N^\circ`,Functions,Conditions,References
+`N^\circ`,Function,Conditions,References
 C1-C2,`x^{2^s+1} + u^{2^k-1}x^{2^{ik}+2^{mk+s}}`,"`n = pk`<br>`\gcd(k, 3) = \gcd(s, 3k) = 1`<br>`p \in \{3, 4\}`<br>`i = sk \pmod p`<br>`m = p - i`<br>`n \geq 12`<br>`u` primitive in `\mathbb{F}_{2^n}^*`",:cite:p:`Budaghyan:200809`
 C3,`sx^{q+1} + x^{2^i+1} + x^{q(2^i+1)} + cx^{2^iq+1} + c^qx^{2^i+q}`,"`q = 2^m`<br>`n = 2m`<br>`\gcd(i, m) = 1`<br>`c \in \mathbb{F}_{2^n}`<br>`s \in \mathbb{F}_{2^n} \setminus \mathbb{F}_q`<br>`X^{2^i+1} + cX^{2^i} + c^qX + 1` has no solution `x` s.t. `x^{q+1} = 1`",:cite:p:`Budaghyan:200805`
 C4,`x^3 + a^{-1}\text{Tr}_n(a^3x^9)`,`a \neq 0`,:cite:p:`Budaghyan:200904`

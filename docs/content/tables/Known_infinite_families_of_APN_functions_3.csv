@@ -1,4 +1,4 @@
-ID,Functions,Conditions,Source
+ID,Function,Conditions,Source
 F14,"`(xy,\ x^{2^k+1}+\alpha y^{(2^k+1)2^i})`","`i\text{ even}`<br>`\gcd(k,m)=1`<br>`m\text{ even}`<br>`\alpha\text{ not a cube}`",":cite:p:`Zhou:201302`"
 F15,"`(xy,\ x^{2^{2i}+2^{3i}} + ax^{2^{2i}}y^{2^i} + by^{2^i+1})`","`\gcd(i,m)=1`<br>`a\in\mathbb{F}_2`<br>`x^{2^i+1}+ax+b\text{ has no root in }\mathbb{F}_{2^m}`",":cite:p:`Taniguchi:201909`"
 F16,"`(xy,\ x^{2^i+1}+x^{2^{i+m/2}}y^{2^{m/2}}+bxy^{2^i}+cy^{2^i+1})`","`\gcd(i,m)=1`<br>`(cx^{2^i+1}+bx^{2^i}+1)^{2^{m/2}+1}+x^{2^{m/2}+1}\text{ has no roots in }\mathbb{F}_{2^m}`",":cite:p:`Calderini:202100`"

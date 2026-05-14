@@ -1,4 +1,4 @@
-dim,`N^\circ`,Function,`\Gamma`-rank,`\Delta`-rank,`|\operatorname{Aut}(\operatorname{dev}(G_F))|/2^{2n}`,`|\operatorname{Aut}(\operatorname{dev}(G_F))|/2^{2n}`,Multiplier group
+Dim,`N^\circ`,Function,`\Gamma`-rank,`\Delta`-rank,`|\operatorname{Aut}(\operatorname{dev}(G_F))|/2^{2n}`,`|\operatorname{Aut}(\operatorname{dev}(G_F))|/2^{2n}`,Multiplier group
 5,1.1,`x^{3}`,330,42,4960,4960,4960
 1.2,`x^{5}`,330,42,4960,158720,4960
 2.1,`x^{-1}`,496,232,310,310,310
