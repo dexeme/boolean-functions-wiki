@@ -56,4 +56,4 @@ Content
    :titlesonly:
    :glob:
 
-   content/pages/*
+   content/pages/*/index
