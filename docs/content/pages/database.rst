@@ -14,18 +14,17 @@ Database Terminal
 
 .. raw:: html
 
-   <p>
+   <p class="database-links">
      <a id="sqlite-database-link" href="../../database/boolean_wiki.db">Open boolean_wiki.db directly</a>
      <br>
      <a id="datasette-lite-link" href="https://lite.datasette.io/">Open boolean_wiki.db in Datasette Lite</a>
    </p>
-   <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+   <div class="datasette-frame">
        <iframe
            id="datasette-iframe"
            src="about:blank"
            width="100%"
-           height="600"
-           frameborder="0">
+           height="640">
        </iframe>
    </div>
 

@@ -1,0 +1,21 @@
+.database-links {
+  margin: 1rem 0;
+}
+
+.database-links a {
+  display: inline-block;
+  margin: 0.2rem 0;
+}
+
+.datasette-frame {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.datasette-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 640px;
+  border: 0;
+}

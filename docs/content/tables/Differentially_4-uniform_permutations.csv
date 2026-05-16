@@ -1,13 +1,14 @@
 Function,Conditions,References
-`x^{2^i+1}`,"`gcd(i, n) = 2, n = 2t` and `t` is odd",":cite:p:`Gold:196801`, :cite:p:`Nyberg:199400`"
+`x^{2^i+1}`,"`gcd(i, n) = 2, n = 2t` and `t` is odd",":cite:p:`Gold:196801 {Theorem 1}`, <br> :cite:p:`Nyberg:199400 {Proposition 3}`"
 `x^{2^{2i}-2^i+1}`,"`gcd(i, n) = 2, n = 2t` and `t` is odd",:cite:p:`Kasami:197105`
-`x^{2^n-2}`,`n = 2t` (inverse),":cite:p:`Nyberg:199400`, :cite:p:`Lachaud:199000`"
-`x^{2^{2t}+2^t+1}`,`n = 4t` and `t` is odd,:cite:p:`Bracken:200901`
-`\alpha x^{2^s+1} + \alpha^{2^t} x^{2^{-t+2^{t+s}}}`,"`n = 3t,` <br> `t/2` is odd, <br> `gcd(n, s) = 2,` <br> `3|t + s` and `\alpha` is a primitive element in `\mathbb{F}_{2^n}`",:cite:p:`Tan:201200`
-`x^{-1} + Tr_1^n(x + (x^{-1} + 1)^{-1})`,`n = 2t` is even,:cite:p:`Tan:201200`
-`x^{-1} + Tr_1^n(x^{-3(2^k+1)} + (x^{-1} + 1)^{3(2^k+1)})`,`n = 2t` and `2 \leq k \leq t - 1`,:cite:p:`Tan:201200`
-`L_u(F^{-1}(x))|_{H_u}`,"`n = 2t, F(x)` is a quadratic APN permutation on `\mathbb{F}_{2^{n+1}},` <br> `u \in \mathbb{F}_{2^{n+1}}^*`, <br> `L_u(x) = F(x) + F(x+u) + F(u)`, <br> `H_u = \{L_u(x) | x \in \mathbb{F}_{2^{n+1}}\}`",:cite:p:`Li:201408`
-`\sum_{i=0}^{2^n-3} x^i`,"`n = 2t`, `t` is odd",:cite:p:`Yuyin:201307`
-`x^{-1} + t(x^{2^s} + x)^{2^{sn}-1}`,"`s` is even, `t \in \mathbb{F}_{2^s}^*`, <br> or <br> `s, n` are odd, `t \in \mathbb{F}_{2^s}^*`",:cite:p:`Zha:201401`
+`x^{2^n-2}`,`n = 2t` (inverse),":cite:p:`Nyberg:199400 {Proposition 5}`, <br> :cite:p:`Lachaud:199000`"
+`x^{2^{2t}+2^t+1}`,`n = 4t` and `t` is odd,:cite:p:`Bracken:200901 {Theorem 1}`
+`\alpha x^{2^s+1} + \alpha^{2^t} x^{2^{-t+2^{t+s}}}`,"`n = 3t,` <br> `t/2` is odd, <br> `gcd(n, s) = 2,` <br> `3|t + s` and `\alpha` is a primitive element in `\mathbb{F}_{2^n}`",:cite:p:`Bracken:201205 {Theorem 1}`
+`x^{-1} + Tr_1^n(x + (x^{-1} + 1)^{-1})`,`n = 2k` is even,:cite:p:`Tan:201200 {Theorem 1}`
+`x^{-1} + Tr_1^n(x^{-3(2^k+1)} + (x^{-1} + 1)^{3(2^k+1)})`,`n = 2k` and `2 \leq t \leq k - 1`,:cite:p:`Tan:201200 {Theorem 2}`
+`L_u(F^{-1}(x))|_{H_u}`,"`n` is even, <br> `n = 2t, F(x)` is a quadratic APN permutation on `\mathbb{F}_{2^{n+1}},` <br> `F(0) = 0`, <br> `u \in \mathbb{F}_{2^{n+1}}^*`, <br> `L_u(x) = F(x) + F(x+u) + F(u)`, <br> `H_u = \{L_u(x) | x \in \mathbb{F}_{2^{n+1}}\}`",:cite:p:`Li:201408 {Theorem 2}`
+`(x+v)^{-1} + v(x^2+vx)^{-1}`,"`n = 4r + 2` and `r \ge 1`",:cite:p:`Yuyin:201307 {Proposition 3}`
+"`I_{(u,v)}(x)`","`n = 2m` (`m \ge 1`), <br> `Tr(uv^{-1}) = 1` and `Tr(u^{-1}v) = 1`",:cite:p:`Yuyin:201307 {Theorem 1}`
+`x^{-1} + t(x^{2^s} + x)^{2^{sn}-1}`,"`s` is even, <br> `t \in \mathbb{F}_{2^s}^*`, <br> or <br> `s, n` are odd, <br> `t \in \mathbb{F}_{2^s}^*`",:cite:p:`Zha:201401 {Equation 3}`
 `x^{2^k+1} + t(x^{2^s} + x)^{2^{sn}-1}`,"`n, s` are odd, `t \in \mathbb{F}_{2^s}^*, gcd(k, sn) = 1`",:cite:p:`Tan:201200`
 "`(x, x_n) \mapsto ((1 + x_n)x^{-1} + x_n \alpha x^{-1}, f(x, x_n))`","`n` is even <br> `x, \alpha \in \mathbb{F}_{2^{n-1}},` <br> `x_n \in \mathbb{F}_2,` <br> `Tr_{n-1}(\alpha) = Tr_{n-1}(1/\alpha) = 1`, <br> `f(x, f(x, x_n)` is `(n, 1)`-function",:cite:p:`Carlet:201400`

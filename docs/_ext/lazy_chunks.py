@@ -13,7 +13,12 @@ _NO_SPLIT_MAX_ROWS = 10**9
 
 _MATHJAX_SCRIPT_URL = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 _CITATION_LABEL_CACHE: dict[tuple[str, ...], dict[str, str]] = {}
-_CITE_RE = re.compile(r":cite:p:`([^`]+)`")
+_CITE_RE = re.compile(r":cite:[pt]:`([^`]+)`")
+_CITE_TARGET_RE = re.compile(
+    r"\s*(?:[{](?P<pre>[^{}]+)[}])?"
+    r"\s*(?P<key>[^{}\s,]+)"
+    r"\s*(?:[{](?P<post>[^{}]+)[}])?\s*"
+)
 
 
 _CHUNK_MATHJAX_BOOTSTRAP = """
@@ -190,17 +195,42 @@ def _math_html_with_soft_breaks(value: str) -> str:
     return "".join(rendered)
 
 
+def _citation_targets(keys_text: str) -> list[tuple[str, str, str]]:
+    targets: list[tuple[str, str, str]] = []
+    pos = 0
+    while pos < len(keys_text):
+        match = _CITE_TARGET_RE.match(keys_text, pos)
+        if match is None:
+            break
+        key = match.group("key").strip()
+        if key:
+            targets.append(
+                (key, match.group("pre") or "", match.group("post") or "")
+            )
+        pos = match.end()
+        if pos >= len(keys_text):
+            break
+        if keys_text[pos] != ",":
+            break
+        pos += 1
+    return targets
+
+
 def _citation_html(keys_text: str, citation_labels: dict[str, str] | None = None) -> str:
-    keys = [key.strip() for key in keys_text.split(",") if key.strip()]
     rendered_keys = []
-    for key in keys:
+    for key, pre_text, post_text in _citation_targets(keys_text):
         label = (citation_labels or {}).get(key, key)
+        label_text = label
+        if pre_text:
+            label_text = f"{pre_text} {label_text}"
+        if post_text:
+            label_text = f"{label_text}, {post_text}"
         rendered_keys.append(
             '<a class="reference internal" href="#references" '
             'data-bibtex-key="{}" onclick="if (window.parent && window.parent !== window) '
             '{{ window.parent.location.hash = \'references\'; return false; }}">{}</a>'.format(
                 html_escape(key, quote=True),
-                html_escape(label),
+                html_escape(label_text),
             )
         )
     return '<span class="bibtex-citation">[{}]</span>'.format(
@@ -211,7 +241,7 @@ def _citation_html(keys_text: str, citation_labels: dict[str, str] | None = None
 def _citation_keys_from_text(text: str) -> list[str]:
     keys: list[str] = []
     for match in _CITE_RE.finditer(text):
-        keys.extend(key.strip() for key in match.group(1).split(",") if key.strip())
+        keys.extend(key for key, _pre, _post in _citation_targets(match.group(1)))
     return keys
 
 

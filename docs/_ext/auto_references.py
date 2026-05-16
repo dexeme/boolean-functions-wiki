@@ -6,6 +6,11 @@ import re
 
 
 _CITE_RE = re.compile(r":cite:[pt]:`([^`]+)`")
+_CITE_TARGET_RE = re.compile(
+    r"\s*(?:[{][^{}]+[}])?"
+    r"\s*(?P<key>[^{}\s,]+)"
+    r"\s*(?:[{][^{}]+[}])?\s*"
+)
 _DIRECTIVE_RE = re.compile(r"\s*\.\.\s+(csv-table|lazychunks|references)::")
 _OPTION_RE = re.compile(r"\s*:([A-Za-z0-9_-]+):\s*(.*?)\s*$")
 
@@ -13,7 +18,26 @@ _OPTION_RE = re.compile(r"\s*:([A-Za-z0-9_-]+):\s*(.*?)\s*$")
 def _citation_keys_from_text(text: str) -> list[str]:
     keys: list[str] = []
     for match in _CITE_RE.finditer(text):
-        keys.extend(key.strip() for key in match.group(1).split(",") if key.strip())
+        keys.extend(_citation_keys_from_targets(match.group(1)))
+    return keys
+
+
+def _citation_keys_from_targets(targets: str) -> list[str]:
+    keys: list[str] = []
+    pos = 0
+    while pos < len(targets):
+        match = _CITE_TARGET_RE.match(targets, pos)
+        if match is None:
+            break
+        key = match.group("key").strip()
+        if key:
+            keys.append(key)
+        pos = match.end()
+        if pos >= len(targets):
+            break
+        if targets[pos] != ",":
+            break
+        pos += 1
     return keys
 
 

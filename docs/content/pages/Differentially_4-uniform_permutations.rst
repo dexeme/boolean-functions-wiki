@@ -6,13 +6,11 @@ Original page:
 
 :link:`https://boolean.wiki.uib.no/Differentially_4-uniform_permutations  <https://boolean.wiki.uib.no/Differentially_4-uniform_permutations>`
 
-
 .. csv-table::
     :file: ../tables/Differentially_4-uniform_permutations.csv
     :header-rows: 1
-    :widths: 7 10 2
+    :widths: 7 10 3
     :font-size: +1 +1 -2
-
 
 
 References
