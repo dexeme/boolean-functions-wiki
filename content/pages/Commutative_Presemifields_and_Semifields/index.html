@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Commutative Presemifields and Semifields &#8212; Boolean Functions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=b602aa31" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=185a0eb9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/database.css?v=f3a26237" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script src="../../../_static/sagecell-init.js?v=dde391b2"></script>
+    
+    <script src="../../../_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Conferences in Boolean Functions" href="../Conferences_in_Boolean_Functions/index.html" />
+    <link rel="prev" title="Classification of Quadratic APN Trinomials, Quadrinomials, Pentanomials, Hexanomials (CCZ-inequivalent with infinite monomial families) in Small Dimensions with all Coefficients equal to 1" href="../Classification_of_Quadratic_APN_Trinomials_Quadrinomials_Pentanomials_Hexanomials_CCZ_inequivalent_with_infinite_monomial_families_in_Small_Dimensions_with_all_Coefficients_equal_to_1/index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Conferences_in_Boolean_Functions/index.html" title="Conferences in Boolean Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Classification_of_Quadratic_APN_Trinomials_Quadrinomials_Pentanomials_Hexanomials_CCZ_inequivalent_with_infinite_monomial_families_in_Small_Dimensions_with_all_Coefficients_equal_to_1/index.html" title="Classification of Quadratic APN Trinomials, Quadrinomials, Pentanomials, Hexanomials (CCZ-inequivalent with infinite monomial families) in Small Dimensions with all Coefficients equal to 1"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Boolean Functions  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Commutative Presemifields and Semifields</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="commutative-presemifields-and-semifields">
+<h1>Commutative Presemifields and Semifields<a class="headerlink" href="#commutative-presemifields-and-semifields" title="Link to this heading">¶</a></h1>
+<p>Content extracted from <code class="docutils literal notranslate"><span class="pre">data/Commutative_Presemifields_and_Semifields.txt</span></code>.
+Original page:</p>
+<p><a href="https://boolean.wiki.uib.no/Commutative_Presemifields_and_Semifields" target="_blank" rel="noopener noreferrer">https://boolean.wiki.uib.no/Commutative_Presemifields_and_Semifields</a></p>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>For a prime <span class="math notranslate nohighlight">\(p\)</span> and a positive integer <span class="math notranslate nohighlight">\(n\)</span>, let
+<span class="math notranslate nohighlight">\(\mathbb {F} _{p^{n}}\)</span> be the finite field with <span class="math notranslate nohighlight">\(p^{n}\)</span>
+elements. Let <span class="math notranslate nohighlight">\(F\)</span> be a map from the finite field to itself. Such a
+function admits a unique representation as a polynomial of degree at most
+<span class="math notranslate nohighlight">\(p^{n}-1\)</span>, i.e.
+<span class="math notranslate nohighlight">\(F(x)=\sum_{j=0}^{p^n-1}a_jx^j, a_j\in\mathbb{F}_{p^n}\)</span>.</p>
+<p>The function <span class="math notranslate nohighlight">\(F\)</span> is:</p>
+<ul class="simple">
+<li><p>linear if <span class="math notranslate nohighlight">\(F(x)=\sum_{j=0}^{n-1}a_jx^{p^j}\)</span>;</p></li>
+<li><p>affine if it is the sum of a linear function and a constant;</p></li>
+<li><p>a DO (Dembowski-Ostrim) polynomial if
+<span class="math notranslate nohighlight">\(F(x)=\sum_{0\le i\le j&lt;n}a_{ij}x^{p^i+p^j}\)</span>;</p></li>
+<li><p>quadratic if it is the sum of a DO polynomial and an affine function.</p></li>
+</ul>
+<p>For <span class="math notranslate nohighlight">\(\delta\)</span> a positive integer, the function <span class="math notranslate nohighlight">\(F\)</span> is called
+differentially <span class="math notranslate nohighlight">\(\delta\)</span>-uniform if, for any pairs
+<span class="math notranslate nohighlight">\(a,b\in\mathbb{F}_{p^n}\)</span> with <span class="math notranslate nohighlight">\(a\ne0\)</span>, the equation
+<span class="math notranslate nohighlight">\(F(x+a)-F(x)=b\)</span> admits at most <span class="math notranslate nohighlight">\(\delta\)</span> solutions.</p>
+<p>A function <span class="math notranslate nohighlight">\(F\)</span> is called planar or perfect nonlinear (PN) if
+<span class="math notranslate nohighlight">\(\delta_F=1\)</span>. Obviously such functions exist only for <span class="math notranslate nohighlight">\(p\)</span> an odd
+prime. In the even case the smallest possible case for <span class="math notranslate nohighlight">\(\delta\)</span> is two
+(<a class="reference external" href="Differential_uniformity.html">APN</a> function). For planar functions, all
+the nonzero derivatives <span class="math notranslate nohighlight">\(D_aF(x)=F(x+a)-F(x)\)</span> are permutations.</p>
+</section>
+<section id="equivalence-relations">
+<h2>Equivalence Relations<a class="headerlink" href="#equivalence-relations" title="Link to this heading">¶</a></h2>
+<p>Two functions <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(F'\)</span> from <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> to itself
+are called:</p>
+<ul class="simple">
+<li><p>affine equivalent if <span class="math notranslate nohighlight">\(F'=A_1\circ F\circ A_2\)</span>, where
+<span class="math notranslate nohighlight">\(A_1,A_2\)</span> are affine permutations;</p></li>
+<li><p>EA-equivalent (extended-affine) if <span class="math notranslate nohighlight">\(F'=F''+A\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is
+affine and <span class="math notranslate nohighlight">\(F''\)</span> is affine equivalent to <span class="math notranslate nohighlight">\(F\)</span>;</p></li>
+<li><p>CCZ-equivalent if there exists an affine permutation <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> of
+<span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\times\mathbb{F}_{p^n}\)</span> such that
+<span class="math notranslate nohighlight">\(\mathcal{L}(G_F)=G_{F'}\)</span>, where
+<span class="math notranslate nohighlight">\(G_F=\lbrace (x,F(x)) : x\in\mathbb{F}_{p^n}\rbrace\)</span>.</p></li>
+</ul>
+<p>CCZ-equivalence is the most general known equivalence relation for functions
+which preserves differential uniformity. Affine and EA-equivalence are its
+particular cases.</p>
+<p>For the case of quadratic planar functions the isotopic equivalence is more
+general than CCZ-equivalence, where two maps are isotopic equivalent if the
+corresponding presemifields are isotopic.</p>
+</section>
+<section id="on-presemifields-and-semifields">
+<h2>On Presemifields and Semifields<a class="headerlink" href="#on-presemifields-and-semifields" title="Link to this heading">¶</a></h2>
+<p>A presemifield is a ring with left and right distributivity and with no zero
+divisor. A presemifield with a multiplicative identity is called a semifield.</p>
+<p>Any finite presemifield can be represented by
+<span class="math notranslate nohighlight">\(\mathbb{S}=(\mathbb{F}_{p^n},+,\star)\)</span>, for <span class="math notranslate nohighlight">\(p\)</span> a prime,
+<span class="math notranslate nohighlight">\(n\)</span> a positive integer, <span class="math notranslate nohighlight">\(\mathbb{S}=(\mathbb{F}_{p^n},+)\)</span>
+additive group and <span class="math notranslate nohighlight">\(x\star y\)</span> multiplication linear in each variable.
+Every commutative presemifield can be transformed into a commutative
+semifield <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id38" title="Robert S. Coulter and Marie Henderson. Commutative presemifields and semifields. Advances in Mathematics, 217(1):282–304, January 2008. doi:10.1016/j.aim.2007.07.007.">CH08</a>]</span>.</p>
+<p>Two presemifields <span class="math notranslate nohighlight">\(\mathbb{S}_1=(\mathbb{F}_{p^n},+,\star)\)</span> and
+<span class="math notranslate nohighlight">\(\mathbb{S}_2=(\mathbb{F}_{p^n},+,\circ)\)</span> are called isotopic if there
+exist three linear permutations <span class="math notranslate nohighlight">\(T,M,N\)</span> of <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> such
+that <span class="math notranslate nohighlight">\(T(x\star y)=M(x)\circ N(y)\)</span> for any
+<span class="math notranslate nohighlight">\(x,y\in\mathbb{F}_{p^n}\)</span>. If <span class="math notranslate nohighlight">\(M=N\)</span>, then they are called strongly
+isotopic.</p>
+<p>Each commutative presemifield of odd order defines a planar DO polynomial and
+vice versa:</p>
+<ul class="simple">
+<li><p>given <span class="math notranslate nohighlight">\(\mathbb{S}=(\mathbb{F}_{p^n},+,\star)\)</span>, let
+<span class="math notranslate nohighlight">\(F_\mathbb{S}(x)=\frac{1}{2}(x\star x)\)</span>;</p></li>
+<li><p>given <span class="math notranslate nohighlight">\(F\)</span>, let
+<span class="math notranslate nohighlight">\(\mathbb{S}_F=(\mathbb{F}_{p^n},+,\star)\)</span> be defined by
+<span class="math notranslate nohighlight">\(x\star y=F(x+y)-F(x)-F(y)\)</span>.</p></li>
+</ul>
+<p>Given <span class="math notranslate nohighlight">\(\mathbb{S}=(\mathbb{F}_{p^n},+,\star)\)</span> a finite semifield, the
+subsets</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N_l(\mathbb{S})=\{\alpha\in\mathbb{S} : (\alpha\star x)\star y=\alpha\star(x\star y) \text{ for all } x,y\in\mathbb{S}\}\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_m(\mathbb{S})=\{\alpha\in\mathbb{S} : (x\star\alpha)\star y=x\star(\alpha\star y) \text{ for all } x,y\in\mathbb{S}\}\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_r(\mathbb{S})=\{\alpha\in\mathbb{S} : (x\star y)\star \alpha=x\star(y\star \alpha) \text{ for all } x,y\in\mathbb{S}\}\)</span>;</p></li>
+</ul>
+<p>are called left, middle and right nucleus of <span class="math notranslate nohighlight">\(\mathbb{S}\)</span>. The set
+<span class="math notranslate nohighlight">\(N(\mathbb{S})=N_l(\mathbb{S})\cap N_m(\mathbb{S})\cap N_r(\mathbb{S})\)</span>
+is called the nucleus.</p>
+<p>All these sets are finite fields and, when <span class="math notranslate nohighlight">\(\mathbb{S}\)</span> is commutative,
+<span class="math notranslate nohighlight">\(N_l(\mathbb{S})=N_r(\mathbb{S})\subseteq N_m(\mathbb{S})\)</span>. The order of
+the different nuclei are invariant under isotopism.</p>
+</section>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<p>Hence two quadratic planar functions <span class="math notranslate nohighlight">\(F,F'\)</span> are isotopic equivalent if
+their corresponding presemifields are isotopic. Moreover, we have:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F,F'\)</span> are CCZ-equivalent if and only if the corresponding
+presemifields are strongly isotopic <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id49" title="Lilya Budaghyan and Tor Helleseth. ON ISOTOPISMS OF COMMUTATIVE PRESEMIFIELDS AND CCZ-EQUIVALENCE OF FUNCTIONS. International Journal of Foundations of Computer Science, 22(06):1243–1258, September 2011. doi:10.1142/S0129054111008684.">BH11</a>]</span>;</p></li>
+<li><p>for <span class="math notranslate nohighlight">\(n\)</span> odd, isotopic coincides with strongly isotopic;</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(F,F'\)</span> are isotopic equivalent, then there exists a linear map
+<span class="math notranslate nohighlight">\(L\)</span> such that <span class="math notranslate nohighlight">\(F'\)</span> is EA-equivalent to
+<span class="math notranslate nohighlight">\(F(x+L(x))-F(x)-F(L(x))\)</span>;</p></li>
+<li><p>any commutative presemifield of odd order can generate at most two
+CCZ-equivalence classes of planar DO polynomials;</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(\mathbb{S}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_2\)</span> are isotopic commutative
+semifields of characteristic <span class="math notranslate nohighlight">\(p\)</span> with order of middle nuclei and
+nuclei <span class="math notranslate nohighlight">\(p^m\)</span> and <span class="math notranslate nohighlight">\(p^k\)</span>, respectively, then either one of the
+following is satisfied:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(m/k\)</span> is odd and the semifields are strongly isotopic;</p></li>
+<li><p><span class="math notranslate nohighlight">\(m/k\)</span> is even and the semifields are strongly isotopic;</p></li>
+<li><p>the only isotopisms are of the form <span class="math notranslate nohighlight">\((\alpha\star N,N,L)\)</span> with
+<span class="math notranslate nohighlight">\(\alpha\in N_m(\mathbb{S}_1)\)</span> non-square.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="known-cases-of-planar-functions-and-commutative-semifields">
+<h2>Known cases of planar functions and commutative semifields<a class="headerlink" href="#known-cases-of-planar-functions-and-commutative-semifields" title="Link to this heading">¶</a></h2>
+<p>Among the known examples of planar functions, the only ones that are
+non-quadratic are the power functions <span class="math notranslate nohighlight">\(x^{\frac{3^t+1}{2}}\)</span> defined over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{3^n}\)</span>, with <span class="math notranslate nohighlight">\(t\)</span> odd and <span class="math notranslate nohighlight">\(\gcd(t,n)=1\)</span>.</p>
+<p>The following is a list of some known infinite families of planar functions
+and corresponding commutative semifields:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x^2\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> (finite field
+<span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span>);</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{p^t+1}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with
+<span class="math notranslate nohighlight">\(n/\gcd(t,n)\)</span> odd (Albert’s commutative twisted fields);</p></li>
+<li><p><span class="math notranslate nohighlight">\(L(t^2(x))+\frac{1}{2}x^2\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^{2km}}\)</span> with
+<span class="math notranslate nohighlight">\(L(x)=\frac{1}{8}(x^{p^k}-x), t(x)=x^{p^{km}}-x\)</span>
+(Dickson semifields);</p></li>
+<li><p><span class="math notranslate nohighlight">\((ax)^{p^s+1}-(ax)^{p^k(p^s+1)}+x^{p^k+1}\)</span> and
+<span class="math notranslate nohighlight">\(bx^{p^s+1}+(bx^{p^s+1})^{p^k}+cx^{p^k+1}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{p^{2k}}\)</span>, where
+<span class="math notranslate nohighlight">\(a,b\in\mathbb{F}^\star_{2^{2k}}\)</span>, <span class="math notranslate nohighlight">\(b\)</span> is not square,
+<span class="math notranslate nohighlight">\(c\in\mathbb{F}_{2^{2k}}\setminus\mathbb{F}_{2^k}\)</span>,
+<span class="math notranslate nohighlight">\(\gcd(k+s,2k)=\gcd(k+s,k)\)</span>, and for the first one also
+<span class="math notranslate nohighlight">\(\gcd(p^s+1,p^k+1)\ne \gcd(p^s+1,(p^k+1)/2)\)</span>. Without loss of
+generality it is possible to take <span class="math notranslate nohighlight">\(a=1\)</span> and fix a value for
+<span class="math notranslate nohighlight">\(c\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{p^{s}+1}-a^{p^{t}-1}x^{p^{t}+p^{2t+s}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{p^{3t}}\)</span>, <span class="math notranslate nohighlight">\(a\)</span> primitive,
+<span class="math notranslate nohighlight">\(\gcd(3,t)=1\)</span>, <span class="math notranslate nohighlight">\(t-s\equiv0 \pmod 3\)</span>, and
+<span class="math notranslate nohighlight">\(3t/\gcd(s,3t)\)</span> odd;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{p^s+1}-a^{p^t-1}x^{p^{3t}+p^{t+s}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{p^{4t}}\)</span>, <span class="math notranslate nohighlight">\(a\)</span> primitive,
+<span class="math notranslate nohighlight">\(p^s\equiv p^t\equiv1 \pmod 4\)</span>, and
+<span class="math notranslate nohighlight">\(2t/\gcd(s,2t)\)</span> odd;</p></li>
+<li><p><span class="math notranslate nohighlight">\(a^{1-p}x^2+x^{2p^m}+a^{1-p}T(x)-T(x)^{p^m}\)</span>, with
+<span class="math notranslate nohighlight">\(T(x)=\sum_{i=0}^k(-1)^ix^{p^{2i}(p^2+1)}+a^{p-1}\sum_{j=0}^{k-1}(-1)^{k+j}x^{p^{2j+1}(p^2+1)}\)</span>,
+over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^{2m}}\)</span> for
+<span class="math notranslate nohighlight">\(a\in\mathbb{F}^\star_{p^2}, m=2k+1\)</span>.</p></li>
+</ul>
+</section>
+<section id="cases-defined-for-p-3">
+<h2>Cases defined for p = 3<a class="headerlink" href="#cases-defined-for-p-3" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x^{10}\pm x^6-x^2\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with <span class="math notranslate nohighlight">\(n\)</span> odd
+(Coulter-Matthews and Ding-Yuan semifields);</p></li>
+<li><p><span class="math notranslate nohighlight">\(L(t^2(x))+D(t(x))+\frac{1}{2}x^2\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{3^{2k}}\)</span> with <span class="math notranslate nohighlight">\(k\)</span> odd,
+<span class="math notranslate nohighlight">\(t(x)=x^{3^k}-x\)</span>,
+<span class="math notranslate nohighlight">\(\beta\in\mathbb{F}_{3^{2k}}\setminus\mathbb{F}_{3^k}\)</span>,
+<span class="math notranslate nohighlight">\(\alpha=t(\beta)\)</span>, <span class="math notranslate nohighlight">\(L(x)=\alpha^{-5}x^3+x\)</span>, and
+<span class="math notranslate nohighlight">\(D(x)=-\alpha^{-10}x^{10}\)</span> (Ganley semifields);</p></li>
+<li><p><span class="math notranslate nohighlight">\(L(t^2(x))+\frac{1}{2}x^2\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{3^{2k}}\)</span> with
+<span class="math notranslate nohighlight">\(k\)</span> odd, <span class="math notranslate nohighlight">\(t(x)=x^{3^k}-x\)</span>,
+<span class="math notranslate nohighlight">\(\beta\in\mathbb{F}_{3^{2k}}\setminus\mathbb{F}_{3^k}\)</span>,
+<span class="math notranslate nohighlight">\(\alpha=t(\beta)\)</span>, and
+<span class="math notranslate nohighlight">\(L(x)=-x^9-\alpha x^3+(1-\alpha^4)x\)</span> (Cohen-Ganley semifields);</p></li>
+<li><p><span class="math notranslate nohighlight">\(L(t^2(x))+\frac{1}{2}x^2\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{3^{10}}\)</span> with
+<span class="math notranslate nohighlight">\(t(x)=x^{243}-x\)</span>,
+<span class="math notranslate nohighlight">\(\beta\in\mathbb{F}_{3^{10}}\setminus\mathbb{F}_{3^5}\)</span>,
+<span class="math notranslate nohighlight">\(\alpha=t(\beta)\)</span>, and
+<span class="math notranslate nohighlight">\(L(x)=-(\alpha^{-53}x^{27}+\alpha^{-18}x^9-x)\)</span>
+(Penttila-Williams semifields);</p></li>
+<li><p><span class="math notranslate nohighlight">\(L(t^2(x))+D(t(x))+\frac{1}{2}x^2\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{3^{8}}\)</span> with <span class="math notranslate nohighlight">\(t(x)=x^9-x\)</span>,
+<span class="math notranslate nohighlight">\(L(x)=x^{243}+x^9\)</span>, and <span class="math notranslate nohighlight">\(D(x)=x^{246}+x^{82}-x^{10}\)</span>
+(Coulter-Henderson-Kosick semifield);</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^2+x^{90}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{3^5}\)</span>.</p></li>
+</ul>
+</section>
+<section id="known-cases-of-apn-functions-in-odd-characteristic">
+<h2>Known cases of APN functions in odd characteristic<a class="headerlink" href="#known-cases-of-apn-functions-in-odd-characteristic" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x^3\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span>, <span class="math notranslate nohighlight">\(p \neq 3\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{p^n-2}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with
+<span class="math notranslate nohighlight">\(p^n \equiv 2 \pmod 3\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{p^n-3}{2}}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with
+<span class="math notranslate nohighlight">\(p^n \equiv 3,7 \pmod {20}\)</span>, <span class="math notranslate nohighlight">\(p^n&gt;7\)</span>, <span class="math notranslate nohighlight">\(p^n \neq 27\)</span>,
+and <span class="math notranslate nohighlight">\(n\)</span> odd;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{p^n+1}{4}+\frac{p^n-1}{2}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with <span class="math notranslate nohighlight">\(p^n \equiv 3 \pmod 8\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{p^n+1}{4}}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with
+<span class="math notranslate nohighlight">\(p^n \equiv 7 \pmod 8\)</span> and <span class="math notranslate nohighlight">\(n&gt;1\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{2p^n-1}{3}}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with
+<span class="math notranslate nohighlight">\(p^n \equiv 2 \pmod 3\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{p^m+2}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{p^n}\)</span> with
+<span class="math notranslate nohighlight">\(p^m \equiv 1 \pmod 3\)</span> and <span class="math notranslate nohighlight">\(n=2m\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{3^n-3}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{3^n}\)</span> with <span class="math notranslate nohighlight">\(n&gt;1\)</span> odd;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{3^\frac{n+1}{2}-1}{2}}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{3^n}\)</span> with
+<span class="math notranslate nohighlight">\(n \equiv 3 \pmod 4\)</span> and <span class="math notranslate nohighlight">\(n&gt;3\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{3^\frac{n+1}{2}-1}{2}+\frac{3^n-1}{2}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{3^n}\)</span> with <span class="math notranslate nohighlight">\(n \equiv 1 \pmod 4\)</span> and <span class="math notranslate nohighlight">\(n&gt;1\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{3^{n+1}-1}{8}}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{3^n}\)</span> with
+<span class="math notranslate nohighlight">\(n \equiv 3 \pmod 4\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{3^{n+1}-1}{8}+\frac{3^{n}-1}{4}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{3^n}\)</span> with <span class="math notranslate nohighlight">\(n \equiv 1 \pmod 4\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{3^{n+1}-1}{3^L+1}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb {F} _{3^{n}}\)</span>, where
+<span class="math notranslate nohighlight">\(L={\frac{n+1}{2^{\ell}}}\)</span> with
+<span class="math notranslate nohighlight">\(n \equiv -1 \pmod {2^\ell}\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{5^\ell+1}{2}}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}_{5^n}\)</span> with
+<span class="math notranslate nohighlight">\(\gcd(2n, \ell)=1\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{5^n-1}{4}+ \frac{5^{\frac{n+1}{2}}-1}{2}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{5^n}\)</span> with <span class="math notranslate nohighlight">\(n\)</span> odd;</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^{\frac{5^{n+1}-1}{2(5^L+1)}+ \frac{5^n-1}{4}}\)</span> over
+<span class="math notranslate nohighlight">\(\mathbb{F}_{5^n}\)</span>, where
+<span class="math notranslate nohighlight">\(L={\frac{n+1}{2^{\ell}}}\)</span>, <span class="math notranslate nohighlight">\(n \equiv -1 \pmod {2^\ell}\)</span>,
+and <span class="math notranslate nohighlight">\(\ell \geq 2\)</span>.</p></li>
+</ul>
+<span id="references"></span><p class="rubric">References</p>
+<div class="docutils container" id="id3">
+<div role="list" class="citation-list">
+<div class="citation" id="id49" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">BH11</a><span class="fn-bracket">]</span></span>
+<p>Lilya Budaghyan and Tor Helleseth. ON ISOTOPISMS OF COMMUTATIVE PRESEMIFIELDS AND CCZ-EQUIVALENCE OF FUNCTIONS. <em>International Journal of Foundations of Computer Science</em>, 22(06):1243–1258, September 2011. <a class="reference external" href="https://doi.org/10.1142/S0129054111008684">doi:10.1142/S0129054111008684</a>.</p>
+</div>
+<div class="citation" id="id38" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">CH08</a><span class="fn-bracket">]</span></span>
+<p>Robert S. Coulter and Marie Henderson. Commutative presemifields and semifields. <em>Advances in Mathematics</em>, 217(1):282–304, January 2008. <a class="reference external" href="https://doi.org/10.1016/j.aim.2007.07.007">doi:10.1016/j.aim.2007.07.007</a>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Commutative Presemifields and Semifields</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#equivalence-relations">Equivalence Relations</a></li>
+<li><a class="reference internal" href="#on-presemifields-and-semifields">On Presemifields and Semifields</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#known-cases-of-planar-functions-and-commutative-semifields">Known cases of planar functions and commutative semifields</a></li>
+<li><a class="reference internal" href="#cases-defined-for-p-3">Cases defined for p = 3</a></li>
+<li><a class="reference internal" href="#known-cases-of-apn-functions-in-odd-characteristic">Known cases of APN functions in odd characteristic</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../Classification_of_Quadratic_APN_Trinomials_Quadrinomials_Pentanomials_Hexanomials_CCZ_inequivalent_with_infinite_monomial_families_in_Small_Dimensions_with_all_Coefficients_equal_to_1/index.html"
+                          title="previous chapter">Classification of Quadratic APN Trinomials, Quadrinomials, Pentanomials, Hexanomials (CCZ-inequivalent with infinite monomial families) in Small Dimensions with all Coefficients equal to 1</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../Conferences_in_Boolean_Functions/index.html"
+                          title="next chapter">Conferences in Boolean Functions</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/content/pages/Commutative_Presemifields_and_Semifields/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+<div id="sidebarbutton" title="Collapse sidebar">
+<span>«</span>
+</div>
+
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Conferences_in_Boolean_Functions/index.html" title="Conferences in Boolean Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Classification_of_Quadratic_APN_Trinomials_Quadrinomials_Pentanomials_Hexanomials_CCZ_inequivalent_with_infinite_monomial_families_in_Small_Dimensions_with_all_Coefficients_equal_to_1/index.html" title="Classification of Quadratic APN Trinomials, Quadrinomials, Pentanomials, Hexanomials (CCZ-inequivalent with infinite monomial families) in Small Dimensions with all Coefficients equal to 1"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Boolean Functions  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Commutative Presemifields and Semifields</a></li> 
+      </ul>
+    </div>
+  <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Tiago Siqueira.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+
+    <p style="margin: 0.6em 0 0 0;">
+      Work in progress: I am improving
+      <a href="https://boolean.wiki.uib.no/Main_Page">https://boolean.wiki.uib.no</a>.
+    </p>
+  </div>
+  </body>
+</html>
